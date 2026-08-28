@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="t d">
+<title id="t">Oxygen delivery from blood to cell mitochondria</title><desc id="d">Conceptual visualization of red blood cells, oxygen transport, a biological oxygen carrier and mitochondrial oxygenation.</desc>
+<defs>
+  <radialGradient id="bg" cx="65%" cy="42%" r="75%"><stop stop-color="#0a2857"/><stop offset=".5" stop-color="#06152d"/><stop offset="1" stop-color="#020713"/></radialGradient>
+  <linearGradient id="vessel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2c0712"/><stop offset=".55" stop-color="#8d1026"/><stop offset="1" stop-color="#250710"/></linearGradient>
+  <radialGradient id="rbc"><stop stop-color="#ff5b58"/><stop offset=".55" stop-color="#d61f32"/><stop offset="1" stop-color="#6a0615"/></radialGradient>
+  <radialGradient id="cell"><stop stop-color="#183f83" stop-opacity=".25"/><stop offset=".65" stop-color="#12316d" stop-opacity=".65"/><stop offset="1" stop-color="#071529" stop-opacity=".95"/></radialGradient>
+  <radialGradient id="carrier"><stop stop-color="#d4e7ff"/><stop offset=".18" stop-color="#7daeff"/><stop offset=".48" stop-color="#264b86"/><stop offset="1" stop-color="#07162d"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1200" height="700" fill="url(#bg)"/>
+<g opacity=".25" fill="#5e96e8"> <circle cx="900" cy="90" r="13"/><circle cx="1000" cy="160" r="9"/><circle cx="830" cy="130" r="7"/><circle cx="1070" cy="95" r="11"/><circle cx="760" cy="88" r="8"/></g>
+<path d="M-40 535 C170 405 300 275 565 185 C430 330 405 460 555 650 C320 644 115 620 -40 535Z" fill="url(#vessel)" stroke="#c22b3f" stroke-opacity=".35" stroke-width="4"/>
+<path d="M-30 575 C145 485 288 394 510 310" fill="none" stroke="#ef4951" stroke-opacity=".42" stroke-width="8"/>
+<g>
+ <g transform="translate(95 500) rotate(13)"><ellipse rx="72" ry="42" fill="url(#rbc)"/><ellipse rx="33" ry="18" fill="#7f0b18" opacity=".72"/></g>
+ <g transform="translate(210 445) rotate(-14)"><ellipse rx="68" ry="40" fill="url(#rbc)"/><ellipse rx="30" ry="17" fill="#790915" opacity=".72"/></g>
+ <g transform="translate(315 366) rotate(11)"><ellipse rx="78" ry="45" fill="url(#rbc)"/><ellipse rx="36" ry="20" fill="#7a0917" opacity=".72"/></g>
+ <g transform="translate(415 290) rotate(-7)"><ellipse rx="62" ry="37" fill="url(#rbc)"/><ellipse rx="29" ry="16" fill="#7f0b19" opacity=".72"/></g>
+ <g transform="translate(300 545) rotate(17)"><ellipse rx="58" ry="34" fill="url(#rbc)"/><ellipse rx="27" ry="15" fill="#7a0916" opacity=".72"/></g>
+</g>
+<g filter="url(#glow)" font-family="Arial,sans-serif" font-size="16" text-anchor="middle" fill="#dff1ff">
+ <g><circle cx="530" cy="240" r="23" fill="#0b61c7" stroke="#69b8ff"/><text x="530" y="246">O₂</text></g>
+ <g><circle cx="590" cy="310" r="18" fill="#0b61c7" stroke="#69b8ff"/><text x="590" y="316" font-size="13">O₂</text></g>
+ <g><circle cx="635" cy="225" r="17" fill="#0b61c7" stroke="#69b8ff"/><text x="635" y="231" font-size="12">O₂</text></g>
+ <g><circle cx="710" cy="325" r="22" fill="#0b61c7" stroke="#69b8ff"/><text x="710" y="331">O₂</text></g>
+ <g><circle cx="792" cy="205" r="18" fill="#0b61c7" stroke="#69b8ff"/><text x="792" y="211" font-size="13">O₂</text></g>
+</g>
+<g transform="translate(710 300)">
+ <circle r="122" fill="#0a1831" stroke="#61a4ff" stroke-width="3" opacity=".96"/>
+ <circle r="105" fill="none" stroke="#73c5ff" stroke-opacity=".45" stroke-width="2"/>
+ <g fill="url(#carrier)" stroke="#b2d9ff" stroke-opacity=".45"><circle cx="-38" cy="-28" r="30"/><circle cx="4" cy="-48" r="34"/><circle cx="42" cy="-18" r="32"/><circle cx="-24" cy="22" r="34"/><circle cx="24" cy="27" r="36"/><circle cx="1" cy="4" r="38"/></g>
+ <g fill="#e63e4f"><circle cx="-26" cy="-35" r="9"/><circle cx="12" cy="-26" r="9"/><circle cx="34" cy="12" r="9"/><circle cx="-13" cy="22" r="9"/><circle cx="5" cy="3" r="9"/></g>
+</g>
+<path d="M820 305 C870 300 902 300 944 300" fill="none" stroke="#4ea1ff" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/><path d="M940 284 L972 300 L940 316Z" fill="#6bb6ff" filter="url(#glow)"/>
+<g transform="translate(1035 310)">
+ <ellipse rx="180" ry="150" fill="url(#cell)" stroke="#547dd5" stroke-width="4"/>
+ <ellipse rx="138" ry="92" fill="#251049" stroke="#b65cff" stroke-width="4" transform="rotate(-8)"/>
+ <path d="M930 305 C955 250 980 350 1005 295 S1055 245 1080 300 S1125 355 1145 292" fill="none" stroke="#ff66dd" stroke-width="8" stroke-linecap="round"/>
+ <path d="M930 335 C955 280 980 375 1005 325 S1055 275 1080 330 S1125 382 1145 322" fill="none" stroke="#a94cff" stroke-width="6" stroke-linecap="round"/>
+ <circle cx="1040" cy="315" r="15" fill="#ffb92c" filter="url(#glow)"/><circle cx="1040" cy="315" r="6" fill="#fff5ba"/>
+</g>
+</svg>
