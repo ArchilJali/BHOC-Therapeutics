@@ -15,13 +15,6 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#07111f">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .approved-visual{position:relative;width:100%;aspect-ratio:1536/930;overflow:hidden;background:#030b18;border-bottom:1px solid #17304a}
-    .approved-visual img{display:block;width:100%;height:auto;margin:0;user-select:none}
-    .approved-visual .hotspot{position:absolute;display:block;z-index:5;text-indent:-9999px;overflow:hidden;border-radius:8px}
-    .hotspot-science{left:35.2%;top:2.2%;width:7.5%;height:5.5%}.hotspot-technology{left:43%;top:2.2%;width:8.2%;height:5.5%}.hotspot-applications{left:51.8%;top:2.2%;width:9.2%;height:5.5%}.hotspot-evidence{left:61.3%;top:2.2%;width:7.7%;height:5.5%}.hotspot-company{left:69%;top:2.2%;width:7.5%;height:5.5%}.hotspot-investors{left:76.3%;top:2.2%;width:8.1%;height:5.5%}.hotspot-contact{left:87.3%;top:1.8%;width:9.4%;height:6.5%}.hotspot-discover{left:3.3%;top:38%;width:13%;height:5.7%}.hotspot-explore{left:16.8%;top:38%;width:15.2%;height:5.7%}
-    @media(max-width:720px){.approved-visual{aspect-ratio:1536/930;overflow-x:auto}.approved-visual img{min-width:900px}.approved-visual .hotspot{display:none}}
-  </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -36,18 +29,42 @@
   </script>
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="BHOC Therapeutics home"><span class="brand-mark">BHOC</span><span>THERAPEUTICS</span></a>
+    <nav aria-label="Primary navigation"><a href="#science">Science</a><a href="#technology">Technology</a><a href="#applications">Applications</a><a href="#evidence">Evidence</a><a href="#company">Company</a><a href="#company">Investors</a></nav>
+    <a class="button button-small" href="mailto:info@bhoctherapeutics.com">Contact</a>
+  </header>
+
   <main id="top">
-    <section class="approved-visual" aria-label="BHOC Therapeutics — Blood is a system. Oxygen delivery is a function.">
-      <img src="assets/bhoc-approved-homepage.jpg" alt="BHOC Therapeutics Precision Oxygenation Therapeutics visual showing blood circulation, oxygen delivery, tissue and cellular oxygenation, and mitochondria" fetchpriority="high">
-      <a class="hotspot hotspot-science" href="#science">Science</a>
-      <a class="hotspot hotspot-technology" href="#technology">Technology</a>
-      <a class="hotspot hotspot-applications" href="#applications">Applications</a>
-      <a class="hotspot hotspot-evidence" href="#evidence">Evidence</a>
-      <a class="hotspot hotspot-company" href="#company">Company</a>
-      <a class="hotspot hotspot-investors" href="#company">Investors</a>
-      <a class="hotspot hotspot-contact" href="mailto:info@bhoctherapeutics.com">Contact</a>
-      <a class="hotspot hotspot-discover" href="#technology">Discover BHOC</a>
-      <a class="hotspot hotspot-explore" href="#science">Explore the Science</a>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">BHOC THERAPEUTICS</p>
+        <h1>Precision Oxygenation <span>Therapeutics</span></h1>
+        <p class="hero-thesis">Blood is a system.<br><strong>Oxygen delivery is a function.</strong></p>
+        <p class="hero-intro">When oxygen delivery becomes inadequate, restoring that function can become the critical therapeutic objective.</p>
+        <div class="actions"><a class="button" href="#technology">Discover BHOC</a><a class="text-link" href="#science">Explore the Science <span aria-hidden="true">→</span></a></div>
+      </div>
+
+      <div class="visual-grid" aria-label="System, function and goal of oxygen delivery">
+        <article class="visual-card visual-blood">
+          <div class="visual-label"><span>01</span> THE SYSTEM</div>
+          <div class="art art-vessel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <h2>Blood &amp; Circulation</h2>
+          <p>A complex biological system carrying cells, proteins and multiple physiological functions.</p>
+        </article>
+        <article class="visual-card visual-function">
+          <div class="visual-label"><span>02</span> THE FUNCTION</div>
+          <div class="art art-oxygen" aria-hidden="true"><b>O<sub>2</sub></b><b>O<sub>2</sub></b><b>O<sub>2</sub></b><b>O<sub>2</sub></b><b>O<sub>2</sub></b></div>
+          <h2>Oxygen Delivery</h2>
+          <p>Loading, transport, unloading and diffusion of oxygen toward tissues that require it.</p>
+        </article>
+        <article class="visual-card visual-goal">
+          <div class="visual-label"><span>03</span> THE GOAL</div>
+          <div class="art art-cell" aria-hidden="true"><div class="cell"><span class="mito m1"></span><span class="mito m2"></span><span class="mito m3"></span></div></div>
+          <h2>Tissue &amp; Cellular Oxygenation</h2>
+          <p>The physiological endpoint: oxygen reaching cells and supporting mitochondrial energy production.</p>
+        </article>
+      </div>
     </section>
 
     <section class="statement" id="science">
@@ -76,6 +93,7 @@
 
     <section class="company" id="company"><p class="eyebrow">BHOC THERAPEUTICS</p><h2>Building the next chapter of oxygen-delivery science.</h2><p>Our focus is to connect physiology, technology, evidence and clinical need into a disciplined framework for Precision Oxygenation Therapeutics.</p><div class="actions"><a class="button" href="mailto:info@bhoctherapeutics.com">info@bhoctherapeutics.com</a><a class="text-link" href="https://www.linkedin.com/company/bhoc-therapeutics/" target="_blank" rel="noopener">BHOC Therapeutics on LinkedIn ↗</a><a class="text-link" href="https://www.linkedin.com/in/archil-jaliashvili-bhoc/" target="_blank" rel="noopener">Archil Jaliashvili on LinkedIn ↗</a></div></section>
   </main>
+
   <footer><div class="brand footer-brand"><span class="brand-mark">BHOC</span><span>THERAPEUTICS</span></div><p>Precision Oxygenation Therapeutics</p><p><a href="mailto:info@bhoctherapeutics.com">info@bhoctherapeutics.com</a> · <a href="https://www.linkedin.com/company/bhoc-therapeutics/" target="_blank" rel="noopener">LinkedIn — BHOC Therapeutics</a> · <a href="https://www.linkedin.com/in/archil-jaliashvili-bhoc/" target="_blank" rel="noopener">LinkedIn — Archil Jaliashvili</a></p><p class="legal">Scientific and educational website in development. References to Oxyglobin, Hemopure, HBOC or other third-party technologies are provided for scientific and historical context and do not imply ownership, affiliation or approved indications. Product and company names may be trademarks of their respective owners.</p><p class="copyright">© 2026 BHOC Therapeutics.</p></footer>
 </body>
 </html>
