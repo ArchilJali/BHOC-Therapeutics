@@ -10,3 +10,8 @@ Official website and digital platform for BHOC Therapeutics — advancing Biolog
 [Standing on the Shoulders of Giants: Biopure and the People Behind an Early Oxygen-Therapeutics Platform](https://archiljali.github.io/BHOC-platform/historical-sources/biopure-standing-on-the-shoulders-of-giants/)
 
 A source-based historical perspective on the people, industrial capabilities and institutional network behind an early oxygen-therapeutics platform.
+
+
+## SEO strategy
+
+The maintained SEO master and page-intent map are stored in [`/seo`](./seo/). Public pages use unique search intent, titles, descriptions, canonicals and structured data. Scientific evidence remains in the separate [BHOC-platform](https://github.com/ArchilJali/BHOC-platform) repository.
