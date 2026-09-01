@@ -83,7 +83,7 @@
 }
 
 /* Investors & Partners / protected portal entry point */
-.visual-home-nav{position:absolute;z-index:6;top:0;left:25%;right:1.5%;min-height:9%;display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,1.75vw,28px);padding:0 1.5%;background:rgba(0,0,0,.92)}
+.visual-home-nav{position:absolute;z-index:6;top:0;left:25%;right:1.5%;min-height:9%;display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,1.75vw,28px);padding:0 1.5%;background:#000}
 .visual-home-nav a{color:#f7fbff;text-decoration:none;text-transform:uppercase;font-size:clamp(8px,.78vw,12px);font-weight:800;letter-spacing:.015em;white-space:nowrap}
 .visual-home-nav a:hover,.visual-home-nav a:focus-visible{color:#67a6ff}
 .visual-nav-contact{border:1px solid #2f7cff;border-radius:4px;padding:10px 18px}
