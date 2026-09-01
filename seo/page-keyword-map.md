@@ -11,6 +11,7 @@ Updated: 1 September 2026
 | `/technology/` | Biological Hemoglobin Oxygen Carrier | BHOC technology; hemoglobin oxygen carrier; cell-free hemoglobin oxygen carrier; HBOC; oxygen delivery technology |
 | `/applications/` | BHOC applications | emergency oxygenation; prehospital oxygen delivery; severe anemia; transplantation; organ perfusion; veterinary oxygen carrier; bloodless resuscitation |
 | `/evidence/` | BHOC evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; regulatory history; scientific sources |
+| `/partners/` | BHOC investors and strategic partners | BHOC investors; BHOC partners; oxygen therapeutics investment; Biological Hemoglobin Oxygen Carrier partnership; clinical collaboration; manufacturing partnership; regulatory partnership |
 
 ## Site / evidence separation
 
