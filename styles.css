@@ -85,10 +85,11 @@
 .visual-story h2{max-width:720px;margin:0 0 22px;color:#fff;font-size:clamp(2.65rem,5.5vw,5.8rem);line-height:.96;letter-spacing:-.06em}
 .visual-story h2 span{color:#ff91a9}
 .visual-story-subtitle{max-width:650px;margin:0;color:#f0dce3;font-size:1.12rem;line-height:1.6}
-.visual-story-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0 22px}
-.visual-story-stats>div{padding:19px 18px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(91,23,45,.7)}
-.visual-story-stats strong{display:block;color:#fff;font-size:clamp(2rem,4vw,3.7rem);line-height:1;letter-spacing:-.06em}
-.visual-story-stats span{display:block;margin-top:10px;color:#ffd1d9;font-size:.9rem;line-height:1.35}
+.visual-story-context-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:30px 0 22px}
+.visual-story-context-stat{padding:18px 16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(91,23,45,.72)}
+.visual-story-context-stat strong{display:block;color:#fff;font-size:clamp(1.45rem,3.1vw,2.8rem);line-height:.98;letter-spacing:-.06em}
+.visual-story-context-stat span{display:block;margin-top:10px;color:#ffd1d9;font-size:.88rem;line-height:1.3;font-weight:800}
+.visual-story-context-stat small{display:block;margin-top:8px;color:#f3dce4;font-size:.78rem;line-height:1.35}
 .visual-story-caption{max-width:650px;margin:0;color:#d6c4ce;font-size:.9rem;line-height:1.55}
 .visual-story-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px}
 .visual-story .button{background:#d52f52;border:1px solid #f4869b}
@@ -101,12 +102,11 @@
 .visual-story-ems h2 span{color:#65c1ff}
 .visual-story-ems .visual-story-subtitle{color:#d5e8fa}
 .visual-story-ems .visual-story-quote{max-width:590px;margin:30px 0 24px;padding:20px 22px;border-left:3px solid #4cb9ff;background:rgba(16,65,111,.56);color:#fff;font-size:1.28rem;font-weight:800;line-height:1.35}
+.visual-story-ems .visual-story-context-stat{background:rgba(12,67,106,.72);border-color:rgba(101,193,255,.35)}
+.visual-story-ems .visual-story-context-stat span{color:#d9efff}
+.visual-story-ems .visual-story-context-stat small{color:#c2d6eb}
 .visual-story-ems .visual-story-caption{color:#c2d6eb}
 .visual-story-ems .button{background:#1476d4;border-color:#65c1ff}
-.applications-art-strip{position:relative;overflow:hidden;margin:0;border:1px solid #2c4c70;border-radius:18px;background:#030916;box-shadow:0 18px 50px rgba(0,0,0,.2)}
-.applications-art-strip img{display:block;width:100%;max-height:360px;object-fit:cover;object-position:center 25%;opacity:.78}
-.applications-art-strip figcaption{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 22px;background:linear-gradient(90deg,#07182b,#0c2744);color:#dcecff;font-size:.92rem;font-weight:750}
-.applications-art-strip figcaption a{color:#83c6ff;text-decoration:underline;text-underline-offset:4px}
 .applications-more-label{max-width:1180px;margin:0 auto;padding:0 24px;color:#77aef7;font-size:.78rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
 .application-grid article{border:1px solid var(--line);background:#0a1626;border-radius:16px;padding:28px}
 .application-grid h2{font-size:1.65rem;line-height:1.15;margin:8px 0 12px}
@@ -144,10 +144,9 @@
   .visual-story-media{padding:16px;max-height:none}
   .visual-story-content{padding:34px 24px}
   .visual-story h2{font-size:clamp(2.5rem,13vw,4.4rem)}
-  .visual-story-stats{grid-template-columns:1fr}
+  .visual-story-context-stats{grid-template-columns:1fr}
   .visual-story-actions{align-items:stretch}
   .visual-story .button{width:100%}
-  .applications-art-strip figcaption{align-items:flex-start;flex-direction:column}
   .impact-context-copy{padding:28px 24px}.impact-context-stats{grid-template-columns:1fr}
   .feature-card{grid-template-columns:72px 1fr;padding:18px}.feature-image.round{width:68px;height:68px}.feature-index{width:64px;height:64px;font-size:1rem}.feature-card strong{font-size:1.05rem}
   .metric-grid{grid-template-columns:1fr}.metric-grid div{border-radius:0!important}.metric-grid div:first-child{border-radius:14px 14px 0 0!important}.metric-grid div:last-child{border-radius:0 0 14px 14px!important}
