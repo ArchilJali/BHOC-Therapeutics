@@ -9,7 +9,7 @@ Updated: 1 September 2026
 | `/` | Precision Oxygenation Therapeutics | BHOC; Biological Hemoglobin Oxygen Carrier; oxygenation; oxygen delivery; emergency; transplantation; veterinary; human use |
 | `/science/` | oxygen delivery science | oxygen physiology; metabolism; microcirculation; nitric oxide; hypoxia; HIF; oxygen sensing |
 | `/technology/` | Biological Hemoglobin Oxygen Carrier | BHOC technology; hemoglobin oxygen carrier; cell-free hemoglobin oxygen carrier; HBOC; oxygen delivery technology |
-| `/applications/` | BHOC applications | emergency oxygenation; prehospital oxygen delivery; severe anemia; transplantation; organ perfusion; veterinary oxygen carrier; bloodless resuscitation |
+| `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
 | `/evidence/` | BHOC evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; regulatory history; scientific sources |
 | `/partners/` | BHOC investors and strategic partners | BHOC investors; BHOC partners; oxygen therapeutics investment; Biological Hemoglobin Oxygen Carrier partnership; clinical collaboration; manufacturing partnership; regulatory partnership |
 
@@ -29,7 +29,7 @@ Updated: 1 September 2026
 | Emergency | emergency oxygenation; prehospital resuscitation; humanitarian emergency |
 | Anemia | acute anemia; severe anemia; oxygen-carrying capacity |
 | Surgery / PPH | surgical blood loss; postpartum hemorrhage; bloodless resuscitation |
-| Transplantation | organ transplantation; organ perfusion; organ preservation |
+| Transplantation | organ transplantation; organ perfusion; sustainability solutions for organ support |
 | Cardiac | ischemia; hypoxia; myocardial infarction; cardiac arrest |
 | SCD / SCA | sickle cell disease; sickle cell anemia; transfusion support |
 | Veterinary | veterinary oxygen carrier; veterinary blood transfusion |

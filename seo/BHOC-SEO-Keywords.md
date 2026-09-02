@@ -22,6 +22,7 @@ The two resources must support each other without duplicating complete pages or 
 - **Precision Oxygenation Therapeutics**
 - **Blood is a system. Oxygen delivery is a function.**
 - BHOC is positioned as an additional oxygen-delivery option and potential bridge where conventional blood access or function is limited.
+- For BHOC corporate positioning, use **Sustainability Solutions** and **sustainability solutions for organ support**. BHOC is not positioned as an organ-preservation product.
 
 ### Do not use as BHOC positioning
 
@@ -399,30 +400,30 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 - DCD organ
 - DBD organ
 
-### 4.15 Organ preservation
+### 4.15 Sustainability solutions for organ support
 
-**Primary:** organ preservation solution
+**Primary:** sustainability solutions for organ support
 
-- organ preservation
-- organ preservation solutions
-- transplant preservation solution
-- donor organ preservation
-- graft preservation
-- oxygenated preservation solution
-- oxygen carrier for organ preservation
-- organ preservation oxygenation
-- organ preservation perfusion
-- cold organ preservation
+- sustainability solutions for organ support
+- resource-efficient organ support
+- oxygenated organ support
+- oxygen delivery in transplantation
+- donor organ oxygenation
+- graft oxygenation
+- oxygen carrier in transplantation
+- transplant oxygen delivery
+- organ-support systems
+- resilient transplant logistics
 - static cold storage
 - cold storage solution
-- preservation injury
+- organ-support injury reduction
 - cold ischemia
 - cold ischemia time
 - warm ischemia
 - ischemia-reperfusion injury
-- extended organ preservation
+- extended organ-support pathways
 - organ transport solution
-- preservation solution additive
+- sustainability solution additive
 
 ### 4.16 Organ perfusion
 
@@ -449,13 +450,13 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 
 ### 4.17 Kidney transplantation and perfusion
 
-**Primary:** kidney perfusion solution
+**Primary:** kidney oxygen-delivery support
 
 - kidney transplantation
 - renal transplantation
-- kidney preservation
-- kidney preservation solution
-- renal preservation solution
+- kidney oxygen-delivery support
+- kidney oxygen-support solution
+- renal oxygen-support solution
 - kidney perfusion
 - renal perfusion
 - oxygenated kidney perfusion
@@ -463,13 +464,13 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 - normothermic kidney perfusion
 - hypothermic kidney perfusion
 - oxygen carrier for kidney perfusion
-- oxygen carrier for kidney preservation
+- oxygen carrier for kidney oxygen-delivery support
 - delayed graft function
 - DGF
 - kidney ischemia-reperfusion injury
 - DCD kidney
 - donor kidney viability
-- kidney graft preservation
+- kidney graft oxygenation
 - renal graft function
 
 ### 4.18 Liver transplantation and perfusion
@@ -477,16 +478,16 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 **Primary:** liver perfusion
 
 - liver transplantation
-- liver preservation
-- liver preservation solution
+- liver oxygenation
+- liver oxygen-support solution
 - liver perfusion solution
 - ex vivo liver perfusion
 - normothermic liver perfusion
 - hypothermic liver perfusion
 - oxygenated liver perfusion
 - oxygen carrier for liver perfusion
-- oxygen carrier for liver preservation
-- liver graft preservation
+- oxygen carrier for liver oxygenation
+- liver graft oxygenation
 - liver graft viability
 - DCD liver
 - donor liver assessment
@@ -496,21 +497,21 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 
 ### 4.19 Heart transplantation and perfusion
 
-**Primary:** heart preservation
+**Primary:** heart oxygen-delivery support
 
 - heart transplantation
 - cardiac transplantation
-- donor heart preservation
-- heart preservation solution
-- cardiac preservation solution
+- donor heart oxygenation
+- heart oxygen-support solution
+- cardiac oxygen-support solution
 - heart perfusion
 - cardiac perfusion
 - oxygenated heart perfusion
 - ex vivo heart perfusion
 - normothermic heart perfusion
-- oxygen carrier for heart preservation
+- oxygen carrier for heart oxygen-delivery support
 - oxygen carrier for heart perfusion
-- heart graft preservation
+- heart graft oxygenation
 - cardiac graft viability
 - donor heart transport
 - heart ischemia-reperfusion injury
@@ -578,9 +579,9 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 - Precision Oxygenation Therapeutics market
 - oxygen carrier market
 - hemoglobin oxygen carrier market
-- organ preservation market
+- sustainability solutions market
 - organ perfusion market
-- preservation solution market
+- organ-support solution market
 - emergency blood market
 - prehospital blood market
 - veterinary oxygen therapeutics market
@@ -770,7 +771,7 @@ These words strengthen topical depth but are not primary targets for every page.
 - delayed graft function
 - primary graft dysfunction
 
-### 5.5 Preservation solutions and systems
+### 5.5 Sustainability solutions and organ-support systems
 
 - University of Wisconsin solution
 - UW solution
@@ -781,10 +782,10 @@ These words strengthen topical depth but are not primary targets for every page.
 - IGL-1
 - SPS-1
 - KPS-1
-- preservation fluid
+- organ-support fluid
 - perfusion fluid
 - cold storage solution
-- static preservation solution
+- static organ-support solution
 - machine perfusion solution
 - oxygenated perfusate
 - acellular perfusate
@@ -871,11 +872,11 @@ These terms provide relevance but should not be targeted alone:
 - PPH blood transfusion
 - cardiac arrest oxygenation
 - myocardial infarction oxygen delivery
-- organ preservation solution
+- sustainability solution for organ support
 - organ perfusion solution
 - kidney perfusion solution
 - liver perfusion
-- heart preservation
+- heart oxygen-delivery support
 - oxygenated organ perfusion
 - humanitarian blood supply
 - veterinary oxygen carrier
@@ -898,11 +899,11 @@ These terms provide relevance but should not be targeted alone:
 - oxygenation after cardiac arrest
 - oxygen carrier for humanitarian emergencies
 - oxygen carrier for remote emergency care
-- oxygen carrier for organ preservation
-- oxygenated organ preservation solution
+- oxygen carrier for sustainable organ support
+- oxygenated organ-support solution
 - oxygen carrier for kidney perfusion
 - oxygen carrier for liver perfusion
-- oxygen carrier for heart preservation
+- oxygen carrier for heart oxygen-delivery support
 - blood-free organ perfusion
 - red blood cell-free perfusion
 - veterinary oxygen carrier for canine anemia
@@ -925,14 +926,14 @@ These terms provide relevance but should not be targeted alone:
 | PPH | postpartum hemorrhage | maternal hemorrhage, PPH blood transfusion |
 | SCD/SCA | sickle cell disease oxygen delivery | sickle cell anemia, transfusion support, severe anemia |
 | Transplantation | organ transplantation | donor organ oxygenation, transplant perfusion |
-| Preservation | organ preservation solution | oxygenated preservation solution, graft preservation |
+| Sustainability Solutions | sustainability solutions for organ support | oxygenated organ support, resource-efficient transplantation |
 | Perfusion | organ perfusion | machine perfusion, oxygenated perfusion, perfusion solution |
-| Kidney | kidney perfusion solution | kidney preservation, delayed graft function |
-| Liver | liver perfusion | liver preservation, liver transplantation |
-| Heart Transplant | heart preservation | heart perfusion, heart transplantation |
+| Kidney | kidney oxygen-delivery support | kidney perfusion, delayed graft function |
+| Liver | liver perfusion | liver oxygenation, liver transplantation |
+| Heart Transplant | heart oxygen-delivery support | heart perfusion, heart transplantation |
 | Humanitarian | humanitarian blood supply | emergency blood supply, remote emergency care |
 | Veterinary | veterinary oxygen carrier | veterinary transfusion, canine anemia |
-| Business & Market | oxygen therapeutics market | organ preservation market, emergency blood logistics |
+| Business & Market | oxygen therapeutics market | sustainability solutions, emergency blood logistics |
 | Knowledge Hub | BHOC evidence | BHOC research, oxygen carrier clinical evidence |
 | History | HBOC history | Biopure, Hemopure history, Oxyglobin history |
 
@@ -961,11 +962,11 @@ Avoid creating many thin pages before enough verified content exists. The initia
    - Bloodless surgery
    - Postpartum hemorrhage
 
-4. **Organ Transplantation, Perfusion & Preservation**
+4. **Organ Transplantation, Perfusion & Sustainability Solutions**
    - Kidney
    - Liver
    - Heart
-   - Preservation solutions
+   - Sustainability solutions for organ support
    - Machine perfusion
 
 5. **Sickle Cell Disease & Severe Anemia**
@@ -1043,4 +1044,3 @@ This is an SEO and market-language document, not a regulatory or clinical-claims
 - Scientific claims must begin with the `BHOC-platform` CORE/VERIFIED evidence base.
 - New external scientific sources remain **External / Pending Review** until approved.
 - PPH, myocardial infarction, cardiac arrest, SCD/SCA and other application pages must use careful `research context`, `scientific rationale`, `potential application` or `evidence landscape` language until specific claims are verified.
-
