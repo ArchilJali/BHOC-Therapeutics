@@ -73,6 +73,41 @@
 .impact-context-stat small{display:block;margin-top:8px;color:#f3dce4;font-size:.72rem;line-height:1.45}
 .impact-context-note{grid-column:1/-1;position:relative;z-index:1;margin:4px 0 0;color:#c6d7eb;font-size:.72rem;line-height:1.55}
 .impact-context-note a{color:#9fc7ff;text-decoration:underline;text-underline-offset:2px}
+.applications-visual-stories{max-width:1180px;margin:auto;padding:30px 24px 22px;display:grid;gap:20px}
+.visual-story{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(320px,.88fr) minmax(0,1.12fr);overflow:hidden;border:1px solid #8d334d;border-radius:22px;background:linear-gradient(135deg,#1b0d19,#071523);box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.visual-story:after{content:"";position:absolute;z-index:-1;inset:auto -130px -180px auto;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(206,47,82,.32),transparent 68%);pointer-events:none}
+.visual-story-media{display:flex;align-items:center;justify-content:center;min-height:650px;padding:26px;background:rgba(255,255,255,.97);border-right:1px solid rgba(255,255,255,.18)}
+.visual-story-media>a{display:block;width:100%;height:100%;transition:transform .18s ease,filter .18s ease}
+.visual-story-media>a:hover{transform:translateY(-3px);filter:brightness(1.03)}
+.visual-story-media img{display:block;width:100%;height:100%;max-height:760px;object-fit:contain;object-position:center;box-shadow:0 18px 50px rgba(0,0,0,.22)}
+.visual-story-content{align-self:center;padding:52px 56px;max-width:760px}
+.visual-story-label{margin:0 0 18px;color:#ff98ad;font-size:.85rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase}
+.visual-story h2{max-width:720px;margin:0 0 22px;color:#fff;font-size:clamp(2.65rem,5.5vw,5.8rem);line-height:.96;letter-spacing:-.06em}
+.visual-story h2 span{color:#ff91a9}
+.visual-story-subtitle{max-width:650px;margin:0;color:#f0dce3;font-size:1.12rem;line-height:1.6}
+.visual-story-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px 0 22px}
+.visual-story-stats>div{padding:19px 18px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(91,23,45,.7)}
+.visual-story-stats strong{display:block;color:#fff;font-size:clamp(2rem,4vw,3.7rem);line-height:1;letter-spacing:-.06em}
+.visual-story-stats span{display:block;margin-top:10px;color:#ffd1d9;font-size:.9rem;line-height:1.35}
+.visual-story-caption{max-width:650px;margin:0;color:#d6c4ce;font-size:.9rem;line-height:1.55}
+.visual-story-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px}
+.visual-story .button{background:#d52f52;border:1px solid #f4869b}
+.visual-story-source{color:#fff;text-decoration:underline;text-underline-offset:4px;font-weight:750}
+.visual-story-ems{border-color:#2d71b9;background:linear-gradient(135deg,#071321,#09284a)}
+.visual-story-ems:after{right:-80px;bottom:-220px;background:radial-gradient(circle,rgba(36,137,241,.36),transparent 68%)}
+.visual-story-ems .visual-story-media{background:#06101e;border-right-color:#295a88}
+.visual-story-ems .visual-story-media img{max-height:700px}
+.visual-story-ems .visual-story-label{color:#76c7ff}
+.visual-story-ems h2 span{color:#65c1ff}
+.visual-story-ems .visual-story-subtitle{color:#d5e8fa}
+.visual-story-ems .visual-story-quote{max-width:590px;margin:30px 0 24px;padding:20px 22px;border-left:3px solid #4cb9ff;background:rgba(16,65,111,.56);color:#fff;font-size:1.28rem;font-weight:800;line-height:1.35}
+.visual-story-ems .visual-story-caption{color:#c2d6eb}
+.visual-story-ems .button{background:#1476d4;border-color:#65c1ff}
+.applications-art-strip{position:relative;overflow:hidden;margin:0;border:1px solid #2c4c70;border-radius:18px;background:#030916;box-shadow:0 18px 50px rgba(0,0,0,.2)}
+.applications-art-strip img{display:block;width:100%;max-height:360px;object-fit:cover;object-position:center 25%;opacity:.78}
+.applications-art-strip figcaption{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 22px;background:linear-gradient(90deg,#07182b,#0c2744);color:#dcecff;font-size:.92rem;font-weight:750}
+.applications-art-strip figcaption a{color:#83c6ff;text-decoration:underline;text-underline-offset:4px}
+.applications-more-label{max-width:1180px;margin:0 auto;padding:0 24px;color:#77aef7;font-size:.78rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
 .application-grid article{border:1px solid var(--line);background:#0a1626;border-radius:16px;padding:28px}
 .application-grid h2{font-size:1.65rem;line-height:1.15;margin:8px 0 12px}
 .application-grid p{font-size:.92rem}
@@ -92,7 +127,9 @@
 .evidence-bridge p{max-width:780px;margin-bottom:0}
 
 @media(max-width:980px){
-  .home-gateway-row,.feature-grid,.split-content,.principle-grid,.application-grid,.clinical-context-grid,.impact-context,.evidence-directory,.evidence-bridge{grid-template-columns:1fr}
+  .home-gateway-row,.feature-grid,.split-content,.principle-grid,.application-grid,.clinical-context-grid,.impact-context,.evidence-directory,.evidence-bridge,.visual-story{grid-template-columns:1fr}
+  .visual-story-media{min-height:0;max-height:760px;border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+  .visual-story-content{max-width:none}
   .metric-grid{grid-template-columns:1fr 1fr}
   .metric-grid div{border:1px solid var(--line);border-radius:0!important}
   .metric-grid div:first-child{border-radius:14px 0 0 0!important}.metric-grid div:nth-child(2){border-radius:0 14px 0 0!important}.metric-grid div:nth-child(3){border-radius:0 0 0 14px!important}.metric-grid div:last-child{border-radius:0 0 14px 0!important}
@@ -103,7 +140,14 @@
   .home-gateway-row{grid-template-columns:1fr}.home-gateway{grid-template-columns:58px 1fr}.gateway-medal{width:54px;height:54px}.gateway-index{width:54px;height:54px}
   .site-topbar{position:relative;display:block;padding:17px 20px}.site-topbar nav{margin-top:13px;gap:12px}.site-topbar nav a{font-size:.7rem}
   .inner-hero{padding:68px 20px 52px}.inner-hero h1{font-size:clamp(2.6rem,14vw,4.4rem)}
-  .content-section,.feature-grid,.principle-grid,.application-grid,.clinical-context,.impact-context,.metric-grid,.evidence-directory,.evidence-bridge{padding-left:20px;padding-right:20px}
+  .content-section,.feature-grid,.principle-grid,.application-grid,.clinical-context,.impact-context,.metric-grid,.evidence-directory,.evidence-bridge,.applications-visual-stories{padding-left:20px;padding-right:20px}
+  .visual-story-media{padding:16px;max-height:none}
+  .visual-story-content{padding:34px 24px}
+  .visual-story h2{font-size:clamp(2.5rem,13vw,4.4rem)}
+  .visual-story-stats{grid-template-columns:1fr}
+  .visual-story-actions{align-items:stretch}
+  .visual-story .button{width:100%}
+  .applications-art-strip figcaption{align-items:flex-start;flex-direction:column}
   .impact-context-copy{padding:28px 24px}.impact-context-stats{grid-template-columns:1fr}
   .feature-card{grid-template-columns:72px 1fr;padding:18px}.feature-image.round{width:68px;height:68px}.feature-index{width:64px;height:64px;font-size:1rem}.feature-card strong{font-size:1.05rem}
   .metric-grid{grid-template-columns:1fr}.metric-grid div{border-radius:0!important}.metric-grid div:first-child{border-radius:14px 14px 0 0!important}.metric-grid div:last-child{border-radius:0 0 14px 14px!important}
