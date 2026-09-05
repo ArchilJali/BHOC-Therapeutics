@@ -34,12 +34,12 @@
 }
 
 /* Approved biodiversity identity assets */
-.bhoc-shield-image{display:block;flex:none;width:44px;height:61px;object-fit:contain}
-.bhoc-biodiversity-logo{display:block;width:190px;height:190px;object-fit:contain}
-.initiative-mark{min-height:220px;padding:10px;overflow:hidden}
+.bhoc-biodiversity-mark{display:block;flex:none;width:50px;height:50px;object-fit:contain}
+.bhoc-biodiversity-logo{display:block;width:180px;height:180px;object-fit:contain}
+.initiative-mark{min-height:205px;padding:8px;overflow:hidden}
 @media(max-width:620px){
-  .bhoc-shield-image{width:39px;height:55px}
-  .initiative-mark{min-height:195px;padding:8px}
-  .bhoc-biodiversity-logo{width:170px;height:170px}
+  .bhoc-biodiversity-mark{width:46px;height:46px}
+  .initiative-mark{min-height:180px;padding:6px}
+  .bhoc-biodiversity-logo{width:155px;height:155px}
   .bhoc-biodiversity-logo{width:min(100%,190px)}
 }
