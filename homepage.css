@@ -12,7 +12,7 @@
 /* Final visual corrections: approved shield mark, clear blood-group stats, compact spacing */
 .home-section{padding:46px 0}
 .home-logo{display:flex;align-items:center;gap:8px}
-.home-logo>img{display:block;width:28px;height:39px;object-fit:contain}
+.home-logo>img{display:block;width:32px;height:32px;object-fit:contain}
 .home-logo>b,.home-logo span>b{display:block;font-family:Arial,sans-serif;font-size:26px;line-height:.9;letter-spacing:.02em}
 .home-logo span small{display:block}
 .home-section-head{margin-bottom:22px}
@@ -34,12 +34,11 @@
 }
 
 /* Approved biodiversity identity assets */
-.bhoc-biodiversity-mark{display:block;flex:none;width:50px;height:50px;object-fit:contain}
-.bhoc-biodiversity-logo{display:block;width:180px;height:180px;object-fit:contain}
+.bhoc-biodiversity-mark{display:block;flex:none;width:50px;height:46px;object-fit:contain}
+.bhoc-biodiversity-logo{display:block;width:180px;height:180px;max-width:100%;max-height:180px;object-fit:contain}
 .initiative-mark{min-height:205px;padding:8px;overflow:hidden}
 @media(max-width:620px){
   .bhoc-biodiversity-mark{width:46px;height:46px}
   .initiative-mark{min-height:180px;padding:6px}
-  .bhoc-biodiversity-logo{width:155px;height:155px}
-  .bhoc-biodiversity-logo{width:min(100%,190px)}
+  .bhoc-biodiversity-logo{width:155px;height:155px;max-width:100%;max-height:155px}
 }
