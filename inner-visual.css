@@ -19,3 +19,34 @@
 footer{padding:48px max(24px,calc((100vw - var(--max))/2));background:var(--navy);color:#d5e4f8;border-top:1px solid #174789}footer .footer-brand{color:#fff;font-weight:900;letter-spacing:.08em}footer p{margin:9px 0;font-size:.85rem}footer a{color:#eef6ff;text-decoration:none}footer a:hover{color:#ffb5b2}footer .legal{max-width:900px;color:#b7cae5;font-size:.75rem}footer .version,footer .copyright{color:#9db8db;font-size:.75rem}.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:980px){.site-topbar{align-items:flex-start;flex-direction:column;gap:12px}.site-topbar nav{justify-content:flex-start;gap:10px 14px}.inner-hero h1{font-size:clamp(3rem,8vw,5.5rem)}.split-content{grid-template-columns:1fr;gap:22px}.principle-grid{grid-template-columns:1fr 1fr}.evidence-directory{grid-template-columns:1fr 1fr}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-bridge{align-items:flex-start;flex-direction:column}}
 @media(max-width:680px){.site-topbar{padding:11px 15px}.site-logo img{width:39px;height:38px}.site-logo>span>b{font-size:21px}.site-logo small{font-size:6px}.site-topbar nav{gap:8px 12px}.site-topbar nav a{font-size:11px}.inner-hero,.content-section,.feature-grid,.principle-grid,.application-grid,.metric-grid,.evidence-directory,.evidence-bridge,.clinical-context,.impact-context,.applications-visual-stories,.application-jump-nav{padding-left:15px;padding-right:15px}.inner-hero{padding-top:62px;padding-bottom:50px}.inner-hero:after{right:-250px;top:26px;width:360px;height:360px}.inner-hero h1{font-size:clamp(2.7rem,15vw,4.3rem)}.inner-intro{font-size:1rem}.feature-grid,.principle-grid,.application-grid,.evidence-directory,.applications-visual-stories,.clinical-context-grid,.impact-context{grid-template-columns:1fr}.feature-card{grid-template-columns:72px 1fr;padding:18px}.feature-image.round,.feature-index{width:68px;height:68px}.feature-card strong{font-size:1.08rem}.content-section{padding-top:56px;padding-bottom:56px}.content-section h2,.evidence-bridge h2,.clinical-context h2{font-size:2.45rem}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid>div{padding:18px 15px}.metric-grid strong{font-size:2.1rem}.evidence-bridge{margin-left:15px;margin-right:15px}.button{width:100%}.actions{align-items:stretch}.applications-page .inner-hero{padding-top:50px}}
+
+/* Compact editorial pass - preserve the approved visual language with tighter rhythm */
+.site-topbar{padding-top:9px;padding-bottom:8px}
+.site-logo{font-size:24px;line-height:.9;letter-spacing:.02em}
+.site-logo span{display:block;margin-top:5px;color:#315b98;font-size:7px;line-height:1;letter-spacing:.24em}
+.inner-hero{padding-top:58px;padding-bottom:44px}
+.inner-hero:after{top:24px;width:360px;height:360px}
+.inner-hero h1{margin-bottom:16px;line-height:.98}
+.inner-intro{line-height:1.48}
+.content-section{padding-top:52px;padding-bottom:52px}
+.content-section h2,.evidence-bridge h2,.clinical-context h2{margin-bottom:14px}
+.feature-grid{gap:13px;padding-top:22px;padding-bottom:52px}
+.feature-card{min-height:170px;padding:20px}
+.principle-grid{gap:13px;padding-top:14px;padding-bottom:52px}
+.principle-grid article{min-height:180px;padding:22px}
+.application-grid{gap:13px;padding-top:22px;padding-bottom:52px}
+.application-card{padding:20px}
+.evidence-directory{gap:12px;padding-top:18px;padding-bottom:52px}
+.evidence-directory a{padding:19px}
+.metric-grid{padding-top:24px;padding-bottom:12px}
+.evidence-bridge{margin-bottom:52px;padding-top:28px;padding-bottom:28px}
+.clinical-context{padding-top:45px;padding-bottom:45px}
+.impact-context{padding-bottom:52px}
+.applications-visual-stories{padding-top:36px;padding-bottom:52px}
+@media(max-width:680px){
+  .site-logo{font-size:21px}
+  .inner-hero{padding-top:44px;padding-bottom:36px}
+  .content-section{padding-top:40px;padding-bottom:40px}
+  .feature-grid,.principle-grid,.application-grid,.evidence-directory{padding-bottom:40px}
+  .evidence-bridge{margin-bottom:40px}
+}
