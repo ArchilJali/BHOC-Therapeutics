@@ -42,3 +42,24 @@
   .initiative-mark{min-height:180px;padding:6px}
   .bhoc-biodiversity-logo{width:155px;height:155px;max-width:100%;max-height:155px}
 }
+
+/* Mobile-safe hero media: keep the complete comparison image visible and readable */
+.home-page .home-wrap,
+.home-page .hero-top,
+.home-page .hero-bottom,
+.home-page .hero-visual,
+.home-page .hero-message,
+.home-page .hero-copy,
+.home-page .compare-grid,
+.home-page .compatibility-note{min-width:0;max-width:100%}
+.hero-visual{width:100%;max-width:500px;margin:0 auto;overflow:hidden}
+.hero-visual img{display:block;width:100%;max-width:500px;height:auto;max-height:none;object-fit:contain;object-position:center}
+@media(max-width:900px){
+  .hero-top,.hero-bottom{width:100%}
+  .hero-visual{width:100%;max-width:500px}
+}
+@media(max-width:620px){
+  .home-page .home-wrap{width:calc(100% - 28px);max-width:100%}
+  .hero-visual{width:100%;max-width:100%}
+  .hero-visual img{width:100%;max-width:100%;height:auto;object-fit:contain}
+}
