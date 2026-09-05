@@ -83,3 +83,14 @@ footer{padding:48px max(24px,calc((100vw - var(--max))/2));background:var(--navy
  .visual-story-actions .button{width:100%}
  .applications-more-label{padding-left:15px;padding-right:15px}
 }
+
+/* Align EMS and PPH primary actions at the bottom of equal-height cards */
+.applications-visual-stories{align-items:stretch}
+.applications-visual-stories .visual-story{display:flex;flex-direction:column;height:100%}
+.applications-visual-stories .visual-story-content{display:flex;flex:1;flex-direction:column}
+.applications-visual-stories .visual-story-actions{min-height:48px;margin-top:auto;align-items:center}
+.applications-visual-stories .visual-story-actions .button{min-height:48px}
+@media(max-width:680px){
+  .applications-visual-stories .visual-story-actions{align-items:stretch}
+  .applications-visual-stories .visual-story-actions .button{min-height:48px}
+}
