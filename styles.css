@@ -179,3 +179,8 @@
 .request-list{margin:24px 0 0;padding-left:20px;color:var(--muted)}
 .request-list li{margin:8px 0}
 @media(max-width:620px){.visual-home-nav{display:none}}
+
+
+/* Global accessibility and footer metadata */
+.version{margin-top:14px;color:#7790aa;font-size:.72rem;letter-spacing:.02em}
+a:focus-visible,button:focus-visible{outline:3px solid rgba(63,130,255,.65);outline-offset:3px}
