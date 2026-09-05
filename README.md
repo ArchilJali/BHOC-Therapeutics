@@ -1,6 +1,6 @@
 # BHOC Therapeutics
 
-Official website and digital platform for BHOC Therapeutics — advancing Biological Hemoglobin Oxygen Carriers and Precision Oxygenation Therapeutics.
+Official website and digital platform for BHOC Therapeutics - advancing Biological Hemoglobin Oxygen Carriers and Precision Oxygenation Therapeutics.
 
 - Website: [bhoctherapeutics.com](https://bhoctherapeutics.com/)
 - Scientific and evidence platform: [BHOC Information Hub](https://archiljali.github.io/BHOC-platform/)
@@ -11,6 +11,10 @@ Official website and digital platform for BHOC Therapeutics — advancing Biolog
 
 A source-based historical perspective on the people, industrial capabilities and institutional network behind an early oxygen-therapeutics platform.
 
+
+## Production homepage
+
+The production homepage follows the approved 2026 master direction: clear oxygen-delivery framing, RBC vs BHOC architecture, tissue-to-mitochondria science, application contexts, evidence traceability and the BHOC Species & Biodiversity Protection Initiative.
 
 ## SEO strategy
 
