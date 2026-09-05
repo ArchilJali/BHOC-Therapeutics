@@ -5,7 +5,7 @@ on:
     branches:
       - bhoc-2026-production-preview
     paths:
-      - .deploy/bhoc-preview/package.b64
+      - .deploy/bhoc-preview/package.ready
 
 permissions:
   contents: write
@@ -24,10 +24,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -s .deploy/bhoc-preview/package.b64
-          tr -d '\r\n\t ' < .deploy/bhoc-preview/package.b64 | base64 --decode > /tmp/bhoc-preview.tar.gz
+          shopt -s nullglob
+          parts=(.deploy/bhoc-preview/package.part*)
+          test "${#parts[@]}" -eq 5
+          test -s .deploy/bhoc-preview/package.ready
+          cat "${parts[@]}" | tr -d '\r\n\t ' | base64 --decode > /tmp/bhoc-preview.tar.gz
           echo "e50df67e809930e1206d63126225d45152c7de6e36096b4b6628fd52bfc3bd2d  /tmp/bhoc-preview.tar.gz" | sha256sum --check --strict
           tar -tzf /tmp/bhoc-preview.tar.gz >/dev/null
+          rm -rf preview-2026
           tar -xzf /tmp/bhoc-preview.tar.gz -C .
 
       - name: Commit the generated preview pages
