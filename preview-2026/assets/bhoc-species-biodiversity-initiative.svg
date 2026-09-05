@@ -1,26 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" role="img" aria-labelledby="title desc">
 <title id="title">BHOC Species and Biodiversity Protection Initiative symbol</title>
 <desc id="desc">A globe rising from an open red book with a navy shield and animal paw at the center.</desc>
-<defs>
-  <linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff4a2f"/><stop offset="1" stop-color="#d8171b"/></linearGradient>
-  <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#163e78"/><stop offset="1" stop-color="#071f4c"/></linearGradient>
-  <radialGradient id="globe" cx="40%" cy="28%" r="75%"><stop stop-color="#f7fbff"/><stop offset=".55" stop-color="#e8f1fb"/><stop offset="1" stop-color="#c7d8eb"/></radialGradient>
-  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="17" flood-color="#092a61" flood-opacity=".18"/></filter>
-</defs>
-<g filter="url(#shadow)">
-  <circle cx="380" cy="200" r="160" fill="url(#globe)" stroke="#092a61" stroke-width="12"/>
-  <path d="M279 73c-31 28-61 80-61 127 0 30 10 60 25 85l72-15 28-58-31-30 3-52-36-57zm137-15l-12 43 49 34 31-9 21 23-10 55 42 30 29-22c2-81-57-151-150-158zm-37 160-54 12-22 58 31 47 53 10 30-34-9-50-29-43z" fill="#092a61" opacity=".94"/>
-  <path d="M514 306c-29 29-70 48-115 52" fill="none" stroke="#fff" stroke-width="7" opacity=".68"/>
-  <path d="M120 290c98-28 175 17 260 93V508C290 431 209 403 120 426V290z" fill="#fff" stroke="url(#red)" stroke-width="14" stroke-linejoin="round"/>
-  <path d="M640 290c-98-28-175 17-260 93V508c90-77 171-105 260-82V290z" fill="#fff" stroke="url(#red)" stroke-width="14" stroke-linejoin="round"/>
-  <path d="M137 316c88-16 161 21 225 77M623 316c-88-16-161 21-225 77" fill="none" stroke="#f26a58" stroke-width="5" opacity=".7"/>
-  <path d="M380 282l76 29v87c0 56-33 98-76 119-43-21-76-63-76-119v-87l76-29z" fill="url(#navy)" stroke="#fff" stroke-width="12"/>
-  <g fill="#fff">
-    <ellipse cx="342" cy="361" rx="19" ry="25" transform="rotate(-25 342 361)"/>
-    <ellipse cx="375" cy="344" rx="19" ry="26" transform="rotate(-5 375 344)"/>
-    <ellipse cx="408" cy="351" rx="19" ry="26" transform="rotate(16 408 351)"/>
-    <ellipse cx="433" cy="379" rx="19" ry="25" transform="rotate(29 433 379)"/>
-    <path d="M380 375c-39 0-67 33-62 67 4 24 27 33 48 22 9-5 19-7 29-7s20 2 29 7c21 11 44 2 48-22 5-34-23-67-62-67h-30z"/>
-  </g>
-</g>
+<defs><linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff4a2f"/><stop offset="1" stop-color="#d8171b"/></linearGradient><linearGradient id="navy" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#163e78"/><stop offset="1" stop-color="#071f4c"/></linearGradient><radialGradient id="globe" cx="40%" cy="28%" r="75%"><stop stop-color="#f7fbff"/><stop offset=".55" stop-color="#e8f1fb"/><stop offset="1" stop-color="#c7d8eb"/></radialGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="17" flood-color="#092a61" flood-opacity=".18"/></filter></defs>
+<g filter="url(#shadow)"><circle cx="380" cy="200" r="160" fill="url(#globe)" stroke="#092a61" stroke-width="12"/><path d="M279 73c-31 28-61 80-61 127 0 30 10 60 25 85l72-15 28-58-31-30 3-52-36-57zm137-15l-12 43 49 34 31-9 21 23-10 55 42 30 29-22c2-81-57-151-150-158zm-37 160-54 12-22 58 31 47 53 10 30-34-9-50-29-43z" fill="#092a61" opacity=".94"/><path d="M120 290c98-28 175 17 260 93V508C290 431 209 403 120 426V290z" fill="#fff" stroke="url(#red)" stroke-width="14" stroke-linejoin="round"/><path d="M640 290c-98-28-175 17-260 93V508c90-77 171-105 260-82V290z" fill="#fff" stroke="url(#red)" stroke-width="14" stroke-linejoin="round"/><path d="M380 282l76 29v87c0 56-33 98-76 119-43-21-76-63-76-119v-87l76-29z" fill="url(#navy)" stroke="#fff" stroke-width="12"/><g fill="#fff"><ellipse cx="342" cy="361" rx="19" ry="25" transform="rotate(-25 342 361)"/><ellipse cx="375" cy="344" rx="19" ry="26" transform="rotate(-5 375 344)"/><ellipse cx="408" cy="351" rx="19" ry="26" transform="rotate(16 408 351)"/><ellipse cx="433" cy="379" rx="19" ry="25" transform="rotate(29 433 379)"/><path d="M380 375c-39 0-67 33-62 67 4 24 27 33 48 22 9-5 19-7 29-7s20 2 29 7c21 11 44 2 48-22 5-34-23-67-62-67h-30z"/></g></g>
 </svg>

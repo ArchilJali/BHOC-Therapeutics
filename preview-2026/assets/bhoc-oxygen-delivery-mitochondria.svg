@@ -1,49 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 840" role="img" aria-labelledby="title desc">
-<title id="title">BHOC oxygen delivery toward mitochondria</title>
-<desc id="desc">Multiple red mitochondria in a pale tissue environment with small smooth red oxygen-carrier elements and oxygen symbols moving toward them.</desc>
+<title id="title">BHOC oxygen-delivery concept reaching mitochondria</title>
+<desc id="desc">Multiple red mitochondria in tissue with smooth red oxygen-carrier elements and oxygen symbols moving toward them.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset=".52" stop-color="#eaf3fb"/><stop offset="1" stop-color="#d5e5f2"/></linearGradient>
   <radialGradient id="orb" cx="32%" cy="24%" r="76%"><stop offset="0" stop-color="#ffe3df"/><stop offset=".14" stop-color="#ff8078"/><stop offset=".46" stop-color="#e52c2d"/><stop offset=".78" stop-color="#99111a"/><stop offset="1" stop-color="#540710"/></radialGradient>
   <linearGradient id="mito" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff776d"/><stop offset=".25" stop-color="#e52b2c"/><stop offset=".72" stop-color="#a20f19"/><stop offset="1" stop-color="#610812"/></linearGradient>
   <linearGradient id="inner" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2ef"/><stop offset=".28" stop-color="#ffb1aa"/><stop offset=".65" stop-color="#ef554e"/><stop offset="1" stop-color="#b31820"/></linearGradient>
-  <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="#ff6c62" stop-opacity=".35"/><stop offset="1" stop-color="#ff6c62" stop-opacity="0"/></radialGradient>
   <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#6d1720" flood-opacity=".24"/></filter>
   <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
   <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2" fill="#2d7db8" opacity=".08"/></pattern>
 </defs>
-<rect width="1600" height="840" fill="url(#bg)"/>
-<rect width="1600" height="840" fill="url(#dots)"/>
-<path d="M-80 615C250 420 475 750 790 520s550-260 890-50" fill="none" stroke="#fff" stroke-width="95" opacity=".55"/>
-<path d="M-50 630C260 450 500 745 805 530s530-260 860-40" fill="none" stroke="#abc8df" stroke-width="4" opacity=".38"/>
+<rect width="1600" height="840" fill="url(#bg)"/><rect width="1600" height="840" fill="url(#dots)"/>
+<path d="M-80 615C250 420 475 750 790 520s550-260 890-50" fill="none" stroke="#fff" stroke-width="95" opacity=".55"/><path d="M-50 630C260 450 500 745 805 530s530-260 860-40" fill="none" stroke="#abc8df" stroke-width="4" opacity=".38"/>
 <g opacity=".35" filter="url(#blur)"><ellipse cx="1260" cy="190" rx="260" ry="170" fill="#fff"/><ellipse cx="470" cy="200" rx="300" ry="150" fill="#fff"/></g>
-<g transform="translate(250 115) rotate(-12 250 160)" opacity=".62" filter="url(#shadow)">
-  <ellipse cx="250" cy="160" rx="225" ry="125" fill="url(#mito)" stroke="#fff" stroke-width="18"/>
-  <path d="M95 160c28-72 63-92 94-30 30 60 65 57 90-7 26-69 62-60 84 8 20 60 53 62 79 5" fill="none" stroke="url(#inner)" stroke-width="27" stroke-linecap="round"/>
-  <path d="M104 199c38-28 67-18 91 20 25 39 57 39 80-4 23-44 57-43 83-2 25 40 55 43 85 12" fill="none" stroke="#ff9b93" stroke-width="17" stroke-linecap="round" opacity=".75"/>
-</g>
-<g transform="translate(920 255) rotate(9 300 190)" filter="url(#shadow)">
-  <ellipse cx="300" cy="190" rx="310" ry="180" fill="url(#mito)" stroke="#fff" stroke-width="22"/>
-  <ellipse cx="300" cy="190" rx="278" ry="149" fill="none" stroke="#ff8c84" stroke-width="8" opacity=".85"/>
-  <path d="M72 185c45-105 92-126 132-37 38 84 82 82 118-10 37-98 84-87 117 13 30 91 72 92 112-3" fill="none" stroke="url(#inner)" stroke-width="34" stroke-linecap="round"/>
-  <path d="M83 245c51-49 94-38 129 23 34 59 77 59 111-5 35-67 78-65 116-3 36 59 78 63 124 19" fill="none" stroke="#ffaaa4" stroke-width="22" stroke-linecap="round" opacity=".85"/>
-  <ellipse cx="210" cy="83" rx="72" ry="25" fill="#fff" opacity=".18" transform="rotate(-11 210 83)"/>
-</g>
-<g transform="translate(-105 500) rotate(-7 250 170)" filter="url(#shadow)">
-  <ellipse cx="250" cy="170" rx="260" ry="150" fill="url(#mito)" stroke="#fff" stroke-width="20"/>
-  <path d="M55 168c39-87 78-104 113-30 33 72 71 70 103-8 32-83 73-74 102 11 27 78 64 79 99-1" fill="none" stroke="url(#inner)" stroke-width="31" stroke-linecap="round"/>
-  <path d="M64 218c45-40 82-30 113 20 30 50 67 50 96-4 30-57 68-55 100-3 32 50 67 53 106 16" fill="none" stroke="#ffaaa4" stroke-width="19" stroke-linecap="round" opacity=".82"/>
-</g>
-<path d="M70 130C340 48 515 210 720 185s348-64 512 40c116 73 212 78 335 25" fill="none" stroke="#e62a2a" stroke-width="5" opacity=".22"/>
-<path d="M90 415c240-110 410 50 602-30 250-104 390 2 545 95 115 69 217 72 335 20" fill="none" stroke="#e62a2a" stroke-width="4" opacity=".18"/>
-<g filter="url(#shadow)">
-  <circle cx="100" cy="122" r="42" fill="url(#orb)"/><circle cx="315" cy="102" r="30" fill="url(#orb)"/><circle cx="520" cy="201" r="47" fill="url(#orb)"/><circle cx="710" cy="176" r="31" fill="url(#orb)"/><circle cx="825" cy="157" r="46" fill="url(#orb)"/><circle cx="1015" cy="218" r="34" fill="url(#orb)"/><circle cx="1175" cy="275" r="44" fill="url(#orb)"/><circle cx="1400" cy="240" r="35" fill="url(#orb)"/>
-  <circle cx="155" cy="410" r="26" fill="url(#orb)"/><circle cx="365" cy="371" r="43" fill="url(#orb)"/><circle cx="590" cy="423" r="27" fill="url(#orb)"/><circle cx="770" cy="352" r="38" fill="url(#orb)"/><circle cx="930" cy="395" r="25" fill="url(#orb)"/><circle cx="1090" cy="459" r="42" fill="url(#orb)"/><circle cx="1320" cy="514" r="28" fill="url(#orb)"/><circle cx="1500" cy="492" r="39" fill="url(#orb)"/>
-</g>
-<g fill="#fff" opacity=".28"><ellipse cx="86" cy="108" rx="13" ry="9"/><ellipse cx="505" cy="186" rx="15" ry="10"/><ellipse cx="811" cy="142" rx="14" ry="10"/><ellipse cx="1160" cy="260" rx="13" ry="9"/><ellipse cx="350" cy="356" rx="14" ry="10"/><ellipse cx="1075" cy="444" rx="14" ry="9"/></g>
-<g font-family="Inter,Arial,sans-serif" font-weight="800" fill="#e52626">
-  <g transform="translate(610 82)"><circle r="49" fill="#fff" opacity=".92"/><circle r="49" fill="none" stroke="#e52626" stroke-opacity=".18"/><text x="-28" y="13" font-size="43">O₂</text></g>
-  <g transform="translate(895 575)"><circle r="49" fill="#fff" opacity=".92"/><circle r="49" fill="none" stroke="#e52626" stroke-opacity=".18"/><text x="-28" y="13" font-size="43">O₂</text></g>
-  <g transform="translate(1450 650)"><circle r="49" fill="#fff" opacity=".92"/><circle r="49" fill="none" stroke="#e52626" stroke-opacity=".18"/><text x="-28" y="13" font-size="43">O₂</text></g>
-</g>
-<g opacity=".38"><circle cx="1060" cy="390" r="150" fill="url(#glow)"/><circle cx="275" cy="660" r="150" fill="url(#glow)"/></g>
+<g transform="translate(250 115) rotate(-12 250 160)" opacity=".62" filter="url(#shadow)"><ellipse cx="250" cy="160" rx="225" ry="125" fill="url(#mito)" stroke="#fff" stroke-width="18"/><path d="M95 160c28-72 63-92 94-30 30 60 65 57 90-7 26-69 62-60 84 8 20 60 53 62 79 5" fill="none" stroke="url(#inner)" stroke-width="27" stroke-linecap="round"/><path d="M104 199c38-28 67-18 91 20 25 39 57 39 80-4 23-44 57-43 83-2 25 40 55 43 85 12" fill="none" stroke="#ff9b93" stroke-width="17" stroke-linecap="round" opacity=".75"/></g>
+<g transform="translate(920 255) rotate(9 300 190)" filter="url(#shadow)"><ellipse cx="300" cy="190" rx="310" ry="180" fill="url(#mito)" stroke="#fff" stroke-width="22"/><ellipse cx="300" cy="190" rx="278" ry="149" fill="none" stroke="#ff8c84" stroke-width="8" opacity=".85"/><path d="M72 185c45-105 92-126 132-37 38 84 82 82 118-10 37-98 84-87 117 13 30 91 72 92 112-3" fill="none" stroke="url(#inner)" stroke-width="34" stroke-linecap="round"/><path d="M83 245c51-49 94-38 129 23 34 59 77 59 111-5 35-67 78-65 116-3 36 59 78 63 124 19" fill="none" stroke="#ffaaa4" stroke-width="22" stroke-linecap="round" opacity=".85"/><ellipse cx="210" cy="83" rx="72" ry="25" fill="#fff" opacity=".18" transform="rotate(-11 210 83)"/></g>
+<g transform="translate(-105 500) rotate(-7 250 170)" filter="url(#shadow)"><ellipse cx="250" cy="170" rx="260" ry="150" fill="url(#mito)" stroke="#fff" stroke-width="20"/><path d="M55 168c39-87 78-104 113-30 33 72 71 70 103-8 32-83 73-74 102 11 27 78 64 79 99-1" fill="none" stroke="url(#inner)" stroke-width="31" stroke-linecap="round"/><path d="M64 218c45-40 82-30 113 20 30 50 67 50 96-4 30-57 68-55 100-3 32 50 67 53 106 16" fill="none" stroke="#ffaaa4" stroke-width="19" stroke-linecap="round" opacity=".82"/></g>
+<g filter="url(#shadow)"><circle cx="100" cy="122" r="42" fill="url(#orb)"/><circle cx="315" cy="102" r="30" fill="url(#orb)"/><circle cx="520" cy="201" r="47" fill="url(#orb)"/><circle cx="710" cy="176" r="31" fill="url(#orb)"/><circle cx="825" cy="157" r="46" fill="url(#orb)"/><circle cx="1015" cy="218" r="34" fill="url(#orb)"/><circle cx="1175" cy="275" r="44" fill="url(#orb)"/><circle cx="1400" cy="240" r="35" fill="url(#orb)"/><circle cx="155" cy="410" r="26" fill="url(#orb)"/><circle cx="365" cy="371" r="43" fill="url(#orb)"/><circle cx="590" cy="423" r="27" fill="url(#orb)"/><circle cx="770" cy="352" r="38" fill="url(#orb)"/><circle cx="930" cy="395" r="25" fill="url(#orb)"/><circle cx="1090" cy="459" r="42" fill="url(#orb)"/><circle cx="1320" cy="514" r="28" fill="url(#orb)"/><circle cx="1500" cy="492" r="39" fill="url(#orb)"/></g>
+<g font-family="Inter,Arial,sans-serif" font-weight="800" fill="#e52626"><g transform="translate(610 82)"><circle r="49" fill="#fff" opacity=".92"/><text x="-28" y="13" font-size="43">O₂</text></g><g transform="translate(895 575)"><circle r="49" fill="#fff" opacity=".92"/><text x="-28" y="13" font-size="43">O₂</text></g><g transform="translate(1450 650)"><circle r="49" fill="#fff" opacity=".92"/><text x="-28" y="13" font-size="43">O₂</text></g></g>
 </svg>
