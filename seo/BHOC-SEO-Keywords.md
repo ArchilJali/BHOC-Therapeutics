@@ -1,4 +1,4 @@
-# BHOC – SEO Keywords
+# BHOC - SEO Keywords
 
 **Master SEO keyword architecture**  
 **Project:** BHOC / Precision Oxygenation Therapeutics  
@@ -9,8 +9,8 @@
 
 This document defines the master English-language SEO vocabulary for:
 
-- `bhoctherapeutics.com` — corporate, strategic, application, market and partnership content;
-- `ArchilJali/BHOC-platform` — CORE/VERIFIED evidence, publications, regulatory history and primary documents.
+- `bhoctherapeutics.com` - corporate, strategic, application, market and partnership content;
+- `ArchilJali/BHOC-platform` - CORE/VERIFIED evidence, publications, regulatory history and primary documents.
 
 The two resources must support each other without duplicating complete pages or competing for the same primary search intent.
 
@@ -47,7 +47,7 @@ These expressions may appear only when accurately describing historical language
 
 ---
 
-## 3. LIST 1 — Core keywords
+## 3. LIST 1 - Core keywords
 
 These are the permanent strategic terms. Each major page should naturally contain the relevant subset, but they must not be mechanically repeated or stuffed into every heading.
 
@@ -85,7 +85,7 @@ These are the permanent strategic terms. Each major page should naturally contai
 
 ---
 
-## 4. LIST 2 — Primary page-specific keyword clusters
+## 4. LIST 2 - Primary page-specific keyword clusters
 
 Each page should have one primary search intent, three to five secondary terms and a limited selection of supporting terms.
 
@@ -347,7 +347,7 @@ Do not target `SCA` alone because it competes with `sickle cell anemia` and othe
 - PPH in low-resource settings
 - PPH in remote settings
 
-Until application-specific evidence is verified, present PPH as an unmet need, emergency-access problem, scientific rationale or potential application—not as an approved BHOC indication.
+Until application-specific evidence is verified, present PPH as an unmet need, emergency-access problem, scientific rationale or potential application-not as an approved BHOC indication.
 
 ### 4.13 Sickle cell disease / sickle cell anemia
 
@@ -634,7 +634,7 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 
 ---
 
-## 5. LIST 3 — Supporting, semantic and competitor keywords
+## 5. LIST 3 - Supporting, semantic and competitor keywords
 
 These words strengthen topical depth but are not primary targets for every page.
 
@@ -837,7 +837,7 @@ Use `artificial blood`, `blood substitute`, `artificial red blood cell` and `syn
 
 ## 6. Search priority model
 
-### Tier A — Broad, high-competition context
+### Tier A - Broad, high-competition context
 
 These terms provide relevance but should not be targeted alone:
 
@@ -858,7 +858,7 @@ These terms provide relevance but should not be targeted alone:
 - sickle cell disease
 - postpartum hemorrhage
 
-### Tier B — Mid-tail clinical intent
+### Tier B - Mid-tail clinical intent
 
 - prehospital blood transfusion
 - emergency oxygenation
@@ -881,7 +881,7 @@ These terms provide relevance but should not be targeted alone:
 - humanitarian blood supply
 - veterinary oxygen carrier
 
-### Tier C — Strategic long-tail opportunity
+### Tier C - Strategic long-tail opportunity
 
 - Biological Hemoglobin Oxygen Carrier
 - Precision Oxygenation Therapeutics

@@ -4,6 +4,7 @@ Official website and digital platform for BHOC Therapeutics - advancing Biologic
 
 - Website: [bhoctherapeutics.com](https://bhoctherapeutics.com/)
 - Veterinary website: [BHOC Veterinary](https://bhocvet.com/)
+- BHOC Transplant: coming soon at `bhoctransplant.com`
 - Scientific and evidence platform: [BHOC Information Hub](https://archiljali.github.io/BHOC-platform/)
 
 ## Historical Perspective

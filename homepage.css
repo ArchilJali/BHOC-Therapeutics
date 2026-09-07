@@ -63,3 +63,19 @@
   .hero-visual{width:100%;max-width:100%}
   .hero-visual img{width:100%;max-width:100%;height:auto;object-fit:contain}
 }
+
+/* BHOC website network */
+.brand-network{border-top:1px solid #edf2f8;border-bottom:1px solid var(--line);background:#f9fbfe}
+.brand-network-inner{display:flex;align-items:center;justify-content:flex-end;gap:8px;width:min(var(--max),calc(100% - 48px));min-height:42px;margin:auto}
+.brand-network-title{margin-right:auto;color:#7187a6;font-size:9px;font-weight:800;letter-spacing:.16em}
+.brand-network-link{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border:1px solid #cbd9ea;border-radius:999px;background:#fff;color:var(--navy);font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap}
+.brand-network-link small{margin-left:5px;color:#7187a6;font-size:8px;font-weight:700;letter-spacing:.02em}
+.vet-wordmark{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.035em}.vet-o{color:#f65c00}
+a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
+.brand-network-pending{background:#f1f4f8;color:#7c8da4;cursor:default}
+.brand-network-pending small{color:inherit}
+@media(max-width:620px){
+  .brand-network-inner{width:calc(100% - 28px);min-height:0;padding:8px 0;flex-wrap:wrap;justify-content:flex-start}
+  .brand-network-title{flex:0 0 100%;margin:0;font-size:8px}
+  .brand-network-link{min-height:27px;padding:0 10px;font-size:9px}
+}
