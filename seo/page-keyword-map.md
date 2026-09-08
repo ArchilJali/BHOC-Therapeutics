@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 8 September 2026
+Updated: 9 September 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -8,7 +8,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 
 | Page | Primary intent | Secondary terms |
 |---|---|---|
-| `/` | Precision Oxygenation Therapeutics | BHOC; Biological Hemoglobin Oxygen Carrier; oxygenation; oxygen delivery; emergency; transplantation; veterinary; human use |
+| `/` | Precision Oxygen Therapeutics | BHOC; Biological Hemoglobin Oxygen Carrier; oxygenation; oxygen delivery; emergency; transplantation; veterinary; human use |
 | `/science/` | oxygen delivery science | oxygen physiology; metabolism; microcirculation; nitric oxide; hypoxia; HIF; oxygen sensing |
 | `/technology/` | Biological Hemoglobin Oxygen Carrier | BHOC technology; hemoglobin oxygen carrier; cell-free hemoglobin oxygen carrier; HBOC; oxygen delivery technology; blood substitute; artificial blood (legacy/corrective context only) |
 | `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; donor blood; patient blood management; PBM; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
@@ -63,7 +63,6 @@ Tier 1 - category ownership:
 - `BHOC HBOC`
 - `BHOC Oxygen Therapeutics`
 - `BHOC Precision Oxygen Therapeutics`
-- `BHOC Precision Oxygenation Therapeutics`
 
 Tier 2 - Archil authority:
 
@@ -74,7 +73,6 @@ Tier 2 - Archil authority:
 - `Archil Jaliashvili Hemopure`
 - `Archil Jaliashvili Biopure`
 - `Archil Jaliashvili Precision Oxygen Therapeutics`
-- `Archil Jaliashvili Precision Oxygenation Therapeutics`
 - `Archil Jaliashvili oxygen delivery`
 - `Archil Jaliashvili tissue oxygenation`
 - `Archil Jaliashvili blood substitute`
@@ -112,7 +110,7 @@ These Tier 4 phrases are active SEO/search-discovery targets, but they are **not
 
 The veterinary bridge remains:
 
-**Oxyglobin -> HBOC -> BHOC -> Biological Hemoglobin Oxygen Carrier -> Veterinary Oxygen / Precision Oxygenation Therapeutics**
+**Oxyglobin -> HBOC -> BHOC -> Biological Hemoglobin Oxygen Carrier -> Veterinary Oxygen / Precision Oxygen Therapeutics**
 
 ## Blood substitute / artificial blood search-bridge strategy
 
