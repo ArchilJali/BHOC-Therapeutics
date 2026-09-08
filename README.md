@@ -1,6 +1,6 @@
 # BHOC Therapeutics
 
-Official website and digital platform for BHOC Therapeutics - advancing Biological Hemoglobin Oxygen Carriers and Precision Oxygenation Therapeutics.
+Official website and digital platform for BHOC Therapeutics - advancing Biological Hemoglobin Oxygen Carriers and Precision Oxygen Therapeutics.
 
 - Website: [bhoctherapeutics.com](https://bhoctherapeutics.com/)
 - Veterinary website: [BHOC Veterinary](https://bhocvet.com/)
