@@ -1,7 +1,7 @@
 # BHOC - SEO Keywords
 
 **Master SEO keyword architecture**  
-**Project:** BHOC / Precision Oxygenation Therapeutics  
+**Project:** BHOC / Precision Oxygen Therapeutics  
 **Prepared:** August 2026  
 **Owner:** Archil Jaliashvili
 
@@ -19,7 +19,7 @@ The two resources must support each other without duplicating complete pages or 
 ### Preferred positioning
 
 - BHOC = **Biological Hemoglobin Oxygen Carrier**
-- **Precision Oxygenation Therapeutics**
+- **Precision Oxygen Therapeutics**
 - **Blood is a system. Oxygen delivery is a function.**
 - BHOC is positioned as an additional oxygen-delivery option and potential bridge where conventional blood access or function is limited.
 - For BHOC corporate positioning, use **Sustainability Solutions** and **sustainability solutions for organ support**. BHOC is not positioned as an organ-preservation product.
@@ -54,7 +54,7 @@ These are the permanent strategic terms. Each major page should naturally contai
 1. BHOC
 2. Biological Hemoglobin Oxygen Carrier
 3. Biological Hemoglobin Oxygen Carriers
-4. Precision Oxygenation Therapeutics
+4. Precision Oxygen Therapeutics
 5. oxygenation
 6. oxygen delivery
 7. oxygen carrier
@@ -78,7 +78,7 @@ These are the permanent strategic terms. Each major page should naturally contai
 - BHOC emergency medicine
 - Biological Hemoglobin Oxygen Carrier technology
 - Biological Hemoglobin Oxygen Carrier platform
-- Precision Oxygenation Therapeutics platform
+- Precision Oxygen Therapeutics platform
 - precision oxygen delivery
 - controlled oxygen delivery
 - continuous oxygen delivery
@@ -91,7 +91,7 @@ Each page should have one primary search intent, three to five secondary terms a
 
 ### 4.1 Home / category creation
 
-**Primary:** Precision Oxygenation Therapeutics
+**Primary:** Precision Oxygen Therapeutics
 
 - BHOC
 - Biological Hemoglobin Oxygen Carrier
@@ -576,7 +576,7 @@ Use the complete phrase `sickle cell anemia (SCA)` in titles and opening text. D
 
 **Primary:** oxygen therapeutics market
 
-- Precision Oxygenation Therapeutics market
+- Precision Oxygen Therapeutics market
 - oxygen carrier market
 - hemoglobin oxygen carrier market
 - sustainability solutions market
@@ -884,7 +884,7 @@ These terms provide relevance but should not be targeted alone:
 ### Tier C - Strategic long-tail opportunity
 
 - Biological Hemoglobin Oxygen Carrier
-- Precision Oxygenation Therapeutics
+- Precision Oxygen Therapeutics
 - BHOC oxygen carrier
 - BHOC emergency oxygenation
 - bloodless resuscitation
@@ -914,7 +914,7 @@ These terms provide relevance but should not be targeted alone:
 
 | Page | Primary keyword | Important secondary keywords |
 |---|---|---|
-| Home | Precision Oxygenation Therapeutics | BHOC, oxygenation, oxygen delivery |
+| Home | Precision Oxygen Therapeutics | BHOC, oxygenation, oxygen delivery |
 | BHOC Technology | Biological Hemoglobin Oxygen Carrier | oxygen carrier, BHOC technology, oxygen-carrying capacity |
 | Emergency & Prehospital | emergency and prehospital oxygenation | prehospital resuscitation, emergency blood, hemorrhagic shock |
 | Bloodless Resuscitation | bloodless resuscitation | bloodless medicine, acute anemia, transfusion-free care |
@@ -1008,7 +1008,7 @@ Do not use invisible keyword blocks, repetitive lists in public page text, or ke
 
 Owns:
 
-- Precision Oxygenation Therapeutics;
+- Precision Oxygen Therapeutics;
 - BHOC technology and value proposition;
 - clinical application context;
 - market, manufacturing and partnerships;
@@ -1035,7 +1035,7 @@ Do not publish identical full paragraphs or entire articles on both properties. 
 3. HbO2 Therapeutics/Hemopure occupies severe anemia, surgery, transfusion unavailable or not an option, immediate infusion and room-temperature storage.
 4. XVIVO, OrganOx, TransMedics, IGL and Organ Recovery Systems occupy organ-specific perfusion, preservation solutions, machine perfusion and cold-storage terminology.
 5. WHO, blood services and humanitarian organizations occupy emergency blood supply, blood availability, blood safety, disaster, conflict and humanitarian-response terminology.
-6. BHOC should connect these fragmented search fields through a distinct category: **Precision Oxygenation Therapeutics**.
+6. BHOC should connect these fragmented search fields through a distinct category: **Precision Oxygen Therapeutics**.
 
 ## 12. Evidence-status note
 
