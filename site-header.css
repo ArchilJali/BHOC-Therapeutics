@@ -1,0 +1,25 @@
+:root{--bhoc-header-navy:#082d68;--bhoc-header-red:#f22c26;--bhoc-header-blue:#285294;--bhoc-header-line:#d9e5f4;--bhoc-header-max:1180px}
+.home-wrap{width:min(var(--bhoc-header-max),calc(100% - 48px));margin:auto}
+.home-header{position:relative;z-index:50;background:#fff;padding:15px 0 10px;border-bottom:0}
+.home-nav{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.home-logo{display:flex;align-items:center;gap:8px;font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:.9;letter-spacing:.02em;text-decoration:none;color:#0c367a;min-width:max-content}
+.home-logo>img{display:block;width:32px;height:32px;object-fit:contain;flex:none}
+.home-logo>b,.home-logo span>b{display:block;font-family:Arial,Helvetica,sans-serif;font-size:26px;line-height:.9;letter-spacing:.02em}
+.home-logo .logo-o{color:var(--bhoc-header-red)}
+.home-logo small,.home-logo span small{display:block;margin-top:6px;font-size:8px;line-height:1;letter-spacing:.24em;color:var(--bhoc-header-blue)}
+.home-links{display:flex;align-items:center;gap:28px}
+.home-links a{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;text-decoration:none;color:#0b377f;white-space:nowrap}
+.home-links a:hover,.home-links a[aria-current=page]{color:var(--bhoc-header-red)}
+.home-menu{display:none;border:0;background:#fff;color:var(--bhoc-header-navy);font-size:24px;line-height:1;cursor:pointer}
+.bhoc-biodiversity-mark{display:block;flex:none;width:50px;height:46px;object-fit:contain}
+.brand-network{border-top:1px solid #edf2f8;border-bottom:1px solid var(--bhoc-header-line);background:#f9fbfe}
+.brand-network-inner{display:flex;align-items:center;justify-content:flex-end;gap:8px;width:min(var(--bhoc-header-max),calc(100% - 48px));min-height:42px;margin:auto}
+.brand-network-title{margin-right:auto;color:#7187a6;font-size:9px;font-weight:800;letter-spacing:.16em}
+.brand-network-link{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border:1px solid #cbd9ea;border-radius:999px;background:#fff;color:var(--bhoc-header-navy);font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap}
+.brand-network-link small{margin-left:5px;color:#7187a6;font-size:8px;font-weight:700;letter-spacing:.02em}
+.vet-wordmark{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.035em}.vet-o{color:#f65c00}
+a.brand-network-link:hover{border-color:#8eb0d7;color:var(--bhoc-header-red)}
+.brand-network-pending{background:#f1f4f8;color:#7c8da4;cursor:default}
+.brand-network-pending small{color:inherit}
+@media(max-width:900px){.home-links{gap:14px}.home-links a{font-size:10px}}
+@media(max-width:620px){.home-wrap{width:min(100% - 28px,var(--bhoc-header-max))}.home-header{padding:12px 0}.home-nav{position:relative}.home-links{display:none;position:absolute;z-index:60;top:46px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:12px;border:1px solid var(--bhoc-header-line);border-radius:10px;background:#fff;box-shadow:0 15px 35px rgba(12,52,105,.15)}.home-links.open{display:flex}.home-links a{padding:9px;font-size:12px}.home-menu{display:block}.bhoc-biodiversity-mark{width:46px;height:46px}.brand-network-inner{width:calc(100% - 28px);min-height:0;padding:8px 0;flex-wrap:wrap;justify-content:flex-start}.brand-network-title{flex:0 0 100%;margin:0;font-size:8px}.brand-network-link{min-height:27px;padding:0 10px;font-size:9px}}
