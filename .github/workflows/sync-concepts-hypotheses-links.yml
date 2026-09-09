@@ -1,0 +1,43 @@
+name: Sync Concepts & Hypotheses links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync_concepts_hypotheses_links.cjs'
+      - '.github/workflows/sync-concepts-hypotheses-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bhoc-concepts-hypotheses-navigation
+  cancel-in-progress: false
+
+jobs:
+  sync-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add Concepts & Hypotheses navigation and contextual links
+        run: |
+          git pull --rebase origin main
+          node scripts/sync_concepts_hypotheses_links.cjs
+
+      - name: Commit generated updates
+        run: |
+          if git diff --quiet; then
+            echo "Concepts & Hypotheses links already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync Concepts & Hypotheses links"
+          git pull --rebase origin main
+          git push
