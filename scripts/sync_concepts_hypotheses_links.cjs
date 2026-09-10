@@ -4,8 +4,12 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const LEGACY_DISCUSSION = 'https://archiljali.github.io/BHOC-platform/open-discussion/';
 const CONCEPTS = 'https://archiljali.github.io/BHOC-platform/concepts-hypotheses/';
+const EVIDENCE_HUB = 'https://archiljali.github.io/BHOC-platform/';
+const VET_SITE = 'https://bhocvet.com/';
 const EMS_CONCEPT = `${CONCEPTS}prehospital-oxygen-delivery-selection.html`;
 const SKIP_DIRS = new Set(['.git', 'node_modules']);
+
+const BRAND_NETWORK = `<div class="brand-network"><div class="brand-network-inner" role="group" aria-label="BHOC websites"><span class="brand-network-title">BHOC NETWORK</span><a class="brand-network-link" href="${EVIDENCE_HUB}" target="_blank" rel="noopener noreferrer" aria-label="Open BHOC Scientific Evidence Hub">Scientific Evidence Hub ↗</a><a class="brand-network-link" href="${VET_SITE}" aria-label="Open BHOC Veterinary website"><span class="vet-wordmark">BH<span class="vet-o">O</span>C</span> Veterinary <small>bhocvet.com</small></a><span class="brand-network-link brand-network-pending" aria-disabled="true" title="Coming soon">BHOC Transplant <small>coming soon</small></span></div></div>`;
 
 function walk(dir) {
   const out = [];
@@ -60,6 +64,17 @@ function addFooterNavigation(src) {
   return before + footer;
 }
 
+function syncBrandNetwork(src) {
+  const existing = /<div class="brand-network"><div class="brand-network-inner"[\s\S]*?<\/div><\/div>/i;
+  if (existing.test(src)) return src.replace(existing, BRAND_NETWORK);
+
+  const guide = /(<div class="bhoc-guide"[\s\S]*?<\/div><\/div>)/i;
+  if (guide.test(src)) return src.replace(guide, `$1\n${BRAND_NETWORK}`);
+
+  if (/<\/header>/i.test(src)) return src.replace(/<\/header>/i, `</header>\n${BRAND_NETWORK}`);
+  return src;
+}
+
 function addHomepageEvidenceCta(src, rel) {
   if (rel !== 'index.html' || src.includes('Concepts &amp; Hypotheses <span>↗</span>') || src.includes('Concepts & Hypotheses <span>↗</span>')) return src;
   return src.replace(
@@ -84,6 +99,7 @@ for (const file of walk(ROOT)) {
   let next = normalizeConceptLinks(src);
   next = addPrimaryNavigation(next);
   next = addFooterNavigation(next);
+  next = syncBrandNetwork(next);
   next = addHomepageEvidenceCta(next, rel);
   next = addEmsConceptCta(next, rel);
   if (next !== src) {
@@ -93,4 +109,4 @@ for (const file of walk(ROOT)) {
   }
 }
 
-console.log(`Concepts & Hypotheses navigation sync complete: ${changed} HTML files updated.`);
+console.log(`Shared navigation sync complete: ${changed} HTML files updated.`);
