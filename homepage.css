@@ -79,3 +79,10 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
   .brand-network-title{flex:0 0 100%;margin:0;font-size:8px}
   .brand-network-link{min-height:27px;padding:0 10px;font-size:9px}
 }
+/* Shared BHOC guide strip */
+.bhoc-guide{border-top:1px solid #edf2f8;border-bottom:1px solid #dce7f4;background:linear-gradient(90deg,#f8fbff 0%,#fff 48%,#fff8f8 100%)}
+.bhoc-guide-inner{min-height:44px;display:flex;align-items:center;justify-content:center;gap:16px;text-align:center}
+.bhoc-guide-label{font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#6a7f9f;white-space:nowrap}
+.bhoc-guide a{display:inline-flex;align-items:center;gap:7px;color:#0b377f;text-decoration:none;font-size:13px;line-height:1.2}
+.bhoc-guide a strong{font-weight:900}.bhoc-guide a span{color:#f22c26;font-weight:800}.bhoc-guide a b{color:#f22c26;font-size:17px;transition:transform .18s ease}.bhoc-guide a:hover b{transform:translateX(3px)}
+@media(max-width:620px){.bhoc-guide-inner{min-height:0;padding:10px 0;display:block}.bhoc-guide-label{display:block;margin-bottom:4px}.bhoc-guide a{display:flex;justify-content:center;flex-wrap:wrap;font-size:12px}}
