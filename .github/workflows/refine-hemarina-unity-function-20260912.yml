@@ -21,9 +21,6 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@49933ea5288caeca8642d3f7d6820020
-        with:
-          node-version: '22'
       - name: Apply HEMARINA framing update
         run: node scripts/refine_hemarina_unity_function_20260912.cjs
       - name: Commit page update
