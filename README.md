@@ -5,11 +5,11 @@ Official website and digital platform for BHOC Therapeutics - advancing Biologic
 - Website: [bhoctherapeutics.com](https://bhoctherapeutics.com/)
 - Veterinary website: [BHOC Veterinary](https://bhocvet.com/)
 - BHOC Transplant: coming soon at `bhoctransplant.com`
-- Scientific and evidence platform: [BHOC Information Hub](https://archiljali.github.io/BHOC-platform/)
+- Scientific and evidence platform: [BHOC Information Hub](https://evidence.bhoctherapeutics.com/)
 
 ## Historical Perspective
 
-[Standing on the Shoulders of Giants: Biopure and the People Behind an Early Oxygen-Therapeutics Platform](https://archiljali.github.io/BHOC-platform/historical-sources/biopure-standing-on-the-shoulders-of-giants/)
+[Standing on the Shoulders of Giants: Biopure and the People Behind an Early Oxygen-Therapeutics Platform](https://evidence.bhoctherapeutics.com/historical-sources/biopure-standing-on-the-shoulders-of-giants/)
 
 A source-based historical perspective on the people, industrial capabilities and institutional network behind an early oxygen-therapeutics platform.
 
