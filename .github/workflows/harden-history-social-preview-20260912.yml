@@ -1,0 +1,33 @@
+name: Harden Historical Evolution social preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/harden_history_social_preview_20260912.cjs'
+      - '.github/workflows/harden-history-social-preview-20260912.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - name: Apply social preview hardening
+        run: |
+          git pull --rebase origin main
+          node scripts/harden_history_social_preview_20260912.cjs
+      - name: Commit page update
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "BHOC Therapeutics Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add bhoc/historical-evolution/index.html
+          git commit -m "Harden Historical Evolution social preview metadata"
+          git pull --rebase origin main
+          git push
