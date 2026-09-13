@@ -18,6 +18,10 @@ A source-based historical perspective on the people, industrial capabilities and
 
 The production homepage follows the approved 2026 master direction: clear oxygen-delivery framing, RBC vs BHOC architecture, tissue-to-mitochondria science, application contexts, evidence traceability and the BHOC Species & Biodiversity Protection Initiative.
 
+## Validation
+
+Run `node scripts/check_site.mjs` before publishing. The check covers canonical pages, titles, descriptions, structured data, social previews, image dimensions, migration redirects, the sitemap and local links.
+
 ## SEO strategy
 
 The maintained SEO master and page-intent map are stored in [`/seo`](./seo/). Public pages use unique search intent, titles, descriptions, canonicals and structured data. Scientific evidence remains in the separate [BHOC-platform](https://github.com/ArchilJali/BHOC-platform) repository.
