@@ -1,0 +1,34 @@
+name: Validate BHOC Therapeutics site
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'assets/**'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'scripts/check_site.mjs'
+      - '.github/workflows/validate-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-bhoc-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Validate SEO, schema, sitemap, redirects and local links
+        run: node scripts/check_site.mjs
