@@ -93,6 +93,12 @@ function walk(directory){
 }
 walk(root);
 
+for(const relative of htmlFiles){
+  const source=read(relative);
+  const yandexNoindex=[...source.matchAll(/<meta\b(?=[^>]*\bname=["']yandex["'])(?=[^>]*\bcontent=["']noindex["'])[^>]*>/gi)];
+  assert.equal(yandexNoindex.length,1,`${relative}: exactly one Yandex-only noindex directive required`);
+}
+
 let checkedLinks=0;
 for(const relative of htmlFiles){
   const source=read(relative);
