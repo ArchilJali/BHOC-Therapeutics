@@ -1,0 +1,78 @@
+name: Update BHOC authority section 04 once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-bhoc-authority-section-04-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bhoc-authority-section-04-once
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Develop tissue-level authority subsection
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('bhoc/index.html')
+          text = path.read_text()
+
+          old_roadmap = '<a href="#tissue-control"><small>04 · Tissue level</small><strong>Microcirculation, diffusion and mitochondrial demand</strong><span>Section prepared ↓</span></a>'
+          new_roadmap = '<a href="#tissue-control"><small>04 · Tissue level</small><strong>Microcirculation, diffusion and mitochondrial demand</strong><span>Read section ↓</span></a>'
+
+          old_section = '<section class="content-section bhoc-anchor" id="tissue-control"><div class="section-copy"><p class="eyebrow">04 · Tissue level</p><h2>Microcirculation, diffusion and mitochondrial demand</h2><p><em>Subsection created. Detailed mechanism and evidence remain reserved for structured development.</em></p></div></section>'
+          new_section = '''<section class="content-section bhoc-anchor" id="tissue-control">
+    <div class="section-copy">
+      <p class="eyebrow">04 · Tissue level</p>
+      <h2>Microcirculation, diffusion and mitochondrial demand</h2>
+      <p><strong>Systemic oxygen delivery is only the supply arriving at an organ; tissue oxygenation depends on what happens after that supply enters the microcirculation.</strong> Oxygen is carried by blood into arterioles and capillaries, then must leave the vascular compartment and diffuse through interstitial and cellular space before it can reach mitochondria. This is the point where oxygen carriage becomes local biological availability.</p>
+      <p><strong>The microcirculation is heterogeneous by design.</strong> Capillary pathways differ in diameter, length, flow velocity, hematocrit and local metabolic demand. Healthy vascular regulation continually redistributes flow so perfusion is matched to tissue need. When that matching is disturbed, local hypoxia can occur even when systemic variables such as blood pressure, cardiac output or arterial oxygen saturation appear acceptable.</p>
+      <p><strong>Diffusion creates a second constraint after blood flow.</strong> According to Fick's diffusion principle, oxygen flux depends on the oxygen partial-pressure gradient, available exchange area and diffusion properties, and falls as the distance between blood and consuming cells increases. Edema, structural remodeling or loss of effective capillary perfusion can therefore reduce tissue oxygen availability without necessarily producing a proportional change in global oxygen-delivery measurements.</p>
+      <p><strong>Mitochondria are the final physiological destination.</strong> Oxygen serves as the terminal electron acceptor for oxidative phosphorylation, so adequacy of oxygen delivery must ultimately be considered relative to cellular metabolic demand. Tissue oxygen tension normally falls along the oxygen cascade from arterial blood toward cells and mitochondria. When demand rises, local flow and extraction must adapt; when supply, diffusion or microvascular regulation cannot keep pace, oxygen limitation can emerge at the cellular level.</p>
+      <p>For cell-free hemoglobin systems, the tissue layer is especially important because moving an oxygen carrier into plasma changes the convective-diffusive architecture around oxygen transport. Experimental and review literature has described how acellular oxygen carriers can influence plasma-phase oxygen transport and microvascular behavior. <strong>That does not mean smaller size or plasma distribution automatically produces better tissue oxygenation.</strong> Oxygen affinity, molecular size, viscosity, vascular tone, capillary perfusion, diffusion gradients and local metabolic demand all remain coupled variables.</p>
+      <p><strong>Why this matters for BHOC:</strong> the clinically relevant endpoint is not simply oxygen content in the formulation or blood. A Biological Hemoglobin Oxygen Carrier must be evaluated by whether oxygen is delivered through a functioning microcirculation, unloaded under the relevant tissue conditions and made available where cellular metabolism needs it. For BHOC development, microvascular perfusion and tissue-oxygenation measurements therefore belong alongside systemic hemodynamics and analytical oxygen-carrying properties.</p>
+      <p><strong>Source trail:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9119019/" target="_blank" rel="noopener noreferrer">Roy &amp; Secomb - microvascular flow regulation, perfusion matching and tissue oxygenation ↗</a> · <a href="https://www.ncbi.nlm.nih.gov/books/NBK493219/" target="_blank" rel="noopener noreferrer">NCBI - oxygen diffusion and the tissue oxygen gradient ↗</a> · <a href="https://doi.org/10.1152/physrev.00041.2017" target="_blank" rel="noopener noreferrer">Keeley &amp; Mann - physiological oxygen gradients from blood to mitochondria ↗</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3703868/" target="_blank" rel="noopener noreferrer">Cabrales et al. - oxygen carriers, microvascular function and tissue oxygenation ↗</a></p>
+      <p><strong>Go deeper:</strong> <a href="/science/">BHOC Science - oxygen delivery, microcirculation and metabolism →</a> · <a href="https://archiljali.github.io/BHOC-platform/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html" target="_blank" rel="noopener noreferrer">Deep evidence - microcirculation and tissue oxygenation ↗</a> · <a href="https://archiljali.github.io/BHOC-platform/science/nitric-oxide-scavenging-hboc-vasoconstriction.html" target="_blank" rel="noopener noreferrer">Deep evidence - vascular response and tissue oxygenation ↗</a> · <a href="https://archiljali.github.io/BHOC-platform/concepts-hypotheses/oxygen-delivery-potency-vs-hemoglobin.html" target="_blank" rel="noopener noreferrer">Research concept - oxygen-delivery potency vs hemoglobin concentration ↗</a></p>
+    </div>
+  </section>'''
+
+          replacements = [
+              (old_roadmap, new_roadmap, 'section 04 roadmap status'),
+              (old_section, new_section, 'section 04 content'),
+              ('"dateModified":"2026-09-14"', '"dateModified":"2026-09-15"', 'schema dateModified'),
+              ('First published 10 Sep 2026 · Updated 14 Sep 2026 · Version 26.09.14', 'First published 10 Sep 2026 · Updated 15 Sep 2026 · Version 26.09.15', 'page version'),
+          ]
+
+          for old, new, label in replacements:
+              if old not in text:
+                  raise SystemExit(f'Missing expected {label}; refusing partial update')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text)
+          PY
+
+          node scripts/check_site.mjs
+
+      - name: Commit authority subsection
+        run: |
+          git rm .github/workflows/update-bhoc-authority-section-04-once.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add bhoc/index.html
+          git commit -m 'Develop BHOC tissue-level authority section'
+          git pull --rebase origin main
+          git push
