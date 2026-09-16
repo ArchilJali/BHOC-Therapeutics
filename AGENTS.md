@@ -24,7 +24,7 @@ These rules apply to every file in this repository.
   - 06 `/bhoc/hemoglobin-outside-red-blood-cell/`
   - 07 `/bhoc/what-makes-bhoc-different/`
   - 08 `/bhoc/precision-oxygen-therapeutics/`
-- Loaded dedicated pages must retain the complete approved hub-section text and links. They are not summaries.
+- Every dedicated page must retain the complete approved hub-section text and links. Loaded pages are full pages, not summaries. In-development pages must show all approved material available to date while retaining their `In development` label and `noindex` policy; status must never be used to hide existing information.
 - The BHOC map cards, the section-level page links, the previous/next controls and the top BHOC route bar must keep these routes connected. The current route must remain visibly highlighted.
 - The protected text, links, routes, and statuses are recorded in `bhoc/content-baseline.json`.
 - Do not edit that baseline merely to make a failing check pass. Update it only after the user explicitly approves every corresponding content or status change.

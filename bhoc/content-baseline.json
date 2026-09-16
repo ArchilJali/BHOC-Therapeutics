@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
-  "approvedState": "Recovered from the user-approved BHOC Authority Hub state of 15 Sep 2026, with the user-requested dedicated 01–08 page architecture restored on 16 Sep 2026.",
-  "changeRule": "Content, links, dedicated page routes, completion statuses, expanded scientific visibility and BHOC-only route context are protected. Do not update this baseline unless the user explicitly approves every affected item.",
+  "schemaVersion": 3,
+  "approvedState": "Recovered from the user-approved BHOC Authority Hub state of 15 Sep 2026, with the user-requested dedicated 01–08 page architecture, full in-development material and connected resource routes restored on 16 Sep 2026.",
+  "changeRule": "Content, links, dedicated page routes, completion statuses, full visibility of approved in-development material, expanded scientific visibility and BHOC-only route context are protected. Do not update this baseline unless the user explicitly approves every affected item.",
   "sections": {
     "what-bhoc-detail": {
       "number": "01",
@@ -20,8 +20,8 @@
     "artificial-blood": {
       "number": "03",
       "status": "in-development",
-      "textCharacters": 1560,
-      "textSha256": "c3a8fe8e3fe57533dbf99223d548649d9ef09dc1f9259e4f8cefc60dc3ffa317",
+      "textCharacters": 1553,
+      "textSha256": "783f13d0f2051eab93c39a72de1ef1dd6ff181794abde90d49bfc5ac39486c6e",
       "linksSha256": "2651176ccfa3c14c4d67b898e4de4d88ccf02f6df530369a572ef04d85d1f42f"
     },
     "natural-regulation": {
@@ -34,8 +34,8 @@
     "evolution-adaptation": {
       "number": "05",
       "status": "in-development",
-      "textCharacters": 2568,
-      "textSha256": "83c3857e32118848a347e31ed1fa6a8eed38386c3c7d71cee9bfc5b316b31ca2",
+      "textCharacters": 2561,
+      "textSha256": "0be62d5664d2431b2f0998dd8234014f925c026ac5ba4eba3ef0f21dd2f421c8",
       "linksSha256": "af91fc7c21792be26580ce5ba2f8c54d1d037640f03f32dd1fea70f318218896"
     },
     "outside-rbc": {

@@ -234,6 +234,18 @@ for (const spec of sectionSpecs.filter(item => item.status === 'loaded')) {
   if (hiddenRule.test(authorityCss)) errors.push(`#${spec.id}: loaded content is hidden by CSS`);
 }
 
+const restoredVisibilityRules = [
+  '.map-card.is-development p{display:block}',
+  '#artificial-blood>p,#artificial-blood>.legacy-callout,#artificial-blood>.concept-flow,#artificial-blood>.chapter-links{display:block}',
+  '#artificial-blood>.concept-flow,#artificial-blood>.chapter-links{display:flex}',
+  '#evolution-adaptation>p,#evolution-adaptation>.key-idea{display:block}',
+  '#evolution-adaptation>.two-card{display:grid}',
+  '#artificial-blood .chapter-intro:after,#evolution-adaptation .chapter-intro:after{content:none}'
+];
+for (const rule of restoredVisibilityRules) {
+  if (!authorityCss.includes(rule)) errors.push(`Approved in-development content visibility rule is missing: ${rule}`);
+}
+
 if (JSON.stringify(snapshot.map) !== JSON.stringify(baseline.map)) errors.push('BHOC map routes or completion statuses changed');
 
 for (const [index, spec] of sectionSpecs.entries()) {
@@ -255,11 +267,27 @@ for (const [index, spec] of sectionSpecs.entries()) {
   if (!navigation.includes(`path: '${route}'`)) errors.push(`${route}: top route navigation mapping is missing`);
   if (!source.includes('href="/bhoc/#bhoc-map"')) errors.push(`${route}: return to BHOC map is missing`);
 
+  const related = extractSection(source, `related-resources-${spec.number}`);
+  if (!related) {
+    errors.push(`${route}: related approved information routes are missing`);
+  } else {
+    const relatedLinks = [...related.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2]));
+    if (relatedLinks.length < 7) errors.push(`${route}: expected four related resources plus author and LinkedIn routes`);
+    if (!relatedLinks.includes('https://www.linkedin.com/in/archil-jaliashvili-bhoc/')) errors.push(`${route}: personal LinkedIn route is missing`);
+    if (!relatedLinks.includes('https://www.linkedin.com/company/bhoc-therapeutics/')) errors.push(`${route}: BHOC Therapeutics LinkedIn route is missing`);
+  }
+
+  const ids = new Set([...source.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2])));
+  const missingFragments = [...new Set([...source.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])#([^"']+)\1/gi)]
+    .map(match => decodeEntities(match[2]))
+    .filter(fragment => fragment !== 'top' && !ids.has(fragment)))];
+  if (missingFragments.length) errors.push(`${route}: missing fragment targets ${missingFragments.map(fragment => `#${fragment}`).join(', ')}`);
+
   const sitemapHasRoute = sitemap.includes(`<loc>${canonical}</loc>`);
+  const hubCore = hubCoreRecord(page, spec);
+  if (actual.textSha256 !== hubCore.textSha256 || actual.textCharacters !== hubCore.textCharacters) errors.push(`${route}: full approved section text is not synchronized with the hub`);
+  if (actual.linksSha256 !== hubCore.linksSha256) errors.push(`${route}: approved section links are not synchronized with the hub`);
   if (spec.status === 'loaded') {
-    const hubCore = hubCoreRecord(page, spec);
-    if (actual.textSha256 !== hubCore.textSha256 || actual.textCharacters !== hubCore.textCharacters) errors.push(`${route}: full approved section text is not synchronized with the hub`);
-    if (actual.linksSha256 !== hubCore.linksSha256) errors.push(`${route}: approved section links are not synchronized with the hub`);
     if (!/^index,follow/i.test(actual.robots)) errors.push(`${route}: loaded page must be indexable`);
     if (!sitemapHasRoute) errors.push(`${route}: loaded page is missing from sitemap`);
   } else {

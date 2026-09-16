@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const hubPath = path.join(root, 'bhoc', 'index.html');
 const navigationVersion = '202609163';
-const authorityCssVersion = '202609164';
+const authorityCssVersion = '202609165';
 const socialImage = 'https://bhoctherapeutics.com/assets/bhoc-social-preview-20260905-initiative-logo.png';
 
 const sections = [
@@ -18,7 +18,13 @@ const sections = [
     title: 'What Is BHOC? Biological Hemoglobin Oxygen Carrier',
     description: 'Learn the approved BHOC definition: how a Biological Hemoglobin Oxygen Carrier isolates oxygen-delivery function without claiming to replace every function of blood.',
     previous: null,
-    next: '02'
+    next: '02',
+    related: [
+      ['/science/', 'BHOC Science', 'Hemoglobin, oxygen delivery, physiology and tissue oxygenation'],
+      ['/technology/', 'BHOC Technology', 'From biological hemoglobin to an engineered oxygen carrier'],
+      ['/evidence/', 'BHOC Evidence', 'Scientific, clinical and regulatory source structure'],
+      ['https://archiljali.github.io/BHOC-platform/', 'Scientific Evidence Hub', 'Living source-linked BHOC repository']
+    ]
   },
   {
     number: '02',
@@ -29,7 +35,13 @@ const sections = [
     title: 'Why BHOC? From Blood Replacement to Oxygen Delivery',
     description: 'Understand why BHOC reframes the question from replacing blood as a whole to supporting oxygen-delivery function by physiology, context and evidence.',
     previous: '01',
-    next: '03'
+    next: '03',
+    related: [
+      ['/science/', 'BHOC Science', 'Oxygen delivery, microcirculation, metabolism and physiology'],
+      ['/applications/', 'Applications', 'Clinical and operational settings where oxygen delivery matters'],
+      ['/evidence/', 'BHOC Evidence', 'Follow the evidence and validation structure'],
+      ['https://archiljali.github.io/BHOC-platform/concepts-hypotheses/', 'Concepts & Hypotheses', 'Research questions kept separate from established evidence']
+    ]
   },
   {
     number: '03',
@@ -40,7 +52,13 @@ const sections = [
     title: 'Artificial Blood & Blood Substitute | BHOC — In Development',
     description: 'BHOC section on artificial blood and blood-substitute history is currently in development.',
     previous: '02',
-    next: '04'
+    next: '04',
+    related: [
+      ['/bhoc/historical-evolution/', 'Historical Evolution', 'From Bloodletting to Precision Oxygen Therapeutics'],
+      ['https://archiljali.github.io/BHOC-platform/historical-sources/', 'Historical Sources', 'Biopure, Hemopure, Oxyglobin and HBOC source archive'],
+      ['https://archiljali.github.io/BHOC-platform/human/BHOC-Human-index.html', 'Human Evidence', 'Human clinical, regulatory and translational context'],
+      ['https://archiljali.github.io/BHOC-platform/veterinary/Vet-index.html', 'Veterinary Evidence', 'Oxyglobin, FDA/EMA records and veterinary evidence']
+    ]
   },
   {
     number: '04',
@@ -51,7 +69,13 @@ const sections = [
     title: 'Oxygen Regulation: P50, RBC, Flow & Tissue | BHOC',
     description: 'Explore the approved BHOC framework for oxygen regulation across hemoglobin affinity, P50, red cells, circulation, microcirculation and tissue demand.',
     previous: '03',
-    next: '05'
+    next: '05',
+    related: [
+      ['/science/', 'BHOC Science', 'Oxygen delivery, microcirculation, metabolism and physiology'],
+      ['https://archiljali.github.io/BHOC-platform/science/oxygen-delivery-potency.html', 'Oxygen-Delivery Potency', 'Approved scientific evidence and functional context'],
+      ['https://archiljali.github.io/BHOC-platform/science/nitric-oxide-scavenging-hboc-vasoconstriction.html', 'NO & Vascular Response', 'Deep evidence on nitric oxide, vascular response and tissue oxygenation'],
+      ['https://archiljali.github.io/BHOC-platform/concepts-hypotheses/size-compartmentalization-vascular-control.html', 'Size & Compartmentalization', 'Approved research hypothesis and testable framework']
+    ]
   },
   {
     number: '05',
@@ -62,7 +86,13 @@ const sections = [
     title: 'Evolution & Adaptation | BHOC — In Development',
     description: 'BHOC section on hemoglobin evolution, comparative oxygen biology and biological adaptation is currently in development.',
     previous: '04',
-    next: '06'
+    next: '06',
+    related: [
+      ['https://bhocvet.com/', 'BHOC Veterinary', 'Species biology, animal health and comparative oxygen biology'],
+      ['https://archiljali.github.io/BHOC-platform/veterinary/Vet-index.html', 'Veterinary Evidence', 'Source-linked species and veterinary evidence'],
+      ['https://archiljali.github.io/BHOC-platform/human/BHOC-Human-index.html', 'Human Evidence', 'Hemoglobin disorders, blood systems and translational context'],
+      ['https://archiljali.github.io/BHOC-platform/science/nobel-foundations-oxygen-metabolism-physiology.html', 'Oxygen & Adaptation Foundations', 'Source-linked oxygen, physiology, metabolism and adaptation']
+    ]
   },
   {
     number: '06',
@@ -73,7 +103,13 @@ const sections = [
     title: 'Hemoglobin Outside the Red Blood Cell | BHOC',
     description: 'See what changes when hemoglobin leaves the red blood cell, including molecular size, oxidation, P50, nitric oxide interaction and microcirculatory behavior.',
     previous: '05',
-    next: '07'
+    next: '07',
+    related: [
+      ['/technology/', 'BHOC Technology', 'Cell-free hemoglobin design, purification and formulation'],
+      ['/science/', 'BHOC Science', 'Mechanisms, oxygen unloading and microcirculatory physiology'],
+      ['https://archiljali.github.io/BHOC-platform/concepts-hypotheses/size-compartmentalization-vascular-control.html', 'Size & Compartmentalization', 'Research hypothesis linking architecture and vascular response'],
+      ['https://archiljali.github.io/BHOC-platform/science/nitric-oxide-scavenging-hboc-vasoconstriction.html', 'NO & Vascular Response', 'Deep source-linked evidence']
+    ]
   },
   {
     number: '07',
@@ -84,7 +120,13 @@ const sections = [
     title: 'What Makes BHOC Different? Function, Evidence & Design',
     description: 'Understand the BHOC function-first framework connecting biology, oxygen-delivery technology, product-specific physiology, evidence and application.',
     previous: '06',
-    next: '08'
+    next: '08',
+    related: [
+      ['/science/', 'Science', 'Biological mechanism and oxygen-delivery physiology'],
+      ['/technology/', 'Technology', 'How the oxygen-carrying function is engineered'],
+      ['/evidence/', 'Evidence', 'What is supported and where to verify it'],
+      ['https://archiljali.github.io/BHOC-platform/', 'BHOC Platform', 'The deep source-linked scientific repository']
+    ]
   },
   {
     number: '08',
@@ -95,7 +137,13 @@ const sections = [
     title: 'Precision Oxygen Therapeutics: Why BHOC Exists',
     description: 'Learn why BHOC defines Precision Oxygen Therapeutics by oxygen made available to tissue under the conditions where function is needed.',
     previous: '07',
-    next: null
+    next: null,
+    related: [
+      ['/science/', 'Understand the Science', 'Oxygen delivery from hemoglobin to tissue and mitochondria'],
+      ['/applications/', 'Explore Applications', 'Clinical and operational development contexts'],
+      ['/evidence/', 'Explore the Evidence', 'Scientific, clinical, regulatory and historical structure'],
+      ['https://archiljali.github.io/BHOC-platform/concepts-hypotheses/', 'Research Concepts & Hypotheses', 'Testable ideas kept separate from established evidence']
+    ]
   }
 ];
 
@@ -134,10 +182,10 @@ function escapeHtml(value) {
     .replaceAll('"', '&quot;');
 }
 
-function loadedFragment(hub, section) {
+function sourceFragment(hub, section) {
   let fragment = extractSection(hub, section.id);
-  fragment = fragment.replace(/\s*<p class="section-page-route">[\s\S]*?<\/p>/i, '');
-  fragment = fragment.replace(/\s*<div class="chapter-nav">[\s\S]*?<\/div>\s*(?=<\/section>\s*$)/i, '\n');
+  fragment = fragment.replace(/\s*<p\b[^>]*class=(['"])[^'"]*\bsection-page-route\b[^'"]*\1[^>]*>[\s\S]*?<\/p>/i, '');
+  fragment = fragment.replace(/\s*<div\b[^>]*class=(['"])[^'"]*\bchapter-nav\b[^'"]*\1[^>]*>[\s\S]*?<\/div>\s*(?=<\/section>\s*$)/i, '\n');
   fragment = fragment.replace('<h2>', '<h1>').replace('</h2>', '</h1>');
   fragment = fragment.replaceAll('href="#bhoc-map"', 'href="/bhoc/#bhoc-map"');
   if (section.number === '04') {
@@ -146,13 +194,24 @@ function loadedFragment(hub, section) {
   return fragment;
 }
 
-function developmentFragment(section) {
-  const intro = section.number === '03'
-    ? 'This section route is preserved. The full section remains in development pending scientific and historical review.'
-    : 'This section route is preserved. The full section remains in development pending scientific review.';
-  return `<section class="chapter" id="${section.id}" data-bhoc-status="in-development">
-    <div class="chapter-header"><div class="chapter-no">${section.number}</div><div><p class="eyebrow">Understand BHOC</p><h1>${escapeHtml(section.name)}</h1><p class="chapter-intro">${intro}</p><span class="section-status is-development">In development</span></div></div>
-    <div class="key-idea"><small>Status</small><p>No previously approved BHOC content has been removed. This dedicated page will be completed only after review.</p></div>
+function pageStatus(section) {
+  if (section.status === 'loaded') {
+    return `<aside class="section-content-status is-loaded"><strong>Section ${section.number} of 08</strong><span>Complete approved section and connected source routes.</span></aside>`;
+  }
+  return `<aside class="section-content-status is-development"><strong>Section ${section.number} of 08 · In development</strong><span>All approved material to date is preserved below. The status limits indexing; it does not hide the existing information.</span></aside>`;
+}
+
+function relatedResources(section) {
+  const cards = section.related.map(([href, title, description]) => {
+    const external = /^https?:\/\//i.test(href);
+    return `<a href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}><small>Connected information</small><strong>${escapeHtml(title)}</strong><span>${escapeHtml(description)}</span><em>${external ? 'Open resource ↗' : 'Open page →'}</em></a>`;
+  }).join('\n      ');
+  return `<section class="section-related-resources" id="related-resources-${section.number}" aria-labelledby="related-${section.number}">
+    <div class="section-related-head"><p class="eyebrow">Continue through the BHOC knowledge architecture</p><h2 id="related-${section.number}">Related approved information and source routes.</h2></div>
+    <div class="section-related-grid">
+      ${cards}
+    </div>
+    <p class="section-author-links"><a href="/archil-jaliashvili/">Archil Jaliashvili →</a><a href="https://www.linkedin.com/in/archil-jaliashvili-bhoc/" target="_blank" rel="noopener noreferrer">Personal LinkedIn ↗</a><a href="https://www.linkedin.com/company/bhoc-therapeutics/" target="_blank" rel="noopener noreferrer">BHOC Therapeutics on LinkedIn ↗</a></p>
   </section>`;
 }
 
@@ -203,7 +262,7 @@ function pageHtml(hub, section) {
   const robots = section.status === 'loaded'
     ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
     : 'noindex,nofollow';
-  const content = section.status === 'loaded' ? loadedFragment(hub, section) : developmentFragment(section);
+  const content = sourceFragment(hub, section);
   const detailControls = section.number === '04'
     ? "const scienceDetails=[...document.querySelectorAll('#natural-regulation .science-detail')];document.querySelector('[data-science-details=\"open\"]')?.addEventListener('click',()=>scienceDetails.forEach(detail=>detail.open=true));document.querySelector('[data-science-details=\"close\"]')?.addEventListener('click',()=>scienceDetails.forEach(detail=>detail.open=false));"
     : '';
@@ -245,7 +304,9 @@ function pageHtml(hub, section) {
 <div class="brand-network"><div class="brand-network-inner" role="group" aria-label="BHOC websites"><span class="brand-network-title">BHOC NETWORK</span><a class="brand-network-link" href="https://archiljali.github.io/BHOC-platform/" target="_blank" rel="noopener noreferrer" aria-label="Open BHOC Scientific Evidence Hub">Scientific Evidence Hub ↗</a><a class="brand-network-link" href="https://bhocvet.com/" aria-label="Open BHOC Veterinary website"><span class="vet-wordmark">BH<span class="vet-o">O</span>C</span> Veterinary <small>bhocvet.com</small></a><span class="brand-network-link brand-network-pending" aria-disabled="true" title="Coming soon">BHOC Transplant <small>coming soon</small></span></div></div>
 <main class="bhoc-page bhoc-section-detail">
   <nav class="bhoc-crumbs" aria-label="Breadcrumb"><a href="/">BHOC Therapeutics</a><span>›</span><a href="/bhoc/">Understand BHOC</a><span>›</span><strong>${escapeHtml(section.name)}</strong></nav>
+  ${pageStatus(section)}
   ${content}
+  ${relatedResources(section)}
   ${sequenceNav(section)}
 </main>
 <footer><div class="footer-brand">BHOC THERAPEUTICS</div><p>Precision Oxygen Therapeutics</p><p><a href="/">Home</a> · <a href="/bhoc/">BHOC</a> · <a href="/science/">Science</a> · <a href="/technology/">Technology</a> · <a href="/applications/">Applications</a> · <a href="/evidence/">Evidence</a> · <a href="https://archiljali.github.io/BHOC-platform/concepts-hypotheses/" target="_blank" rel="noopener">Concepts &amp; Hypotheses ↗</a> · <a href="/news/">News</a> · <a href="/partners/">Investors &amp; Partners</a> · <a href="https://archiljali.github.io/BHOC-platform/" target="_blank" rel="noopener noreferrer">BHOC-platform ↗</a> · <a href="mailto:info@bhoctherapeutics.com">Contact</a></p><p class="legal">Scientific and educational website in development. References to Oxyglobin, Hemopure, HBOC, Biopure or other third-party technologies are provided for scientific and historical context and do not imply ownership, affiliation or approved indications.</p><p class="version">Section ${section.number} · ${section.status === 'loaded' ? 'Approved content' : 'In development'} · Updated 16 Sep 2026</p><p class="copyright">© 2026 BHOC Therapeutics.</p></footer>
