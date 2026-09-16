@@ -8,20 +8,20 @@ const hubPath = path.join(root, 'bhoc', 'index.html');
 const draftPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
 const baselinePath = path.join(root, 'bhoc', 'content-baseline.json');
 const sitemapPath = path.join(root, 'sitemap.xml');
-const authorityCssPath = path.join(root, 'bhoc', 'bhoc-authority.css');
 
 const protectedSections = [
-  ['what-bhoc', 'Overview'],
-  ['bhoc-map', 'Knowledge map'],
-  ['knowledge-updates', 'Knowledge updates'],
-  ['what-bhoc-detail', '01 What is BHOC'],
-  ['why-bhoc', '02 Why BHOC'],
-  ['natural-regulation', '04 Oxygen regulation'],
-  ['evolution-adaptation', '05 Evolution and adaptation'],
-  ['outside-rbc', '06 Outside the RBC'],
-  ['what-different', '07 BHOC difference'],
-  ['resources', 'Resources'],
-  ['precision-oxygen', '08 Precision Oxygen Therapeutics']
+  ['bhoc-overview', 'BHOC overview'],
+  ['why-bhoc', 'Why BHOC'],
+  ['terminology', 'Terminology'],
+  ['hemoglobin-system', 'Hemoglobin system'],
+  ['molecular-core', 'Molecular core'],
+  ['erythrocyte-system', 'Erythrocyte system'],
+  ['circulation-control', 'Circulation control'],
+  ['tissue-control', 'Tissue control'],
+  ['species-adaptation', 'Species adaptation'],
+  ['human-variation', 'Human variation'],
+  ['evidence-map', 'Evidence map'],
+  ['history', 'Historical evolution']
 ];
 
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -88,11 +88,9 @@ function robotsValue(html) {
     || '';
 }
 
-const [hub, draft, sitemap, authorityCss] = await Promise.all([
+const [hub, sitemap] = await Promise.all([
   fs.readFile(hubPath, 'utf8'),
-  fs.readFile(draftPath, 'utf8'),
-  fs.readFile(sitemapPath, 'utf8'),
-  fs.readFile(authorityCssPath, 'utf8')
+  fs.readFile(sitemapPath, 'utf8')
 ]);
 
 const sections = Object.fromEntries(protectedSections.map(([id, label]) => {
@@ -101,8 +99,8 @@ const sections = Object.fromEntries(protectedSections.map(([id, label]) => {
   return [id, record(fragment)];
 }));
 const snapshot = {
-  sourceCommit: 'f223aea4d24286df85190b4a6a91b8963ad438bb',
-  architecture: 'continuous-morning-hub',
+  sourceCommit: '64c32a80720d7a82bfd488ad9c5d89a624819614',
+  architecture: 'restored-2026-09-15-0942-hub',
   sections
 };
 
@@ -126,17 +124,19 @@ for (const [id, label] of protectedSections) {
   if (actual.textCharacters < expected.textCharacters) errors.push(`${label}: content became shorter`);
 }
 
-const map = extractSection(hub, 'bhoc-map') || '';
-const mapNumbers = [...map.matchAll(/<span\b[^>]*class=(["'])num\1[^>]*>(.*?)<\/span>/gi)].map(match => visibleText(match[2]));
-if (JSON.stringify(mapNumbers) !== JSON.stringify(['01', '02', '04', '05', '06', '07', '08'])) errors.push(`Published map is ${mapNumbers.join(', ')}; expected 01, 02, 04, 05, 06, 07, 08`);
+const subnav = hub.match(/<nav\b[^>]*class=(["'])bhoc-subnav\1[^>]*>[\s\S]*?<\/nav>/i)?.[0] || '';
+const subnavTargets = [...subnav.matchAll(/<a\b[^>]*href=(["'])#([^"']+)\1/gi)].map(match => match[2]);
+const expectedTargets = ['history', ...protectedSections.map(([id]) => id).filter(id => id !== 'history')];
+if (JSON.stringify(subnavTargets) !== JSON.stringify(expectedTargets)) errors.push(`BHOC subnavigation is ${subnavTargets.join(', ')}; expected ${expectedTargets.join(', ')}`);
 
-if (/id=(["'])artificial-blood\1/i.test(hub)) errors.push('Artificial Blood section is exposed in the hub');
-if (/href=(["'])#artificial-blood\1/i.test(hub)) errors.push('Artificial Blood route is exposed in the hub');
-if (robotsValue(draft) !== 'noindex,nofollow') errors.push('Artificial Blood draft must remain noindex,nofollow');
-if (!visibleText(draft).includes('In development')) errors.push('Artificial Blood direct route must show only its draft status');
+if (/href=(["'])\/bhoc\/artificial-blood-blood-substitute\/?\1/i.test(hub)) errors.push('Artificial Blood direct route is exposed in the hub');
+try {
+  await fs.access(draftPath);
+  errors.push('Artificial Blood direct page must remain unpublished');
+} catch (error) {
+  if (error?.code !== 'ENOENT') errors.push(`Unable to verify Artificial Blood page status: ${error.message}`);
+}
 if (sitemap.includes('/bhoc/artificial-blood-blood-substitute/')) errors.push('Artificial Blood draft must not be in the sitemap');
-if (authorityCss.includes('#evolution-adaptation>p') || authorityCss.includes('#evolution-adaptation .chapter-intro{font-size:0}')) errors.push('05 Evolution and adaptation must remain fully visible');
-if (!authorityCss.includes('.map-card[href="#evolution-adaptation"]:after{content:"Loaded 15 Sep 2026"}')) errors.push('05 Evolution and adaptation must remain marked as loaded');
 
 const ids = new Set([...hub.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2])));
 const missingFragments = [...new Set([...hub.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])#([^"']+)\1/gi)]
@@ -150,4 +150,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('BHOC content protection check passed: morning hub preserved, 01/02 and 04–08 visible, only Artificial Blood closed.');
+console.log('BHOC content protection check passed: exact 15 Sep 2026 09:42 hub preserved and the Artificial Blood direct page remains unpublished.');
