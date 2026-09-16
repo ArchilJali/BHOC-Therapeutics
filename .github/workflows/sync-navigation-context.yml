@@ -1,0 +1,53 @@
+name: Sync BHOC Therapeutics navigation context
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'navigation-context.js'
+      - 'scripts/inject_navigation_context.mjs'
+      - '.github/workflows/sync-navigation-context.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bhoc-therapeutics-navigation-context
+  cancel-in-progress: false
+
+jobs:
+  sync-navigation-context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      - name: Inject navigation context into public HTML
+        run: node scripts/inject_navigation_context.mjs
+
+      - name: Validate navigation script and site
+        run: |
+          node --check navigation-context.js
+          node scripts/check_site.mjs
+
+      - name: Commit synchronized HTML
+        run: |
+          git add -u
+          if git diff --cached --quiet; then
+            echo "Navigation context is already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Integrate shared navigation context across BHOC Therapeutics"
+          git pull --rebase origin main
+          git push
