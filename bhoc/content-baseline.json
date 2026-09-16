@@ -13,9 +13,9 @@
       "linksSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "terminology": {
-      "textCharacters": 637,
-      "textSha256": "5175f91fa5a990cfb2290b22180191d7320e7d7f3c8a90f66b25fd5b7d030223",
-      "linksSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "textCharacters": 696,
+      "textSha256": "1ac7cf50fcad455c8316c5a618476894c031e70dfc2259a4863fa7735a5319cd",
+      "linksSha256": "d145858b96dda4bccc2f054952729661181459a8b06a584c7c612f8db0d4c8bc"
     },
     "hemoglobin-system": {
       "textCharacters": 1096,
@@ -62,5 +62,9 @@
       "textSha256": "b3523dde86e15d95c3f58c5e0f27b00bb7022773be3fd34bdf5c9b03521a48be",
       "linksSha256": "51a890e3a8b16f74a09998a370e5ad251e8220a1b661268a19ac62780b0d3eee"
     }
+  },
+  "approvedNavigationUpdate": {
+    "startingCommit": "89ddd34c464278a79528f5be3c1776b0fc9af256",
+    "scope": "User-requested terminology heading and reading links; other section fingerprints unchanged"
   }
 }

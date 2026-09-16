@@ -126,7 +126,7 @@ for (const [id, label] of protectedSections) {
 
 const subnav = hub.match(/<nav\b[^>]*class=(["'])bhoc-subnav\1[^>]*>[\s\S]*?<\/nav>/i)?.[0] || '';
 const subnavTargets = [...subnav.matchAll(/<a\b[^>]*href=(["'])#([^"']+)\1/gi)].map(match => match[2]);
-const expectedTargets = ['history', ...protectedSections.map(([id]) => id).filter(id => id !== 'history')];
+const expectedTargets = JSON.parse(await fs.readFile(path.join(root, 'bhoc', 'navigation.json'), 'utf8')).sections.map(item => item.id);
 if (JSON.stringify(subnavTargets) !== JSON.stringify(expectedTargets)) errors.push(`BHOC subnavigation is ${subnavTargets.join(', ')}; expected ${expectedTargets.join(', ')}`);
 
 if (/href=(["'])\/bhoc\/artificial-blood-blood-substitute\/?\1/i.test(hub)) errors.push('Artificial Blood direct route is exposed in the hub');
@@ -150,4 +150,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('BHOC content protection check passed: exact 15 Sep 2026 09:42 hub preserved and the Artificial Blood direct page remains unpublished.');
+console.log('BHOC content protection check passed: protected hub preserved with the user-approved terminology heading and navigation and the Artificial Blood direct page remains unpublished.');
