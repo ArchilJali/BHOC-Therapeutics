@@ -6,7 +6,8 @@
   const body = document.body;
   const main = document.querySelector('main');
   if (!body || !main) return;
-  if (!body.id) body.id = 'top';
+  if (!body.id) body.id = main.id === 'top' ? 'page-top' : 'top';
+  if (!main.id) main.id = 'main-content';
 
   const current = new URL(window.location.href);
   const pageBase = value => {
@@ -158,6 +159,8 @@
       .bhoc-context-bottom{justify-content:flex-end;margin-top:34px;padding:16px 0 10px;border-top:1px solid rgba(51,79,72,.16)}
       .bhoc-context-top{position:fixed;right:18px;bottom:18px;z-index:1200;display:none;align-items:center;justify-content:center;min-width:48px;height:38px;padding:0 12px;border:1px solid rgba(49,93,84,.24);border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(24,47,42,.14);color:#315d54;font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
       .bhoc-context-top.is-visible{display:flex}
+      .bhoc-skip-link{position:fixed;left:16px;top:10px;z-index:2000;transform:translateY(-150%);padding:9px 13px;border:2px solid #102f49;border-radius:9px;background:#fff;color:#102f49;font:800 13px/1.2 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 8px 24px rgba(16,47,73,.18)}
+      .bhoc-skip-link:focus{transform:translateY(0)}
       .bhoc-section-page .bhoc-guide,.bhoc-section-page .bhoc-crumbs,.bhoc-section-page .legacy-bhoc-crumbs{display:none!important}
       .bhoc-subnav{position:sticky;top:0;z-index:45;border-top:1px solid #d9e5f4;border-bottom:1px solid #d9e5f4;background:rgba(255,255,255,.97);backdrop-filter:blur(10px)}
       .bhoc-subnav-inner{display:flex;align-items:center;gap:5px;width:min(1180px,calc(100% - 48px));min-height:48px;margin:auto;overflow-x:auto;scrollbar-width:thin}
@@ -168,6 +171,14 @@
       @media(max-width:720px){.bhoc-context-nav{align-items:flex-start;flex-direction:column;gap:7px;margin-top:6px;padding:8px 10px}.bhoc-context-trail{gap:6px}.bhoc-context-actions{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.bhoc-context-actions a,.bhoc-context-actions button{flex:0 0 auto}.bhoc-context-current{max-width:calc(100vw - 88px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bhoc-context-bottom{justify-content:flex-start}.bhoc-context-top{right:12px;bottom:12px}.bhoc-subnav-inner{width:calc(100% - 24px);min-height:46px}.bhoc-subnav .subnav-title{display:none}}
     `;
     document.head.appendChild(style);
+  }
+
+  if (!document.querySelector('.bhoc-skip-link')) {
+    const skipLink = document.createElement('a');
+    skipLink.className = 'bhoc-skip-link';
+    skipLink.href = `#${main.id}`;
+    skipLink.textContent = 'Skip to content';
+    body.prepend(skipLink);
   }
 
   const bar = document.createElement('nav');
