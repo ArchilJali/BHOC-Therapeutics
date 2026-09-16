@@ -92,14 +92,14 @@
   const bhocNavigation = [
     {label: 'Overview', location: 'Overview', href: '/bhoc/#what-bhoc', target: 'what-bhoc'},
     {label: 'Latest Updates', location: 'Latest Updates', href: '/bhoc/#knowledge-updates', target: 'knowledge-updates'},
-    {label: '01 What', location: '01 · What is BHOC?', href: '/bhoc/#what-bhoc-detail', target: 'what-bhoc-detail'},
-    {label: '02 Why', location: '02 · Why BHOC?', href: '/bhoc/#why-bhoc', target: 'why-bhoc'},
+    {label: '01 What', location: '01 · What is BHOC?', href: '/bhoc/what-is-bhoc/', target: 'what-bhoc-detail', path: '/bhoc/what-is-bhoc/'},
+    {label: '02 Why', location: '02 · Why BHOC?', href: '/bhoc/why-bhoc/', target: 'why-bhoc', path: '/bhoc/why-bhoc/'},
     {label: '03 Artificial Blood', location: '03 · Artificial Blood & Blood Substitute', href: '/bhoc/artificial-blood-blood-substitute/', target: 'artificial-blood', path: '/bhoc/artificial-blood-blood-substitute/'},
-    {label: '04 Oxygen Regulation', location: '04 · Oxygen Regulation', href: '/bhoc/#natural-regulation', target: 'natural-regulation'},
-    {label: '05 Evolution', location: '05 · Evolution & Adaptation', href: '/bhoc/#evolution-adaptation', target: 'evolution-adaptation'},
-    {label: '06 Outside RBC', location: '06 · Outside the RBC', href: '/bhoc/#outside-rbc', target: 'outside-rbc'},
-    {label: '07 BHOC Difference', location: '07 · BHOC Difference', href: '/bhoc/#what-different', target: 'what-different'},
-    {label: '08 Why We Exist', location: '08 · Why We Exist', href: '/bhoc/#precision-oxygen', target: 'precision-oxygen'},
+    {label: '04 Oxygen Regulation', location: '04 · Oxygen Regulation', href: '/bhoc/oxygen-regulation/', target: 'natural-regulation', path: '/bhoc/oxygen-regulation/'},
+    {label: '05 Evolution', location: '05 · Evolution & Adaptation', href: '/bhoc/evolution-adaptation/', target: 'evolution-adaptation', path: '/bhoc/evolution-adaptation/'},
+    {label: '06 Outside RBC', location: '06 · Outside the RBC', href: '/bhoc/hemoglobin-outside-red-blood-cell/', target: 'outside-rbc', path: '/bhoc/hemoglobin-outside-red-blood-cell/'},
+    {label: '07 BHOC Difference', location: '07 · BHOC Difference', href: '/bhoc/what-makes-bhoc-different/', target: 'what-different', path: '/bhoc/what-makes-bhoc-different/'},
+    {label: '08 Why We Exist', location: '08 · Why We Exist', href: '/bhoc/precision-oxygen-therapeutics/', target: 'precision-oxygen', path: '/bhoc/precision-oxygen-therapeutics/'},
     {label: 'History', location: 'Historical Evolution', href: '/bhoc/historical-evolution/', path: '/bhoc/historical-evolution/'}
   ];
 

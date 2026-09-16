@@ -1,75 +1,75 @@
 {
-  "schemaVersion": 1,
-  "approvedState": "Recovered from the user-approved BHOC Authority Hub state of 15 Sep 2026 while preserving the 01–08 architecture and the approved evening wording correction.",
-  "changeRule": "Content, links, routes, completion statuses, expanded scientific visibility and BHOC-only route context are protected. Do not update this baseline unless the user explicitly approves every affected item.",
+  "schemaVersion": 2,
+  "approvedState": "Recovered from the user-approved BHOC Authority Hub state of 15 Sep 2026, with the user-requested dedicated 01–08 page architecture restored on 16 Sep 2026.",
+  "changeRule": "Content, links, dedicated page routes, completion statuses, expanded scientific visibility and BHOC-only route context are protected. Do not update this baseline unless the user explicitly approves every affected item.",
   "sections": {
     "what-bhoc-detail": {
       "number": "01",
       "status": "loaded",
-      "textCharacters": 1137,
-      "textSha256": "e652051c576ffe449953ba1ddfb5eaf3e4440c5191dab50584d8e9b19f05bd3b",
-      "linksSha256": "78dd1ddae9a9ebaf18f38018f11033d6f4211afd36394d62ca74521217b60d5f"
+      "textCharacters": 1161,
+      "textSha256": "948321f633b155336067b1969ed1e0b2f57162d99eaaf4ad386f360edb8c93c5",
+      "linksSha256": "3b93f807b0cb5734080c95f3452aff63df646b09888d592251298338481f07ba"
     },
     "why-bhoc": {
       "number": "02",
       "status": "loaded",
-      "textCharacters": 943,
-      "textSha256": "2f8a1e1e659a9cbc4653567d649ae3109a14e16a5e4093e3f201e0420914d4c6",
-      "linksSha256": "4538c6fecbe1b0c79dd5707616024d812241478e9d6984a74b333e56768682ef"
+      "textCharacters": 967,
+      "textSha256": "395a0bf646bc80d70198b2439aaf7b5849dc51a5c79fa5c2f46445ad3edcd300",
+      "linksSha256": "99aae98cac0d55371eda4e621677d91d278b3c6a9c1114b6fb96c5bee82e41a7"
     },
     "artificial-blood": {
       "number": "03",
       "status": "in-development",
-      "textCharacters": 1526,
-      "textSha256": "70f11438773eac04d4421970294d7c6e84ff935d994fe236de6c7c5072ebac76",
-      "linksSha256": "20cf0f3f10849109145a52b473fe84409d1b6521a3b5fea57605898b07699ce8"
+      "textCharacters": 1560,
+      "textSha256": "c3a8fe8e3fe57533dbf99223d548649d9ef09dc1f9259e4f8cefc60dc3ffa317",
+      "linksSha256": "2651176ccfa3c14c4d67b898e4de4d88ccf02f6df530369a572ef04d85d1f42f"
     },
     "natural-regulation": {
       "number": "04",
       "status": "loaded",
-      "textCharacters": 18794,
-      "textSha256": "9084c035b9a1c5e5b1a5619deb1199557c5c5cad64ac6ac0386ff705d43df97f",
-      "linksSha256": "b3621e2f02f9524de8649c97e5f253d61aa663ecbf20e207a8ae99a59a39564b"
+      "textCharacters": 18829,
+      "textSha256": "2d8e56dfed2e1f20b0b45ca651852478aec4ea4a31ad6992a94348832fc780ef",
+      "linksSha256": "7419c81d07ed7b68748074f934fd65099d26ca9ffae86a667eeee0578e2c36bb"
     },
     "evolution-adaptation": {
       "number": "05",
       "status": "in-development",
-      "textCharacters": 2534,
-      "textSha256": "cd4f3b806a25eda13b30e2f7cf554dcc78dc19ebf1d41b858102ebc235379b4b",
-      "linksSha256": "98da15cb7e904fd101f0826e1ef4bb1a64bebca9c8cd5aff815f9eb5b58efe2e"
+      "textCharacters": 2568,
+      "textSha256": "83c3857e32118848a347e31ed1fa6a8eed38386c3c7d71cee9bfc5b316b31ca2",
+      "linksSha256": "af91fc7c21792be26580ce5ba2f8c54d1d037640f03f32dd1fea70f318218896"
     },
     "outside-rbc": {
       "number": "06",
       "status": "loaded",
-      "textCharacters": 1279,
-      "textSha256": "94d78cfd4ed89cab6fa8b6ecb65c3ed038fc430b2644f63243bf7361d0360f65",
-      "linksSha256": "93a6b5c80229e661560c331bad39da73b317a8e8f8f3d68ac490d521463f8a64"
+      "textCharacters": 1303,
+      "textSha256": "a8c3019be9ad6af2f5b70603d05883623ae31edd85e6ce780629c68116132e18",
+      "linksSha256": "d4eebe406fecf59709e2bcee0bda35c94b7c6baa1e2ff4aeff77f43ffdc7ba66"
     },
     "what-different": {
       "number": "07",
       "status": "loaded",
-      "textCharacters": 922,
-      "textSha256": "7dadb5dc4ba19270c5fd0c5f06a7daf6fcc50247092400742fe98bcadb63ae49",
-      "linksSha256": "e13160aae0ff584ff96c9cd48ffdc24f838829ff8cc70f11e23ce36cb060223e"
+      "textCharacters": 940,
+      "textSha256": "06d30eb519b1e167c75d56608a80b37d85e8713d71de3f3571c05c8474c35311",
+      "linksSha256": "c4eda133b479986a919f5bd3f85e07cf566c54af397b2b1a961be5254c7fe454"
     },
     "precision-oxygen": {
       "number": "08",
       "status": "loaded",
-      "textCharacters": 1017,
-      "textSha256": "aa1504c71ff73e91d29bf96ad12b4db06abc5e4581c57bb78b29714750c397e1",
-      "linksSha256": "c537bc5ad9279171484223b71cf21118cf8849f3706b2d5f0d499765ff343c75"
+      "textCharacters": 1041,
+      "textSha256": "0e3c18c063125c928baf670efec2404b28060a8543c75afd723e68b9e521a00c",
+      "linksSha256": "f2dfc4144eab448986e2e61f21a08a48e529cac077df784cfffdd6f8dde62747"
     }
   },
   "auxiliarySections": {
     "knowledge-updates": {
-      "textCharacters": 1425,
-      "textSha256": "5822019b1f5ce817df041c72673be096010040869c45a65cca8f2a27ecdd6dbc",
-      "linksSha256": "d9b501991c302e639953786d2304e092780d300d9d998b9d263ce7e67c7bcf20"
+      "textCharacters": 1426,
+      "textSha256": "8a08c3e80708098a8f404be89e5c221fe6999613a947c14a3090a487a7f8df5d",
+      "linksSha256": "9586d4888c3c069ba62d30af075295aeac2935513c0d53e1353f3a74c6546375"
     },
     "resources": {
       "textCharacters": 3892,
       "textSha256": "c67d991a3e4202744856e3e3ff6691ceed613c1b3db63c7ec2572dfe5cbbc750",
-      "linksSha256": "50a6839f458dd6ae59e4fc240a073d59ad009c047acd4195d3c7e12b62a9ca4d"
+      "linksSha256": "c66465b1267449753400cbdf2d41b24864108e2f7bc028e7fb92a22cc198c713"
     }
   },
   "expandedDetails": {
@@ -79,30 +79,36 @@
     "tissue-control": true
   },
   "map": [
-    {"number": "01", "href": "#what-bhoc-detail", "status": "loaded"},
-    {"number": "02", "href": "#why-bhoc", "status": "loaded"},
-    {"number": "03", "href": "#artificial-blood", "status": "in-development"},
-    {"number": "04", "href": "#natural-regulation", "status": "loaded"},
-    {"number": "05", "href": "#evolution-adaptation", "status": "in-development"},
-    {"number": "06", "href": "#outside-rbc", "status": "loaded"},
-    {"number": "07", "href": "#what-different", "status": "loaded"},
-    {"number": "08", "href": "#precision-oxygen", "status": "loaded"}
+    {"number": "01", "href": "/bhoc/what-is-bhoc/", "status": "loaded"},
+    {"number": "02", "href": "/bhoc/why-bhoc/", "status": "loaded"},
+    {"number": "03", "href": "/bhoc/artificial-blood-blood-substitute/", "status": "in-development"},
+    {"number": "04", "href": "/bhoc/oxygen-regulation/", "status": "loaded"},
+    {"number": "05", "href": "/bhoc/evolution-adaptation/", "status": "in-development"},
+    {"number": "06", "href": "/bhoc/hemoglobin-outside-red-blood-cell/", "status": "loaded"},
+    {"number": "07", "href": "/bhoc/what-makes-bhoc-different/", "status": "loaded"},
+    {"number": "08", "href": "/bhoc/precision-oxygen-therapeutics/", "status": "loaded"}
   ],
-  "childPage": {
-    "robots": "noindex,nofollow",
-    "status": "in-development"
+  "sectionPages": {
+    "what-bhoc-detail": {"path": "/bhoc/what-is-bhoc/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"},
+    "why-bhoc": {"path": "/bhoc/why-bhoc/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"},
+    "artificial-blood": {"path": "/bhoc/artificial-blood-blood-substitute/", "status": "in-development", "robots": "noindex,nofollow"},
+    "natural-regulation": {"path": "/bhoc/oxygen-regulation/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"},
+    "evolution-adaptation": {"path": "/bhoc/evolution-adaptation/", "status": "in-development", "robots": "noindex,nofollow"},
+    "outside-rbc": {"path": "/bhoc/hemoglobin-outside-red-blood-cell/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"},
+    "what-different": {"path": "/bhoc/what-makes-bhoc-different/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"},
+    "precision-oxygen": {"path": "/bhoc/precision-oxygen-therapeutics/", "status": "loaded", "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"}
   },
   "navigationScopedToBhoc": true,
   "requiredRoutes": [
-    "#what-bhoc-detail",
-    "#why-bhoc",
-    "#artificial-blood",
-    "#natural-regulation",
-    "#evolution-adaptation",
-    "#outside-rbc",
-    "#what-different",
-    "#precision-oxygen",
+    "/bhoc/what-is-bhoc/",
+    "/bhoc/why-bhoc/",
     "/bhoc/artificial-blood-blood-substitute/",
+    "/bhoc/oxygen-regulation/",
+    "/bhoc/evolution-adaptation/",
+    "/bhoc/hemoglobin-outside-red-blood-cell/",
+    "/bhoc/what-makes-bhoc-different/",
+    "/bhoc/precision-oxygen-therapeutics/",
+    "/bhoc/#bhoc-map",
     "/bhoc/historical-evolution/",
     "https://archiljali.github.io/BHOC-platform/human/BHOC-Human-index.html",
     "https://archiljali.github.io/BHOC-platform/veterinary/Vet-index.html",

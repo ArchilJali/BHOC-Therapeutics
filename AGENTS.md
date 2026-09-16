@@ -15,6 +15,17 @@ These rules apply to every file in this repository.
 - Loaded: 01, 02, 04, 06, 07, 08.
 - In development: 03 `Artificial Blood & Blood Substitute`, 05 `Evolution & adaptation`.
 - In-development routes remain visible and usable, but their dedicated pages remain `noindex` until explicitly approved as complete.
+- Every numbered section has both a preserved hub section and a dedicated route:
+  - 01 `/bhoc/what-is-bhoc/`
+  - 02 `/bhoc/why-bhoc/`
+  - 03 `/bhoc/artificial-blood-blood-substitute/`
+  - 04 `/bhoc/oxygen-regulation/`
+  - 05 `/bhoc/evolution-adaptation/`
+  - 06 `/bhoc/hemoglobin-outside-red-blood-cell/`
+  - 07 `/bhoc/what-makes-bhoc-different/`
+  - 08 `/bhoc/precision-oxygen-therapeutics/`
+- Loaded dedicated pages must retain the complete approved hub-section text and links. They are not summaries.
+- The BHOC map cards, the section-level page links, the previous/next controls and the top BHOC route bar must keep these routes connected. The current route must remain visibly highlighted.
 - The protected text, links, routes, and statuses are recorded in `bhoc/content-baseline.json`.
 - Do not edit that baseline merely to make a failing check pass. Update it only after the user explicitly approves every corresponding content or status change.
 

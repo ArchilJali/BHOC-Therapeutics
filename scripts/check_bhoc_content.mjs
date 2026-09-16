@@ -5,20 +5,20 @@ import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const pagePath = path.join(root, 'bhoc', 'index.html');
-const childPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
 const baselinePath = path.join(root, 'bhoc', 'content-baseline.json');
 const authorityCssPath = path.join(root, 'bhoc', 'bhoc-authority.css');
 const navigationPath = path.join(root, 'navigation-context.js');
+const sitemapPath = path.join(root, 'sitemap.xml');
 
 const sectionSpecs = [
-  {number: '01', id: 'what-bhoc-detail', status: 'loaded'},
-  {number: '02', id: 'why-bhoc', status: 'loaded'},
-  {number: '03', id: 'artificial-blood', status: 'in-development'},
-  {number: '04', id: 'natural-regulation', status: 'loaded'},
-  {number: '05', id: 'evolution-adaptation', status: 'in-development'},
-  {number: '06', id: 'outside-rbc', status: 'loaded'},
-  {number: '07', id: 'what-different', status: 'loaded'},
-  {number: '08', id: 'precision-oxygen', status: 'loaded'}
+  {number: '01', id: 'what-bhoc-detail', slug: 'what-is-bhoc', status: 'loaded'},
+  {number: '02', id: 'why-bhoc', slug: 'why-bhoc', status: 'loaded'},
+  {number: '03', id: 'artificial-blood', slug: 'artificial-blood-blood-substitute', status: 'in-development'},
+  {number: '04', id: 'natural-regulation', slug: 'oxygen-regulation', status: 'loaded'},
+  {number: '05', id: 'evolution-adaptation', slug: 'evolution-adaptation', status: 'in-development'},
+  {number: '06', id: 'outside-rbc', slug: 'hemoglobin-outside-red-blood-cell', status: 'loaded'},
+  {number: '07', id: 'what-different', slug: 'what-makes-bhoc-different', status: 'loaded'},
+  {number: '08', id: 'precision-oxygen', slug: 'precision-oxygen-therapeutics', status: 'loaded'}
 ];
 
 const auxiliarySectionIds = ['knowledge-updates', 'resources'];
@@ -123,26 +123,73 @@ function mapRecords(html) {
   });
 }
 
-function childRecord(html) {
-  const robots = html.match(/<meta\b[^>]*name\s*=\s*(["'])robots\1[^>]*content\s*=\s*(["'])(.*?)\2/i)?.[3]
+function robotsValue(html) {
+  return html.match(/<meta\b[^>]*name\s*=\s*(["'])robots\1[^>]*content\s*=\s*(["'])(.*?)\2/i)?.[3]
     || html.match(/<meta\b[^>]*content\s*=\s*(["'])(.*?)\1[^>]*name\s*=\s*(["'])robots\3/i)?.[2]
     || '';
-  const fragment = extractSection(html, 'artificial-blood');
-  if (!fragment) throw new Error('Missing protected child-page section #artificial-blood');
+}
+
+function sectionCore(fragment) {
+  return fragment
+    .replace(/\s*<p\b[^>]*class\s*=\s*(["'])[^"']*\bsection-page-route\b[^"']*\1[^>]*>[\s\S]*?<\/p>/gi, '')
+    .replace(/\s*<div\b[^>]*class\s*=\s*(["'])[^"']*\bchapter-nav\b[^"']*\1[^>]*>[\s\S]*?<\/div>/gi, '');
+}
+
+function normalizeSectionLink(link, spec) {
+  if (link === '#bhoc-map') return '/bhoc/#bhoc-map';
+  if (spec.number === '04' && link === '#species-adaptation') return '/bhoc/evolution-adaptation/';
+  return link;
+}
+
+function sectionPageRecord(html, spec) {
+  const route = `/bhoc/${spec.slug}/`;
+  const fragment = extractSection(html, spec.id);
+  if (!fragment) throw new Error(`Missing dedicated page section #${spec.id} at ${route}`);
   const openingTag = fragment.match(/^<section\b[^>]*>/i)?.[0] || '';
-  return {robots, status: attributes(openingTag)['data-bhoc-status'] || ''};
+  const core = sectionCore(fragment);
+  const coreText = visibleText(core);
+  const coreLinks = [...core.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)]
+    .map(match => normalizeSectionLink(decodeEntities(match[2]), spec));
+  const canonical = html.match(/<link\b[^>]*rel\s*=\s*(["'])canonical\1[^>]*href\s*=\s*(["'])(.*?)\2/i)?.[3]
+    || html.match(/<link\b[^>]*href\s*=\s*(["'])(.*?)\1[^>]*rel\s*=\s*(["'])canonical\3/i)?.[2]
+    || '';
+  return {
+    path: route,
+    status: attributes(openingTag)['data-bhoc-status'] || '',
+    robots: robotsValue(html),
+    canonical,
+    h1Count: [...html.matchAll(/<h1\b/gi)].length,
+    textCharacters: coreText.length,
+    textSha256: sha256(coreText),
+    links: coreLinks,
+    linksSha256: sha256(coreLinks.join('\n'))
+  };
+}
+
+function hubCoreRecord(html, spec) {
+  const fragment = extractSection(html, spec.id);
+  if (!fragment) throw new Error(`Missing protected hub section #${spec.id}`);
+  const core = sectionCore(fragment);
+  const text = visibleText(core);
+  const links = [...core.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)]
+    .map(match => normalizeSectionLink(decodeEntities(match[2]), spec));
+  return {textCharacters: text.length, textSha256: sha256(text), links, linksSha256: sha256(links.join('\n'))};
 }
 
 const page = await fs.readFile(pagePath, 'utf8');
-const child = await fs.readFile(childPath, 'utf8');
 const authorityCss = await fs.readFile(authorityCssPath, 'utf8');
 const navigation = await fs.readFile(navigationPath, 'utf8');
+const sitemap = await fs.readFile(sitemapPath, 'utf8');
+const sectionPageSources = Object.fromEntries(await Promise.all(sectionSpecs.map(async spec => [
+  spec.id,
+  await fs.readFile(path.join(root, 'bhoc', spec.slug, 'index.html'), 'utf8')
+])));
 const snapshot = {
   sections: Object.fromEntries(sectionSpecs.map(spec => [spec.id, sectionRecord(page, spec)])),
   auxiliarySections: Object.fromEntries(auxiliarySectionIds.map(id => [id, auxiliarySectionRecord(page, id)])),
   expandedDetails: expandedDetailRecords(page),
   map: mapRecords(page),
-  childPage: childRecord(child),
+  sectionPages: Object.fromEntries(sectionSpecs.map(spec => [spec.id, sectionPageRecord(sectionPageSources[spec.id], spec)])),
   navigationScopedToBhoc: navigation.includes('if (!isBhocSection) return;')
 };
 
@@ -188,7 +235,43 @@ for (const spec of sectionSpecs.filter(item => item.status === 'loaded')) {
 }
 
 if (JSON.stringify(snapshot.map) !== JSON.stringify(baseline.map)) errors.push('BHOC map routes or completion statuses changed');
-if (JSON.stringify(snapshot.childPage) !== JSON.stringify(baseline.childPage)) errors.push('Artificial Blood child-page status or robots policy changed');
+
+for (const [index, spec] of sectionSpecs.entries()) {
+  const expected = baseline.sectionPages?.[spec.id];
+  const actual = snapshot.sectionPages[spec.id];
+  const source = sectionPageSources[spec.id];
+  const route = `/bhoc/${spec.slug}/`;
+  const canonical = `https://bhoctherapeutics.com${route}`;
+  if (!expected) {
+    errors.push(`${route}: missing from dedicated-page baseline`);
+    continue;
+  }
+  if (actual.path !== expected.path || actual.path !== route) errors.push(`${route}: dedicated page route changed`);
+  if (actual.status !== expected.status || actual.status !== spec.status) errors.push(`${route}: status ${actual.status || '(missing)'}; expected ${spec.status}`);
+  if (actual.robots !== expected.robots) errors.push(`${route}: robots policy changed (${actual.robots || '(missing)'})`);
+  if (actual.canonical !== canonical) errors.push(`${route}: canonical route is ${actual.canonical || '(missing)'}`);
+  if (actual.h1Count !== 1) errors.push(`${route}: expected exactly one H1, found ${actual.h1Count}`);
+  if (!page.includes(`href="${route}"`) && !page.includes(`href='${route}'`)) errors.push(`${route}: hub link is missing`);
+  if (!navigation.includes(`path: '${route}'`)) errors.push(`${route}: top route navigation mapping is missing`);
+  if (!source.includes('href="/bhoc/#bhoc-map"')) errors.push(`${route}: return to BHOC map is missing`);
+
+  const sitemapHasRoute = sitemap.includes(`<loc>${canonical}</loc>`);
+  if (spec.status === 'loaded') {
+    const hubCore = hubCoreRecord(page, spec);
+    if (actual.textSha256 !== hubCore.textSha256 || actual.textCharacters !== hubCore.textCharacters) errors.push(`${route}: full approved section text is not synchronized with the hub`);
+    if (actual.linksSha256 !== hubCore.linksSha256) errors.push(`${route}: approved section links are not synchronized with the hub`);
+    if (!/^index,follow/i.test(actual.robots)) errors.push(`${route}: loaded page must be indexable`);
+    if (!sitemapHasRoute) errors.push(`${route}: loaded page is missing from sitemap`);
+  } else {
+    if (actual.robots !== 'noindex,nofollow') errors.push(`${route}: in-development page must remain noindex,nofollow`);
+    if (sitemapHasRoute) errors.push(`${route}: in-development page must not be in sitemap`);
+  }
+
+  const previous = sectionSpecs[index - 1];
+  const next = sectionSpecs[index + 1];
+  if (previous && !source.includes(`href="/bhoc/${previous.slug}/"`)) errors.push(`${route}: previous-section route is missing`);
+  if (next && !source.includes(`href="/bhoc/${next.slug}/"`)) errors.push(`${route}: next-section route is missing`);
+}
 
 for (const route of baseline.requiredRoutes || []) {
   if (!page.includes(`href="${route}"`) && !page.includes(`href='${route}'`)) errors.push(`Required route is missing: ${route}`);
@@ -205,4 +288,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`BHOC content preservation check passed: ${sectionSpecs.length} sections, ${snapshot.map.length} map routes, child-page status protected.`);
+console.log(`BHOC content preservation check passed: ${sectionSpecs.length} hub sections, ${snapshot.map.length} dedicated routes, statuses and full-page content protected.`);
