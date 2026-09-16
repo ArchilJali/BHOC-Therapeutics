@@ -6,10 +6,14 @@ on:
     branches: [main]
     paths:
       - '**.html'
+      - '**.css'
       - 'assets/**'
+      - 'navigation-context.js'
       - 'robots.txt'
       - 'sitemap.xml'
-      - 'scripts/check_site.mjs'
+      - 'bhoc/content-baseline.json'
+      - 'scripts/**'
+      - 'AGENTS.md'
       - '.github/workflows/validate-site.yml'
   workflow_dispatch:
 
@@ -29,6 +33,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+
+      - name: Protect approved BHOC content, routes and statuses
+        run: node scripts/check_bhoc_content.mjs
 
       - name: Validate SEO, schema, sitemap, redirects and local links
         run: node scripts/check_site.mjs

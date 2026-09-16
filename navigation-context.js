@@ -9,7 +9,11 @@
   if (!body.id) body.id = 'top';
 
   const current = new URL(window.location.href);
-  const currentBase = `${current.origin}${current.pathname}${current.search}`;
+  const pageBase = value => {
+    const url = new URL(value, current.href);
+    return `${url.origin}${url.pathname.replace(/\/index\.html$/, '/')}`;
+  };
+  const currentBase = pageBase(current.href);
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
   const clamp = (value, max = 58) => {
     const text = clean(value);
@@ -51,7 +55,7 @@
     if (host === 'bhocvet.com' || host === 'www.bhocvet.com') {
       return {name: 'BHOC Veterinary', home: 'https://bhocvet.com/'};
     }
-    if (host === 'bhoctherapeutics.com' || host === 'www.bhoctherapeutics.com') {
+    if (host === 'bhoctherapeutics.com' || host === 'www.bhoctherapeutics.com' || host === '127.0.0.1' || host === 'localhost') {
       return {name: 'BHOC Therapeutics', home: 'https://bhoctherapeutics.com/'};
     }
     return {name: 'BHOC', home: '/'};
@@ -72,7 +76,7 @@
     }
     if (site.name === 'BHOC Therapeutics') {
       if (p === '/' || p === '/index.html') return {label: 'Home', href: site.home};
-      if (p.startsWith('/bhoc/')) return {label: 'BHOC', href: 'https://bhoctherapeutics.com/bhoc/'};
+      if (p.startsWith('/bhoc/')) return {label: 'Understand BHOC', href: 'https://bhoctherapeutics.com/bhoc/'};
       if (p.startsWith('/news/')) return {label: 'News', href: 'https://bhoctherapeutics.com/news/'};
       const map = [['science/', 'Science'], ['technology/', 'Technology'], ['applications/', 'Applications'], ['evidence/', 'Evidence'], ['partners/', 'Partners'], ['archil-jaliashvili/', 'Archil Jaliashvili']];
       const hit = map.find(([segment]) => p.includes('/' + segment));
@@ -81,11 +85,29 @@
     return {label: pageHeading, href: current.href.split('#')[0]};
   })();
 
+  const isBhocSection = site.name === 'BHOC Therapeutics' && current.pathname.startsWith('/bhoc/');
+  const isBhocHub = isBhocSection && /^\/bhoc\/(?:index\.html)?$/.test(current.pathname);
+  if (isBhocSection) body.classList.add('bhoc-section-page');
+
+  const bhocNavigation = [
+    {label: 'Overview', location: 'Overview', href: '/bhoc/#what-bhoc', target: 'what-bhoc'},
+    {label: 'Latest Updates', location: 'Latest Updates', href: '/bhoc/#knowledge-updates', target: 'knowledge-updates'},
+    {label: '01 What', location: '01 · What is BHOC?', href: '/bhoc/#what-bhoc-detail', target: 'what-bhoc-detail'},
+    {label: '02 Why', location: '02 · Why BHOC?', href: '/bhoc/#why-bhoc', target: 'why-bhoc'},
+    {label: '03 Artificial Blood', location: '03 · Artificial Blood & Blood Substitute', href: '/bhoc/artificial-blood-blood-substitute/', target: 'artificial-blood', path: '/bhoc/artificial-blood-blood-substitute/'},
+    {label: '04 Oxygen Regulation', location: '04 · Oxygen Regulation', href: '/bhoc/#natural-regulation', target: 'natural-regulation'},
+    {label: '05 Evolution', location: '05 · Evolution & Adaptation', href: '/bhoc/#evolution-adaptation', target: 'evolution-adaptation'},
+    {label: '06 Outside RBC', location: '06 · Outside the RBC', href: '/bhoc/#outside-rbc', target: 'outside-rbc'},
+    {label: '07 BHOC Difference', location: '07 · BHOC Difference', href: '/bhoc/#what-different', target: 'what-different'},
+    {label: '08 Why We Exist', location: '08 · Why We Exist', href: '/bhoc/#precision-oxygen', target: 'precision-oxygen'},
+    {label: 'History', location: 'Historical Evolution', href: '/bhoc/historical-evolution/', path: '/bhoc/historical-evolution/'}
+  ];
+
   let referrer = null;
   try {
     if (document.referrer) {
       const candidate = new URL(document.referrer);
-      const candidateBase = `${candidate.origin}${candidate.pathname}${candidate.search}`;
+      const candidateBase = pageBase(candidate.href);
       if (trustedHost(candidate.hostname) && candidateBase !== currentBase) {
         referrer = {url: candidate.href, label: ecosystemLabel(candidate)};
       }
@@ -95,7 +117,7 @@
   let stored = null;
   try {
     stored = JSON.parse(sessionStorage.getItem('bhocNavigationReturn') || 'null');
-    if (stored && (!stored.url || Date.now() - Number(stored.time || 0) > 6 * 60 * 60 * 1000 || stored.url.split('#')[0] === current.href.split('#')[0])) stored = null;
+    if (stored && (!stored.url || Date.now() - Number(stored.time || 0) > 6 * 60 * 60 * 1000 || pageBase(stored.url) === currentBase)) stored = null;
   } catch (_error) { stored = null; }
 
   document.addEventListener('click', event => {
@@ -104,7 +126,7 @@
     try {
       const destination = new URL(link.href, current.href);
       if (!trustedHost(destination.hostname)) return;
-      const destinationBase = `${destination.origin}${destination.pathname}${destination.search}`;
+      const destinationBase = pageBase(destination.href);
       if (destinationBase === currentBase) return;
       if (destination.origin === current.origin) {
         sessionStorage.setItem('bhocNavigationReturn', JSON.stringify({url: current.href, label: pageHeading, time: Date.now()}));
@@ -127,16 +149,24 @@
     style.id = 'bhoc-context-navigation-style';
     style.textContent = `
       .bhoc-context-nav,.bhoc-context-bottom{box-sizing:border-box;width:min(1180px,calc(100% - 32px));margin:0 auto;color:#53645f;font:700 12px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-      .bhoc-context-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 11px;border-bottom:1px solid rgba(51,79,72,.16)}
+      .bhoc-context-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:8px;margin-bottom:8px;padding:9px 12px;border:1px solid #d9e5ef;border-radius:12px;background:linear-gradient(90deg,#f7fbfe 0%,#fff 62%,#fff8f7 100%)}
       .bhoc-context-trail,.bhoc-context-actions,.bhoc-context-bottom{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-      .bhoc-context-nav a,.bhoc-context-nav button,.bhoc-context-bottom a,.bhoc-context-bottom button{appearance:none;border:0;background:none;padding:0;color:#315d54;font:inherit;text-decoration:none;cursor:pointer}
-      .bhoc-context-nav a:hover,.bhoc-context-nav button:hover,.bhoc-context-bottom a:hover,.bhoc-context-bottom button:hover{text-decoration:underline;text-underline-offset:3px}
-      .bhoc-context-sep{color:#a5b0ad;font-weight:500}
-      .bhoc-context-current{color:#6a7673;font-weight:650}
+      .bhoc-context-nav a,.bhoc-context-nav button,.bhoc-context-bottom a,.bhoc-context-bottom button{appearance:none;border:0;background:none;padding:0;color:#174c70;font:inherit;text-decoration:none;cursor:pointer}
+      .bhoc-context-nav a:hover,.bhoc-context-nav button:hover,.bhoc-context-bottom a:hover,.bhoc-context-bottom button:hover{color:#d82d2a;text-decoration:none}
+      .bhoc-context-sep{color:#9aabb7;font-weight:600}
+      .bhoc-context-current{display:inline-flex;align-items:center;min-height:26px;padding:4px 10px;border:1px solid #c8deea;border-radius:999px;background:#eaf5fa;box-shadow:inset 3px 0 0 #f22c26;color:#123f60;font-weight:850}
+      .bhoc-context-actions a,.bhoc-context-actions button{padding:4px 7px;border-radius:7px}
       .bhoc-context-bottom{justify-content:flex-end;margin-top:34px;padding:16px 0 10px;border-top:1px solid rgba(51,79,72,.16)}
       .bhoc-context-top{position:fixed;right:18px;bottom:18px;z-index:1200;display:none;align-items:center;justify-content:center;min-width:48px;height:38px;padding:0 12px;border:1px solid rgba(49,93,84,.24);border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(24,47,42,.14);color:#315d54;font:800 12px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
       .bhoc-context-top.is-visible{display:flex}
-      @media(max-width:720px){.bhoc-context-nav{align-items:flex-start;flex-direction:column;gap:7px}.bhoc-context-actions{width:100%}.bhoc-context-bottom{justify-content:flex-start}.bhoc-context-top{right:12px;bottom:12px}}
+      .bhoc-section-page .bhoc-guide,.bhoc-section-page .bhoc-crumbs,.bhoc-section-page .legacy-bhoc-crumbs{display:none!important}
+      .bhoc-subnav{position:sticky;top:0;z-index:45;border-top:1px solid #d9e5f4;border-bottom:1px solid #d9e5f4;background:rgba(255,255,255,.97);backdrop-filter:blur(10px)}
+      .bhoc-subnav-inner{display:flex;align-items:center;gap:5px;width:min(1180px,calc(100% - 48px));min-height:48px;margin:auto;overflow-x:auto;scrollbar-width:thin}
+      .bhoc-subnav .subnav-title{flex:0 0 auto;margin-right:4px;color:#f22c26;font:900 8px/1.2 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+      .bhoc-subnav a{flex:0 0 auto;padding:7px 10px;border:1px solid transparent;border-radius:999px;color:#0b377f;font:800 9.5px/1.2 Arial,sans-serif;text-decoration:none;white-space:nowrap}
+      .bhoc-subnav a:hover,.bhoc-subnav a:focus{border-color:#cddde8;background:#f3f8ff;color:#d82d2a;outline:none}
+      .bhoc-subnav a.is-active,.bhoc-subnav a[aria-current="location"],.bhoc-subnav a[aria-current="page"]{border-color:#102f49;background:#102f49;color:#fff;box-shadow:0 5px 14px rgba(16,47,73,.16)}
+      @media(max-width:720px){.bhoc-context-nav{align-items:flex-start;flex-direction:column;gap:7px;margin-top:6px;padding:8px 10px}.bhoc-context-trail{gap:6px}.bhoc-context-actions{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.bhoc-context-actions a,.bhoc-context-actions button{flex:0 0 auto}.bhoc-context-current{max-width:calc(100vw - 88px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bhoc-context-bottom{justify-content:flex-start}.bhoc-context-top{right:12px;bottom:12px}.bhoc-subnav-inner{width:calc(100% - 24px);min-height:46px}.bhoc-subnav .subnav-title{display:none}}
     `;
     document.head.appendChild(style);
   }
@@ -151,13 +181,23 @@
   home.href = site.home;
   home.textContent = site.name;
   trail.appendChild(home);
+  let currentLocationLabel = null;
 
   if (route.label !== 'Home') {
     const sep = document.createElement('span'); sep.className = 'bhoc-context-sep'; sep.setAttribute('aria-hidden', 'true'); sep.textContent = '›';
     trail.appendChild(sep);
-    if ((current.pathname.startsWith('/initiative/') && site.name === 'BHOC Veterinary') || (current.pathname.startsWith('/news/') && site.name === 'BHOC Therapeutics') || (current.pathname.startsWith('/bhoc/') && site.name === 'BHOC Therapeutics')) {
+    if (isBhocSection) {
       const section = document.createElement('a'); section.href = route.href; section.textContent = route.label; trail.appendChild(section);
-      if (pageHeading !== route.label && current.href.split('#')[0] !== route.href) {
+      const sep2 = document.createElement('span'); sep2.className = 'bhoc-context-sep'; sep2.setAttribute('aria-hidden', 'true'); sep2.textContent = '›';
+      currentLocationLabel = document.createElement('span');
+      currentLocationLabel.className = 'bhoc-context-current';
+      currentLocationLabel.setAttribute('aria-current', 'page');
+      const childItem = bhocNavigation.find(item => item.path === current.pathname.replace(/\/index\.html$/, '/'));
+      currentLocationLabel.textContent = isBhocHub ? 'Overview' : (childItem?.location || pageHeading);
+      trail.append(sep2, currentLocationLabel);
+    } else if ((current.pathname.startsWith('/initiative/') && site.name === 'BHOC Veterinary') || (current.pathname.startsWith('/news/') && site.name === 'BHOC Therapeutics')) {
+      const section = document.createElement('a'); section.href = route.href; section.textContent = route.label; trail.appendChild(section);
+      if (pageHeading !== route.label && currentBase !== pageBase(route.href)) {
         const sep2 = document.createElement('span'); sep2.className = 'bhoc-context-sep'; sep2.setAttribute('aria-hidden', 'true'); sep2.textContent = '›';
         const currentLabel = document.createElement('span'); currentLabel.className = 'bhoc-context-current'; currentLabel.setAttribute('aria-current', 'page'); currentLabel.textContent = pageHeading;
         trail.append(sep2, currentLabel);
@@ -177,8 +217,8 @@
     back.addEventListener('click', goBack);
     actions.appendChild(back);
   }
-  if (route.label !== 'Home' && route.href && route.href !== current.href.split('#')[0]) {
-    const sectionHome = document.createElement('a'); sectionHome.href = route.href; sectionHome.textContent = `${route.label} home`; actions.appendChild(sectionHome);
+  if (route.label !== 'Home' && route.href && currentBase !== pageBase(route.href)) {
+    const sectionHome = document.createElement('a'); sectionHome.href = route.href; sectionHome.textContent = isBhocSection ? 'BHOC map' : `${route.label} home`; actions.appendChild(sectionHome);
   }
   const top = document.createElement('a'); top.href = '#top'; top.textContent = '↑ Top'; actions.appendChild(top);
   bar.append(trail, actions);
@@ -187,6 +227,87 @@
   if (header) header.insertAdjacentElement('afterend', bar);
   else main.prepend(bar);
 
+  const ensureBhocSubnav = () => {
+    if (!isBhocSection) return null;
+    let subnav = document.querySelector('.bhoc-subnav');
+    if (!subnav) {
+      subnav = document.createElement('nav');
+      subnav.className = 'bhoc-subnav';
+      subnav.setAttribute('aria-label', 'Understand BHOC sections and pages');
+      const inner = document.createElement('div');
+      inner.className = 'bhoc-subnav-inner';
+      const title = document.createElement('span');
+      title.className = 'subnav-title';
+      title.textContent = 'Understand BHOC';
+      inner.appendChild(title);
+      for (const item of bhocNavigation) {
+        const link = document.createElement('a');
+        link.href = item.href;
+        link.textContent = item.label;
+        link.dataset.bhocTarget = item.target || '';
+        if (item.path) link.dataset.bhocPath = item.path;
+        inner.appendChild(link);
+      }
+      subnav.appendChild(inner);
+      const insertionPoint = document.querySelector('.brand-network') || document.querySelector('.bhoc-guide') || bar;
+      insertionPoint.insertAdjacentElement('afterend', subnav);
+    }
+
+    for (const link of subnav.querySelectorAll('a[href]')) {
+      const resolved = new URL(link.href, current.href);
+      const item = bhocNavigation.find(candidate => candidate.path
+        ? resolved.pathname.replace(/\/index\.html$/, '/') === candidate.path
+        : resolved.hash === `#${candidate.target}`);
+      if (!item) continue;
+      link.dataset.bhocTarget = item.target || '';
+      if (item.path) link.dataset.bhocPath = item.path;
+    }
+    return subnav;
+  };
+
+  const bhocSubnav = ensureBhocSubnav();
+  const markBhocLocation = item => {
+    if (!item || !bhocSubnav) return;
+    for (const link of bhocSubnav.querySelectorAll('a[href]')) {
+      const matchesTarget = item.target && link.dataset.bhocTarget === item.target;
+      const matchesPath = item.path && link.dataset.bhocPath === item.path;
+      const active = Boolean(matchesTarget || matchesPath);
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', isBhocHub ? 'location' : 'page');
+      else link.removeAttribute('aria-current');
+    }
+    if (currentLocationLabel) currentLocationLabel.textContent = item.location;
+  };
+
+  if (bhocSubnav) {
+    if (isBhocHub) {
+      const sectionItems = bhocNavigation
+        .filter(item => item.target && document.getElementById(item.target))
+        .map(item => ({item, element: document.getElementById(item.target)}));
+      let locationFrame = 0;
+      const updateBhocLocation = () => {
+        locationFrame = 0;
+        const threshold = (bhocSubnav.getBoundingClientRect().height || 48) + 34;
+        let active = sectionItems[0]?.item;
+        for (const entry of sectionItems) {
+          if (entry.element.getBoundingClientRect().top <= threshold) active = entry.item;
+          else break;
+        }
+        markBhocLocation(active);
+      };
+      const requestLocationUpdate = () => {
+        if (!locationFrame) locationFrame = window.requestAnimationFrame(updateBhocLocation);
+      };
+      window.addEventListener('scroll', requestLocationUpdate, {passive: true});
+      window.addEventListener('resize', requestLocationUpdate, {passive: true});
+      window.addEventListener('hashchange', requestLocationUpdate);
+      requestLocationUpdate();
+    } else {
+      const normalizedPath = current.pathname.replace(/\/index\.html$/, '/');
+      markBhocLocation(bhocNavigation.find(item => item.path === normalizedPath) || {location: pageHeading});
+    }
+  }
+
   const bottom = document.createElement('nav');
   bottom.className = 'bhoc-context-bottom';
   bottom.setAttribute('aria-label', 'End of page navigation');
@@ -194,8 +315,8 @@
     const back = document.createElement('button'); back.type = 'button'; back.textContent = returnContext ? `← Return to ${clamp(returnContext.label, 40)}` : '← Back'; back.addEventListener('click', goBack); bottom.appendChild(back);
     const sep = document.createElement('span'); sep.className = 'bhoc-context-sep'; sep.textContent = '·'; bottom.appendChild(sep);
   }
-  if (route.label !== 'Home' && route.href && route.href !== current.href.split('#')[0]) {
-    const sectionHome = document.createElement('a'); sectionHome.href = route.href; sectionHome.textContent = `${route.label} home`; bottom.appendChild(sectionHome);
+  if (route.label !== 'Home' && route.href && currentBase !== pageBase(route.href)) {
+    const sectionHome = document.createElement('a'); sectionHome.href = route.href; sectionHome.textContent = isBhocSection ? 'BHOC map' : `${route.label} home`; bottom.appendChild(sectionHome);
     const sep = document.createElement('span'); sep.className = 'bhoc-context-sep'; sep.textContent = '·'; bottom.appendChild(sep);
   }
   const siteHome = document.createElement('a'); siteHome.href = site.home; siteHome.textContent = site.name; bottom.appendChild(siteHome);
