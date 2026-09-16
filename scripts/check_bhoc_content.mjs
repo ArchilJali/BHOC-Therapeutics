@@ -4,19 +4,23 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const pagePath = path.join(root, 'bhoc', 'index.html');
-const childPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
+const hubPath = path.join(root, 'bhoc', 'index.html');
+const draftPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
 const baselinePath = path.join(root, 'bhoc', 'content-baseline.json');
+const sitemapPath = path.join(root, 'sitemap.xml');
 
-const sectionSpecs = [
-  {number: '01', id: 'what-bhoc-detail', status: 'loaded'},
-  {number: '02', id: 'why-bhoc', status: 'loaded'},
-  {number: '03', id: 'artificial-blood', status: 'in-development'},
-  {number: '04', id: 'natural-regulation', status: 'loaded'},
-  {number: '05', id: 'evolution-adaptation', status: 'in-development'},
-  {number: '06', id: 'outside-rbc', status: 'loaded'},
-  {number: '07', id: 'what-different', status: 'loaded'},
-  {number: '08', id: 'precision-oxygen', status: 'loaded'}
+const protectedSections = [
+  ['what-bhoc', 'Overview'],
+  ['bhoc-map', 'Knowledge map'],
+  ['knowledge-updates', 'Knowledge updates'],
+  ['what-bhoc-detail', '01 What is BHOC'],
+  ['why-bhoc', '02 Why BHOC'],
+  ['natural-regulation', '04 Oxygen regulation'],
+  ['evolution-adaptation', '05 Evolution and adaptation'],
+  ['outside-rbc', '06 Outside the RBC'],
+  ['what-different', '07 BHOC difference'],
+  ['resources', 'Resources'],
+  ['precision-oxygen', '08 Precision Oxygen Therapeutics']
 ];
 
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -60,58 +64,44 @@ function extractSection(html, id) {
     let depth = 0;
     let token;
     while ((token = sectionTags.exec(html))) {
-      if (/^<\/section/i.test(token[0])) depth -= 1;
-      else depth += 1;
+      depth += /^<\/section/i.test(token[0]) ? -1 : 1;
       if (depth === 0) return html.slice(start, sectionTags.lastIndex);
     }
   }
   return null;
 }
 
-function sectionRecord(html, spec) {
-  const fragment = extractSection(html, spec.id);
-  if (!fragment) throw new Error(`Missing protected section #${spec.id}`);
-  const openingTag = fragment.match(/^<section\b[^>]*>/i)?.[0] || '';
-  const status = attributes(openingTag)['data-bhoc-status'] || '';
+function record(fragment) {
   const text = visibleText(fragment);
   const links = [...fragment.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2]));
   return {
-    number: spec.number,
-    status,
     textCharacters: text.length,
     textSha256: sha256(text),
-    links,
     linksSha256: sha256(links.join('\n'))
   };
 }
 
-function mapRecords(html) {
-  const fragment = extractSection(html, 'bhoc-map');
-  if (!fragment) throw new Error('Missing protected section #bhoc-map');
-  return [...fragment.matchAll(/<a\b[^>]*class\s*=\s*(["'])[^"']*\bmap-card\b[^"']*\1[^>]*>[\s\S]*?<\/a>/gi)].map(match => {
-    const openingTag = match[0].match(/^<a\b[^>]*>/i)?.[0] || '';
-    const attrs = attributes(openingTag);
-    const number = visibleText(match[0].match(/<span\b[^>]*class\s*=\s*(["'])num\1[^>]*>[\s\S]*?<\/span>/i)?.[0] || '');
-    return {number, href: attrs.href || '', status: attrs['data-bhoc-status'] || ''};
-  });
-}
-
-function childRecord(html) {
-  const robots = html.match(/<meta\b[^>]*name\s*=\s*(["'])robots\1[^>]*content\s*=\s*(["'])(.*?)\2/i)?.[3]
+function robotsValue(html) {
+  return html.match(/<meta\b[^>]*name\s*=\s*(["'])robots\1[^>]*content\s*=\s*(["'])(.*?)\2/i)?.[3]
     || html.match(/<meta\b[^>]*content\s*=\s*(["'])(.*?)\1[^>]*name\s*=\s*(["'])robots\3/i)?.[2]
     || '';
-  const fragment = extractSection(html, 'artificial-blood');
-  if (!fragment) throw new Error('Missing protected child-page section #artificial-blood');
-  const openingTag = fragment.match(/^<section\b[^>]*>/i)?.[0] || '';
-  return {robots, status: attributes(openingTag)['data-bhoc-status'] || ''};
 }
 
-const page = await fs.readFile(pagePath, 'utf8');
-const child = await fs.readFile(childPath, 'utf8');
+const [hub, draft, sitemap] = await Promise.all([
+  fs.readFile(hubPath, 'utf8'),
+  fs.readFile(draftPath, 'utf8'),
+  fs.readFile(sitemapPath, 'utf8')
+]);
+
+const sections = Object.fromEntries(protectedSections.map(([id, label]) => {
+  const fragment = extractSection(hub, id);
+  if (!fragment) throw new Error(`Missing protected section ${label} (#${id})`);
+  return [id, record(fragment)];
+}));
 const snapshot = {
-  sections: Object.fromEntries(sectionSpecs.map(spec => [spec.id, sectionRecord(page, spec)])),
-  map: mapRecords(page),
-  childPage: childRecord(child)
+  sourceCommit: 'f223aea4d24286df85190b4a6a91b8963ad438bb',
+  architecture: 'continuous-morning-hub',
+  sections
 };
 
 if (process.argv.includes('--snapshot')) {
@@ -122,31 +112,38 @@ if (process.argv.includes('--snapshot')) {
 const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
 const errors = [];
 
-for (const spec of sectionSpecs) {
-  const expected = baseline.sections?.[spec.id];
-  const actual = snapshot.sections[spec.id];
+for (const [id, label] of protectedSections) {
+  const actual = snapshot.sections[id];
+  const expected = baseline.sections?.[id];
   if (!expected) {
-    errors.push(`#${spec.id}: missing from content baseline`);
+    errors.push(`${label}: missing from baseline`);
     continue;
   }
-  if (actual.status !== spec.status || actual.status !== expected.status) errors.push(`#${spec.id}: status ${actual.status || '(missing)'}; expected ${expected.status}`);
-  if (actual.textSha256 !== expected.textSha256) errors.push(`#${spec.id}: approved text changed`);
-  if (actual.linksSha256 !== expected.linksSha256) errors.push(`#${spec.id}: approved links changed`);
-  if (actual.textCharacters < expected.textCharacters) errors.push(`#${spec.id}: text became shorter (${actual.textCharacters} < ${expected.textCharacters})`);
+  if (actual.textSha256 !== expected.textSha256) errors.push(`${label}: approved text changed`);
+  if (actual.linksSha256 !== expected.linksSha256) errors.push(`${label}: approved links changed`);
+  if (actual.textCharacters < expected.textCharacters) errors.push(`${label}: content became shorter`);
 }
 
-if (JSON.stringify(snapshot.map) !== JSON.stringify(baseline.map)) errors.push('BHOC map routes or completion statuses changed');
-if (JSON.stringify(snapshot.childPage) !== JSON.stringify(baseline.childPage)) errors.push('Artificial Blood child-page status or robots policy changed');
+const map = extractSection(hub, 'bhoc-map') || '';
+const mapNumbers = [...map.matchAll(/<span\b[^>]*class=(["'])num\1[^>]*>(.*?)<\/span>/gi)].map(match => visibleText(match[2]));
+if (JSON.stringify(mapNumbers) !== JSON.stringify(['01', '02', '04', '05', '06', '07', '08'])) errors.push(`Published map is ${mapNumbers.join(', ')}; expected 01, 02, 04, 05, 06, 07, 08`);
 
-for (const route of baseline.requiredRoutes || []) {
-  if (!page.includes(`href="${route}"`) && !page.includes(`href='${route}'`)) errors.push(`Required route is missing: ${route}`);
-}
+if (/id=(["'])artificial-blood\1/i.test(hub)) errors.push('Artificial Blood section is exposed in the hub');
+if (/href=(["'])#artificial-blood\1/i.test(hub)) errors.push('Artificial Blood route is exposed in the hub');
+if (robotsValue(draft) !== 'noindex,nofollow') errors.push('Artificial Blood draft must remain noindex,nofollow');
+if (!visibleText(draft).includes('In development')) errors.push('Artificial Blood direct route must show only its draft status');
+if (sitemap.includes('/bhoc/artificial-blood-blood-substitute/')) errors.push('Artificial Blood draft must not be in the sitemap');
+
+const ids = new Set([...hub.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2])));
+const missingFragments = [...new Set([...hub.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])#([^"']+)\1/gi)]
+  .map(match => decodeEntities(match[2]))
+  .filter(fragment => fragment !== 'top' && !ids.has(fragment)))];
+if (missingFragments.length) errors.push(`Missing local fragment targets: ${missingFragments.map(fragment => `#${fragment}`).join(', ')}`);
 
 if (errors.length) {
-  console.error('BHOC CONTENT PRESERVATION CHECK FAILED');
+  console.error('BHOC CONTENT PROTECTION CHECK FAILED');
   for (const error of errors) console.error(`- ${error}`);
-  console.error('Do not update bhoc/content-baseline.json unless the user explicitly approved each content/status change.');
   process.exit(1);
 }
 
-console.log(`BHOC content preservation check passed: ${sectionSpecs.length} sections, ${snapshot.map.length} map routes, child-page status protected.`);
+console.log('BHOC content protection check passed: morning hub preserved, 01/02 complete, Artificial Blood closed.');

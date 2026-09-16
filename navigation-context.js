@@ -94,7 +94,6 @@
     {label: 'Latest Updates', location: 'Latest Updates', href: '/bhoc/#knowledge-updates', target: 'knowledge-updates'},
     {label: '01 What', location: '01 · What is BHOC?', href: '/bhoc/#what-bhoc-detail', target: 'what-bhoc-detail'},
     {label: '02 Why', location: '02 · Why BHOC?', href: '/bhoc/#why-bhoc', target: 'why-bhoc'},
-    {label: '03 Artificial Blood', location: '03 · Artificial Blood & Blood Substitute', href: '/bhoc/artificial-blood-blood-substitute/', target: 'artificial-blood', path: '/bhoc/artificial-blood-blood-substitute/'},
     {label: '04 Oxygen Regulation', location: '04 · Oxygen Regulation', href: '/bhoc/#natural-regulation', target: 'natural-regulation'},
     {label: '05 Evolution', location: '05 · Evolution & Adaptation', href: '/bhoc/#evolution-adaptation', target: 'evolution-adaptation'},
     {label: '06 Outside RBC', location: '06 · Outside the RBC', href: '/bhoc/#outside-rbc', target: 'outside-rbc'},

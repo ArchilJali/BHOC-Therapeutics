@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const scriptTag = '<script src="/navigation-context.js?v=202609161" defer></script>';
+const scriptTag = '<script src="/navigation-context.js?v=202609162" defer></script>';
 const skipDirs = new Set(['.git', '.github', 'node_modules', 'assets', 'scripts', 'seo']);
 const skipFiles = new Set(['preview-2026.html']);
 

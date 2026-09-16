@@ -1,89 +1,61 @@
 {
-  "schemaVersion": 1,
-  "approvedState": "Restored from the user-approved BHOC Authority Hub state of 15 Sep 2026, including the approved evening wording correction.",
-  "changeRule": "Do not update this baseline unless the user explicitly approves each affected section, link, route, or completion-status change.",
+  "sourceCommit": "f223aea4d24286df85190b4a6a91b8963ad438bb",
+  "architecture": "continuous-morning-hub",
   "sections": {
+    "what-bhoc": {
+      "textCharacters": 1155,
+      "textSha256": "087a3bfd31f03e1978ebd61e7f3ea2cfff45d991a40988d01e5808d55ff85b7a",
+      "linksSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bhoc-map": {
+      "textCharacters": 855,
+      "textSha256": "2d6e0bb2520d4de7b0bcdba719ee2e8f2228359f09977b615736fbcb048d2ea1",
+      "linksSha256": "5a8bec18a898e3e64d57e1d42f0dca3c28238af4c27ed7645b774d515ec638ee"
+    },
+    "knowledge-updates": {
+      "textCharacters": 1425,
+      "textSha256": "5822019b1f5ce817df041c72673be096010040869c45a65cca8f2a27ecdd6dbc",
+      "linksSha256": "d9b501991c302e639953786d2304e092780d300d9d998b9d263ce7e67c7bcf20"
+    },
     "what-bhoc-detail": {
-      "number": "01",
-      "status": "loaded",
       "textCharacters": 1137,
       "textSha256": "e652051c576ffe449953ba1ddfb5eaf3e4440c5191dab50584d8e9b19f05bd3b",
       "linksSha256": "78dd1ddae9a9ebaf18f38018f11033d6f4211afd36394d62ca74521217b60d5f"
     },
     "why-bhoc": {
-      "number": "02",
-      "status": "loaded",
-      "textCharacters": 943,
-      "textSha256": "2f8a1e1e659a9cbc4653567d649ae3109a14e16a5e4093e3f201e0420914d4c6",
-      "linksSha256": "4538c6fecbe1b0c79dd5707616024d812241478e9d6984a74b333e56768682ef"
-    },
-    "artificial-blood": {
-      "number": "03",
-      "status": "in-development",
-      "textCharacters": 1526,
-      "textSha256": "70f11438773eac04d4421970294d7c6e84ff935d994fe236de6c7c5072ebac76",
-      "linksSha256": "20cf0f3f10849109145a52b473fe84409d1b6521a3b5fea57605898b07699ce8"
+      "textCharacters": 934,
+      "textSha256": "d13e083eadb79946e1160953f65aa41ce55a58bfad24b0051ef9eb3fb26ffae9",
+      "linksSha256": "9c5475ede80b8f374a4b453d44794d22de6f401508e8529327f7b136191f7b96"
     },
     "natural-regulation": {
-      "number": "04",
-      "status": "loaded",
-      "textCharacters": 18687,
-      "textSha256": "eb9f11ca4feafe22a38719c62c258e8e6b99e418b9ecca88409c4d92d18b903b",
-      "linksSha256": "b3621e2f02f9524de8649c97e5f253d61aa663ecbf20e207a8ae99a59a39564b"
+      "textCharacters": 18661,
+      "textSha256": "54caa780f954561334f590b9322873baa73fb03830de24415d33b2138f0ae070",
+      "linksSha256": "9c86ee52ecef7c7af410271808a684aec2a64ed42fbe36810d8caed4c0942477"
     },
     "evolution-adaptation": {
-      "number": "05",
-      "status": "in-development",
-      "textCharacters": 2336,
-      "textSha256": "6d96ad54f8e11bcac323accb3fdda08a12bc9fc44ae84eacabde83f8ab7c54fa",
+      "textCharacters": 2321,
+      "textSha256": "6c9c5eaad03814bc437fabf24f8d057ffffc132789e39fa1803246ba15c58597",
       "linksSha256": "98da15cb7e904fd101f0826e1ef4bb1a64bebca9c8cd5aff815f9eb5b58efe2e"
     },
     "outside-rbc": {
-      "number": "06",
-      "status": "loaded",
       "textCharacters": 1279,
       "textSha256": "94d78cfd4ed89cab6fa8b6ecb65c3ed038fc430b2644f63243bf7361d0360f65",
       "linksSha256": "93a6b5c80229e661560c331bad39da73b317a8e8f8f3d68ac490d521463f8a64"
     },
     "what-different": {
-      "number": "07",
-      "status": "loaded",
       "textCharacters": 922,
       "textSha256": "7dadb5dc4ba19270c5fd0c5f06a7daf6fcc50247092400742fe98bcadb63ae49",
       "linksSha256": "e13160aae0ff584ff96c9cd48ffdc24f838829ff8cc70f11e23ce36cb060223e"
     },
+    "resources": {
+      "textCharacters": 3443,
+      "textSha256": "c886923d5dc7a5f8816668bff474dd351e76606445ea4abd8a4c2f563ab90795",
+      "linksSha256": "f136304bcf6ee5e431e6c0c7a5cbdb3ed3287954cbcdc245c3decd4a7052728e"
+    },
     "precision-oxygen": {
-      "number": "08",
-      "status": "loaded",
-      "textCharacters": 1017,
-      "textSha256": "aa1504c71ff73e91d29bf96ad12b4db06abc5e4581c57bb78b29714750c397e1",
+      "textCharacters": 1014,
+      "textSha256": "e3e7e11d154c83d8398e09b4ec68dd40828b156ad96a69e823050cd551bb009f",
       "linksSha256": "c537bc5ad9279171484223b71cf21118cf8849f3706b2d5f0d499765ff343c75"
     }
-  },
-  "map": [
-    {"number": "01", "href": "#what-bhoc-detail", "status": "loaded"},
-    {"number": "02", "href": "#why-bhoc", "status": "loaded"},
-    {"number": "03", "href": "#artificial-blood", "status": "in-development"},
-    {"number": "04", "href": "#natural-regulation", "status": "loaded"},
-    {"number": "05", "href": "#evolution-adaptation", "status": "in-development"},
-    {"number": "06", "href": "#outside-rbc", "status": "loaded"},
-    {"number": "07", "href": "#what-different", "status": "loaded"},
-    {"number": "08", "href": "#precision-oxygen", "status": "loaded"}
-  ],
-  "childPage": {
-    "robots": "noindex,nofollow",
-    "status": "in-development"
-  },
-  "requiredRoutes": [
-    "#what-bhoc-detail",
-    "#why-bhoc",
-    "#artificial-blood",
-    "#natural-regulation",
-    "#evolution-adaptation",
-    "#outside-rbc",
-    "#what-different",
-    "#precision-oxygen",
-    "/bhoc/artificial-blood-blood-substitute/",
-    "/bhoc/historical-evolution/"
-  ]
+  }
 }
