@@ -1,6 +1,11 @@
 {
   "sourceCommit": "64c32a80720d7a82bfd488ad9c5d89a624819614",
   "architecture": "restored-2026-09-15-0942-hub",
+  "page": {
+    "visibleTextSha256": "24d0814e20f564a07348c6df49b2ca2f071fe96a97ad11dd81121b0fe0632b75",
+    "hrefsSha256": "19928055c625b2a6dfa5022aefd3cdf2dd221439452fdb35ee8ed8b25e4786ef",
+    "nonVisualHtmlSha256": "d2e6efa1b9ad0aa8a099cb25a272ed6c6aed2240c57c604e16f215481a8b2396"
+  },
   "sections": {
     "bhoc-overview": {
       "textCharacters": 308,

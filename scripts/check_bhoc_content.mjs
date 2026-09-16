@@ -82,6 +82,13 @@ function record(fragment) {
   };
 }
 
+function nonVisualHtml(html) {
+  return html
+    .replace(/<style\b([^>]*)>[\s\S]*?<\/style>/gi, '<style$1></style>')
+    .replace(/<script\b((?![^>]*type\s*=\s*["']application\/ld\+json["'])[^>]*)>[\s\S]*?<\/script>/gi, '<script$1></script>')
+    .replace(/\r\n/g, '\n');
+}
+
 function robotsValue(html) {
   return html.match(/<meta\b[^>]*name\s*=\s*(["'])robots\1[^>]*content\s*=\s*(["'])(.*?)\2/i)?.[3]
     || html.match(/<meta\b[^>]*content\s*=\s*(["'])(.*?)\1[^>]*name\s*=\s*(["'])robots\3/i)?.[2]
@@ -98,9 +105,17 @@ const sections = Object.fromEntries(protectedSections.map(([id, label]) => {
   if (!fragment) throw new Error(`Missing protected section ${label} (#${id})`);
   return [id, record(fragment)];
 }));
+const page = {
+  visibleTextSha256: sha256(visibleText(hub)),
+  hrefsSha256: sha256([...hub.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)]
+    .map(match => decodeEntities(match[2]))
+    .join('\n')),
+  nonVisualHtmlSha256: sha256(nonVisualHtml(hub))
+};
 const snapshot = {
   sourceCommit: '64c32a80720d7a82bfd488ad9c5d89a624819614',
   architecture: 'restored-2026-09-15-0942-hub',
+  page,
   sections
 };
 
@@ -111,6 +126,10 @@ if (process.argv.includes('--snapshot')) {
 
 const baseline = JSON.parse(await fs.readFile(baselinePath, 'utf8'));
 const errors = [];
+
+if (snapshot.page.visibleTextSha256 !== baseline.page?.visibleTextSha256) errors.push('Full-page visible text changed');
+if (snapshot.page.hrefsSha256 !== baseline.page?.hrefsSha256) errors.push('Full-page href list changed');
+if (snapshot.page.nonVisualHtmlSha256 !== baseline.page?.nonVisualHtmlSha256) errors.push('Page structure, metadata or schema changed outside visual CSS/JS');
 
 for (const [id, label] of protectedSections) {
   const actual = snapshot.sections[id];
