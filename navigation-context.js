@@ -134,6 +134,10 @@
     } catch (_error) {}
   }, true);
 
+  // Keep the expanded route interface inside the BHOC authority section.
+  // Other site pages retain their established header, layout and native breadcrumbs.
+  if (!isBhocSection) return;
+
   const returnContext = referrer || stored;
   const goBack = () => {
     if (window.history.length > 1) {
@@ -213,7 +217,7 @@
   if (returnContext || window.history.length > 1) {
     const back = document.createElement('button');
     back.type = 'button';
-    back.textContent = returnContext ? `← Return to ${clamp(returnContext.label, 40)}` : '← Back';
+    back.textContent = '← Back';
     back.addEventListener('click', goBack);
     actions.appendChild(back);
   }
@@ -312,7 +316,7 @@
   bottom.className = 'bhoc-context-bottom';
   bottom.setAttribute('aria-label', 'End of page navigation');
   if (returnContext || window.history.length > 1) {
-    const back = document.createElement('button'); back.type = 'button'; back.textContent = returnContext ? `← Return to ${clamp(returnContext.label, 40)}` : '← Back'; back.addEventListener('click', goBack); bottom.appendChild(back);
+    const back = document.createElement('button'); back.type = 'button'; back.textContent = '← Back'; back.addEventListener('click', goBack); bottom.appendChild(back);
     const sep = document.createElement('span'); sep.className = 'bhoc-context-sep'; sep.textContent = '·'; bottom.appendChild(sep);
   }
   if (route.label !== 'Home' && route.href && currentBase !== pageBase(route.href)) {

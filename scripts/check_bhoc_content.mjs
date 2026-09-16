@@ -7,6 +7,8 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const pagePath = path.join(root, 'bhoc', 'index.html');
 const childPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
 const baselinePath = path.join(root, 'bhoc', 'content-baseline.json');
+const authorityCssPath = path.join(root, 'bhoc', 'bhoc-authority.css');
+const navigationPath = path.join(root, 'navigation-context.js');
 
 const sectionSpecs = [
   {number: '01', id: 'what-bhoc-detail', status: 'loaded'},
@@ -18,6 +20,9 @@ const sectionSpecs = [
   {number: '07', id: 'what-different', status: 'loaded'},
   {number: '08', id: 'precision-oxygen', status: 'loaded'}
 ];
+
+const auxiliarySectionIds = ['knowledge-updates', 'resources'];
+const expandedDetailIds = ['molecular-core', 'erythrocyte-system', 'circulation-control', 'tissue-control'];
 
 const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
 
@@ -85,6 +90,28 @@ function sectionRecord(html, spec) {
   };
 }
 
+function auxiliarySectionRecord(html, id) {
+  const fragment = extractSection(html, id);
+  if (!fragment) throw new Error(`Missing protected supporting section #${id}`);
+  const text = visibleText(fragment);
+  const links = [...fragment.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2]));
+  return {
+    textCharacters: text.length,
+    textSha256: sha256(text),
+    links,
+    linksSha256: sha256(links.join('\n'))
+  };
+}
+
+function expandedDetailRecords(html) {
+  const records = {};
+  for (const id of expandedDetailIds) {
+    const openingTag = [...html.matchAll(/<details\b[^>]*>/gi)].map(match => match[0]).find(tag => attributes(tag).id === id) || '';
+    records[id] = Boolean(openingTag && /\sopen(?:\s|>|=)/i.test(openingTag));
+  }
+  return records;
+}
+
 function mapRecords(html) {
   const fragment = extractSection(html, 'bhoc-map');
   if (!fragment) throw new Error('Missing protected section #bhoc-map');
@@ -108,10 +135,15 @@ function childRecord(html) {
 
 const page = await fs.readFile(pagePath, 'utf8');
 const child = await fs.readFile(childPath, 'utf8');
+const authorityCss = await fs.readFile(authorityCssPath, 'utf8');
+const navigation = await fs.readFile(navigationPath, 'utf8');
 const snapshot = {
   sections: Object.fromEntries(sectionSpecs.map(spec => [spec.id, sectionRecord(page, spec)])),
+  auxiliarySections: Object.fromEntries(auxiliarySectionIds.map(id => [id, auxiliarySectionRecord(page, id)])),
+  expandedDetails: expandedDetailRecords(page),
   map: mapRecords(page),
-  childPage: childRecord(child)
+  childPage: childRecord(child),
+  navigationScopedToBhoc: navigation.includes('if (!isBhocSection) return;')
 };
 
 if (process.argv.includes('--snapshot')) {
@@ -135,11 +167,35 @@ for (const spec of sectionSpecs) {
   if (actual.textCharacters < expected.textCharacters) errors.push(`#${spec.id}: text became shorter (${actual.textCharacters} < ${expected.textCharacters})`);
 }
 
+for (const id of auxiliarySectionIds) {
+  const expected = baseline.auxiliarySections?.[id];
+  const actual = snapshot.auxiliarySections[id];
+  if (!expected) {
+    errors.push(`#${id}: missing from supporting-content baseline`);
+    continue;
+  }
+  if (actual.textSha256 !== expected.textSha256) errors.push(`#${id}: approved supporting text changed`);
+  if (actual.linksSha256 !== expected.linksSha256) errors.push(`#${id}: approved supporting links changed`);
+  if (actual.textCharacters < expected.textCharacters) errors.push(`#${id}: supporting text became shorter (${actual.textCharacters} < ${expected.textCharacters})`);
+}
+
+if (JSON.stringify(snapshot.expandedDetails) !== JSON.stringify(baseline.expandedDetails)) errors.push('Approved scientific detail visibility changed');
+if (!snapshot.navigationScopedToBhoc || snapshot.navigationScopedToBhoc !== baseline.navigationScopedToBhoc) errors.push('Expanded route interface is no longer limited to BHOC pages');
+
+for (const spec of sectionSpecs.filter(item => item.status === 'loaded')) {
+  const hiddenRule = new RegExp(`#${spec.id}[^{}]*\\{[^}]*display\\s*:\\s*none`, 'i');
+  if (hiddenRule.test(authorityCss)) errors.push(`#${spec.id}: loaded content is hidden by CSS`);
+}
+
 if (JSON.stringify(snapshot.map) !== JSON.stringify(baseline.map)) errors.push('BHOC map routes or completion statuses changed');
 if (JSON.stringify(snapshot.childPage) !== JSON.stringify(baseline.childPage)) errors.push('Artificial Blood child-page status or robots policy changed');
 
 for (const route of baseline.requiredRoutes || []) {
   if (!page.includes(`href="${route}"`) && !page.includes(`href='${route}'`)) errors.push(`Required route is missing: ${route}`);
+}
+
+for (const phrase of baseline.requiredApprovedText || []) {
+  if (!visibleText(page).includes(phrase)) errors.push(`Required approved text is missing: ${phrase}`);
 }
 
 if (errors.length) {

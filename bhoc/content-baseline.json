@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "approvedState": "Restored from the user-approved BHOC Authority Hub state of 15 Sep 2026, including the approved evening wording correction.",
-  "changeRule": "Do not update this baseline unless the user explicitly approves each affected section, link, route, or completion-status change.",
+  "approvedState": "Recovered from the user-approved BHOC Authority Hub state of 15 Sep 2026 while preserving the 01–08 architecture and the approved evening wording correction.",
+  "changeRule": "Content, links, routes, completion statuses, expanded scientific visibility and BHOC-only route context are protected. Do not update this baseline unless the user explicitly approves every affected item.",
   "sections": {
     "what-bhoc-detail": {
       "number": "01",
@@ -27,15 +27,15 @@
     "natural-regulation": {
       "number": "04",
       "status": "loaded",
-      "textCharacters": 18687,
-      "textSha256": "eb9f11ca4feafe22a38719c62c258e8e6b99e418b9ecca88409c4d92d18b903b",
+      "textCharacters": 18794,
+      "textSha256": "9084c035b9a1c5e5b1a5619deb1199557c5c5cad64ac6ac0386ff705d43df97f",
       "linksSha256": "b3621e2f02f9524de8649c97e5f253d61aa663ecbf20e207a8ae99a59a39564b"
     },
     "evolution-adaptation": {
       "number": "05",
       "status": "in-development",
-      "textCharacters": 2336,
-      "textSha256": "6d96ad54f8e11bcac323accb3fdda08a12bc9fc44ae84eacabde83f8ab7c54fa",
+      "textCharacters": 2534,
+      "textSha256": "cd4f3b806a25eda13b30e2f7cf554dcc78dc19ebf1d41b858102ebc235379b4b",
       "linksSha256": "98da15cb7e904fd101f0826e1ef4bb1a64bebca9c8cd5aff815f9eb5b58efe2e"
     },
     "outside-rbc": {
@@ -60,6 +60,24 @@
       "linksSha256": "c537bc5ad9279171484223b71cf21118cf8849f3706b2d5f0d499765ff343c75"
     }
   },
+  "auxiliarySections": {
+    "knowledge-updates": {
+      "textCharacters": 1425,
+      "textSha256": "5822019b1f5ce817df041c72673be096010040869c45a65cca8f2a27ecdd6dbc",
+      "linksSha256": "d9b501991c302e639953786d2304e092780d300d9d998b9d263ce7e67c7bcf20"
+    },
+    "resources": {
+      "textCharacters": 3892,
+      "textSha256": "c67d991a3e4202744856e3e3ff6691ceed613c1b3db63c7ec2572dfe5cbbc750",
+      "linksSha256": "50a6839f458dd6ae59e4fc240a073d59ad009c047acd4195d3c7e12b62a9ca4d"
+    }
+  },
+  "expandedDetails": {
+    "molecular-core": true,
+    "erythrocyte-system": true,
+    "circulation-control": true,
+    "tissue-control": true
+  },
   "map": [
     {"number": "01", "href": "#what-bhoc-detail", "status": "loaded"},
     {"number": "02", "href": "#why-bhoc", "status": "loaded"},
@@ -74,6 +92,7 @@
     "robots": "noindex,nofollow",
     "status": "in-development"
   },
+  "navigationScopedToBhoc": true,
   "requiredRoutes": [
     "#what-bhoc-detail",
     "#why-bhoc",
@@ -84,6 +103,17 @@
     "#what-different",
     "#precision-oxygen",
     "/bhoc/artificial-blood-blood-substitute/",
-    "/bhoc/historical-evolution/"
+    "/bhoc/historical-evolution/",
+    "https://archiljali.github.io/BHOC-platform/human/BHOC-Human-index.html",
+    "https://archiljali.github.io/BHOC-platform/veterinary/Vet-index.html",
+    "https://archiljali.github.io/BHOC-platform/transplant/Transplant-index.html",
+    "https://archiljali.github.io/BHOC-platform/"
+  ],
+  "requiredApprovedText": [
+    "Full scientific information",
+    "Evidence before claims",
+    "Follow the source trail.",
+    "For human biology we use scientifically precise language",
+    "by how much oxygen is actually made available to tissue under the conditions where that function is needed, based on product-specific physiology and evidence."
   ]
 }
