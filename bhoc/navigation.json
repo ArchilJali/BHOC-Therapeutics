@@ -1,0 +1,18 @@
+{
+  "sections": [
+    {"id":"bhoc-overview","label":"Overview"},
+    {"id":"why-bhoc","label":"Why BHOC"},
+    {"id":"terminology","label":"Terminology & Class Effect","location":"Terminology & History · HBOC Class Effect"},
+    {"id":"hemoglobin-system","label":"Hemoglobin System"},
+    {"id":"molecular-core","label":"Hemoglobin"},
+    {"id":"erythrocyte-system","label":"RBC"},
+    {"id":"circulation-control","label":"Circulation"},
+    {"id":"tissue-control","label":"Tissue"},
+    {"id":"species-adaptation","label":"Species"},
+    {"id":"human-variation","label":"Human Variation"},
+    {"id":"evidence-map","label":"Evidence"},
+    {"id":"history","label":"Historical Evolution","childPath":"/bhoc/historical-evolution/"}
+  ],
+  "terminologyTitle":"Artificial Blood & Blood Substitutes: HBOC Class Effect",
+  "terminologyEyebrow":"Terminology & History"
+}

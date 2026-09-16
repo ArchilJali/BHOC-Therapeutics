@@ -1,0 +1,53 @@
+name: Validate unified BHOC navigation preview
+on:
+  push:
+    branches: ['preview/bhoc-unified-navigation']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: preview-bhoc-unified-navigation
+  cancel-in-progress: false
+jobs:
+  navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Verify protected starting content
+        run: node scripts/check_bhoc_content.mjs
+      - name: Synchronize navigation without editing scientific prose
+        run: python scripts/sync_bhoc_navigation.py
+      - name: Validate source and preserved content
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          node --check scripts/inject_navigation_context.mjs
+          git diff --check
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright beautifulsoup4
+          python -m playwright install --with-deps chromium
+      - name: Check desktop, mobile, deep links and no-JavaScript navigation
+        run: python tests/test_bhoc_navigation.py
+      - name: Commit validated generated pages on preview only
+        run: |
+          git add -u
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Synchronize static BHOC navigation and approved terminology label'
+            git push origin HEAD:preview/bhoc-unified-navigation
+          fi
+      - name: Upload visual and navigation checks
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bhoc-navigation-checks
+          path: navigation-test-results/
