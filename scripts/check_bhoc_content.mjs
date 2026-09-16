@@ -8,6 +8,7 @@ const hubPath = path.join(root, 'bhoc', 'index.html');
 const draftPath = path.join(root, 'bhoc', 'artificial-blood-blood-substitute', 'index.html');
 const baselinePath = path.join(root, 'bhoc', 'content-baseline.json');
 const sitemapPath = path.join(root, 'sitemap.xml');
+const authorityCssPath = path.join(root, 'bhoc', 'bhoc-authority.css');
 
 const protectedSections = [
   ['what-bhoc', 'Overview'],
@@ -87,10 +88,11 @@ function robotsValue(html) {
     || '';
 }
 
-const [hub, draft, sitemap] = await Promise.all([
+const [hub, draft, sitemap, authorityCss] = await Promise.all([
   fs.readFile(hubPath, 'utf8'),
   fs.readFile(draftPath, 'utf8'),
-  fs.readFile(sitemapPath, 'utf8')
+  fs.readFile(sitemapPath, 'utf8'),
+  fs.readFile(authorityCssPath, 'utf8')
 ]);
 
 const sections = Object.fromEntries(protectedSections.map(([id, label]) => {
@@ -133,6 +135,8 @@ if (/href=(["'])#artificial-blood\1/i.test(hub)) errors.push('Artificial Blood r
 if (robotsValue(draft) !== 'noindex,nofollow') errors.push('Artificial Blood draft must remain noindex,nofollow');
 if (!visibleText(draft).includes('In development')) errors.push('Artificial Blood direct route must show only its draft status');
 if (sitemap.includes('/bhoc/artificial-blood-blood-substitute/')) errors.push('Artificial Blood draft must not be in the sitemap');
+if (authorityCss.includes('#evolution-adaptation>p') || authorityCss.includes('#evolution-adaptation .chapter-intro{font-size:0}')) errors.push('05 Evolution and adaptation must remain fully visible');
+if (!authorityCss.includes('.map-card[href="#evolution-adaptation"]:after{content:"Loaded 15 Sep 2026"}')) errors.push('05 Evolution and adaptation must remain marked as loaded');
 
 const ids = new Set([...hub.matchAll(/\bid\s*=\s*(["'])(.*?)\1/gi)].map(match => decodeEntities(match[2])));
 const missingFragments = [...new Set([...hub.matchAll(/<a\b[^>]*\bhref\s*=\s*(["'])#([^"']+)\1/gi)]
@@ -146,4 +150,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('BHOC content protection check passed: morning hub preserved, 01/02 complete, Artificial Blood closed.');
+console.log('BHOC content protection check passed: morning hub preserved, 01/02 and 04–08 visible, only Artificial Blood closed.');

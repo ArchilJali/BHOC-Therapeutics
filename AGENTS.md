@@ -9,6 +9,7 @@ These rules apply to every file in this repository.
 - The approved visual and information architecture for `/bhoc/` is the continuous morning hub from commit `f223aea` (16 Sep 2026), not a set of shortened standalone fragments.
 - Sections 01 and 02 must remain inside that continuous hub together with the overview, quick-definition cards, knowledge map, and surrounding explanatory context.
 - Section 03 `Artificial Blood & Blood Substitute` is a closed draft: it must not appear in the hub map, top chapter route, or reading sequence. Its direct route remains `noindex,nofollow` and shows only `In development` until the user explicitly approves publication.
+- Every other published chapter, including 05 `Evolution & adaptation`, must remain fully visible; 03 is the only closed chapter.
 - Preserve the approved text and links for the other visible sections. Status or publication changes require explicit user approval.
 
 ## Required workflow
