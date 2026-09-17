@@ -24,12 +24,10 @@ jobs:
       - name: Materialize the exact reviewed files with immutable-source checksums
         run: |
           python - <<'PY'
-          import base64, hashlib, json, lzma, subprocess
+          import base64, hashlib, json, lzma, subprocess, re
           from pathlib import Path, PurePosixPath
           sha = lambda data: hashlib.sha256(data).hexdigest()
           parts = [Path(f'.github/reviewed-drafts/map-delta-{i}.b64').read_text().strip() for i in range(3)]
-          for i, part in enumerate(parts):
-              print('Part', i, len(part), sha(part.encode()))
           packed = base64.b64decode(''.join(parts), validate=True)
           assert sha(packed) == '46d5ebfc3d8eece11f9e8bfa198499c0b9b74613028759696cfc2d6cf83be4cf', 'Reviewed payload checksum mismatch'
           data = json.loads(lzma.decompress(packed))
@@ -59,12 +57,22 @@ jobs:
               assert not path.is_absolute() and '..' not in path.parts
               assert name.startswith('bhoc/') or name.startswith('.github/content-protection/') or name in permitted_files, name
               assert isinstance(content, str)
+          manifest_path = '.github/content-protection/knowledge-map-manifest.json'
+          manifest = json.loads(files[manifest_path])
+          for name in ['bhoc/index.html', 'bhoc/historical-evolution/index.html']:
+              before = files[name]
+              cleaned = re.sub(r'(?m)^[ \t]+$', '', before)
+              assert ''.join(before.split()) == ''.join(cleaned.split()), 'Only blank-line spaces may change'
+              files[name] = cleaned
+              assert name in manifest['sha256']
+              manifest['sha256'][name] = sha(cleaned.encode())
+          files[manifest_path] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
           for name, content in files.items():
               path = Path(name)
               path.parent.mkdir(parents=True, exist_ok=True)
               path.write_text(content, encoding='utf-8')
               print('Reviewed file:', name)
-          print('Exact reviewed migration materialized; no other files written.')
+          print('Reviewed migration materialized; only empty-line indentation normalized; no other files written.')
           PY
       - name: Validate original texts, source links, fragments and SEO
         run: |
