@@ -1,0 +1,7 @@
+<!-- Apply the BHOC Yandex-only indexing policy to Markdown-generated pages too. -->
+<meta name="yandex" content="noindex">
+{% if page.path == 'AGENTS.md' %}
+<!-- Internal editorial instructions are not a public search destination. -->
+<meta name="robots" content="noindex,follow">
+{% endif %}
+{% include head-custom-google-analytics.html %}
