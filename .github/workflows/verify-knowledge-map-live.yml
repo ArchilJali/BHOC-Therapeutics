@@ -1,0 +1,36 @@
+name: Verify published BHOC knowledge map
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bhoc/index.html'
+      - 'bhoc/knowledge-map-baseline.json'
+      - '.github/workflows/verify-knowledge-map-live.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bhoc-knowledge-map-live-verification
+  cancel-in-progress: false
+jobs:
+  live:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout exact publication commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - name: Install browser and HTML audit dependencies
+        run: |
+          python -m pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify deployed public pages and user navigation
+        run: python .github/scripts/verify_knowledge_map_live.py
+      - name: Save actual public-site screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bhoc-knowledge-map-live-verification
+          path: knowledge-map-live-results/
