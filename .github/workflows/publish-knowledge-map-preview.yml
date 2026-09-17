@@ -67,12 +67,17 @@ jobs:
               assert name in manifest['sha256']
               manifest['sha256'][name] = sha(cleaned.encode())
           files[manifest_path] = json.dumps(manifest, ensure_ascii=False, indent=2) + '\n'
+          test_path = 'tests/test_bhoc_navigation.py'
+          old = "assert page.locator('#human-variation a').count()==0"
+          new = "assert page.locator('article#human-variation.pending').count()==1\n        assert page.locator('#human-variation .topic-status').inner_text()=='In development'\n        assert page.locator('#human-variation a').count()==1\n        assert page.locator('#human-variation a').get_attribute('href')=='https://archiljali.github.io/BHOC-platform/human/BHOC-Human-index.html'"
+          assert old in files[test_path]
+          files[test_path] = files[test_path].replace(old, new)
           for name, content in files.items():
               path = Path(name)
               path.parent.mkdir(parents=True, exist_ok=True)
               path.write_text(content, encoding='utf-8')
               print('Reviewed file:', name)
-          print('Reviewed migration materialized; only empty-line indentation normalized; no other files written.')
+          print('Reviewed migration materialized; only empty-line indentation normalized; existing human-evidence link remains preserved.')
           PY
       - name: Validate original texts, source links, fragments and SEO
         run: |
