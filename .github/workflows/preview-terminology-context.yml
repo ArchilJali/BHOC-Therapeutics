@@ -23,14 +23,40 @@ jobs:
         run: |
           node scripts/check_bhoc_content.mjs
           python scripts/add_terminology_context.py
+      - name: Finalize precise internal anchors and preserve all other sections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          fixes = {
+              '/bhoc/historical-evolution/#artificial-blood">historical archive': '/bhoc/historical-evolution/#hboc-era">historical archive',
+              '>Nobel Prizes in the scientific foundations mapped here</a>': '>Nobel Prizes</a>'
+          }
+          for name in ['scripts/add_terminology_context.py', 'bhoc/index.html']:
+              p = Path(name)
+              text = p.read_text()
+              for old, new in fixes.items():
+                  text = text.replace(old, new)
+              p.write_text(text)
+          baseline_path = Path('bhoc/content-baseline.json')
+          baseline = json.loads(baseline_path.read_text())
+          snapshot = json.loads(subprocess.check_output(['node', 'scripts/check_bhoc_content.mjs', '--snapshot'], text=True))
+          for key, value in baseline['sections'].items():
+              if key != 'terminology':
+                  assert snapshot['sections'][key] == value, key
+          baseline['sections']['terminology'] = snapshot['sections']['terminology']
+          baseline_path.write_text(json.dumps(baseline, indent=2) + '\n')
+          print('Precise history anchor corrected; other 11 protected sections unchanged.')
+          PY
           node scripts/check_bhoc_content.mjs
           node scripts/check_site.mjs
           node --check navigation-context.js
           git diff --check
-      - name: Check internal platform link destinations and 2022 record
+      - name: Check internal platform destinations, historical anchors and 2022 record
         run: |
           python - <<'PY'
-          import json, urllib.request
+          import json, urllib.request, re
+          from pathlib import Path
           base = 'https://raw.githubusercontent.com/ArchilJali/BHOC-platform/main/'
           def read(path):
               with urllib.request.urlopen(base + path, timeout=30) as response:
@@ -43,7 +69,11 @@ jobs:
           assert 'y1998' in nobel and 'y2019' in nobel
           concept = read('concepts-hypotheses/size-compartmentalization-vascular-control.html')
           assert 'Research Concept' in concept and 'Hypothesis' in concept
-          print('Internal Nobel and author-concept destinations confirmed.')
+          history = Path('bhoc/historical-evolution/index.html').read_text()
+          section = re.search(r'<section\b[^>]*id="hboc-era"[^>]*>([\s\S]*?)</section>', history).group(1)
+          assert 'All HBOCs Are Not Created Equally' in section and '2025' in section
+          assert 'Oxyglobin' in section and 'South Africa' in section
+          print('Internal Nobel, author concept and exact history subsection confirmed.')
           PY
       - name: Install browser dependencies
         run: |
@@ -53,11 +83,11 @@ jobs:
         run: python tests/test_bhoc_navigation.py
       - name: Commit validated preview only
         run: |
-          git add bhoc/index.html bhoc/content-baseline.json tests/test_bhoc_navigation.py
+          git add bhoc/index.html bhoc/content-baseline.json tests/test_bhoc_navigation.py scripts/add_terminology_context.py
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Add requested historical terminology context, internal links and inactive class-effect review'
+            git commit -m 'Finalize requested historical terminology context and exact internal links'
             git push origin HEAD:preview/terminology-historical-context
           fi
       - name: Upload preview screenshots and check results
