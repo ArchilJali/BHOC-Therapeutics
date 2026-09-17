@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if (document.documentElement.hasAttribute('data-bhoc-knowledge-map')) return;
   if (window.__bhocContextNavigation) return;
   window.__bhocContextNavigation = true;
   const main = document.querySelector('main');
