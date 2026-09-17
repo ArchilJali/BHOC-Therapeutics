@@ -43,7 +43,7 @@ for(const location of locations){
   assert.ok(textLength(title)>=35&&textLength(title)<=65,`${relative}: title length ${textLength(title)}`);
   assert.ok(textLength(description)>=110&&textLength(description)<=190,`${relative}: description length ${textLength(description)}`);
   assert.equal(canonical,location,`${relative}: canonical does not match sitemap URL`);
-  assert.match(source,/<meta\b(?=[^>]*name="robots")[^>]*content="[^"]*index/i,`${relative}: index directive missing`);
+  assertInternationalIndexing(source,relative);
   for(const required of ['og:title','og:description','og:url','og:image']){
     assert.ok(source.includes(`property="${required}"`),`${relative}: ${required} missing`);
   }
@@ -85,7 +85,7 @@ for(const [relative,target] of Object.entries(redirects)){
 const htmlFiles=[];
 function walk(directory){
   for(const entry of fs.readdirSync(directory,{withFileTypes:true})){
-    if(entry.name.startsWith('.'))continue;
+    if(entry.name.startsWith('.')||entry.name.startsWith('_')||entry.name==='node_modules')continue;
     const absolute=path.join(directory,entry.name);
     if(entry.isDirectory())walk(absolute);
     else if(entry.isFile()&&entry.name.endsWith('.html'))htmlFiles.push(path.relative(root,absolute));
@@ -127,3 +127,23 @@ assert.ok(sitemap.includes('https://bhoctherapeutics.com/bhoc/historical-evoluti
 assert.ok(sitemap.includes('https://bhoctherapeutics.com/assets/news/zipline-rwanda-drone-delivery.jpg'),'local drone image missing from sitemap');
 
 console.log(`Passed: ${locations.length} canonical pages, ${Object.keys(redirects).length} migration redirects, ${htmlFiles.length} HTML files and ${checkedLinks} local references.`);
+
+// Parse whole directive tokens: "noindex" must never satisfy an "index" check.
+function indexingDirectives(source,agent){
+  const head=(source.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1]||'').replace(/<!--[\s\S]*?-->/g,'');
+  return [...head.matchAll(/<meta\b[^>]*>/gi)].flatMap(([tag])=>{
+    const name=tag.match(/\bname\s*=\s*(["'])(.*?)\1/i)?.[2]?.toLowerCase();
+    if(name!==agent)return [];
+    return (tag.match(/\bcontent\s*=\s*(["'])(.*?)\1/i)?.[2]||'').toLowerCase().split(/[\s,]+/).filter(Boolean);
+  });
+}
+function assertInternationalIndexing(source,label){
+  assert.ok(indexingDirectives(source,'robots').includes('index'),`${label}: explicit global index directive required`);
+  for(const agent of ['robots','googlebot','bingbot','msnbot']){
+    const directives=indexingDirectives(source,agent);
+    assert.ok(!directives.some(value=>['noindex','none','nofollow'].includes(value)),`${label}: ${agent} must not block international search`);
+  }
+}
+assert.throws(()=>assertInternationalIndexing('<head><meta name="robots" content="noindex,follow"></head>','negative fixture'));
+assert.throws(()=>assertInternationalIndexing('<head><meta name="robots" content="index,follow"><meta name="googlebot" content="noindex"></head>','Googlebot fixture'));
+assertInternationalIndexing('<head><meta name="robots" content="index,follow"><meta name="yandex" content="noindex"></head>','Yandex-only fixture');
