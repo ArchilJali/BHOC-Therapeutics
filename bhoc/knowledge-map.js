@@ -2,6 +2,16 @@
 const details = [...document.querySelectorAll('.mobile-map')];
 const currentURL = new URL(/^https?:/.test(location.href) ? location.href : (document.querySelector('link[rel=canonical]')?.href || 'https://bhoctherapeutics.com/bhoc/'));
 const pagePath = value => new URL(value, currentURL).pathname.replace(/\/index\.html$/, '/');
+for (const nav of document.querySelectorAll('.mobile-map nav[aria-label="All BHOC topics"]')) {
+  if (!nav.querySelector('[data-animal-variation]')) {
+    const human = [...nav.children].find(el => /09\s*·\s*Human Variation|09\.1\s*·\s*Human Variation/.test(el.textContent || ''));
+    if (human) {
+      if (/^09\s*·/.test(human.textContent || '')) human.textContent = (human.textContent || '').replace(/^09\s*·/, '09.1 ·');
+      const animal = document.createElement('a'); animal.href='https://bhocvet.com/'; animal.target='_blank'; animal.rel='noopener noreferrer'; animal.dataset.animalVariation='true'; animal.textContent='09.2 · Animal Variation · BHOC Veterinary ↗';
+      human.insertAdjacentElement('afterend', animal);
+    }
+  }
+}
 for (const a of document.querySelectorAll('.mobile-map nav a[href]')) {
   const url = new URL(a.getAttribute('href'), currentURL);
   if (url.origin === currentURL.origin && !url.hash && pagePath(url.href) === pagePath(currentURL.href)) a.setAttribute('aria-current', 'page');

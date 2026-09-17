@@ -64,7 +64,7 @@ try:
     assert urlsplit(page.url).fragment==fragment
     report['anchors'].append({'width':width,'fragment':fragment,'exists':True})
    page.goto(base+'/bhoc/',wait_until='load')
-   assert page.locator('.topic-code').count()==14
+   assert page.locator('.topic-code').count()==15
    assert page.locator('.science-link').count()==4
    assert page.locator('.topic-grid>.legacy-anchor').count()==0,'Legacy anchors create empty grid cells'
    page.screenshot(path=str(OUT/f'published-overview-{width}.png'))

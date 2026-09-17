@@ -29,7 +29,7 @@ with sync_playwright() as p:
             assert page.locator('h1').count()==1,(slug,'h1')
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(slug,width,'overflow')
             if slug=='home':
-                assert page.locator('.topic-code').count()==14
+                assert page.locator('.topic-code').count()==15
                 assert page.locator('.science-link').count()==4
                 assert page.locator('#class-effect-review a').count()==0
                 assert page.locator('#erythrocyte-system').get_attribute('href')=='/bhoc/red-blood-cell/'
@@ -56,6 +56,6 @@ with sync_playwright() as p:
         assert page.locator('main').is_visible()
     c.close();browser.close()
 assert not errors,errors
-report={'method':'Chromium page.set_content with inline local CSS/JS. Navigation to URLs is blocked by this runtime; link destinations validated statically, not by live requests. External illustrations not fetched.','checks':checks,'browserErrors':errors,'additionalChecks':['14 topic cards','four direct science links','mobile contents and Escape','three no-JavaScript renders','dated source-linked blood-group note'],'productionChanged':False}
+report={'method':'Chromium page.set_content with inline local CSS/JS. Navigation to URLs is blocked by this runtime; link destinations validated statically, not by live requests. External illustrations not fetched.','checks':checks,'browserErrors':errors,'additionalChecks':['15 topic cards','four direct science links','mobile contents and Escape','three no-JavaScript renders','dated source-linked blood-group note'],'productionChanged':False}
 (OUT/'browser-checks.json').write_text(json.dumps(report,indent=2))
 print('PASS: 28 desktop/mobile renders; mobile menu/Escape; three no-JS renders; blood-group note; no JavaScript errors or horizontal overflow. URLs checked separately by static audit.')
