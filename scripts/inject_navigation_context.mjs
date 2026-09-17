@@ -26,7 +26,7 @@ const htmlFiles = await walk(root);
 let changed = 0;
 for (const file of htmlFiles) {
   const current = await fs.readFile(file, 'utf8');
-  if (current.includes('/navigation-context.js')) continue;
+  if (current.includes('/navigation-context.js') || current.includes('data-bhoc-knowledge-map')) continue;
   if (!/<\/head>/i.test(current)) {
     console.log(`${path.relative(root, file)}: skipped, no </head>`);
     continue;

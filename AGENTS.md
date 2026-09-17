@@ -1,3 +1,15 @@
+# Approved knowledge-map release — 17 Sep 2026
+
+The user explicitly approved the separate 14-topic overview and full chapter draft, plus a short blood-group note and internal source link in 07.2. This authorization supersedes the earlier continuous-hub-only presentation requirement below. It does not authorize deleting scientific text, breaking old anchors/URLs, changing unrelated SEO, publishing the pending Natanson analysis, or opening the closed standalone artificial-blood draft.
+
+- Preserve every published source paragraph and original source destination; full chapters now live at the routes in `bhoc/knowledge-map-baseline.json`.
+- Preserve `/bhoc/`, `/bhoc/historical-evolution/`, existing sitemap entries, and existing fragment IDs as overview destinations.
+- The RBC blood-group note is grounded in the internal Blood Groups History reference: 49 systems and 400 antigens in the August 2026 release. Do not present this as a real-time registry count.
+- `node scripts/check_bhoc_content.mjs` now dispatches to the protected multi-page source and route audit. Do not regenerate its baseline to conceal a failed preservation check.
+- Production deployment requires a verified GitHub write and successful Pages deployment. Preparing files is not publication.
+
+## Earlier preservation instructions (retained for provenance)
+
 # BHOC Therapeutics — content preservation rules
 
 These rules apply to every file in this repository.
