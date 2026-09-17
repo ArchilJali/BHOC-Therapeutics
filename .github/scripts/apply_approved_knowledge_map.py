@@ -1,8 +1,8 @@
-"""Apply checksummed user-approved bytes on the isolated preview branch.
+"""Apply verified approved content with two markup-only compatibility fixes.
 
-Transport is a non-executable JSON delta against immutable Git sources. Every
-source/output is checked before writing. One attribute-order normalization keeps
-the existing social-card validator compatible without changing metadata values.
+All immutable sources and decoded output bytes are SHA-256 verified. Metadata
+attribute order and a zero-text legacy anchor position are normalized without
+rewriting scientific text, metadata values or any destination URL.
 """
 from pathlib import Path
 import base64,hashlib,html,json,lzma,re,subprocess
@@ -36,13 +36,18 @@ for output in payload['outputs']:
  text=''.join(op if isinstance(op,str) else refs[op[0]][op[1]:op[1]+op[2]] for op in output['ops'])
  assert sha(text.encode())==output['sha256'],('Output checksum mismatch',output['path'])
  refs.append(text)
- # Metadata values and scientific prose are unchanged by this serialization fix.
  if output['path'].endswith('.html'):
   text=text.replace('<meta content="summary_large_image" name="twitter:card"/>','<meta name="twitter:card" content="summary_large_image">')
+ previous_markup_sha=sha(text.encode())
+ if output['path']=='bhoc/index.html':
+  alias='<span aria-hidden="true" class="legacy-anchor" id="what-bhoc"></span>'
+  card='<a class="topic topic-link" href="/bhoc/definition/" id="bhoc-overview">'
+  assert text.count(alias)==1 and text.count(card)==1
+  text=text.replace(alias,'',1).replace(card,card+alias,1)
  data=text.encode('utf-8');final_sha=sha(data)
  record={**output,'final_sha256':final_sha}
  target=safe_path(output['path']);existing=sha(target.read_bytes()) if target.is_file() else None
- assert existing in (output['before_sha256'],output['sha256'],final_sha),('Source changed; stop rather than overwrite',output['path'])
+ assert existing in (output['before_sha256'],output['sha256'],previous_markup_sha,final_sha),('Source changed; stop rather than overwrite',output['path'])
  planned.append((target,data,record))
 for target,data,record in planned:
  target.parent.mkdir(parents=True,exist_ok=True)
