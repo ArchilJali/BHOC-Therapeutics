@@ -26,6 +26,8 @@ jobs:
         run: node scripts/check_bhoc_content.mjs
       - name: Apply exact approved and checksummed release
         run: python .github/scripts/apply_approved_knowledge_map.py
+      - name: Apply approved compact-card and variation refinements
+        run: python .github/scripts/apply_compact_variation_patch.py
       - name: Content, links, sitemap and JavaScript checks
         run: |
           node scripts/check_bhoc_content.mjs
@@ -59,12 +61,13 @@ jobs:
           from pathlib import Path
           import subprocess
           paths=Path('knowledge-map-test-results/application-paths.txt').read_text().splitlines()
-          subprocess.run(['git','add','--',*paths], check=True)
+          extra=['bhoc/knowledge-map-baseline.json','tests/test_knowledge_map.py','tests/test_knowledge_map_routes.py']
+          subprocess.run(['git','add','--',*sorted(set(paths+extra))], check=True)
           PY
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Apply validated user-approved BHOC overview and full chapters, preserving source text and SEO'
+            git commit -m 'Tighten BHOC overview cards and add Human/Animal Variation routes'
             git push origin HEAD:preview/bhoc-knowledge-map-release-20260917
           fi
       - name: Preserve screenshots and audit reports
