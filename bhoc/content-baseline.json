@@ -13,8 +13,8 @@
       "linksSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "terminology": {
-      "textCharacters": 3666,
-      "textSha256": "5366ec7bd3fe8e6d3778ccfbe95dcb97ff7148ccdea33d56b8e78bb0227aafd1",
+      "textCharacters": 3687,
+      "textSha256": "ef0440e332d90f05dc1519cdfd2c4c0c48aabe23b0f15de707af0918727b8eb7",
       "linksSha256": "d872f6666c11badc741a4ca69b419e3850c197f57cdf87bab17c6a77f4bb6c49"
     },
     "hemoglobin-system": {
@@ -71,5 +71,10 @@
     "startingCommit": "ce270a3bedf10b33150677f4087473eb7580523a",
     "scope": "User-requested history, marketing framing and BHOC class-effect critique; Nobel, product-history and author-concept internal links; inactive future Natanson-review notice.",
     "boundaries": "2022 identifies the stored HBOC-201 paper, not an asserted start of the entire reassessment; no worldwide exclusive approval claim; no new Natanson analysis; other 11 section fingerprints unchanged."
+  },
+  "approvedRecentYearsWording": {
+    "startingPreviewCommit": "bfaa63a874e5ef635b4b4c308a14b69ca715589e",
+    "scope": "Explicitly approved final reassessment paragraph beginning In recent years; visible year list removed; both original bibliography destinations retained.",
+    "publication": "User explicitly authorized publication of the terminology context with this wording."
   }
 }
