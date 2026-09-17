@@ -18,7 +18,15 @@ assert not (ROOT / 'bhoc/artificial-blood-blood-substitute/index.html').exists()
 assert '/bhoc/artificial-blood-blood-substitute/' not in (ROOT / 'sitemap.xml').read_text()
 original = subprocess.check_output(['git', 'show', '89ddd34c464278a79528f5be3c1776b0fc9af256:bhoc/index.html'], cwd=ROOT, text=True)
 old = BeautifulSoup(original, 'html.parser')
-assert [p.get_text() for p in old.select('#terminology p:not(.eyebrow)')] == [p.get_text() for p in soup.select('#terminology p:not(.eyebrow)')]
+preserved_terminology = BeautifulSoup(str(soup.select_one('#terminology')), 'html.parser')
+for added in preserved_terminology.select('.terminology-context, .terminology-followups'):
+    added.decompose()
+normalize_text = lambda text: ' '.join(text.split())
+assert normalize_text(' '.join(p.get_text() for p in old.select('#terminology p:not(.eyebrow)'))) == normalize_text(' '.join(p.get_text() for p in preserved_terminology.select('p:not(.eyebrow)')))
+assert len(soup.select('.terminology-context > p')) == 5
+assert not soup.select('#class-effect-review a, #class-effect-review button, #class-effect-review [tabindex]')
+assert 'In development' in soup.select_one('#class-effect-review').get_text()
+assert soup.select_one('.terminology-concept')['href'].endswith('size-compartmentalization-vascular-control.html')
 for item in ids:
     if item != 'terminology':
         assert str(old.find(id=item)) == str(soup.find(id=item)), item
@@ -72,6 +80,7 @@ with sync_playwright() as p:
             page.goto(base + '/bhoc/#terminology')
             page.wait_for_timeout(180)
         page.screenshot(path=str(shots / f'terminology-{width}.png'))
+        page.locator('#terminology').screenshot(path=str(shots / f'terminology-full-{width}.png'))
         assert page.locator('.bhoc-subnav').evaluate('(e) => e.scrollWidth <= e.clientWidth + 1')
         page.goto(base + '/bhoc/historical-evolution/')
         page.wait_for_timeout(180)

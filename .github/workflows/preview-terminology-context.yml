@@ -1,0 +1,140 @@
+name: Preview terminology historical context
+on:
+  push:
+    branches: ['preview/terminology-historical-context']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: preview-terminology-historical-context
+  cancel-in-progress: false
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Preserve base and apply requested additions
+        run: |
+          node scripts/check_bhoc_content.mjs
+          python scripts/add_terminology_context.py
+      - name: Apply approved In recent years wording and preserve source links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from collections import Counter
+          import html, json, re, subprocess
+          pattern = re.compile(r'<p><strong>Reassessment is already under way\.</strong>[\s\S]*?</p>')
+          new = '<p><strong>Reassessment is already under way.</strong> In recent years, <a href="https://archiljali.github.io/BHOC-platform/human/BHOC-Human-search.html?q=Blood%20Component%20Requirements&amp;year=2022" target="_blank" rel="noopener noreferrer">further analyses</a> and <a href="/bhoc/historical-evolution/#hboc-era">comparative reviews</a> have provided a basis for revisiting earlier conclusions about HBOCs and how they are applied across different products. We believe this reassessment should distinguish molecular design, formulation, clinical context and physiological endpoints, rather than treat all hemoglobin-based oxygen carriers as a single, uniform class. Revisiting broad class-wide conclusions does not mean dismissing product-specific safety findings.</p>'
+          expected = 'Reassessment is already under way. In recent years, further analyses and comparative reviews have provided a basis for revisiting earlier conclusions about HBOCs and how they are applied across different products. We believe this reassessment should distinguish molecular design, formulation, clinical context and physiological endpoints, rather than treat all hemoglobin-based oxygen carriers as a single, uniform class. Revisiting broad class-wide conclusions does not mean dismissing product-specific safety findings.'
+          visible = lambda text: ' '.join(html.unescape(re.sub(r'<[^>]+>', '', text)).split())
+          links = lambda text: Counter(html.unescape(value) for value in re.findall(r'<a\b[^>]*\bhref="([^"]*)"', text))
+          assert visible(new) == expected
+          assert not re.search(r'\b(?:19|20)\d{2}\b', visible(new))
+          for name in ['bhoc/index.html', 'scripts/add_terminology_context.py']:
+              path = Path(name)
+              original = path.read_text()
+              matches = list(pattern.finditer(original))
+              assert len(matches) == 1, f'Unexpected reassessment paragraph in {name}'
+              old = matches[0].group()
+              assert old == new or ('2022 HBOC-201 analysis in our library' in old and '2018 comparison' in old and '2025 review' in old), 'Unreviewed wording; stop rather than overwrite'
+              revised = pattern.sub(lambda _: new, original, count=1)
+              assert links(revised) == links(original), f'Original links changed: {name}'
+              assert revised[:matches[0].start()] == original[:matches[0].start()]
+              assert revised[matches[0].start() + len(new):] == original[matches[0].end():]
+              if revised != original:
+                  path.write_text(revised)
+                  print('Approved paragraph applied:', name)
+          baseline_path = Path('bhoc/content-baseline.json')
+          baseline = json.loads(baseline_path.read_text())
+          snapshot = json.loads(subprocess.check_output(['node', 'scripts/check_bhoc_content.mjs', '--snapshot'], text=True))
+          for key, value in baseline['sections'].items():
+              if key != 'terminology':
+                  assert snapshot['sections'][key] == value, key
+          baseline['sections']['terminology'] = snapshot['sections']['terminology']
+          baseline['approvedRecentYearsWording'] = {
+              'startingPreviewCommit': 'bfaa63a874e5ef635b4b4c308a14b69ca715589e',
+              'scope': 'Explicitly approved final reassessment paragraph beginning In recent years; visible year list removed; both original bibliography destinations retained.',
+              'publication': 'User explicitly authorized publication of the terminology context with this wording.'
+          }
+          baseline_path.write_text(json.dumps(baseline, indent=2) + '\n')
+          print('PASS: exact approved paragraph; no visible years; both source links retained; all 11 other protected sections unchanged.')
+          PY
+      - name: Finalize precise internal anchors and preserve all other sections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          fixes = {
+              '/bhoc/historical-evolution/#artificial-blood">historical archive': '/bhoc/historical-evolution/#hboc-era">historical archive',
+              '>Nobel Prizes in the scientific foundations mapped here</a>': '>Nobel Prizes</a>'
+          }
+          for name in ['scripts/add_terminology_context.py', 'bhoc/index.html']:
+              p = Path(name)
+              text = p.read_text()
+              for old, new in fixes.items():
+                  text = text.replace(old, new)
+              p.write_text(text)
+          baseline_path = Path('bhoc/content-baseline.json')
+          baseline = json.loads(baseline_path.read_text())
+          snapshot = json.loads(subprocess.check_output(['node', 'scripts/check_bhoc_content.mjs', '--snapshot'], text=True))
+          for key, value in baseline['sections'].items():
+              if key != 'terminology':
+                  assert snapshot['sections'][key] == value, key
+          baseline['sections']['terminology'] = snapshot['sections']['terminology']
+          baseline_path.write_text(json.dumps(baseline, indent=2) + '\n')
+          print('Precise history anchor confirmed; other 11 protected sections unchanged.')
+          PY
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          git diff --check
+      - name: Check internal platform destinations, historical anchors and bibliography record
+        run: |
+          python - <<'PY'
+          import json, urllib.request, re
+          from pathlib import Path
+          base = 'https://raw.githubusercontent.com/ArchilJali/BHOC-platform/main/'
+          def read(path):
+              with urllib.request.urlopen(base + path, timeout=30) as response:
+                  return response.read().decode('utf-8')
+          records = json.loads(read('human/BHOC-Human-publications.json'))
+          matched = [r for r in records if str(r.get('year')) == '2022' and 'blood component requirements' in r.get('title', '').lower()]
+          assert len(matched) == 1, 'The source link must open the identified record'
+          print('Internal bibliography record:', matched[0]['title'])
+          nobel = read('science/nobel-foundations-oxygen-metabolism-physiology.html')
+          assert 'y1998' in nobel and 'y2019' in nobel
+          concept = read('concepts-hypotheses/size-compartmentalization-vascular-control.html')
+          assert 'Research Concept' in concept and 'Hypothesis' in concept
+          history = Path('bhoc/historical-evolution/index.html').read_text()
+          section = re.search(r'<section\b[^>]*id="hboc-era"[^>]*>([\s\S]*?)</section>', history).group(1)
+          assert 'All HBOCs Are Not Created Equally' in section and '2025' in section
+          assert 'Oxyglobin' in section and 'South Africa' in section
+          print('Internal Nobel, author concept and exact history subsection confirmed.')
+          PY
+      - name: Install browser dependencies
+        run: |
+          python -m pip install playwright beautifulsoup4
+          python -m playwright install --with-deps chromium
+      - name: Test desktop and mobile navigation and requested content
+        run: python tests/test_bhoc_navigation.py
+      - name: Commit validated preview only
+        run: |
+          git add bhoc/index.html bhoc/content-baseline.json tests/test_bhoc_navigation.py scripts/add_terminology_context.py
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Use user-approved In recent years wording and preserve bibliography links'
+            git push origin HEAD:preview/terminology-historical-context
+          fi
+      - name: Upload preview screenshots and check results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: terminology-context-preview
+          path: navigation-test-results/
