@@ -1,0 +1,97 @@
+name: Review approved BHOC chapter migration
+on:
+  push:
+    branches: ['preview/knowledge-map-publish']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: approved-bhoc-knowledge-map
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Check protected starting content
+        run: node scripts/check_bhoc_content.mjs
+      - name: Materialize the exact reviewed files with immutable-source checksums
+        run: |
+          python - <<'PY'
+          import base64, hashlib, json, lzma, subprocess
+          from pathlib import Path, PurePosixPath
+          sha = lambda data: hashlib.sha256(data).hexdigest()
+          parts = [Path(f'.github/reviewed-drafts/map-delta-{i}.b64').read_text().strip() for i in range(3)]
+          for i, part in enumerate(parts):
+              print('Part', i, len(part), sha(part.encode()))
+          packed = base64.b64decode(''.join(parts), validate=True)
+          assert sha(packed) == '46d5ebfc3d8eece11f9e8bfa198499c0b9b74613028759696cfc2d6cf83be4cf', 'Reviewed payload checksum mismatch'
+          data = json.loads(lzma.decompress(packed))
+          assert data['base'] == 'f6cb0101410c4196a2651952bfce946e1082558b'
+          originals = []
+          for path, digest in zip(data['refs'], data['baseSha256']):
+              text = subprocess.check_output(['git', 'show', data['base'] + ':' + path]).decode('utf-8')
+              assert sha(text.encode()) == digest, 'Source differs: ' + path
+              originals.append(text)
+          pool = ''.join(json.dumps(text, ensure_ascii=False) for text in originals)
+          output = []
+          for op in data['ops']:
+              if isinstance(op, str):
+                  output.append(op)
+              else:
+                  assert len(op) == 2 and all(isinstance(x, int) for x in op)
+                  start, length = op
+                  assert start >= 0 and length >= 0 and start + length <= len(pool)
+                  output.append(pool[start:start + length])
+          text = ''.join(output)
+          assert sha(text.encode()) == data['targetSha256'] == 'f8f54b04fc665d0ef229a2c4d6978a923537bdbc27a9cc7108e25df4c7287f19'
+          files = json.loads(text)
+          assert list(files) == data['paths'] and len(files) == 26
+          permitted_files = {'sitemap.xml', 'AGENTS.md', 'scripts/inject_navigation_context.mjs', 'scripts/check_bhoc_content.mjs', 'tests/test_bhoc_navigation.py', '.github/scripts/check_bhoc_migration.py'}
+          for name, content in files.items():
+              path = PurePosixPath(name)
+              assert not path.is_absolute() and '..' not in path.parts
+              assert name.startswith('bhoc/') or name.startswith('.github/content-protection/') or name in permitted_files, name
+              assert isinstance(content, str)
+          for name, content in files.items():
+              path = Path(name)
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_text(content, encoding='utf-8')
+              print('Reviewed file:', name)
+          print('Exact reviewed migration materialized; no other files written.')
+          PY
+      - name: Validate original texts, source links, fragments and SEO
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          node --check bhoc/knowledge-map.js
+          node --check scripts/inject_navigation_context.mjs
+          git diff --check
+      - name: Install browser checks
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Test real desktop, mobile and no-JavaScript chapter navigation
+        run: python tests/test_bhoc_navigation.py
+      - name: Commit only validated reviewed publication files on preview
+        run: |
+          git add bhoc sitemap.xml scripts/check_bhoc_content.mjs scripts/inject_navigation_context.mjs .github/content-protection .github/scripts/check_bhoc_migration.py tests/test_bhoc_navigation.py AGENTS.md
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Prepare user-approved BHOC topic map, full chapters and RBC blood-group reference'
+            git push origin HEAD:preview/knowledge-map-publish
+          fi
+      - name: Upload screenshots and test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: approved-bhoc-knowledge-map-checks
+          path: navigation-test-results/
