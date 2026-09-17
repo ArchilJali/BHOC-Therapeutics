@@ -1,0 +1,75 @@
+name: Validate approved BHOC knowledge-map release
+on:
+  push:
+    branches: ['preview/bhoc-knowledge-map-release-20260917']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: preview-bhoc-knowledge-map-release
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/preview/bhoc-knowledge-map-release-20260917'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Check out isolated preview branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          ref: preview/bhoc-knowledge-map-release-20260917
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Verify current protected content
+        run: node scripts/check_bhoc_content.mjs
+      - name: Apply exact approved and checksummed release
+        run: python .github/scripts/apply_approved_knowledge_map.py
+      - name: Content, links, sitemap and JavaScript checks
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          node --check bhoc/knowledge-map.js
+          git diff --check
+      - name: Install isolated browser test dependencies
+        run: |
+          python -m pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+      - name: Independent preservation and SEO audit
+        run: python .github/scripts/audit_knowledge_map_release.py
+      - name: Desktop and mobile visual regression
+        run: python tests/test_knowledge_map.py
+      - name: Real browser chapter links, old fragments, breadcrumbs and returns
+        run: python tests/test_knowledge_map_routes.py
+      - name: Verify internal blood-group source link
+        run: |
+          python - <<'PY'
+          import urllib.request
+          url='https://raw.githubusercontent.com/ArchilJali/BHOC-platform/main/real-world-evidence/blood-groups-history/index.html'
+          with urllib.request.urlopen(url, timeout=30) as response:
+              text=response.read().decode('utf-8')
+          assert '49' in text and '400' in text and 'August 2026' in text
+          print('Internal dated blood-group reference exists. No external clinical claims added.')
+          PY
+      - name: Commit only validated generated files on preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths=Path('knowledge-map-test-results/application-paths.txt').read_text().splitlines()
+          subprocess.run(['git','add','--',*paths], check=True)
+          PY
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Apply validated user-approved BHOC overview and full chapters, preserving source text and SEO'
+            git push origin HEAD:preview/bhoc-knowledge-map-release-20260917
+          fi
+      - name: Preserve screenshots and audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bhoc-knowledge-map-release-verification
+          path: knowledge-map-test-results/
