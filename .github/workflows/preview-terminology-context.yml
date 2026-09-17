@@ -1,0 +1,68 @@
+name: Preview terminology historical context
+on:
+  push:
+    branches: ['preview/terminology-historical-context']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: preview-terminology-historical-context
+  cancel-in-progress: false
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Preserve base and apply requested additions
+        run: |
+          node scripts/check_bhoc_content.mjs
+          python scripts/add_terminology_context.py
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          git diff --check
+      - name: Check internal platform link destinations and 2022 record
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          base = 'https://raw.githubusercontent.com/ArchilJali/BHOC-platform/main/'
+          def read(path):
+              with urllib.request.urlopen(base + path, timeout=30) as response:
+                  return response.read().decode('utf-8')
+          records = json.loads(read('human/BHOC-Human-publications.json'))
+          matched = [r for r in records if str(r.get('year')) == '2022' and 'blood component requirements' in r.get('title', '').lower()]
+          assert len(matched) == 1, 'The 2022 link must open the identified record'
+          print('Internal 2022 record:', matched[0]['title'])
+          nobel = read('science/nobel-foundations-oxygen-metabolism-physiology.html')
+          assert 'y1998' in nobel and 'y2019' in nobel
+          concept = read('concepts-hypotheses/size-compartmentalization-vascular-control.html')
+          assert 'Research Concept' in concept and 'Hypothesis' in concept
+          print('Internal Nobel and author-concept destinations confirmed.')
+          PY
+      - name: Install browser dependencies
+        run: |
+          python -m pip install playwright beautifulsoup4
+          python -m playwright install --with-deps chromium
+      - name: Test desktop and mobile navigation and requested content
+        run: python tests/test_bhoc_navigation.py
+      - name: Commit validated preview only
+        run: |
+          git add bhoc/index.html bhoc/content-baseline.json tests/test_bhoc_navigation.py
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Add requested historical terminology context, internal links and inactive class-effect review'
+            git push origin HEAD:preview/terminology-historical-context
+          fi
+      - name: Upload preview screenshots and check results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: terminology-context-preview
+          path: navigation-test-results/
