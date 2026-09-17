@@ -13,9 +13,9 @@
       "linksSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "terminology": {
-      "textCharacters": 3708,
-      "textSha256": "708a38c04e73a5c76ef38a47756cfb06ce8f8d96429b8a93a69b17d128812f5a",
-      "linksSha256": "9b1b5b2ffa9a62875159294b4ffcd0e34f9eaf6e6e69bfd8deba8f115e056334"
+      "textCharacters": 3666,
+      "textSha256": "5366ec7bd3fe8e6d3778ccfbe95dcb97ff7148ccdea33d56b8e78bb0227aafd1",
+      "linksSha256": "d872f6666c11badc741a4ca69b419e3850c197f57cdf87bab17c6a77f4bb6c49"
     },
     "hemoglobin-system": {
       "textCharacters": 1096,
