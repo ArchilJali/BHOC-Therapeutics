@@ -110,3 +110,45 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
   .brand-network-title{flex:0 0 100%;margin:0;font-size:8px}
   .brand-network-link{min-height:27px;padding:0 10px;font-size:9px}
 }
+
+
+/* Contact BHOC Therapeutics */
+.contact-page{background:linear-gradient(180deg,#f7fbff 0,#fff 360px)}
+.contact-hero{max-width:980px;margin:0 auto;padding:48px 24px 24px}
+.contact-hero h1{max-width:760px;margin:0;color:var(--navy);font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.8rem,5.5vw,5.6rem);font-weight:400;line-height:.98;letter-spacing:-.055em}
+.contact-hero>p:last-child{max-width:760px;margin:16px 0 0;color:var(--blue);font-size:1rem;line-height:1.55}
+.bhoc-contact-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);gap:18px;align-items:start;max-width:980px;margin:0 auto 58px;padding:0 24px}
+.bhoc-contact-card,.bhoc-contact-direct{border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--shadow)}
+.bhoc-contact-card{padding:28px}
+.bhoc-contact-direct{padding:26px;border-top:4px solid var(--red);background:linear-gradient(145deg,#0c376f,#082d68);color:#e8f2ff}
+.bhoc-contact-direct .eyebrow{color:#ffaaa8}
+.bhoc-contact-direct h2{margin:6px 0 10px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:2rem;font-weight:400}
+.bhoc-contact-direct p{color:#d5e4f8;font-size:.9rem}
+.bhoc-contact-direct .button{width:100%;margin-top:16px;background:#fff;border-color:#fff;color:var(--navy);white-space:normal;text-align:center}
+.bhoc-contact-direct .button:hover{background:#eef6ff}
+.bhoc-contact-form{display:grid;grid-template-columns:1fr 1fr;gap:13px 14px}
+.bhoc-contact-form label{display:flex;flex-direction:column;gap:6px;color:var(--navy);font-size:13px;font-weight:700}
+.bhoc-contact-form input,.bhoc-contact-form select,.bhoc-contact-form textarea{width:100%;padding:10px 12px;border:1px solid #bed0e7;border-radius:8px;background:#fff;color:var(--ink);font:16px/1.4 Arial,Helvetica,sans-serif}
+.bhoc-contact-form input,.bhoc-contact-form select{min-height:44px}
+.bhoc-contact-form textarea{min-height:112px;resize:vertical}
+.bhoc-contact-message{grid-column:1/-1}
+.bhoc-contact-human{grid-column:1/-1!important;flex-direction:row!important;align-items:center;gap:9px!important;width:max-content;min-height:38px;cursor:pointer}
+.bhoc-contact-human input{width:18px;height:18px;min-height:0;accent-color:var(--red)}
+.bhoc-contact-submit{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:12px 16px}
+.bhoc-contact-submit .button{width:auto}
+.bhoc-contact-status,.bhoc-contact-note{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+.bhoc-contact-note{grid-column:1/-1}
+.bhoc-contact-honey{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.bhoc-contact-success{padding:12px 0 2px}
+.bhoc-contact-success h2{margin:6px 0 10px;color:var(--navy);font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,4vw,3.7rem);font-weight:400}
+.bhoc-contact-success>p:not(.eyebrow){margin:0 0 20px;color:var(--muted)}
+.bhoc-contact-success .button{width:auto}
+.bhoc-contact-submit .button:disabled{opacity:.55;cursor:wait}
+@media(max-width:760px){
+  .contact-hero{padding:36px 18px 18px}
+  .bhoc-contact-layout{grid-template-columns:1fr;margin-bottom:42px;padding:0 18px}
+  .bhoc-contact-card,.bhoc-contact-direct{padding:22px 18px}
+  .bhoc-contact-form{grid-template-columns:1fr}
+  .bhoc-contact-message,.bhoc-contact-human,.bhoc-contact-submit,.bhoc-contact-note{grid-column:auto}
+  .bhoc-contact-submit .button,.bhoc-contact-success .button{width:100%}
+}
