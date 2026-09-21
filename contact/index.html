@@ -112,6 +112,7 @@
         form.reset();
         form.hidden=true;
         success.hidden=false;
+        document.querySelector('.contact-page')?.classList.add('is-sent');
       }catch(error){
         status.textContent='Your message could not be sent. Please try again or use the direct email option.';
       }finally{

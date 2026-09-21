@@ -152,3 +152,28 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
   .bhoc-contact-message,.bhoc-contact-human,.bhoc-contact-submit,.bhoc-contact-note{grid-column:auto}
   .bhoc-contact-submit .button,.bhoc-contact-success .button{width:100%}
 }
+
+.contact-page.is-sent .contact-hero,
+.contact-page.is-sent .bhoc-contact-direct,
+.contact-page.is-sent .bhoc-contact-card > .eyebrow,
+.contact-page.is-sent .bhoc-contact-form{display:none}
+.contact-page.is-sent .bhoc-contact-layout{
+  grid-template-columns:1fr;
+  max-width:760px;
+  margin-top:64px;
+  margin-bottom:72px;
+}
+.contact-page.is-sent .bhoc-contact-card{
+  padding:38px 34px;
+  text-align:center;
+}
+.contact-page.is-sent .bhoc-contact-success{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.contact-page.is-sent .bhoc-contact-success .button{margin-top:4px}
+@media(max-width:760px){
+  .contact-page.is-sent .bhoc-contact-layout{margin-top:36px;margin-bottom:48px}
+  .contact-page.is-sent .bhoc-contact-card{padding:30px 20px}
+}
