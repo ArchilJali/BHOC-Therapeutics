@@ -10,6 +10,7 @@
   if (!main.id) main.id = 'main-content';
   const current = new URL(location.href);
   const OFFICIAL_YOUTUBE_CHANNEL = 'https://www.youtube.com/@BHOCTherapeutics';
+  const OFFICIAL_LINKEDIN_COMPANY = 'https://www.linkedin.com/company/bhoc-therapeutics/';
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
   const pageBase = value => {
     const url = new URL(value, current.href);
@@ -127,12 +128,46 @@
     };
     if (document.readyState === 'complete') requestAnimationFrame(alignInitial); else window.addEventListener('load', alignInitial, {once: true});
   }
+  const addFooterSocialIcons = () => {
+    if (!document.getElementById('bhoc-footer-social-style')) {
+      const style = document.createElement('style');
+      style.id = 'bhoc-footer-social-style';
+      style.textContent = '.bhoc-footer-socials{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(120,135,150,.22)}.bhoc-footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid currentColor;border-radius:9px;text-decoration:none;transition:transform .16s ease,opacity .16s ease}.bhoc-footer-social-link:hover{transform:translateY(-1px);opacity:.82}.bhoc-footer-social-link:focus-visible{outline:3px solid rgba(10,102,194,.2);outline-offset:2px}.bhoc-footer-social-link svg{width:19px;height:19px;display:block}.bhoc-footer-social-link[data-network="linkedin"]{color:#0a66c2}.bhoc-footer-social-link[data-network="youtube"]{color:#ff0000}';
+      document.head.appendChild(style);
+    }
+    const makeSocial = (href, network, label, svg) => {
+      const a = document.createElement('a');
+      a.className = 'bhoc-footer-social-link';
+      a.href = href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.dataset.network = network;
+      a.setAttribute('aria-label', label);
+      a.title = label;
+      a.innerHTML = svg;
+      return a;
+    };
+    const linkedinSvg = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.3 7.9H1.8V19h3.5V7.9ZM3.55 2.5A2.04 2.04 0 1 0 3.55 6.58 2.04 2.04 0 0 0 3.55 2.5ZM19 12.65c0-3.35-1.79-4.91-4.18-4.91-1.93 0-2.79 1.06-3.27 1.8V7.9H8.06V19h3.49v-5.5c0-1.45.27-2.86 2.08-2.86 1.78 0 1.8 1.67 1.8 2.96V19H19v-6.35Z"/></svg>';
+    const youtubeSvg = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="m10 9 5.5 3-5.5 3Z" fill="white"/></svg>';
+    document.querySelectorAll('footer').forEach(footer => {
+      if (footer.querySelector('.bhoc-footer-socials')) return;
+      const nav = document.createElement('nav');
+      nav.className = 'bhoc-footer-socials';
+      nav.setAttribute('aria-label', 'BHOC social media');
+      nav.append(
+        makeSocial(OFFICIAL_LINKEDIN_COMPANY, 'linkedin', 'BHOC Therapeutics on LinkedIn', linkedinSvg),
+        makeSocial(OFFICIAL_YOUTUBE_CHANNEL, 'youtube', 'BHOC Therapeutics on YouTube', youtubeSvg)
+      );
+      const target = footer.querySelector('.home-wrap, .footer-inner, .footer-container, .shell') || footer;
+      target.appendChild(nav);
+    });
+  };
   const bottom = document.createElement('nav'); bottom.className = 'bhoc-context-bottom'; bottom.setAttribute('aria-label', 'End of page navigation');
   if (history.length > 1) bottom.append(backButton());
   if (returnContext) bottom.append(link(returnContext.url, 'Return to ' + clean(returnContext.label || labelFor(returnContext.url))));
   if (isBhoc && !isHub) bottom.append(link('/bhoc/', 'BHOC overview'));
-  const youtubeLink = link(OFFICIAL_YOUTUBE_CHANNEL, 'YouTube @BHOCTherapeutics'); youtubeLink.target = '_blank'; youtubeLink.rel = 'noopener noreferrer';
-  bottom.append(link(site.home, site.name), youtubeLink, link('#' + body.id, '↑ Back to top')); main.append(bottom);
+  bottom.append(link(site.home, site.name), link('#' + body.id, '↑ Back to top')); main.append(bottom);
+  addFooterSocialIcons();
   const top = document.createElement('button'); top.type = 'button'; top.className = 'bhoc-context-top'; top.textContent = '↑ Top'; top.setAttribute('aria-label', 'Back to top');
   top.addEventListener('click', () => window.scrollTo({top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}));
   const updateTop = () => top.classList.toggle('is-visible', scrollY > 650); window.addEventListener('scroll', updateTop, {passive: true}); updateTop(); body.append(top);
