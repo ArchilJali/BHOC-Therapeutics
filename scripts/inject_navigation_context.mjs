@@ -26,15 +26,24 @@ const htmlFiles = await walk(root);
 let changed = 0;
 for (const file of htmlFiles) {
   const current = await fs.readFile(file, 'utf8');
-  if (current.includes('/navigation-context.js') || current.includes('data-bhoc-knowledge-map')) continue;
-  if (!/<\/head>/i.test(current)) {
-    console.log(`${path.relative(root, file)}: skipped, no </head>`);
-    continue;
+  if (current.includes('data-bhoc-knowledge-map')) continue;
+  let next = current;
+  if (current.includes('/navigation-context.js')) {
+    next = current.replace(
+      /<script\\b(?=[^>]*\\bsrc=["']\\/navigation-context\\.js(?:\\?[^"']*)?["'])[^>]*><\\/script>/gi,
+      '<script src="/navigation-context.js?v=20260922-social2" defer></script>'
+    );
+  } else {
+    if (!/<\\/head>/i.test(current)) {
+      console.log(`${path.relative(root, file)}: skipped, no </head>`);
+      continue;
+    }
+    next = current.replace(/<\\/head>/i, `${scriptTag}\\n</head>`);
   }
-  const next = current.replace(/<\/head>/i, `${scriptTag}\n</head>`);
+  if (next === current) continue;
   await fs.writeFile(file, next);
   changed += 1;
-  console.log(`${path.relative(root, file)}: navigation context injected`);
+  console.log(`${path.relative(root, file)}: navigation context synchronized`);
 }
 
 console.log(`Navigation context injection complete: ${changed} HTML file(s) changed.`);
