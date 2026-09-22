@@ -159,7 +159,7 @@
         makeSocial(OFFICIAL_LINKEDIN_COMPANY, 'linkedin', 'BHOC Therapeutics on LinkedIn', linkedinSvg),
         makeSocial(OFFICIAL_YOUTUBE_CHANNEL, 'youtube', 'BHOC Therapeutics on YouTube', youtubeSvg)
       );
-      const target = footer.querySelector('.home-footer-bottom, .platform-version, .footer-bottom, .footer-meta, .footer-publication') || footer.querySelector('.home-wrap, .footer-inner, .footer-container, .shell') || footer;
+      const target = footer.querySelector('.home-footer-bottom') || footer.querySelector('.platform-version') || footer.querySelector('.footer-bottom') || footer.querySelector('.footer-meta') || footer.querySelector('.footer-publication') || footer.querySelector('.copyright') || footer.querySelector('.version') || footer.querySelector('p:last-of-type') || footer.querySelector('.home-wrap, .footer-inner, .footer-container, .shell') || footer;
       target.appendChild(nav);
     });
   };
