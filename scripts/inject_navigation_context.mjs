@@ -30,7 +30,7 @@ for (const file of htmlFiles) {
   let next = current;
   if (current.includes('/navigation-context.js')) {
     next = current.replace(
-      /<script\\b(?=[^>]*\\bsrc=["']\\/navigation-context\\.js(?:\\?[^"']*)?["'])[^>]*><\\/script>/gi,
+      /<script\b(?=[^>]*\bsrc=["']\/navigation-context\.js(?:\?[^"']*)?["'])[^>]*><\/script>/gi,
       '<script src="/navigation-context.js?v=20260922-social2" defer></script>'
     );
   } else {
