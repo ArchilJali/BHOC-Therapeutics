@@ -86,3 +86,12 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
 .bhoc-guide a{display:inline-flex;align-items:center;gap:7px;color:#0b377f;text-decoration:none;font-size:13px;line-height:1.2}
 .bhoc-guide a strong{font-weight:900}.bhoc-guide a span{color:#f22c26;font-weight:800}.bhoc-guide a b{color:#f22c26;font-size:17px;transition:transform .18s ease}.bhoc-guide a:hover b{transform:translateX(3px)}
 @media(max-width:620px){.bhoc-guide-inner{min-height:0;padding:10px 0;display:block}.bhoc-guide-label{display:block;margin-bottom:4px}.bhoc-guide a{display:flex;justify-content:center;flex-wrap:wrap;font-size:12px}}
+
+.footer-grid .bhoc-footer-socials{display:flex;align-items:center;gap:7px;margin:7px 0 6px}
+.footer-grid .bhoc-footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;margin:0;border:1px solid currentColor;border-radius:9px;text-decoration:none;transition:transform .16s ease,opacity .16s ease}
+.footer-grid .bhoc-footer-social-link:hover{transform:translateY(-1px);opacity:.82}
+.footer-grid .bhoc-footer-social-link svg{display:block;width:17px;height:17px}
+.footer-grid .bhoc-footer-social-link[data-network="linkedin"]{color:#5aa7ff}
+.footer-grid .bhoc-footer-social-link[data-network="youtube"]{color:#ff4b4b}
+.footer-grid .vet-wordmark,.footer-grid .vet-wordmark .vet-o{display:inline;margin:0;font-size:inherit;line-height:inherit}
+.footer-grid .footer-vet-link{white-space:nowrap}
