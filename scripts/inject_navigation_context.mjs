@@ -34,11 +34,11 @@ for (const file of htmlFiles) {
       '<script src="/navigation-context.js?v=20260922-social2" defer></script>'
     );
   } else {
-    if (!/<\\/head>/i.test(current)) {
+    if (!/<\/head>/i.test(current)) {
       console.log(`${path.relative(root, file)}: skipped, no </head>`);
       continue;
     }
-    next = current.replace(/<\\/head>/i, `${scriptTag}\\n</head>`);
+    next = current.replace(/<\/head>/i, `${scriptTag}\n</head>`);
   }
   if (next === current) continue;
   await fs.writeFile(file, next);
