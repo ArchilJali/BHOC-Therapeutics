@@ -9,6 +9,7 @@
   if (!body.id) body.id = main.id === 'top' ? 'page-top' : 'top';
   if (!main.id) main.id = 'main-content';
   const current = new URL(location.href);
+  const OFFICIAL_YOUTUBE_CHANNEL = 'https://www.youtube.com/@BHOCTherapeutics';
   const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
   const pageBase = value => {
     const url = new URL(value, current.href);
@@ -130,7 +131,8 @@
   if (history.length > 1) bottom.append(backButton());
   if (returnContext) bottom.append(link(returnContext.url, 'Return to ' + clean(returnContext.label || labelFor(returnContext.url))));
   if (isBhoc && !isHub) bottom.append(link('/bhoc/', 'BHOC overview'));
-  bottom.append(link(site.home, site.name), link('#' + body.id, '↑ Back to top')); main.append(bottom);
+  const youtubeLink = link(OFFICIAL_YOUTUBE_CHANNEL, 'YouTube @BHOCTherapeutics'); youtubeLink.target = '_blank'; youtubeLink.rel = 'noopener noreferrer';
+  bottom.append(link(site.home, site.name), youtubeLink, link('#' + body.id, '↑ Back to top')); main.append(bottom);
   const top = document.createElement('button'); top.type = 'button'; top.className = 'bhoc-context-top'; top.textContent = '↑ Top'; top.setAttribute('aria-label', 'Back to top');
   top.addEventListener('click', () => window.scrollTo({top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}));
   const updateTop = () => top.classList.toggle('is-visible', scrollY > 650); window.addEventListener('scroll', updateTop, {passive: true}); updateTop(); body.append(top);
