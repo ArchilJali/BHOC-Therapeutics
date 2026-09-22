@@ -132,7 +132,7 @@
     if (!document.getElementById('bhoc-footer-social-style')) {
       const style = document.createElement('style');
       style.id = 'bhoc-footer-social-style';
-      style.textContent = '.bhoc-footer-socials{display:inline-flex;align-items:center;gap:7px;margin-left:10px;vertical-align:middle;white-space:nowrap}.bhoc-footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;border:1px solid currentColor;border-radius:9px;text-decoration:none;transition:transform .16s ease,opacity .16s ease}.bhoc-footer-social-link:hover{transform:translateY(-1px);opacity:.82}.bhoc-footer-social-link:focus-visible{outline:3px solid rgba(10,102,194,.2);outline-offset:2px}.bhoc-footer-social-link svg{width:17px;height:17px;display:block}.bhoc-footer-social-link[data-network="linkedin"]{color:#0a66c2}.bhoc-footer-social-link[data-network="youtube"]{color:#ff0000}';
+      style.textContent = '.bhoc-footer-socials{display:flex;align-items:center;gap:7px;margin-top:7px;white-space:nowrap}.bhoc-footer-social-link{display:inline-flex;align-items:center;justify-content:center;width:29px;height:29px;border:1px solid currentColor;border-radius:9px;text-decoration:none;transition:transform .16s ease,opacity .16s ease}.bhoc-footer-social-link:hover{transform:translateY(-1px);opacity:.82}.bhoc-footer-social-link:focus-visible{outline:3px solid rgba(10,102,194,.2);outline-offset:2px}.bhoc-footer-social-link svg{width:17px;height:17px;display:block}.bhoc-footer-social-link[data-network="linkedin"]{color:#0a66c2}.bhoc-footer-social-link[data-network="youtube"]{color:#ff0000}';
       document.head.appendChild(style);
     }
     const makeSocial = (href, network, label, svg) => {
@@ -159,8 +159,26 @@
         makeSocial(OFFICIAL_LINKEDIN_COMPANY, 'linkedin', 'BHOC Therapeutics on LinkedIn', linkedinSvg),
         makeSocial(OFFICIAL_YOUTUBE_CHANNEL, 'youtube', 'BHOC Therapeutics on YouTube', youtubeSvg)
       );
-      const target = footer.querySelector('.home-footer-bottom') || footer.querySelector('.platform-version') || footer.querySelector('.footer-bottom') || footer.querySelector('.footer-meta') || footer.querySelector('.footer-publication') || footer.querySelector('.copyright') || footer.querySelector('.version') || footer.querySelector('p:last-of-type') || footer.querySelector('.home-wrap, .footer-inner, .footer-container, .shell') || footer;
-      target.appendChild(nav);
+      footer.querySelectorAll('a[href="https://www.linkedin.com/company/bhoc-therapeutics/"],a[href="https://www.youtube.com/@BHOCTherapeutics"]').forEach(link => {
+        if (!link.classList.contains('bhoc-footer-social-link')) link.remove();
+      });
+      const homeBrand = footer.querySelector('.footer-grid > div:first-child');
+      const homeSubtitle = homeBrand ? [...homeBrand.children].find(el => el.tagName === 'SPAN' && /Precision Oxygen Therapeutics/i.test(el.textContent || '')) : null;
+      if (homeSubtitle) {
+        homeSubtitle.insertAdjacentElement('afterend', nav);
+        return;
+      }
+      const innerBrand = footer.querySelector('.footer-brand');
+      const innerSubtitle = innerBrand && innerBrand.nextElementSibling && innerBrand.nextElementSibling.tagName === 'P'
+        && /Precision Oxygen Therapeutics/i.test(innerBrand.nextElementSibling.textContent || '')
+        ? innerBrand.nextElementSibling
+        : null;
+      if (innerSubtitle) {
+        innerSubtitle.insertAdjacentElement('afterend', nav);
+        return;
+      }
+      const fallback = footer.querySelector('.home-wrap, .footer-inner, .footer-container, .shell') || footer;
+      fallback.appendChild(nav);
     });
   };
   const bottom = document.createElement('nav'); bottom.className = 'bhoc-context-bottom'; bottom.setAttribute('aria-label', 'End of page navigation');
