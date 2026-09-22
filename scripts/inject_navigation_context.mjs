@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const scriptTag = '<link rel="stylesheet" href="/bhoc/navigation.css?v=20260917-nav1">\n<script src="/navigation-context.js?v=20260922-social2" defer></script>';
+const scriptTag = '<link rel="stylesheet" href="/bhoc/navigation.css?v=20260917-nav1">\n<script src="/navigation-context.js?v=20260922-inline3" defer></script>';
 const skipDirs = new Set(['.git', '.github', 'node_modules', 'assets', 'scripts', 'seo']);
 const skipFiles = new Set(['preview-2026.html']);
 
@@ -31,7 +31,7 @@ for (const file of htmlFiles) {
   if (current.includes('/navigation-context.js')) {
     next = current.replace(
       /<script\b(?=[^>]*\bsrc=["']\/navigation-context\.js(?:\?[^"']*)?["'])[^>]*><\/script>/gi,
-      '<script src="/navigation-context.js?v=20260922-social2" defer></script>'
+      '<script src="/navigation-context.js?v=20260922-inline3" defer></script>'
     );
   } else {
     if (!/<\/head>/i.test(current)) {
