@@ -177,3 +177,34 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
   .contact-page.is-sent .bhoc-contact-layout{margin-top:36px;margin-bottom:48px}
   .contact-page.is-sent .bhoc-contact-card{padding:30px 20px}
 }
+
+
+/* Applications priority stories: keep approved two-card width and scroll horizontally for additional contexts */
+.applications-visual-stories{
+  display:flex;
+  align-items:stretch;
+  gap:16px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x proximity;
+  scroll-padding-inline:24px;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+  padding-top:36px;
+  padding-bottom:24px;
+}
+.applications-visual-stories .visual-story{
+  flex:0 0 calc((100% - 16px)/2);
+  min-width:0;
+  scroll-snap-align:start;
+  scroll-margin-inline-start:24px;
+}
+.applications-visual-stories::-webkit-scrollbar{height:9px}
+.applications-visual-stories::-webkit-scrollbar-track{background:#e7eff8;border-radius:999px}
+.applications-visual-stories::-webkit-scrollbar-thumb{background:#9db9dd;border-radius:999px}
+.applications-visual-stories{scrollbar-width:thin;scrollbar-color:#9db9dd #e7eff8}
+.visual-story-military .visual-story-context-stat strong{font-size:1.25rem}
+@media(max-width:680px){
+  .applications-visual-stories{gap:13px;scroll-padding-inline:15px;padding-bottom:20px}
+  .applications-visual-stories .visual-story{flex-basis:min(88vw,520px);scroll-margin-inline-start:15px}
+}
