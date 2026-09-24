@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "f6cb0101410c4196a2651952bfce946e1082558b",
+  "sourceCommit": "bd8ce186d6744029a6646659fdb2e08560828e12",
   "routes": {
     "home": "/bhoc/",
     "definition": "/bhoc/definition/",
@@ -39,8 +39,8 @@
       "canonical": "https://bhoctherapeutics.com/bhoc/terminology/"
     },
     "bhoc/why-bhoc/index.html": {
-      "textSha256": "a816d23c22bcb9ec34948bc5aa67c606fe36cd1c78db9f8a75a1953953096846",
-      "paragraphs": 4,
+      "textSha256": "acc417f64f6b12c6d29178b262381f06532bcc86a441722a1c0d44208155c3ab",
+      "paragraphs": 7,
       "canonical": "https://bhoctherapeutics.com/bhoc/why-bhoc/"
     },
     "bhoc/hemoglobin/index.html": {
@@ -96,9 +96,12 @@
     "Hemoglobin is the principal oxygen-carrying protein in red blood cells. A hemoglobin-based oxygen carrier moves that oxygen-carrying function outside the intact red-cell framework through a specifically engineered hemoglobin formulation.",
     "BHOC builds on the scientific history of hemoglobin-based oxygen carriers (HBOCs) while emphasizing biological function, tissue oxygen delivery, evidence and practical deployment. BHOC is not presented as a substitute for every function of blood.",
     "What is new",
-    "For decades, the field was often framed around whether an engineered product could replace blood or red blood cells. That framing is too broad. Blood provides oxygen transport, hemostasis, immune functions, buffering, volume support and many other biological functions.",
-    "The BHOC framework asks a narrower and more actionable question: when oxygen delivery becomes critically limited, can the oxygen-transport function be supported independently, predictably and in the clinical or operational setting where it is needed?",
-    "This is the reason for the shift toward Precision Oxygen Therapeutics : evaluate oxygen delivery by function, physiology, context and evidence rather than by the assumption that one technology should replace the whole blood system.",
+    "Blood is a biological system. Oxygen delivery is a physiological function.",
+    "BHOC shifts the question from whether a product can “replace blood” to whether a defined and reproducibly characterized biological hemoglobin oxygen carrier can provide controlled oxygen delivery according to physiological demand.",
+    "A BHOC should be characterized by its molecular composition, oxygen-binding and unloading behavior, pharmacology, vascular and redox interactions, pharmacokinetics, purity, stability, and manufacturing controls. The distinction is fundamental: what the product IS → what it is capable of doing → what that specific product has demonstrated clinically.",
+    "Precision Oxygen Therapeutics goes further than simply correcting hypoxia. The objective is physiologically appropriate oxygen delivery: where, when, how much, how rapidly, and for how long oxygen support is required.",
+    "The goal is not maximal oxygenation, but measurable, controlled and tissue-appropriate oxygen delivery.",
+    "Publication update: the BHOC and Precision Oxygen Therapeutics framework is described in the 2026 preprint by Carl W. Rausch and Archil Jaliashvili. Read the publication update →",
     "Terminology & History",
     "HBOC means hemoglobin-based oxygen carrier, the established scientific term used across decades of literature. Artificial blood and blood substitute are older and still widely searched terms, but they can imply replacement of the many functions of blood.",
     "A mindset shaped by its time. The blood-replacement approach reflected the clinical priorities, scientific knowledge and technological tools available during early development. As that knowledge evolved, advances in vascular biology, oxygen sensing, microcirculation and protein engineering provided a stronger foundation for reconsidering the question. Some of these discoveries are recognized by Nobel Prizes . For BHOC, the question is no longer whether one product can reproduce blood, but which oxygen-delivery function needs support and under which physiological conditions. These discoveries inform that question; they do not validate a particular product.",
@@ -488,7 +491,7 @@
   ],
   "sourceHeadings": [
     "Blood is a system. Oxygen delivery is a function.",
-    "From the blood-replacement question to the oxygen-delivery question.",
+    "From oxygen carriage to characterized and controlled oxygen delivery.",
     "Artificial Blood & Blood Substitutes: HBOC Class Effect",
     "Hemoglobin",
     "HBOC",
