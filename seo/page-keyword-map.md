@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 10 September 2026
+Updated: 25 September 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -14,6 +14,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/technology/` | Biological Hemoglobin Oxygen Carrier technology | BHOC technology; hemoglobin oxygen carrier; cell-free hemoglobin oxygen carrier; HBOC; oxygen delivery technology; artificial blood and blood substitute terminology in concise corrective context |
 | `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; donor blood; patient blood management; PBM; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
 | `/evidence/` | BHOC scientific, clinical and regulatory evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; Biopure; regulatory history; scientific sources; historical evidence |
+| `/news/us-navy-biopure-hboc-201-2005-resus/` | Historical 2005 Navy–Biopure RESUS agreement and HBOC-201 $650 clause | NMRC; 1,500-unit conditional provision; cost ceiling; SEC exhibit; not a purchase price or endorsement |
 | `/partners/` | BHOC investors and strategic partners | BHOC investors; BHOC partners; oxygen therapeutics investment; Biological Hemoglobin Oxygen Carrier partnership; clinical collaboration; manufacturing partnership; regulatory partnership |
 
 ## Site / evidence separation
@@ -22,6 +23,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 - `/bhoc/` owns the central definition and terminology intent: `BHOC`, `Biological Hemoglobin Oxygen Carrier`, `what is BHOC`, `BHOC meaning`, and the bridge from historical `artificial blood` / `blood substitute` language to HBOC and Precision Oxygen Therapeutics.
 - `ArchilJali/BHOC-platform` remains the source-linked evidence layer for publications, DOI/PubMed records, regulatory history, detailed science and historical sources.
 - Corporate pages should summarize and interpret; they should not duplicate complete BHOC-platform pages.
+- The Navy–Biopure news source note owns the narrow 2005 RESUS and $650 search intent; the BHOC-platform chronology holds the complete historical evidence trail. Use conditional wording and distinguish a cost ceiling from an actual procurement price.
 - Each important evidence statement on the corporate site should link to the relevant BHOC-platform page or primary source when available.
 
 ## Homepage sections
