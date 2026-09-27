@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const navigationTag = '<link rel="stylesheet" href="/bhoc/navigation.css?v=20260917-nav1">\n<script src="/navigation-context.js?v=20260922-brand5" defer></script>';
 const analyticsTag = '<script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script>';
+const ga4Tag = '<script src="/assets/ga4.js?v=20260927" defer></script>';
 const skipDirs = new Set(['.git', '.github', 'node_modules', 'assets', 'scripts', 'seo']);
 const skipFiles = new Set(['preview-2026.html']);
 
@@ -38,6 +39,9 @@ for (const file of htmlFiles) {
     } else {
       next = next.replace(/<\/head>/i, `${analyticsTag}\n</head>`);
     }
+  }
+  if (trackAnalytics && !next.includes('/assets/ga4.js')) {
+    if (/<\/head>/i.test(next)) next = next.replace(/<\/head>/i, `${ga4Tag}\n</head>`);
   }
 
   // Knowledge-map pages manage their own navigation, but still receive analytics above.
