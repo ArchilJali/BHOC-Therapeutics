@@ -6,6 +6,7 @@ on:
       - 'bhoc/index.html'
       - 'bhoc/knowledge-map-baseline.json'
       - '.github/workflows/verify-knowledge-map-live.yml'
+      - '.github/scripts/verify_knowledge_map_live.py'
   workflow_dispatch:
 permissions:
   contents: read
