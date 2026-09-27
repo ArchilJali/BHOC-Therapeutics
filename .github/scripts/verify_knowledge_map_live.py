@@ -22,7 +22,13 @@ def metadata(raw):
 
 def ready():
  status,body,_=get(ORIGIN+'/bhoc/?release='+report['commit'][:12])
- return status==200 and 'data-bhoc-knowledge-map="published"' in body and '/bhoc/red-blood-cell/' in body
+ local=(ROOT/'bhoc/index.html').read_text()
+ return (
+  status==200
+  and 'data-bhoc-knowledge-map="published"' in body
+  and '/bhoc/red-blood-cell/' in body
+  and metadata(body)==metadata(local)
+ )
 try:
  for attempt in range(36):
   try:
@@ -30,7 +36,7 @@ try:
   except Exception as error:print('Deployment not observable yet:',type(error).__name__)
   if attempt==35:raise AssertionError('Public overview did not reach the approved release during verification')
   time.sleep(10)
- print('Public overview exposes the approved multi-page release.')
+ print('Public overview and metadata expose the approved multi-page release.')
  public={}
  for rel in baseline['pages']:
   route='/'+rel.removesuffix('index.html')
