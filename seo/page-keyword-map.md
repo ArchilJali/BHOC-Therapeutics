@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 25 September 2026
+Updated: 28 September 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -79,15 +79,13 @@ Tier 2 - Archil authority:
 - `Archil Jaliashvili Biological Hemoglobin Oxygen Carrier`
 - `Archil Jaliashvili hemoglobin oxygen carrier`
 - `Archil Jaliashvili HBOC`
-- `Archil Jaliashvili HBOC-201`
-- `Archil Jaliashvili Oxyglobin`
-- `Archil Jaliashvili Hemopure`
-- `Archil Jaliashvili Biopure`
 - `Archil Jaliashvili Precision Oxygen Therapeutics`
 - `Archil Jaliashvili oxygen delivery`
 - `Archil Jaliashvili tissue oxygenation`
 - `Archil Jaliashvili blood substitute`
 - `Archil Jaliashvili artificial blood`
+
+For profile links and `Person.sameAs`, use one LinkedIn URL: `https://www.linkedin.com/in/archil-jaliashvili-bhoc/`. Older LinkedIn post permalinks may contain the previous profile slug; keep the exact post URL when citing a post. Historical products remain in Tier 3 and on contextual evidence pages, not as personal-identity search targets.
 
 Tier 3 - legacy/product bridge:
 
