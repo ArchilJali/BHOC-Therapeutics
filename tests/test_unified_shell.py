@@ -22,6 +22,27 @@ ROUTES = [
     ('/evidence/library/veterinary/business/BHOC-Veterinary-Concept.htm', 'Evidence', 'legacy'),
 ]
 
+def all_public_routes():
+    for file in ROOT.rglob('*'):
+        if file.suffix not in {'.html', '.htm'} or '/unified-shell.js?' not in file.read_text(errors='ignore'):
+            continue
+        route = '/' + file.relative_to(ROOT).as_posix()
+        yield route.replace('/index.html', '/') if route.endswith('/index.html') else route
+
+
+def active_section(route):
+    if route == '/':
+        return None
+    if route.startswith('/evidence/library/concepts-hypotheses/'):
+        return 'Concepts & Hypotheses'
+    if route.startswith('/evidence/'):
+        return 'Evidence'
+    return {
+        'bhoc': 'BHOC', 'science': 'Science', 'technology': 'Technology',
+        'applications': 'Applications', 'news': 'News', 'partners': 'Investors & Partners',
+        'contact': 'Contact'
+    }.get(route.split('/')[1])
+
 
 def check(page, base, route, expected_active, name, screen):
     errors = []
@@ -33,11 +54,14 @@ def check(page, base, route, expected_active, name, screen):
     assert page.locator('header.bhoc-shell-legacy:visible, footer.bhoc-shell-legacy:visible').count() == 0, route
     assert page.locator('.bhoc-shell-header').is_visible(), route
     assert page.locator('.bhoc-shell-footer').is_visible(), route
+    assert page.locator('.bhoc-shell-utility').is_visible(), route
+    assert page.locator('.global-page-context:visible, .global-page-end:visible, .bhoc-context-bottom:visible, .bhoc-guide:visible, .brand-network:visible').count() == 0, route
     active = page.locator('.bhoc-shell-nav a[aria-current]')
     if expected_active:
         assert active.count() == 1 and active.inner_text() == expected_active, (route, active.all_inner_texts())
         assert page.locator('nav[aria-label="Breadcrumb"]:visible').count() == 1, route
         assert page.locator('.bhoc-shell-trail [aria-current="page"]').count() == 1, route
+        assert page.locator('.bhoc-shell-trail a').first.inner_text() == 'Home', route
     else:
         assert active.count() == 0 and page.locator('.bhoc-shell-trail').count() == 0, route
     assert not errors, (route, errors)
@@ -48,6 +72,7 @@ def check(page, base, route, expected_active, name, screen):
     }''')
     assert bounds['headerRight'] <= bounds['width'] + 2, (route, bounds)
     assert bounds['footerRight'] <= bounds['width'] + 2, (route, bounds)
+    assert page.locator('.bhoc-shell-footer').evaluate('(el) => getComputedStyle(el).backgroundColor') == 'rgb(6, 43, 104)', route
     if screen and name in {'home', 'definition', 'news', 'library', 'oxygen-security', 'science'}:
         page.screenshot(path=str(OUT / f'{name}-{screen}.png'))
     return page.locator('.bhoc-shell-footer').inner_text()
@@ -67,6 +92,15 @@ try:
             assert footer_text is None or current_footer == footer_text, f'Different footer: {route}'
             footer_text = current_footer
             page.close()
+        checked = {route for route, _, _ in ROUTES}
+        all_routes = sorted(set(all_public_routes()))
+        for route in all_routes:
+            if route in checked:
+                continue
+            page = browser.new_page(viewport={'width': 1440, 'height': 900})
+            current_footer = check(page, base, route, active_section(route), route, None)
+            assert current_footer == footer_text, f'Different footer: {route}'
+            page.close()
         for route, expected, name in [ROUTES[0], ROUTES[2], ROUTES[5], ROUTES[6]]:
             page = browser.new_page(viewport={'width': 390, 'height': 844}, is_mobile=True)
             check(page, base, route, expected, name, 'mobile')
@@ -77,6 +111,6 @@ try:
             assert page.locator('.bhoc-shell-nav').is_visible(), route
             page.close()
         browser.close()
-    print(f'PASS: {len(ROUTES)} desktop and 4 mobile pages have one shell, a usable current location and the same footer.')
+    print(f'PASS: {len(all_routes)} desktop and 4 mobile pages have one shell, a usable current location and the same footer.')
 finally:
     server.shutdown()
