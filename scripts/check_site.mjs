@@ -68,6 +68,7 @@ for(const [relative,data] of canonicalFiles){
 }
 
 const redirects={
+  'archil-jaliashvili/index.html':'https://orcid.org/0009-0006-4712-4942',
   'historical-evolution/index.html':'https://bhoctherapeutics.com/bhoc/historical-evolution/',
   'bhoc/history/index.html':'https://bhoctherapeutics.com/bhoc/historical-evolution/',
   'news/prehospital-blood-transfusion-need-2026.html':'https://bhoctherapeutics.com/evidence/library/science/prehospital-blood-transfusion-oxygen-delivery.html',
@@ -120,6 +121,13 @@ for(const relative of htmlFiles){
 }
 
 const repositoryText=htmlFiles.map(read).join('\n');
+const overview=JSON.parse(read('evidence/library/platform-overview.json'));
+const evidenceLanding=read('evidence/index.html');
+assert.ok(evidenceLanding.includes(`<strong>${overview.hubPlacements}</strong><span>publication & evidence records</span>`),'evidence records must match platform-overview.json');
+assert.ok(evidenceLanding.includes(`<strong>${overview.indexedAuthorInstitutions}</strong><span>author institutions</span>`),'institution count must match platform-overview.json');
+assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Oxyglobin'),'unapproved product association in meta keywords');
+assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Hemopure'),'unapproved product association in meta keywords');
+assert.ok(!sitemap.includes('<loc>https://bhoctherapeutics.com/archil-jaliashvili/</loc>'),'retired author profile must not be indexed');
 assert.ok(!/hbo2therapeutics\.com/i.test(repositoryText),'forbidden corporate domain found');
 assert.ok(!/\$XX|\$X\b|\bX% CAGR\b/.test(repositoryText),'public placeholder market values found');
 assert.ok(!sitemap.includes('https://bhoctherapeutics.com/historical-evolution/'),'retired historical URL remains in sitemap');

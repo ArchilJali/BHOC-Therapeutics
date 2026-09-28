@@ -33,7 +33,7 @@
   if (isBhoc) body.classList.add('bhoc-section-page');
   const routes = isVet
     ? [['/initiative/', 'Initiative'], ['/product.html', 'Product'], ['/applications.html', 'Applications'], ['/science.html', 'Science'], ['/evidence.html', 'Evidence'], ['/news.html', 'News'], ['/contact.html', 'Contact']]
-    : [['/bhoc/', 'Understand BHOC'], ['/science/', 'Science'], ['/technology/', 'Technology'], ['/applications/', 'Applications'], ['/evidence/', 'Evidence'], ['/news/', 'News'], ['/partners/', 'Investors & Partners'], ['/archil-jaliashvili/', 'Archil Jaliashvili']];
+    : [['/bhoc/', 'Understand BHOC'], ['/science/', 'Science'], ['/technology/', 'Technology'], ['/applications/', 'Applications'], ['/evidence/', 'Evidence'], ['/news/', 'News'], ['/partners/', 'Investors & Partners']];
   const found = routes.find(([path]) => current.pathname.startsWith(path));
   const route = found ? {label: found[1], href: new URL(found[0], site.home).href} : {label: pageHeading, href: current.href.split('#')[0]};
   const labelFor = value => {
