@@ -70,9 +70,9 @@ for(const [relative,data] of canonicalFiles){
 const redirects={
   'historical-evolution/index.html':'https://bhoctherapeutics.com/bhoc/historical-evolution/',
   'bhoc/history/index.html':'https://bhoctherapeutics.com/bhoc/historical-evolution/',
-  'news/prehospital-blood-transfusion-need-2026.html':'https://archiljali.github.io/BHOC-platform/science/prehospital-blood-transfusion-oxygen-delivery.html',
-  'news/aabb-patient-blood-management-standards-2026.html':'https://archiljali.github.io/BHOC-platform/science/aabb-rbc-transfusion-thresholds-oxygen-delivery.html',
-  'news/hope-nmp-liver-transplantation-2026.html':'https://archiljali.github.io/BHOC-platform/transplant/HOPE-NMP-Liver-Transplantation-2026.html'
+  'news/prehospital-blood-transfusion-need-2026.html':'https://bhoctherapeutics.com/evidence/library/science/prehospital-blood-transfusion-oxygen-delivery.html',
+  'news/aabb-patient-blood-management-standards-2026.html':'https://bhoctherapeutics.com/evidence/library/science/aabb-rbc-transfusion-thresholds-oxygen-delivery.html',
+  'news/hope-nmp-liver-transplantation-2026.html':'https://bhoctherapeutics.com/evidence/library/transplant/HOPE-NMP-Liver-Transplantation-2026.html'
 };
 for(const [relative,target] of Object.entries(redirects)){
   const source=read(relative);

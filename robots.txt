@@ -3,3 +3,4 @@ Allow: /
 Disallow: /seo/
 
 Sitemap: https://bhoctherapeutics.com/sitemap.xml
+Sitemap: https://bhoctherapeutics.com/evidence/library/sitemap.xml
