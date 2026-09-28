@@ -10,10 +10,17 @@ COPY_EDITS=ROOT/'scripts/approved_framework_copy.json'
 APPROVED_COPY=json.loads(COPY_EDITS.read_text()) if COPY_EDITS.exists() else {}
 
 def normalized(parts):return ' '.join(' '.join(x.strip() for x in parts if x.strip()).split())
+def approved_text(value):
+    """Read an approved HTML paragraph using the same parser as the page."""
+    if value.lstrip().startswith('<p'):
+        paragraphs=Page(value).paragraphs
+        assert len(paragraphs)==1, 'Approved HTML copy must contain one paragraph'
+        return paragraphs[0]
+    return normalized([value])
 def original_wording(rel, value):
     """Compare user-approved copy edits with the unchanged source baseline."""
     for before, after in reversed(APPROVED_COPY.get(rel, [])):
-        value=value.replace(normalized([after]),normalized([before]))
+        value=value.replace(approved_text(after),approved_text(before))
     return value
 class Page(HTMLParser):
     def __init__(self, source):
