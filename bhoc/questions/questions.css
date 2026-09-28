@@ -1,0 +1,119 @@
+.faq-page .faq-hero {
+  max-width: 900px;
+  padding: 28px 0 24px;
+}
+
+.faq-page .faq-hero h1 {
+  margin: 0 0 14px;
+  color: var(--navy);
+  font: 700 clamp(38px, 4.6vw, 60px)/1.08 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.035em;
+}
+
+.faq-page .faq-hero p:last-child {
+  max-width: 720px;
+  margin: 0;
+  color: #36516a;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.faq-page .faq-main {
+  max-width: 920px;
+  padding-bottom: 50px;
+}
+
+.faq-page .faq-list {
+  border-top: 2px solid var(--navy);
+}
+
+.faq-page .faq-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  padding: 21px 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-page .faq-number {
+  padding-top: 4px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.faq-page .faq-item h2 {
+  margin: 0 0 7px;
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1.28;
+  font-weight: 750;
+}
+
+.faq-page .faq-item p {
+  max-width: 790px;
+  margin: 0;
+  color: #38536b;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.faq-page .faq-item .faq-source {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.faq-page .faq-source a {
+  text-underline-offset: 3px;
+}
+
+.faq-page .faq-next {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 19px 22px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.faq-page .faq-next strong {
+  display: block;
+  color: var(--navy);
+  font-size: 17px;
+}
+
+.faq-page .faq-next p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.faq-page .faq-next a {
+  flex: 0 0 auto;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.faq-page .faq-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .faq-page .faq-hero { padding: 20px 0 23px; }
+  .faq-page .faq-hero h1 { font-size: 40px; }
+  .faq-page .faq-hero p:last-child { font-size: 16px; }
+  .faq-page .faq-item { grid-template-columns: 30px minmax(0, 1fr); gap: 8px; padding: 18px 0; }
+  .faq-page .faq-item h2 { font-size: 19px; }
+  .faq-page .faq-item p { font-size: 15px; }
+  .faq-page .faq-next { display: block; padding: 18px; }
+  .faq-page .faq-next a { display: inline-block; margin-top: 12px; }
+}
