@@ -6,8 +6,15 @@ import hashlib, json, re
 ROOT=Path(__file__).resolve().parents[1]
 ORIGIN='https://bhoctherapeutics.com'
 BASELINE=ROOT/'bhoc/knowledge-map-baseline.json'
+COPY_EDITS=ROOT/'scripts/approved_framework_copy.json'
+APPROVED_COPY=json.loads(COPY_EDITS.read_text()) if COPY_EDITS.exists() else {}
 
 def normalized(parts):return ' '.join(' '.join(x.strip() for x in parts if x.strip()).split())
+def original_wording(rel, value):
+    """Compare user-approved copy edits with the unchanged source baseline."""
+    for before, after in reversed(APPROVED_COPY.get(rel, [])):
+        value=value.replace(normalized([after]),normalized([before]))
+    return value
 class Page(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
@@ -44,13 +51,17 @@ def check():
     b=json.loads(BASELINE.read_text())
     pages={};allparas=[];links=set();headings=[]
     for rel,record in b['pages'].items():
-        p=Page((ROOT/rel).read_text());pages[rel]=p
+        source=(ROOT/rel).read_text()
+        p=Page(source);pages[rel]=p
+        for before,after in APPROVED_COPY.get(rel,[]):
+            assert after in source,(rel,'approved copy change missing',after)
         assert p.h1count==1,(rel,'H1 count',p.h1count)
         assert p.canonical==[record['canonical']],(rel,'canonical changed')
         assert len(p.ids)==len(set(p.ids)),(rel,'duplicate fragment IDs')
-        actual=hashlib.sha256(normalized(p.main).encode()).hexdigest()
+        actual=hashlib.sha256(original_wording(rel,normalized(p.main)).encode()).hexdigest()
         assert actual==record['textSha256'],(rel,'approved main text changed')
-        allparas.extend(p.paragraphs);headings.extend(p.headings)
+        allparas.extend(original_wording(rel,para) for para in p.paragraphs)
+        headings.extend(original_wording(rel,heading) for heading in p.headings)
         links.update(urljoin(ORIGIN+'/'+rel,a) for a in p.links)
         tokens=set(','.join(p.meta.get('robots',[])).lower().split(','))
         assert 'index' in tokens and not tokens.intersection({'noindex','nofollow','none'}),(rel,'global indexing blocked')
