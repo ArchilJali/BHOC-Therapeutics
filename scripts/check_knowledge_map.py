@@ -53,8 +53,13 @@ def check():
     for rel,record in b['pages'].items():
         source=(ROOT/rel).read_text()
         p=Page(source);pages[rel]=p
-        for before,after in APPROVED_COPY.get(rel,[]):
-            assert after in source,(rel,'approved copy change missing',after)
+        approved=APPROVED_COPY.get(rel,[])
+        visible=normalized(p.paragraphs+p.headings)
+        for index,(before,after) in enumerate(approved):
+            present=after in source or after in visible
+            superseded=any(after in later_before and (later_after in source or later_after in visible)
+                           for later_before,later_after in approved[index+1:])
+            assert present or superseded,(rel,'approved copy change missing',after)
         assert p.h1count==1,(rel,'H1 count',p.h1count)
         assert p.canonical==[record['canonical']],(rel,'canonical changed')
         assert len(p.ids)==len(set(p.ids)),(rel,'duplicate fragment IDs')

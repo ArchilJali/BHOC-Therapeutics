@@ -5,7 +5,12 @@ on:
     branches: [main]
     paths:
       - 'navigation-context.js'
+      - 'unified-shell.js'
+      - 'unified-shell.css'
       - 'scripts/inject_navigation_context.mjs'
+      - 'scripts/sync_unified_shell.mjs'
+      - '**/*.html'
+      - '**/*.htm'
       - '.github/workflows/sync-navigation-context.yml'
   workflow_dispatch:
 
@@ -32,11 +37,14 @@ jobs:
           node-version: 22
 
       - name: Inject navigation context into public HTML
-        run: node scripts/inject_navigation_context.mjs
+        run: |
+          node scripts/inject_navigation_context.mjs
+          node scripts/sync_unified_shell.mjs
 
       - name: Validate navigation script and site
         run: |
           node --check navigation-context.js
+          node --check unified-shell.js
           node scripts/check_site.mjs
 
       - name: Commit synchronized HTML

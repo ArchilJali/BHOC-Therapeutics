@@ -1,0 +1,69 @@
+/* One visible site shell for BHOC Therapeutics and its evidence library. */
+body.bhoc-shell-ready .bhoc-shell-legacy,
+body.bhoc-shell-ready .bhoc-shell-old-trail,
+body.bhoc-shell-ready .bhoc-shell-old-skip { display:none!important; }
+body.bhoc-shell-ready .bhoc-shell-skip { position:absolute;left:-10000px;top:auto;z-index:1002; }
+body.bhoc-shell-ready .bhoc-shell-skip:focus { position:fixed;left:12px;top:8px;padding:10px 14px;background:#fff;color:#08316e;border:2px solid #f22c26; }
+.bhoc-shell-header,.bhoc-shell-trail,.bhoc-shell-footer,.bhoc-shell-local-nav,.bhoc-shell-page-notes { box-sizing:border-box;font-family:Arial,Helvetica,sans-serif; }
+.bhoc-shell-header *,.bhoc-shell-trail *,.bhoc-shell-footer *,.bhoc-shell-local-nav *,.bhoc-shell-page-notes * { box-sizing:border-box; }
+.bhoc-shell-wrap { width:min(1280px,calc(100% - 44px));margin-inline:auto; }
+.bhoc-shell-header { position:relative;z-index:1000;width:100%;background:#fff;color:#0b377f;border-bottom:1px solid #dbe5f1;box-shadow:0 2px 8px rgba(12,48,96,.035); }
+.bhoc-shell-header-inner { display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:58px; }
+.bhoc-shell-logo { flex:none;display:block;min-width:93px;color:#103873!important;text-decoration:none!important;font-family:Arial,Helvetica,sans-serif;font-size:25px;font-weight:900;line-height:.78;letter-spacing:.025em; }
+.bhoc-shell-logo span { color:#ef2928; }
+.bhoc-shell-logo small { display:block;margin-top:7px;font-size:8px;font-weight:700;line-height:1;letter-spacing:.25em; }
+.bhoc-shell-nav { display:flex;align-items:center;justify-content:flex-end;flex-wrap:nowrap;gap:clamp(8px,1.25vw,18px);margin-left:auto; }
+.bhoc-shell-nav a { display:block;padding:8px 0;color:#0b377f!important;font-family:Arial,Helvetica,sans-serif;font-size:clamp(12px,1vw,14px);font-weight:700;line-height:1.15;text-decoration:none!important;white-space:nowrap; }
+.bhoc-shell-nav a:hover,.bhoc-shell-nav a.is-active { color:#df2927!important; }
+.bhoc-shell-nav a.is-active { box-shadow:inset 0 -2px #df2927; }
+.bhoc-shell-menu-button { display:none;padding:8px 10px;border:1px solid #cbd9ea;border-radius:7px;background:#fff;color:#0b377f;font:700 14px Arial,Helvetica,sans-serif;cursor:pointer; }
+.bhoc-shell-trail { width:100%;background:#fff;border-bottom:1px solid #e6edf5;color:#58708d; }
+.bhoc-shell-trail-inner { display:flex;align-items:center;gap:9px;min-height:36px;overflow:hidden;white-space:nowrap;font-size:12px;line-height:1.25; }
+.bhoc-shell-trail a { flex:none;color:#315574;text-decoration:none;font-weight:600; }
+.bhoc-shell-trail a:hover { color:#d82927;text-decoration:underline; }
+.bhoc-shell-trail span[aria-current] { overflow:hidden;text-overflow:ellipsis;color:#0c315e;font-weight:800; }
+.bhoc-shell-local-nav { margin-block:0 4px;border-bottom:1px solid #e5edf5;color:#315574; }
+.bhoc-shell-local-nav summary { width:max-content;max-width:100%;padding:8px 2px;font-size:12px;font-weight:700;cursor:pointer; }
+.bhoc-shell-local-links { display:flex;flex-wrap:wrap;gap:7px;padding:1px 0 10px; }
+.bhoc-shell-local-links a { padding:6px 9px;border:1px solid #d8e2ef;border-radius:6px;color:#163d73;text-decoration:none;font-size:12px;font-weight:700; }
+.bhoc-shell-local-links a[aria-current] { border-color:#e94b48;color:#d82e2c; }
+.bhoc-shell-page-notes { margin-block:22px 0;padding:10px 0;border-top:1px solid #e0e8f2;color:#4b627b;font-size:12px; }
+.bhoc-shell-page-notes summary { width:max-content;cursor:pointer;font-weight:700; }
+.bhoc-shell-page-notes footer { margin-top:12px!important;padding:12px!important;position:static!important;max-width:100%;font-size:12px; }
+.bhoc-shell-footer { width:100%;margin-top:26px;background:#f3f7fc;color:#183963;border-top:1px solid #dbe5f1; }
+.bhoc-shell-footer-grid { display:grid;grid-template-columns:1.7fr repeat(5,minmax(0,1fr));gap:22px;padding:28px 0 21px; }
+.bhoc-shell-footer-grid > div { display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0; }
+.bhoc-shell-footer-grid strong { color:#102f60;font-size:14px;line-height:1.25; }
+.bhoc-shell-footer-brand > strong { font-size:22px;letter-spacing:.02em; }
+.bhoc-shell-footer-brand > span { color:#415d7d;font-size:12px; }
+.bhoc-shell-footer a { color:#315476;text-decoration:none;font-size:12px;line-height:1.35; }
+.bhoc-shell-footer a:hover { color:#d82927;text-decoration:underline; }
+.bhoc-shell-social { display:flex;gap:12px;margin-top:3px; }
+.bhoc-shell-footer-bottom { padding:14px 0 20px;border-top:1px solid #dce6f1;color:#5b708a;font-size:11px;line-height:1.55; }
+.bhoc-shell-footer-bottom a { font-size:inherit; }
+/* The home page originally stacked a breadcrumb, guide and network strip. */
+body.bhoc-shell-ready .bhoc-guide-inner { min-height:34px; }
+body.bhoc-shell-ready .bhoc-guide-label { font-size:10px; }
+body.bhoc-shell-ready .bhoc-guide a { font-size:14px; }
+body.bhoc-shell-ready .brand-network-inner { min-height:35px; }
+body.bhoc-shell-ready .brand-network-title { font-size:10px; }
+body.bhoc-shell-ready .brand-network-link { min-height:26px;font-size:11px; }
+@media(max-width:1180px) {
+  .bhoc-shell-header-inner { min-height:56px;position:relative; }
+  .bhoc-shell-menu-button { display:block; }
+  .bhoc-shell-nav { display:none;position:absolute;top:100%;right:0;left:0;z-index:1001;margin:0;padding:10px 14px;background:#fff;border:1px solid #d5e2f0;box-shadow:0 12px 24px rgba(8,45,104,.14);border-radius:0 0 10px 10px; }
+  .bhoc-shell-nav.is-open { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 20px; }
+  .bhoc-shell-nav a { padding:10px 4px;font-size:14px;white-space:normal; }
+}
+@media(max-width:800px) {
+  .bhoc-shell-footer-grid { grid-template-columns:repeat(3,minmax(0,1fr));gap:20px; }
+  .bhoc-shell-footer-brand { grid-column:1/-1; }
+}
+@media(max-width:620px) {
+  .bhoc-shell-wrap { width:calc(100% - 28px); }
+  .bhoc-shell-nav.is-open { grid-template-columns:1fr; }
+  .bhoc-shell-trail-inner { min-height:39px;font-size:11px;gap:6px; }
+  .bhoc-shell-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr));padding-top:24px;gap:22px 14px; }
+  body.bhoc-shell-ready .bhoc-guide-inner { padding:7px 0; }
+  body.bhoc-shell-ready .brand-network-inner { padding:6px 0; }
+}

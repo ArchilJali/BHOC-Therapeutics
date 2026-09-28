@@ -1,0 +1,40 @@
+name: Check BHOC shared navigation preview
+
+on:
+  push:
+    branches: ['preview/unified-navigation-20260928']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+      - name: Verify page source and shell scripts
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          node --check unified-shell.js
+          node --check scripts/sync_unified_shell.mjs
+          node scripts/sync_unified_shell.mjs | tail -1
+          git diff --exit-code
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Check desktop, mobile and current location
+        run: python tests/test_unified_shell.py
+      - name: Upload preview screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-shell-preview
+          path: navigation-test-results/unified-shell/
