@@ -56,12 +56,17 @@ try:
   assert status==200 and body==(ROOT/asset.lstrip('/')).read_text(),(asset,'stale asset')
  oldmap=subprocess.check_output(['git','show',BASE+':sitemap.xml'],cwd=ROOT,text=True)
  oldurls=re.findall(r'<loc>(.*?)</loc>',oldmap)
+ retired={'https://bhoctherapeutics.com/archil-jaliashvili/'}
  for url in oldurls:
   status,body,_=get(url)
   assert status==200,(url,'old indexed route unavailable')
+  if url in retired:
+   assert '<meta name="robots" content="noindex,follow">' in body,(url,'retired profile must be noindex')
+   assert 'url=https://orcid.org/0009-0006-4712-4942' in body,(url,'retired profile must lead to ORCID')
   report['oldRoutes'].append({'url':url,'status':status})
  status,sitemap,_=get(ORIGIN+'/sitemap.xml?release='+report['commit'][:12])
- assert all('<loc>'+url+'</loc>' in sitemap for url in oldurls),'Old sitemap entry lost on public site'
+ assert all('<loc>'+url+'</loc>' in sitemap for url in oldurls if url not in retired),'Old sitemap entry lost on public site'
+ assert all('<loc>'+url+'</loc>' not in sitemap for url in retired),'Retired profile remains in public sitemap'
  assert all('<loc>'+item['canonical']+'</loc>' in sitemap for item in baseline['pages'].values()),'New chapter absent from public sitemap'
  for fragment in baseline['originalHubIds']:assert public['/bhoc/'].find(id=fragment),('Old public anchor lost',fragment)
  oldhistory=BeautifulSoup(subprocess.check_output(['git','show',BASE+':bhoc/historical-evolution/index.html'],cwd=ROOT,text=True),'html.parser')
