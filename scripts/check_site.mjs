@@ -128,6 +128,9 @@ assert.ok(evidenceLanding.includes(`<strong>${overview.indexedAuthorInstitutions
 assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Oxyglobin'),'unapproved product association in meta keywords');
 assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Hemopure'),'unapproved product association in meta keywords');
 assert.ok(!sitemap.includes('<loc>https://bhoctherapeutics.com/archil-jaliashvili/</loc>'),'retired author profile must not be indexed');
+for(const relative of canonicalFiles.keys()){
+  assert.ok(!read(relative).includes('https://bhoctherapeutics.com/archil-jaliashvili/'),`${relative}: retired author profile remains in indexed metadata or links`);
+}
 assert.ok(!/hbo2therapeutics\.com/i.test(repositoryText),'forbidden corporate domain found');
 assert.ok(!/\$XX|\$X\b|\bX% CAGR\b/.test(repositoryText),'public placeholder market values found');
 assert.ok(!sitemap.includes('https://bhoctherapeutics.com/historical-evolution/'),'retired historical URL remains in sitemap');
