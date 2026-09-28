@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "label": "BHOC",
+    "subLabel": "Therapeutics Platform",
+    "href": "/evidence/library/index.html"
+  },
+  "links": [
+    {"label": "Veterinary", "href": "/evidence/library/veterinary/Vet-index.html", "section": "veterinary"},
+    {"label": "Transplantation", "href": "/evidence/library/transplant/Transplant-index.html", "section": "transplant"},
+    {"label": "Human Use", "href": "/evidence/library/human/BHOC-Human-index.html", "section": "human"},
+    {"label": "Applications", "href": "/evidence/library/clinical/", "section": "clinical"},
+    {"label": "Concepts & Hypotheses", "href": "/evidence/library/concepts-hypotheses/", "section": "discussion"},
+    {"label": "LinkedIn Publications", "href": "/evidence/library/social-media/linkedin/", "section": "linkedin"},
+    {"label": "Science", "href": "/evidence/library/science/", "section": "science"},
+    {"label": "History", "href": "/evidence/library/historical-sources/", "section": "history"}
+  ],
+  "network": [
+    {
+      "label": "BHOC Therapeutics",
+      "href": "https://bhoctherapeutics.com/",
+      "enabled": true
+    },
+    {
+      "label": "BHOC Veterinary",
+      "href": "https://bhocvet.com/",
+      "enabled": true,
+      "theme": "vet"
+    },
+    {
+      "label": "BHOC Transplant",
+      "href": "https://bhoctransplant.com/",
+      "enabled": true
+    }
+  ]
+}
