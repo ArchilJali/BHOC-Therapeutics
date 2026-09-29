@@ -1,0 +1,80 @@
+name: Prepare and verify Hemopure historical news
+on:
+  push:
+    branches: ['preview/hemopure-south-africa-2006-20260929']
+    paths: ['.github/workflows/prepare-hemopure-news.yml']
+permissions:
+  contents: write
+jobs:
+  prepare-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: preview/hemopure-south-africa-2006-20260929
+      - name: Apply approved scoped publication changes
+        run: python scripts/prepare_hemopure_2006.py
+      - name: Protect existing content and validate the site
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          node --check navigation-context.js
+          git diff --check
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install --quiet playwright
+          python -m playwright install --with-deps chromium > /tmp/hemopure-browser-install.log 2>&1
+      - name: Check desktop and mobile layouts with real Chromium
+        run: |
+          python -m http.server 8765 >/tmp/hemopure-http.log 2>&1 &
+          python - <<'PY'
+          import json, pathlib, time
+          from playwright.sync_api import sync_playwright
+          time.sleep(1)
+          out = pathlib.Path('/tmp/hemopure-qa'); out.mkdir()
+          reports = []
+          with sync_playwright() as pw:
+              browser = pw.chromium.launch()
+              for route, label, selector in [('/news/hemopure-south-africa-2006/','article','.policy-hero img'),('/news/','news-feed','#hemopure-south-africa-2006 img')]:
+                  for width in [1440,768,390,320]:
+                      page = browser.new_page(viewport={'width':width,'height':1000},device_scale_factor=1)
+                      page.route('**/*', lambda r: r.continue_() if r.request.url.startswith('http://127.0.0.1:8765') else r.abort())
+                      response = page.goto('http://127.0.0.1:8765'+route,wait_until='domcontentloaded')
+                      assert response.status == 200
+                      image = page.locator(selector)
+                      image.scroll_into_view_if_needed()
+                      page.wait_for_function('(selector) => {const i=document.querySelector(selector); return i && i.complete && i.naturalWidth===1248}',arg=selector)
+                      page.wait_for_timeout(350)
+                      report = page.evaluate('''(selector) => {const i=document.querySelector(selector), r=i.getBoundingClientRect(), c=getComputedStyle(i); return {viewport:innerWidth,scrollWidth:document.documentElement.scrollWidth,imageWidth:r.width,imageHeight:r.height,naturalWidth:i.naturalWidth,naturalHeight:i.naturalHeight,objectFit:c.objectFit,alt:i.alt,headers:document.querySelectorAll('body > header').length,footers:document.querySelectorAll('body > footer').length,h1:document.querySelector('h1').innerText}}''',selector)
+                      report['page'] = label
+                      assert report['scrollWidth'] <= width+1, report
+                      assert report['naturalHeight'] == 616, report
+                      assert report['objectFit'] == 'contain', report
+                      assert abs(report['imageWidth']/report['imageHeight']-1248/616)<0.02, report
+                      assert report['alt'], report
+                      reports.append(report)
+                      page.screenshot(path=str(out/f'{label}-{width}.png'),full_page=True)
+                      page.close()
+              browser.close()
+          (out/'layout-report.json').write_text(json.dumps(reports,indent=2))
+          print(json.dumps(reports,indent=2))
+          PY
+      - name: Save preview screenshots and test report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: hemopure-historical-news-qa
+          path: /tmp/hemopure-qa/
+          retention-days: 7
+      - name: Remove transfer-only files and commit the verified preview
+        run: |
+          rm -f .github/release-payload/hemopure-2006-*.b64
+          rm -f .github/workflows/import-approved-hemopure-image.yml .github/workflows/prepare-hemopure-news.yml scripts/prepare_hemopure_2006.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add news/index.html news/hemopure-south-africa-2006/index.html evidence/library/human/BHOC-Human-publications.json evidence/library/veterinary/Vet-publications.json evidence/library/historical-sources/index.html bhoc/historical-evolution/index.html sitemap.xml
+          git add -u .github/release-payload .github/workflows/import-approved-hemopure-image.yml .github/workflows/prepare-hemopure-news.yml scripts/prepare_hemopure_2006.py
+          git diff --cached --check
+          git commit -m 'Publish-ready Levien 2006 historical news, corrected sources and uncropped responsive image'
+          git push origin HEAD:preview/hemopure-south-africa-2006-20260929
