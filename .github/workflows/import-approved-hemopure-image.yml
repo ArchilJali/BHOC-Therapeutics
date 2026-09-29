@@ -1,0 +1,38 @@
+name: Import approved Hemopure article screenshot
+on:
+  push:
+    branches: ['preview/hemopure-south-africa-2006-20260929']
+    paths: ['.github/workflows/import-approved-hemopure-image.yml']
+permissions:
+  contents: write
+jobs:
+  import-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: preview/hemopure-south-africa-2006-20260929
+      - name: Import and verify the exact approved screenshot
+        env:
+          IMAGE_URL: 'https://sdmntprdenmarkeast.oaiusercontent.com/files/00000000-f6e8-8210-a4d8-ae9ad5988bec/raw?se=2026-09-29T06%3A55%3A14Z&sp=r&sv=2026-02-06&sr=b&scid=013bf084-edc2-5194-81ad-80b876a4f025&skoid=ba81670d-b682-4d2d-9682-ac0ffdfb3fa1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-29T03%3A55%3A53Z&ske=2026-09-30T03%3A55%3A53Z&sks=b&skv=2026-02-06&sig=R88mU64l9LaVQ53sH7/TrOnE/Y30A/N/yuRe3ePQoH0%3D'
+        run: |
+          python - <<'PY'
+          import hashlib, os, pathlib, urllib.request
+          data = urllib.request.urlopen(os.environ['IMAGE_URL'], timeout=45).read()
+          assert hashlib.sha256(data).hexdigest() == 'b27dc246736f8382b6de371db54da5a316da4106fa8200906b5022d2c2760998', 'Image checksum mismatch'
+          assert data[:4] == b'RIFF' and data[8:12] == b'WEBP'
+          path = pathlib.Path('assets/news/hemopure-south-africa-2006-wiley-header.webp')
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_bytes(data)
+          print('Verified supplied screenshot: 1248 x 616; 30066 bytes; no crop or redrawing.')
+          PY
+      - name: Save image on the preview branch only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/news/hemopure-south-africa-2006-wiley-header.webp
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add approved Wiley article-header screenshot without cropping'
+            git push origin HEAD:preview/hemopure-south-africa-2006-20260929
+          fi
