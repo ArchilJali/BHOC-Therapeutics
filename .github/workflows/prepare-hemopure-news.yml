@@ -16,8 +16,16 @@ jobs:
       - name: Apply approved scoped publication changes
         run: |
           python scripts/prepare_hemopure_2006.py
-          # Keep the frozen knowledge-map chapter intact. The new source is placed in the historical archive instead.
           git restore -- bhoc/historical-evolution/index.html
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('news/index.html')
+          s = p.read_text()
+          old = '#hemopure-south-africa-2006 .news-media img{display:block;width:100%;height:auto;max-height:none;'
+          new = '#hemopure-south-africa-2006 .news-media img{display:block;width:100%;height:auto!important;min-height:0!important;max-height:none;'
+          assert s.count(old) == 1
+          p.write_text(s.replace(old,new,1))
+          PY
       - name: Protect existing content and validate the site
         run: |
           node scripts/check_bhoc_content.mjs
@@ -51,16 +59,16 @@ jobs:
                       page.wait_for_timeout(350)
                       report = page.evaluate('''(selector) => {const i=document.querySelector(selector), r=i.getBoundingClientRect(), c=getComputedStyle(i); return {viewport:innerWidth,scrollWidth:document.documentElement.scrollWidth,imageWidth:r.width,imageHeight:r.height,naturalWidth:i.naturalWidth,naturalHeight:i.naturalHeight,objectFit:c.objectFit,alt:i.alt,headers:document.querySelectorAll('body > header').length,footers:document.querySelectorAll('body > footer').length,h1:document.querySelector('h1').innerText}}''',selector)
                       report['page'] = label
+                      reports.append(report)
+                      (out/'layout-report.json').write_text(json.dumps(reports,indent=2))
+                      page.screenshot(path=str(out/f'{label}-{width}.png'),full_page=True)
                       assert report['scrollWidth'] <= width+1, report
                       assert report['naturalHeight'] == 616, report
                       assert report['objectFit'] == 'contain', report
                       assert abs(report['imageWidth']/report['imageHeight']-1248/616)<0.02, report
                       assert report['alt'], report
-                      reports.append(report)
-                      page.screenshot(path=str(out/f'{label}-{width}.png'),full_page=True)
                       page.close()
               browser.close()
-          (out/'layout-report.json').write_text(json.dumps(reports,indent=2))
           print(json.dumps(reports,indent=2))
           PY
       - name: Save preview screenshots and test report
