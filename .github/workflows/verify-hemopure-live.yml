@@ -1,0 +1,55 @@
+name: Verify live Hemopure historical news
+on:
+  push:
+    branches: ['preview/hemopure-south-africa-2006-20260929']
+    paths: ['.github/workflows/verify-hemopure-live.yml']
+permissions:
+  contents: read
+jobs:
+  verify-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Confirm production pages and exact user screenshot
+        run: |
+          python - <<'PY'
+          import hashlib,json,time,urllib.request
+          host='https://bhoctherapeutics.com'
+          route='/news/hemopure-south-africa-2006/'
+          doi='10.1111/j.1751-2824.2006.00025.x'
+          def fetch(path):
+              req=urllib.request.Request(host+path,headers={'User-Agent':'BHOC-Publication-Verification/1.0','Cache-Control':'no-cache'})
+              with urllib.request.urlopen(req,timeout=35) as r:
+                  data=r.read()
+                  assert r.status==200
+                  print('HTTP',r.status,r.url,len(data))
+                  return data
+          for attempt in range(6):
+              try:
+                  article=fetch(route).decode()
+                  assert '<h1>Hemopure in South Africa: Beyond Blood Replacement</h1>' in article
+                  assert 'Historical Hemopure evidence, not clinical validation of BHOC.' in article
+                  assert 'NewsArticle' in article and 'ScholarlyArticle' in article and 'BreadcrumbList' in article
+                  assert 'content="2026-09-29"' in article and '2006-08-15' in article
+                  assert 'rel="canonical" href="'+host+route+'"' in article
+                  image=fetch('/assets/news/hemopure-south-africa-2006-wiley-header.webp')
+                  assert hashlib.sha256(image).hexdigest()=='b27dc246736f8382b6de371db54da5a316da4106fa8200906b5022d2c2760998'
+                  feed=fetch('/news/').decode()
+                  assert 'id="hemopure-south-africa-2006"' in feed
+                  assert 'min-height:0!important' in feed
+                  history=fetch('/evidence/library/historical-sources/').decode()
+                  assert 'id="levien-hemopure-2006"' in history
+                  sitemap=fetch('/sitemap.xml').decode()
+                  assert '<loc>'+host+route+'</loc>' in sitemap
+                  for path,key,count in [('/evidence/library/human/BHOC-Human-publications.json',369,185),('/evidence/library/veterinary/Vet-publications.json','bhoc-118',236)]:
+                      rows=json.loads(fetch(path)); assert len(rows)==count
+                      record=next(r for r in rows if r.get('id')==key)
+                      assert record['authors']=='Levien LJ' and record['journal']=='ISBT Science Series' and record['doi']==doi
+                      print('VERIFIED RECORD',key,record['authors'],record['journal'],record['doi'],'COUNT',count)
+                  print('LIVE_PUBLICATION_VERIFIED: news page, feed card, exact approved screenshot, historical archive, sitemap, and both existing source records.')
+                  break
+              except Exception as exc:
+                  print('Attempt',attempt+1,type(exc).__name__,str(exc))
+                  if attempt==5: raise
+                  time.sleep(15)
+          PY
