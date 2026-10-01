@@ -1,0 +1,8 @@
+.advocacy-article .foundation-banner{margin:0 0 32px}
+.advocacy-article .foundation-banner img{display:block;width:100%;height:auto;aspect-ratio:1360/768;border-radius:10px;background:#06223c}
+.advocacy-article .foundation-banner figcaption{margin-top:10px;font-size:13px;line-height:1.65;color:#657b92}
+.advocacy-main-action{display:inline-block;padding:15px 20px;border-radius:5px;background:#102f49;color:white!important;font-weight:700;text-decoration:none;line-height:1.5}
+.advocacy-article .advocacy-editorial-note{font-size:14px;line-height:1.75;color:#637993}
+.advocacy-update{margin-top:32px;color:#637993;font-size:13px}
+.advocacy-article .policy-body p,.advocacy-article .policy-body li{font-size:17px}
+@media(max-width:600px){.advocacy-article .policy-body p{font-size:16px}.advocacy-main-action{padding:13px 16px}}
