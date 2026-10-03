@@ -123,4 +123,3 @@
 <script>const homeMenu=document.querySelector('.home-menu');const homeNav=document.getElementById('home-nav');if(homeMenu&&homeNav){homeMenu.addEventListener('click',()=>{const open=homeNav.classList.toggle('open');homeMenu.setAttribute('aria-expanded',String(open));homeMenu.setAttribute('aria-label',open?'Close navigation':'Open navigation')});document.querySelectorAll('.home-links a').forEach(a=>a.addEventListener('click',()=>{homeNav.classList.remove('open');homeMenu.setAttribute('aria-expanded','false');homeMenu.setAttribute('aria-label','Open navigation')}));}</script>
 </body>
 </html>
-
