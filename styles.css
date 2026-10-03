@@ -68,7 +68,7 @@
 .impact-context-copy>p:not(.eyebrow):not(.impact-context-emphasis){max-width:700px;color:#d8d0d9;font-size:.95rem}
 .impact-context-emphasis{color:#fff;font-size:1.15rem;font-weight:800;margin:22px 0 10px}
 .impact-context-copy .section-cta{color:#fff;border-color:#6d9cff;background:#1e6df2}
-.impact-context-stats{position:relative;overflow:hidden;border:1px solid #3b5f8a;border-radius:18px;padding:20px;background:linear-gradient(145deg,rgba(11,36,62,.93),rgba(3,10,21,.98)),url('/bhoc-homepage-master.png') right top/auto 145% no-repeat;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:12px}
+.impact-context-stats{position:relative;overflow:hidden;border:1px solid #3b5f8a;border-radius:18px;padding:20px;background:linear-gradient(145deg,rgba(11,36,62,.93),rgba(3,10,21,.98)),url('/bhoc-homepage-master.webp') right top/auto 145% no-repeat;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:12px}
 .impact-context-stat{position:relative;z-index:1;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 18px;background:rgba(54,24,43,.94);color:#fff;backdrop-filter:blur(2px)}
 .impact-context-stat-alt{background:rgba(107,36,68,.94)}
 .impact-context-stat strong{display:block;font-size:clamp(1.55rem,2.8vw,2.7rem);line-height:1.02;letter-spacing:-.055em}
