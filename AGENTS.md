@@ -40,3 +40,9 @@ These rules apply to every file in this repository.
 
 - Scientific and commercial BHOC claims must come from the user's approved repository-backed sources and approved BHOC materials.
 - Do not add external claims or interpretations without explicit approval.
+
+## Science feature order - approved 3 Oct 2026
+
+- Nobel Foundations of Oxygen, Metabolism & Physiology always appears first among the featured Science materials. New scientific articles follow it.
+- On the Scientific Evidence Hub Science index, place the Nobel feature above the publications grid so it remains first on desktop and mobile.
+- Preserve each existing card and its text, links and assets when adding or rearranging features.
