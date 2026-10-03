@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-27",
-  "scope": "Scientific evidence relevant to BHOC and transplant oxygen delivery. These records are external transplantation studies and are not BHOC efficacy evidence.",
+  "updated": "2026-10-03",
+  "scope": "Scientific evidence relevant to BHOC and transplant oxygen delivery. External organ and transplantation studies provide research context and are not BHOC efficacy evidence.",
   "records": [
     {
       "id": "TR-REL-2026-001",
@@ -137,13 +137,51 @@
       "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/41233546/",
       "briefUrl": "https://bhoctherapeutics.com/evidence/library/transplant/related/montgomery-kidney-xenotransplantation-evidence.html#study-2026",
       "corrections": [
-        {"type": "Publisher Correction", "published": "2026-02-12", "doi": "10.1038/s41586-026-10252-w", "pmid": "41680323", "url": "https://doi.org/10.1038/s41586-026-10252-w"},
-        {"type": "Author Correction", "published": "2026-06-04", "doi": "10.1038/s41586-026-10694-2", "pmid": "42243534", "url": "https://doi.org/10.1038/s41586-026-10694-2"}
+        {
+          "type": "Publisher Correction",
+          "published": "2026-02-12",
+          "doi": "10.1038/s41586-026-10252-w",
+          "pmid": "41680323",
+          "url": "https://doi.org/10.1038/s41586-026-10252-w"
+        },
+        {
+          "type": "Author Correction",
+          "published": "2026-06-04",
+          "doi": "10.1038/s41586-026-10694-2",
+          "pmid": "42243534",
+          "url": "https://doi.org/10.1038/s41586-026-10694-2"
+        }
       ],
       "added": "2026-09-27",
       "sourceChecked": "2026-09-27",
       "reviewScope": "Editorial check of original bibliographic record, abstract and correction trail; no figure-level reanalysis or independent data audit.",
       "classification": "External transplantation research; not BHOC efficacy evidence"
+    },
+    {
+      "id": "TR-REL-2026-008",
+      "organ": "Kidney",
+      "modality": "Normothermic ex vivo perfusion with stored donor RBCs",
+      "evidenceType": "Experimental ex vivo human organ study",
+      "title": "Storage under hypoxia improves the ability of red cells to release oxygen in ex vivo-perfused human kidneys",
+      "year": 2026,
+      "publicationMonth": "2026-03",
+      "authors": "Rabcuka J, Fallon J, Meli A, et al.",
+      "journal": "Blood Red Cells & Iron",
+      "volume": "2",
+      "issue": "1",
+      "articleNumber": "100038",
+      "population": "Ex vivo human kidneys perfused with split donor RBC preparations stored for approximately three weeks",
+      "signal": "Switching to hypoxically stored RBCs reversibly increased renal respiratory rate by approximately 20% and oxygen diffusion capacity by approximately 70%.",
+      "relevance": "Connects RBC functional characterization with organ-level oxygen handling and defined perfusion endpoints.",
+      "boundary": "Ex vivo organ evidence, not patient transfusion or post-transplant outcome evidence. No BHOC intervention was tested.",
+      "doi": "10.1016/j.brci.2025.100038",
+      "doiUrl": "https://doi.org/10.1016/j.brci.2025.100038",
+      "publisherUrl": "https://www.sciencedirect.com/science/article/pii/S3050598425000381",
+      "briefUrl": "https://bhoctherapeutics.com/science/hypoxic-rbc-storage-kidney-oxygen-delivery.html",
+      "added": "2026-10-03",
+      "sourceChecked": "2026-10-03",
+      "reviewScope": "Publisher abstract and DOI bibliographic record checked; no independent data reanalysis.",
+      "classification": "Approved external related evidence; not BHOC product efficacy evidence"
     }
   ],
   "provenance": {
