@@ -27,7 +27,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids=[];self.links=[];self.meta={};self.canonical=[];self.title=[];self.headings=[]
         self.main=[];self.paragraphs=[];self.h1count=0
-        self.active_main=False;self.p=None;self.heading=None;self.intitle=False;self.skip=0
+        self.active_main=False;self.p=None;self.heading=None;self.intitle=False;self.skip=0;self.dynamic_skip=0
         self.feed(source)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
@@ -49,7 +49,7 @@ class Page(HTMLParser):
         if tag in ('h1','h2','h3','h4') and self.heading is not None:self.headings.append(normalized(self.heading));self.heading=None
     def handle_data(self,data):
         if self.skip:return
-        if self.active_main:self.main.append(data)
+        if self.active_main and not self.dynamic_skip:self.main.append(data)
         if self.p is not None:self.p.append(data)
         if self.heading is not None:self.heading.append(data)
         if self.intitle:self.title.append(data)
