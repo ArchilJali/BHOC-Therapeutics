@@ -32,11 +32,12 @@ class Page(HTMLParser):
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if a.get('id'):self.ids.append(a['id'])
+        if a.get('data-dynamic-knowledge-updates')=='true':self.dynamic_skip+=1
         if tag in ('script','style'):self.skip+=1
         if tag=='main':self.active_main=True
         if tag=='title':self.intitle=True
-        if tag=='p':self.p=[]
-        if tag in ('h1','h2','h3','h4'):self.heading=[]
+        if tag=='p' and not self.dynamic_skip:self.p=[]
+        if tag in ('h1','h2','h3','h4') and not self.dynamic_skip:self.heading=[]
         if tag=='h1':self.h1count+=1
         if tag=='a' and a.get('href'):self.links.append(a['href'])
         if tag=='meta':self.meta.setdefault(a.get('name') or a.get('property'),[]).append(a.get('content',''))
@@ -47,6 +48,7 @@ class Page(HTMLParser):
         if tag=='title':self.intitle=False
         if tag=='p' and self.p is not None:self.paragraphs.append(normalized(self.p));self.p=None
         if tag in ('h1','h2','h3','h4') and self.heading is not None:self.headings.append(normalized(self.heading));self.heading=None
+        if tag=='section' and self.dynamic_skip:self.dynamic_skip=max(0,self.dynamic_skip-1)
     def handle_data(self,data):
         if self.skip:return
         if self.active_main and not self.dynamic_skip:self.main.append(data)
