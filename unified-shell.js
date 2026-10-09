@@ -6,6 +6,7 @@
 
   const HOME = 'https://bhoctherapeutics.com/';
   const LIBRARY = '/evidence/library/';
+  const releaseSummary = 'First published 20 Aug 2026 · 80 updates · Last updated 09 Oct 2026 · Version 26.10.09';
   const routes = [
     {name: 'BHOC', href: '/bhoc/', path: '/bhoc/'},
     {name: 'Science', href: '/science/', path: '/science/'},
@@ -202,7 +203,7 @@
           <div><strong>Company</strong><a href="/#company">About</a><a href="/news/">News</a><a href="/contact/">Contact</a></div>
           <div><strong>Investors & Partners</strong><a href="/partners/">Overview</a><a href="/partners/">Resources</a></div>
         </div>
-        <div class="bhoc-shell-footer-bottom">First published 20 Aug 2026 · 79 updates · Last updated 08 Oct 2026 · Version 26.10.08 · <a href="https://bhocvet.com/">BHOC Veterinary</a> · <a href="https://bhoctherapeutics.com/evidence/library/">BHOC Information Hub</a><br>Scientific and educational website in development. References to Oxyglobin, Hemopure, HBOC and other third-party technologies are provided for scientific and historical context and do not imply ownership, affiliation or approved indications. © 2026 BHOC Therapeutics.</div>
+        <div class="bhoc-shell-footer-bottom">${releaseSummary} · <a href="https://bhocvet.com/">BHOC Veterinary</a> · <a href="https://bhoctherapeutics.com/evidence/library/">BHOC Information Hub</a><br>Scientific and educational website in development. References to Oxyglobin, Hemopure, HBOC and other third-party technologies are provided for scientific and historical context and do not imply ownership, affiliation or approved indications. © 2026 BHOC Therapeutics.</div>
       </div>`;
     return footer;
   }

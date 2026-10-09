@@ -3,7 +3,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const version = '20260928-shell1';
+const version = '20261009-shell2';
+const shellSource = await fs.readFile(path.join(root, 'unified-shell.js'), 'utf8');
+const releaseSummary = shellSource.match(/const releaseSummary = '([^']+)';/)?.[1];
+if (!releaseSummary) throw new Error('Shared site release summary is missing');
 const headTags = `<link rel="stylesheet" href="/unified-shell.css?v=${version}">\n<script src="/unified-shell.js?v=${version}" defer></script>`;
 const skipDirs = new Set(['.git', '.github', 'assets', 'scripts', 'preview', 'node_modules', 'seo', '_includes']);
 
@@ -27,6 +30,7 @@ for (const file of await files(root)) {
   if (!/<\/head>/i.test(source) || !/<body\b/i.test(source)) continue;
   let next = source.replace(/<link\b[^>]*href=["']\/unified-shell\.css(?:\?[^"']*)?["'][^>]*>\s*/gi, '')
     .replace(/<script\b[^>]*src=["']\/unified-shell\.js(?:\?[^"']*)?["'][^>]*><\/script>\s*/gi, '');
+  next = next.replace(/First published 20 Aug 2026 · \d+ updates · Last updated [^<\n]+? · Version [0-9.]+/g, releaseSummary);
   next = next.replace(/<\/head>/i, `${headTags}\n</head>`);
   if (next === source) continue;
   await fs.writeFile(file, next);
