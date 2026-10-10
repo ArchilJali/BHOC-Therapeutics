@@ -261,6 +261,17 @@ input::placeholder{color:#687b88}
 .vet-cause-result div{background:var(--wash);border-radius:6px;padding:8px}
 .vet-cause-result small{display:block;color:var(--muted);font-size:8.5px;text-transform:uppercase;letter-spacing:.05em}
 .vet-cause-result strong{font-size:18px;color:var(--ink)}
+/* Keep treatment and control percentages on the same baseline. */
+.vet-efficacy-contrast .vet-result-comparison{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.vet-efficacy-contrast .vet-result-comparison strong{font-size:32px;font-weight:800;line-height:1;letter-spacing:-.6px}
+.vet-efficacy-contrast .vet-result-comparison span{display:inline;margin:0;font-size:22px;font-weight:400;line-height:1;letter-spacing:0}
+.vet-efficacy-contrast .vet-result-comparison .vet-result-versus{font-size:16px}
+.vet-efficacy-contrast .vet-cause-card{display:flex;flex-direction:column}
+.vet-efficacy-contrast .vet-cause-result{margin-top:auto;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;column-gap:6px;row-gap:6px}
+.vet-efficacy-contrast .vet-cause-result>div{display:grid;grid-template-rows:subgrid;grid-row:span 2;align-items:baseline;min-width:0}
+.vet-efficacy-contrast .vet-cause-result small{min-height:2.8em;line-height:1.4}
+.vet-efficacy-contrast .vet-cause-result strong{font-size:32px;font-weight:800;line-height:1;white-space:nowrap;letter-spacing:-.6px}
+.vet-efficacy-contrast .vet-cause-control{font-size:22px;font-weight:400;line-height:1;color:var(--ink);white-space:nowrap}
 .vet-endpoint-note{background:var(--soft);border-left:3px solid var(--teal);padding:11px 13px;margin:12px 0;font-size:11.5px!important;color:var(--muted)!important}
 .vet-related{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px;margin-top:20px}
 .vet-related a{display:inline-flex;align-items:center;min-height:34px;padding:7px 10px;background:#fff;border:1px solid var(--line);border-radius:6px;text-decoration:none;font-size:10.5px;font-weight:700}
