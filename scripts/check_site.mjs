@@ -89,7 +89,7 @@ function walk(directory){
     if(entry.name.startsWith('.')||entry.name.startsWith('_')||entry.name==='node_modules')continue;
     const absolute=path.join(directory,entry.name);
     if(entry.isDirectory())walk(absolute);
-    else if(entry.isFile()&&entry.name.endsWith('.html'))htmlFiles.push(path.relative(root,absolute));
+    else if(entry.isFile()&&/\.html?$/i.test(entry.name))htmlFiles.push(path.relative(root,absolute));
   }
 }
 walk(root);
@@ -98,6 +98,17 @@ for(const relative of htmlFiles){
   const source=read(relative);
   const yandexNoindex=[...source.matchAll(/<meta\b(?=[^>]*\bname=["']yandex["'])(?=[^>]*\bcontent=["']noindex["'])[^>]*>/gi)];
   assert.equal(yandexNoindex.length,1,`${relative}: exactly one Yandex-only noindex directive required`);
+  // Evidence pages outside the main sitemap also need an HTTPS canonical.
+  const excluded=['robots','googlebot'].some(agent=>indexingDirectives(source,agent).some(value=>['noindex','none'].includes(value)));
+  if(!excluded){
+    const head=(source.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1]||'').replace(/<!--[\s\S]*?-->/g,'');
+    const canonicalTags=[...head.matchAll(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi)];
+    assert.equal(canonicalTags.length,1,`${relative}: indexable page must have exactly one canonical`);
+    const canonical=canonicalTags[0][0].match(/\bhref=["']([^"']+)["']/i)?.[1];
+    assert.ok(canonical,`${relative}: canonical href missing`);
+    const target=pathForUrl(canonical);
+    assert.ok(fs.existsSync(path.join(root,target)),`${relative}: canonical target missing at ${target}`);
+  }
 }
 
 let checkedLinks=0;
@@ -111,7 +122,7 @@ for(const relative of htmlFiles){
     checkedLinks++;
     const absolute=path.join(root,target.relative);
     assert.ok(fs.existsSync(absolute),`${relative}: missing local target ${value}`);
-    if(target.hash&&/\.html$/i.test(target.relative)){
+    if(target.hash&&/\.html?$/i.test(target.relative)){
       const id=decodeURIComponent(target.hash.slice(1));
       const targetSource=read(target.relative);
       const escaped=id.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
