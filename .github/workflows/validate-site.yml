@@ -8,6 +8,7 @@ on:
       - '**.html'
       - '**.css'
       - 'assets/**'
+      - 'evidence/library/**'
       - 'navigation-context.js'
       - 'robots.txt'
       - 'sitemap.xml'
@@ -39,3 +40,6 @@ jobs:
 
       - name: Validate SEO, schema, sitemap, redirects and local links
         run: node scripts/check_site.mjs
+
+      - name: Reconcile evidence catalogue records, counts and structured data
+        run: python3 scripts/check_evidence_catalogues.py

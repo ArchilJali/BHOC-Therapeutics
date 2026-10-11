@@ -1,22 +1,22 @@
 {
-  "snapshot": "2026-10-04",
-  "uniquePublications": 337,
-  "hubPlacements": 475,
+  "snapshot": "2026-10-11",
+  "uniquePublications": 611,
+  "hubPlacements": 503,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 156,
-  "normalizedJournalLabels": 168,
-  "animalLabelledRecords": 141,
-  "animalEvidenceLabels": 10,
+  "normalizedJournalLabels": 184,
+  "catalogues": {
+    "product": 194,
+    "oxygen": 211,
+    "related": 206
+  },
   "hubs": {
-    "veterinary": 236,
-    "transplantation": 54,
-    "humanUse": 185
+    "veterinary": 260,
+    "human": 181,
+    "transplant": 62
   },
   "notes": {
-    "uniquePublications": "Deduplicated across hubs by DOI, PMID and normalized title.",
-    "hubPlacements": "A publication may be indexed in more than one evidence hub.",
-    "institutions": "Indexed author affiliations, not endorsements or confirmed study locations.",
-    "animalLabelledRecords": "Veterinary catalogue records carrying at least one non-human, non-in-vitro animal label.",
-    "animalEvidenceLabels": "Includes named animal/model labels plus Other animal; it is not a count of approved species."
+    "counts": "Three topic catalogues are mutually exclusive. Application views overlap. Statistics use public bibliographic records only.",
+    "institutions": "Indexed author affiliations, not endorsements or confirmed study locations."
   }
 }

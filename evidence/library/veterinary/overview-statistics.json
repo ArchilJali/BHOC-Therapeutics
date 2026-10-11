@@ -1,112 +1,65 @@
 {
-  "snapshot": "2026-08-28",
-  "total": 236,
+  "snapshot": "2026-10-11",
+  "records": 260,
   "groups": [
     {
-      "value": "Canine",
-      "label": "Canine (Dog)",
-      "icon": "🐕",
-      "tags": [
-        "Canine"
-      ],
-      "count": 25
+      "value": "Human",
+      "label": "Human",
+      "count": 91
     },
     {
-      "value": "Feline",
-      "label": "Feline (Cat)",
-      "icon": "🐈",
-      "tags": [
-        "Feline"
-      ],
-      "count": 6
-    },
-    {
-      "value": "Equine",
-      "label": "Equine (Horse)",
-      "icon": "🐴",
-      "tags": [
-        "Equine"
-      ],
-      "count": 4
-    },
-    {
-      "value": "Porcine",
+      "value": "Porcine (Pig)",
       "label": "Porcine (Pig)",
-      "icon": "🐖",
-      "tags": [
-        "Porcine"
-      ],
-      "count": 38
-    },
-    {
-      "value": "Ovine",
-      "label": "Ovine (Sheep)",
-      "icon": "🐑",
-      "tags": [
-        "Ovine"
-      ],
-      "count": 4
+      "count": 43
     },
     {
       "value": "Rodent",
       "label": "Rodent",
-      "icon": "🐀",
-      "tags": [
-        "Rodent"
-      ],
-      "count": 39
+      "count": 41
     },
     {
-      "value": "Avian",
-      "label": "Avian (Birds)",
-      "icon": "🦅",
-      "tags": [
-        "Avian"
-      ],
-      "count": 18
-    },
-    {
-      "value": "__exotic__",
-      "label": "Exotic / other animals",
-      "icon": "🦦",
-      "tags": [
-        "Ferret",
-        "Rabbit",
-        "Other animal"
-      ],
+      "value": "Other animal",
+      "label": "Other animal",
       "count": 15
     },
     {
-      "value": "Human",
-      "label": "Human",
-      "icon": "👤",
-      "tags": [
-        "Human"
-      ],
-      "count": 89
+      "value": "Canine (Dog)",
+      "label": "Canine (Dog)",
+      "count": 28
     },
     {
-      "value": "__other_models__",
-      "label": "Other / In vitro",
-      "icon": "🧪",
-      "tags": [
-        "In vitro"
-      ],
-      "includeUnspecified": true,
+      "value": "Feline (Cat)",
+      "label": "Feline (Cat)",
+      "count": 8
+    },
+    {
+      "value": "Avian (Bird)",
+      "label": "Avian (Bird)",
+      "count": 18
+    },
+    {
+      "value": "In vitro / laboratory",
+      "label": "In vitro / laboratory",
       "count": 21
+    },
+    {
+      "value": "Ovine (Sheep)",
+      "label": "Ovine (Sheep)",
+      "count": 5
+    },
+    {
+      "value": "Equine (Horse)",
+      "label": "Equine (Horse)",
+      "count": 4
     }
   ],
-  "journalLabels": 109,
   "institutions": 154,
-  "linked": 235,
-  "pubmed": 225,
-  "dois": 217,
-  "unspecified": 13,
-  "siteRecords": 1,
-  "sites": 1,
+  "journals": 116,
+  "groupField": "speciesGroups",
+  "groupLabel": "Species / model groups",
+  "total": 260,
+  "journalLabels": 116,
   "notes": {
-    "counts": "Counts are records carrying indexed species or model labels, not counts of confirmed treatment studies. A record can appear in several groups; group counts must not be added to obtain the total. Labels may be incomplete.",
-    "groups": "Exotic / other animals combines ferret, rabbit and other-animal labels, counting each record once. It does not imply wildlife use. Other / In vitro includes in-vitro labels and 13 records with no species label.",
-    "journals": "Journal names are normalized for the publication filter: known abbreviations and full-name variants are merged, while non-journal or unclassified source labels appear under Other."
+    "counts": "Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model."
   }
 }

@@ -1,0 +1,67 @@
+{
+  "updated": "2026-10-11",
+  "total": {
+    "records": 611,
+    "groups": 10,
+    "institutions": 156,
+    "journals": 184,
+    "groupField": "speciesGroups",
+    "groupLabel": "Species / model groups"
+  },
+  "views": {
+    "product": {
+      "records": 194,
+      "groups": 10,
+      "institutions": 101,
+      "journals": 92,
+      "groupField": "speciesGroups",
+      "groupLabel": "Species / model groups"
+    },
+    "oxygen": {
+      "records": 211,
+      "groups": 4,
+      "institutions": 5,
+      "journals": 25,
+      "groupField": "speciesGroups",
+      "groupLabel": "Species / model groups"
+    },
+    "related": {
+      "records": 206,
+      "groups": 8,
+      "institutions": 74,
+      "journals": 117,
+      "groupField": "speciesGroups",
+      "groupLabel": "Species / model groups"
+    },
+    "veterinary": {
+      "records": 260,
+      "groups": 10,
+      "institutions": 154,
+      "journals": 116,
+      "groupField": "speciesGroups",
+      "groupLabel": "Species / model groups"
+    },
+    "human": {
+      "records": 181,
+      "groups": 6,
+      "institutions": 73,
+      "journals": 84,
+      "groupField": "direction",
+      "groupLabel": "Therapeutic areas"
+    },
+    "transplant": {
+      "records": 62,
+      "groups": 6,
+      "institutions": 45,
+      "journals": 31,
+      "groupField": "organ",
+      "groupLabel": "Organ groups"
+    }
+  },
+  "publicRecords": 611,
+  "archivedIncompleteEntries": 48,
+  "duplicateIds": 0,
+  "duplicateDOIs": 0,
+  "duplicatePMIDs": 0,
+  "notes": "Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts."
+}
