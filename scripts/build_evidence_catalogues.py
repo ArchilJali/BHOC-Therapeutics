@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-connected2'
+VERSION='20261011-compact3'
 DESCRIPTIONS={
  'product':'Research on Oxyglobin, Hemopure and their historical development. Search by species, author, institution, journal and year.',
  'oxygen':'Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.',
@@ -24,12 +24,14 @@ HOME=(BASE/'index.html').read_text()
 HEADER=re.search(r'<header class="site-header">[\s\S]*?</header>',HOME)[0]
 FOOTER=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',HOME)[0]
 FOOTER=re.sub(r'<p class="platform-version"[\s\S]*?</p>','',FOOTER)
+LINK_AUDIT_PATH=BASE/'catalogues/data/source-link-audit.json'
+LINK_AUDIT=json.loads(LINK_AUDIT_PATH.read_text())['records']
 
 def tabs(current=''):
     return '<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
 
 def appnav(current=''):
-    if current!='product':return ''
+    if current not in ['product','veterinary','human','transplant']:return ''
     return '<nav class="application-tabs" aria-label="Search by application"><span>By application:</span>'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'>{E(APP_LABELS[k])}</a>' for k in ['veterinary','human','transplant'])+'</nav>'
 
 def metric_html(kind, live=False):
@@ -51,18 +53,23 @@ def card(r,kind):
     attrs['search']=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species']])
     attrs['scope']=r['scope'];attrs['collection']='|'.join(r['collection'])
     links=[]
-    for u in r['urls']:
-        if not public_url(u):continue
-        label='PubMed' if 'pubmed' in u and '?term=' not in u else 'DOI' if 'doi.org/' in u else 'Source search' if '?term=' in u or 'scholar.google' in u else 'Source'
+    checked=LINK_AUDIT[r['id']]
+    source_urls=checked['publicLinks']
+    for u in source_urls:
+        if not public_url(u) or '?term=' in u or 'scholar.google' in u:continue
+        label='PubMed / abstract' if 'pubmed' in u else 'Publisher / DOI' if 'doi.org/' in u else 'PDF' if '.pdf' in u.lower() else 'Full text / PMC' if '/pmc/' in u or 'pmc.ncbi.nlm.nih.gov' in u else 'Source'
         links.append(f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a>')
     url=PREFIX+PATHS[r['catalogue']]+'#'+r['id']
-    details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'])+field('PMID',r['pmid'])
+    details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'])+field('PMID',r['pmid'])+field('Original citation',r['citation'])
+    annotation='<p class="record-summary">'+E(r.get('catalogueSummary',''))+'</p>' if r.get('catalogueSummary') else ''
+    summary_label='Summary &amp; details' if annotation else 'Record details'
+    availability='' if links else '<p class="source-availability">Citation record. A verified article link or abstract is not currently available.</p>'
     note='<p class="metadata-note">Bibliographic details require source verification.</p>' if r['verification']=='Bibliographic verification required' else ''
     return f'''<article class="publication" id="{r['id']}" {' '.join('data-'+k+'="'+E(v)+'"' for k,v in attrs.items())}>
-<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><a href="{url}">{E(TITLES[r['catalogue']])}</a><span>{E(' · '.join(r['speciesGroups']))}</span></div>
-<h2>{E(r['title'])}</h2><p class="citation-line">{E(' · '.join(v for v in [r['authors'],r['journalLabel']] if v))}</p>{note}
-<div class="source-links">{''.join(links)}<a class="permalink" href="{url}">Publication link</a></div>
-<details><summary>Publication details</summary><dl>{details}</dl>{'<p>'+E(r['sourceReview'])+'</p>' if r['sourceReview'] else ''}{'<p>'+E('; '.join(r['notes']))+'</p>' if r['notes'] else ''}</details></article>'''
+<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><span>{E(' · '.join(r['speciesGroups']))}</span></div>
+<h2>{E(r['title'])}</h2><p class="citation-line">{E(' · '.join(v for v in [r['authors'],r['journalLabel']] if v))}</p>
+<div class="source-links">{''.join(links)}</div>
+<details><summary>{summary_label}</summary>{annotation}{availability}{note}<dl>{details}</dl>{'<p>'+E(r['sourceReview'])+'</p>' if r['sourceReview'] else ''}{'<p>'+E('; '.join(r['notes']))+'</p>' if r['notes'] else ''}</details></article>'''
 
 def select(fid,label,placeholder='All'):
     return f'<label>{label}<select id="{fid}"><option value="">{placeholder}</option></select></label>'

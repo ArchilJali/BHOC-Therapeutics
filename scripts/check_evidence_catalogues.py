@@ -12,6 +12,12 @@ class Page(HTMLParser):
         if tag=='article' and a.get('class')=='publication':self.records.append(a)
 
 audit()
+link_audit=json.loads((BASE/'catalogues/data/source-link-audit.json').read_text())
+assert set(link_audit['records'])=={r['id'] for r in RECORDS},'Source audit coverage mismatch'
+for r in RECORDS:
+    checked=link_audit['records'][r['id']]
+    assert {c['url'] for c in checked['checks']}==set(r['urls']),r['id']+' source audit is stale'
+    assert set(checked['publicLinks'])=={c['url'] for c in checked['checks'] if c['state'].startswith('matched')},r['id']+' source was not verified'
 for kind,rows in VIEWS.items():
     source=(BASE/PATHS[kind]).read_text();page=Page(source);st=STATS[kind]
     assert {a['id'] for a in page.records}=={r['id'] for r in rows},kind+' record mismatch'
@@ -29,6 +35,9 @@ for kind,rows in VIEWS.items():
     computed={k:len({v.casefold() for a in page.records for v in a.get('data-'+f,'').split('|') if v}) for k,f in [('groups',group),('institutions','institution'),('journals','journal')]}
     assert all(computed[k]==st[k] for k in computed),kind+' rendered facet counts mismatch'
     assert not re.search(r'href="https?://(?:10\.|doi:|bateman)',source,re.I),kind+' malformed source link'
+    assert ('aria-label="Search by application"' in source)==(kind in ['product','veterinary','human','transplant']),kind+' application navigation mismatch'
+    for block in re.findall(r'<div class="source-links">([\s\S]*?)</div>',source):
+        assert '?term=' not in block and 'Publication link' not in block,'Misleading source action'
     print(kind+': '+str(st['records'])+' records; statistics, facets, source links and structured data agree')
 
 platform=json.loads((BASE/'platform-overview.json').read_text())

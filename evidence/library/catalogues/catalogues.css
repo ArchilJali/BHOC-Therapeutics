@@ -21,3 +21,35 @@ body.evidence-catalogue.bhoc-shell-ready>.bhoc-shell-header,body.evidence-catalo
 @media print{.evidence-catalogue .catalogue-filters,.evidence-catalogue .pagination,.evidence-catalogue .result-actions{display:none}.evidence-catalogue .publication{break-inside:avoid}}
 
 .catalogue-card-pair{grid-template-columns:repeat(2,minmax(0,1fr))}.application-catalogue-link{font-size:13px;margin:14px 0 22px}.embedded-catalogue{padding:20px;border:1px solid #d5e0e6;border-radius:12px;scroll-margin-top:20px}.embedded-catalogue .publication h3{font:650 18px/1.4 system-ui,sans-serif;margin:8px 0;overflow-wrap:anywhere}.embedded-catalogue .publication{box-shadow:none}.embedded-catalogue>h2{font-size:28px}@media(max-width:760px){.catalogue-card-pair{grid-template-columns:1fr}.embedded-catalogue{padding:14px}.embedded-catalogue .publication h3{font-size:17px}}
+
+/* Compact catalogue reading layout. Complete citations remain in Record details. */
+.evidence-catalogue .catalogue-shell{padding-top:10px}
+body.evidence-catalogue.bhoc-shell-ready .catalogue-shell>.breadcrumbs{display:none}
+.catalogue-tabs{gap:6px;margin:6px 0 12px}.catalogue-tabs a{padding:9px 12px;font-size:12px}.catalogue-tabs span{font-size:15px}
+.evidence-catalogue .catalogue-hero h1{font-size:clamp(24px,2.6vw,31px);margin:4px 0 6px}
+.evidence-catalogue .catalogue-hero>p{font-size:13px;line-height:1.45;margin:0 0 9px}
+.evidence-catalogue .evidence-metrics{margin:10px 0 12px}
+.evidence-catalogue .evidence-metrics>div{padding:9px 13px}
+.evidence-catalogue .evidence-metrics strong{font-size:23px}
+.evidence-catalogue .evidence-metrics span{font-size:9px;margin-top:3px}
+.evidence-catalogue .catalogue-filters{padding:11px 13px}
+.evidence-catalogue .filter-grid{gap:8px}.evidence-catalogue .filter-grid label{gap:3px;font-size:11px}
+.evidence-catalogue input,.evidence-catalogue select{padding:7px 9px;font-size:12px}
+.evidence-catalogue .filter-actions{margin-top:5px}.evidence-catalogue .filter-actions summary{padding:5px 0}
+.evidence-catalogue button{padding:6px 10px}
+.evidence-catalogue .results-bar{margin:9px 0 5px}.evidence-catalogue #result-count{font-size:12px;margin:0}
+.evidence-catalogue .publication{padding:11px 14px;margin:6px 0;border-radius:7px}
+.evidence-catalogue .publication:after{content:"";display:block;clear:both}
+.evidence-catalogue .record-meta{gap:6px 12px;font-size:10px;line-height:1.3}
+.evidence-catalogue .publication h2,.embedded-catalogue .publication h3{font:650 16px/1.35 system-ui,sans-serif;margin:4px 0}
+.evidence-catalogue .citation-line{font-size:11px;line-height:1.4;margin:2px 0 6px}
+.evidence-catalogue .citation-line:empty{display:none}
+.evidence-catalogue .source-links{float:right;gap:6px 13px;font-size:11px;margin:0 0 0 12px}
+.evidence-catalogue .publication details{border:0;padding:0;font-size:11px;line-height:1.45}
+.evidence-catalogue .publication details[open]{clear:both;padding-top:6px}
+.evidence-catalogue .publication summary{width:fit-content;color:#145b79}
+.evidence-catalogue .publication details>p{margin:7px 0;max-width:90ch}
+.evidence-catalogue .publication dl{margin:8px 0}
+.evidence-catalogue .source-availability{color:#617582;font-size:11px}
+.embedded-catalogue{padding:15px}.embedded-catalogue>h2{font-size:25px}.embedded-catalogue>p{font-size:13px}
+@media(max-width:760px){.evidence-catalogue .publication{padding:10px 12px}.evidence-catalogue .publication h2,.embedded-catalogue .publication h3{font-size:15px}.evidence-catalogue .catalogue-shell{padding:12px}.evidence-catalogue .source-links{gap:6px 10px}.catalogue-tabs{margin:5px 0 10px}.catalogue-tabs a{padding:8px 10px}.evidence-catalogue .evidence-metrics>div{padding:8px 10px}}

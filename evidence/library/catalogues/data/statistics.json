@@ -4,7 +4,7 @@
     "records": 611,
     "groups": 10,
     "institutions": 156,
-    "journals": 184,
+    "journals": 186,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
@@ -21,7 +21,7 @@
       "records": 211,
       "groups": 4,
       "institutions": 5,
-      "journals": 25,
+      "journals": 27,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },

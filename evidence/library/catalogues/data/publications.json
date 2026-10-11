@@ -766,8 +766,8 @@
       "year": "2026",
       "authors": "",
       "journal": "",
-      "doi": "",
-      "pmid": "",
+      "doi": "10.1016/j.transci.2026.104443",
+      "pmid": "42030901",
       "citation": "",
       "product": "",
       "keywords": "",
@@ -778,7 +778,8 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://www.urmc.rochester.edu/labs/blumberg/publications"
+        "https://pubmed.ncbi.nlm.nih.gov/42030901/",
+        "https://doi.org/10.1016/j.transci.2026.104443"
       ],
       "notes": [],
       "provenance": [
@@ -792,7 +793,7 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "Article destination corrected against the matching PubMed title and bibliographic metadata on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-4235aee5220c",
@@ -876,8 +877,8 @@
       "year": "2026",
       "authors": "",
       "journal": "",
-      "doi": "",
-      "pmid": "",
+      "doi": "10.1213/ANE.0000000000007923",
+      "pmid": "41529673",
       "citation": "",
       "product": "",
       "keywords": "",
@@ -888,7 +889,8 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://www.urmc.rochester.edu/labs/blumberg/publications"
+        "https://pubmed.ncbi.nlm.nih.gov/41529673/",
+        "https://doi.org/10.1213/ANE.0000000000007923"
       ],
       "notes": [],
       "provenance": [
@@ -902,7 +904,7 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "Article destination corrected against the matching PubMed title and bibliographic metadata on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-ad41702e0cab",
@@ -3937,8 +3939,8 @@
       "year": "2019",
       "authors": "",
       "journal": "",
-      "doi": "",
-      "pmid": "",
+      "doi": "10.1038/s41586-019-1099-1",
+      "pmid": "30996318",
       "citation": "Vrselja Z., Daniele, S.G., Silbereis, J. et al. Nature 568, 336-343 (2019)",
       "product": "HBOC / oxygen carrier (general or other)",
       "keywords": "General Organ Perfusion & Preservation HBOC / oxygen carrier (general or other) Preclinical animal",
@@ -3949,7 +3951,9 @@
       "species": [],
       "evidence": "Preclinical animal",
       "urls": [
-        "https://www.ncbi.nlm.nih.gov/pubmed/?term=Restoration+of+brain+circulation+and+cellular+functions+hours+post-mortem."
+        "https://pubmed.ncbi.nlm.nih.gov/30996318/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6844189/",
+        "https://doi.org/10.1038/s41586-019-1099-1"
       ],
       "notes": [],
       "provenance": [
@@ -3971,7 +3975,7 @@
         }
       ],
       "originalVerification": "Single-source - review",
-      "sourceReview": "",
+      "sourceReview": "Replaced an imported search-query link with the exact PubMed record after matching the publication title and year on 11 October 2026.",
       "catalogue": "related",
       "classificationBasis": "Clinical or scientific context; no direct product evidence established",
       "id": "pub-79b57e2a3572",
@@ -3983,8 +3987,8 @@
       "year": "2019",
       "authors": "Hoops HE, Manning JE, Graham TL, et al",
       "journal": "J Trauma Acute Care Surg",
-      "doi": "",
-      "pmid": "31211744",
+      "doi": "10.1097/TA.0000000000002315",
+      "pmid": "31348400",
       "citation": "Hoops HE, Manning JE, Graham TL, et al. J Trauma Acute Care Surg. 2019 Aug;87(2):263-273.",
       "product": "HBOC-201 / Hemopure",
       "keywords": "",
@@ -3995,7 +3999,8 @@
       "species": [],
       "evidence": "Unclear - verify full text",
       "urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/31211744/"
+        "https://pubmed.ncbi.nlm.nih.gov/31348400/",
+        "https://doi.org/10.1097/TA.0000000000002315"
       ],
       "notes": [],
       "provenance": [
@@ -4017,7 +4022,7 @@
         }
       ],
       "originalVerification": "Single-source - review",
-      "sourceReview": "",
+      "sourceReview": "The imported PMID 31211744 was invalid. Corrected to PMID 31348400 and DOI 10.1097/TA.0000000000002315 after matching the title, authors, year and journal pages against PubMed on 11 October 2026.",
       "catalogue": "product",
       "classificationBasis": "Named product in approved source metadata",
       "id": "pub-bafaa88b0ecd",
@@ -4838,8 +4843,8 @@
       "year": "2018",
       "authors": "",
       "journal": "",
-      "doi": "",
-      "pmid": "",
+      "doi": "10.1111/trf.14488",
+      "pmid": "29383722",
       "citation": "",
       "product": "",
       "keywords": "",
@@ -4850,7 +4855,8 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://www.urmc.rochester.edu/labs/blumberg/publications"
+        "https://pubmed.ncbi.nlm.nih.gov/29383722/",
+        "https://doi.org/10.1111/trf.14488"
       ],
       "notes": [],
       "provenance": [
@@ -4864,7 +4870,7 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "General laboratory publication-list link replaced by the exact matching PubMed record on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-6dcfd947e1f3",
@@ -6426,12 +6432,13 @@
         }
       ],
       "originalVerification": "Single-source - review",
-      "sourceReview": "",
+      "sourceReview": "The article title, authors, year and abstract were verified on the publisher’s ScienceDirect page on 11 October 2026.",
       "catalogue": "product",
       "classificationBasis": "Named product in approved source metadata",
       "id": "pub-5cc5b0e3359d",
       "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "catalogueSummary": "Conference abstract reporting the use of HBOC-201 for acute anemia in a patient with leukemia and anti-Vel antibodies. Published in Blood, volume 130, supplement 1, page 4928 (2017)."
     },
     {
       "title": "Use of hemoglobin based oxygen carrier HBOC-021 (Hemopure) as a bridge during emergencies in patients unable to receive blood products: experience at a tertiary care center",
@@ -6448,7 +6455,7 @@
       "species": [],
       "evidence": "Human clinical",
       "urls": [
-        "https://ashpublications.org/blood/article/130/Supplement%201/4926/80958/Use-of-Hemoglobin-Based-Oxygen-Carrier-HBOC-021"
+        "https://www.sciencedirect.com/science/article/pii/S0006497119854423"
       ],
       "notes": [],
       "provenance": [
@@ -6462,12 +6469,13 @@
         }
       ],
       "originalVerification": "Single-source — review",
-      "sourceReview": "",
+      "sourceReview": "Publisher-indexed title, year, journal and page match the supplied citation. The legacy ASH destination has been replaced by the corresponding ScienceDirect article page.",
       "catalogue": "product",
       "classificationBasis": "Named product in approved source metadata",
       "id": "pub-47e65a84da07",
       "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "catalogueSummary": "Conference abstract on the use of a hemoglobin-based oxygen carrier as a bridge during emergencies for patients unable to receive blood products. Published in Blood, volume 130, supplement 1, page 4926 (2017)."
     },
     {
       "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
@@ -7985,15 +7993,15 @@
       "recordType": "Bibliographic record"
     },
     {
-      "title": "Microfluidic biomimetic splenic filtration of poorly deformable erythrocytes",
+      "title": "A biomimetic microfluidic chip to study the circulation and mechanical retention of red blood cells in the spleen",
       "year": "2015",
-      "authors": "",
-      "journal": "",
+      "authors": "Picot J, Ndour PA, Lefevre SD, et al.",
+      "journal": "American Journal of Hematology",
       "doi": "10.1002/ajh.23941",
-      "pmid": "",
-      "citation": "",
+      "pmid": "25641515",
+      "citation": "Picot J, Ndour PA, Lefevre SD, et al. A biomimetic microfluidic chip to study the circulation and mechanical retention of red blood cells in the spleen. American Journal of Hematology. 2015;90(4):339–345.",
       "product": "",
-      "keywords": "",
+      "keywords": "Microfluidic biomimetic splenic filtration of poorly deformable erythrocytes",
       "directions": [
         "Physiology"
       ],
@@ -8001,6 +8009,7 @@
       "species": [],
       "evidence": "",
       "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/25641515/",
         "https://doi.org/10.1002/ajh.23941"
       ],
       "notes": [],
@@ -8015,11 +8024,11 @@
         }
       ],
       "originalVerification": "Verified identifier in file",
-      "sourceReview": "",
+      "sourceReview": "Replaced the imported descriptive title with the registered publication title and added the exact PubMed record. DOI, title, authors, year and pages were checked on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-b725cb5db080",
-      "verification": "Source identifier supplied",
+      "verification": "Bibliographic metadata checked against publisher",
       "recordType": "Bibliographic record"
     },
     {
@@ -10617,8 +10626,8 @@
       "year": "2011",
       "authors": "",
       "journal": "",
-      "doi": "",
-      "pmid": "",
+      "doi": "10.1111/j.1600-6143.2011.03614.x",
+      "pmid": "21875432",
       "citation": "",
       "product": "",
       "keywords": "",
@@ -10629,7 +10638,8 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://www.sciencedirect.com/science/article/abs/pii/S1600613522266575"
+        "https://pubmed.ncbi.nlm.nih.gov/21875432/",
+        "https://doi.org/10.1111/j.1600-6143.2011.03614.x"
       ],
       "notes": [],
       "provenance": [
@@ -10643,7 +10653,7 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "Article destination corrected against the matching PubMed title and bibliographic metadata on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-ed5b5211cf85",
@@ -26243,7 +26253,8 @@
       "classificationBasis": "Clinical or scientific context; no direct product evidence established",
       "id": "pub-6d04065eb75c",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "catalogueSummary": "Conference abstract describing a clinical trial of a hemoglobin-based oxygen-carrying fluid for anemia in dogs. The supplied citation is Journal of Veterinary Internal Medicine, 1996;10:177. A separate full-text article has not been verified."
     },
     {
       "title": "Blood transfusion in orthopaedic operations",
@@ -27369,7 +27380,7 @@
       "authors": "",
       "journal": "",
       "doi": "",
-      "pmid": "",
+      "pmid": "2645852",
       "citation": "",
       "product": "",
       "keywords": "",
@@ -27380,7 +27391,7 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/?term=Blumberg+Heal+1989+Transfusion+recipient+immune+function"
+        "https://pubmed.ncbi.nlm.nih.gov/2645852/"
       ],
       "notes": [],
       "provenance": [
@@ -27394,7 +27405,7 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "Replaced an imported search-query link with the exact PubMed record after matching the publication title and year on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-8ad5b2c50b68",
@@ -28583,11 +28594,11 @@
     {
       "title": "On the relation between the oxygen tension and the carbon dioxide content of the blood",
       "year": "1904",
-      "authors": "",
-      "journal": "",
-      "doi": "",
+      "authors": "Bohr C, Hasselbalch K, Krogh A",
+      "journal": "Skandinavisches Archiv für Physiologie",
+      "doi": "10.1111/j.1748-1716.1904.tb01382.x",
       "pmid": "",
-      "citation": "",
+      "citation": "Bohr C, Hasselbalch K, Krogh A. Ueber einen in biologischer Beziehung wichtigen Einfluss, den die Kohlensäurespannung des Blutes auf dessen Sauerstoffbindung übt. Skandinavisches Archiv für Physiologie. 1904;16(2):402–412.",
       "product": "",
       "keywords": "",
       "directions": [
@@ -28597,7 +28608,7 @@
       "species": [],
       "evidence": "",
       "urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/?term=Bohr+Hasselbalch+Krogh+1904+oxygen"
+        "https://doi.org/10.1111/j.1748-1716.1904.tb01382.x"
       ],
       "notes": [],
       "provenance": [
@@ -28611,12 +28622,13 @@
         }
       ],
       "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
+      "sourceReview": "The imported English title is a descriptive label. The original German title, authors, journal, year, volume and pages were checked against the Wiley publication record on 11 October 2026.",
       "catalogue": "oxygen",
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-68323984d5a0",
-      "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
+      "verification": "Bibliographic metadata checked against publisher",
+      "recordType": "Bibliographic record",
+      "catalogueSummary": "Historical physiology study of the influence of carbon dioxide tension on oxygen binding in blood, published in 1904 by Bohr, Hasselbalch and Krogh."
     },
     {
       "title": "a novel mechanism of",
