@@ -48,6 +48,10 @@ def pagination():
 
 def metric_html(kind, live=False):
     s=dict(STATS[kind] if kind in STATS else TOTAL)
+    if kind=='applications':
+        rows=list({r['id']:r for k in APP_LABELS for r in VIEWS[k]}.values())
+        s=stats(rows)
+        s['records']=sum(STATS[k]['records'] for k in APP_LABELS)
     if kind=='all':s['records']=collection_totals()['entries']
     labels={'records':'Entries in five collections' if kind=='all' else 'Publication records','groups':s['groupLabel'],'institutions':'Author institutions','journals':'Journals'}
     items=[]

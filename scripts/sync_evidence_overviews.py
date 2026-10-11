@@ -17,6 +17,9 @@ def catalogue_entry(cards=True):
     if cards:
         out+='<div class="catalogue-card-grid">'
         for k in ['product','oxygen','related']:
+            if k=='product':
+                out+=f'<article class="catalogue-card"><div class="eyebrow">Research collections</div><h3>Veterinary, Human &amp; Transplant Evidence</h3><p>Browse veterinary, human-use and transplantation publications. Search by species, author, institution, journal and year.</p>{metric_html("applications")}<a class="button" href="#evidence-hubs">Explore collections →</a></article>'
+                continue
             out+=f'<article class="catalogue-card"><div class="eyebrow">Research catalogue</div><h3>{E(TITLES[k])}</h3><p>{E(DESCRIPTIONS[k])}</p>{metric_html(k)}<a class="button" href="{PREFIX+PATHS[k]}">Explore catalogue →</a></article>'
         out+='</div>'
     else:out+=tabs()
@@ -36,7 +39,7 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
         s=re.sub(r'<section[^>]*id="scientific-catalogues"[\s\S]*?</section>','',s)
         s=re.sub(r'(<section id="evidence-hubs"[\s\S]*?</section>)',lambda m:m[1]+'\n'+catalogue_entry(True),s)
         s=s.replace('href="#scientific-catalogues">Explore the evidence','href="#evidence-hubs">Explore the evidence')
-        product_link=f'<p class="application-catalogue-link" data-product-catalogue-link><a href="{PREFIX+PATHS["product"]}">Oxyglobin &amp; Hemopure: search {STATS["product"]["records"]} product-specific records across applications →</a></p>'
+        product_link=f'<p class="application-catalogue-link" data-product-catalogue-link><a href="{PREFIX+PATHS["product"]}">Oxyglobin &amp; Hemopure: search product evidence across applications →</a></p>'
         s=re.sub(r'<p[^>]*data-product-catalogue-link[\s\S]*?</p>','',s)
         s=re.sub(r'(<section id="evidence-hubs"[\s\S]*?)(</section>)',lambda m:m[1]+product_link+m[2],s)
         if 'data-evidence-layout-fix' not in s:
