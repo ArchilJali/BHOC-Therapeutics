@@ -28,7 +28,8 @@ LINK_AUDIT_PATH=BASE/'catalogues/data/source-link-audit.json'
 LINK_AUDIT=json.loads(LINK_AUDIT_PATH.read_text())['records']
 
 def tabs(current=''):
-    return '<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
+    selected='product' if current in ['veterinary','human','transplant'] else current
+    return '<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+((' aria-current="page"' if current==k else ' aria-current="location"') if k==selected else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
 
 def appnav(current=''):
     if current not in ['product','veterinary','human','transplant']:return ''
