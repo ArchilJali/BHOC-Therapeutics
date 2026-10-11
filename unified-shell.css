@@ -88,3 +88,5 @@ body.bhoc-shell-ready .bhoc-shell-skip:focus { position:fixed;left:12px;top:8px;
 }
 
 .bhoc-evidence-links{clear:both;box-sizing:border-box;padding:18px 0;border-top:1px solid #d8e2ef;background:#f5f8fc;font:12px/1.5 Arial,sans-serif}.bhoc-evidence-links>.bhoc-shell-wrap{display:flex;flex-wrap:wrap;gap:10px 20px}.bhoc-evidence-links a{color:#163d73;text-decoration:none;font-weight:700}.bhoc-evidence-links a:hover{text-decoration:underline}
+
+body.theme-main.bhoc-shell-ready>.bhoc-shell-header,body.theme-main.bhoc-shell-ready>.bhoc-shell-trail,body.theme-main.bhoc-shell-ready>.bhoc-shell-footer{width:100%;margin-left:0}
