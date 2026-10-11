@@ -5,6 +5,12 @@
  if(relocated?.hasAttribute('data-record-redirect')){location.replace(relocated.querySelector('a').href);return;}
  const context=holder.closest('[data-view]')||document.body,prefix=context.dataset.queryPrefix||'';
  const rows=[...holder.querySelectorAll('.publication')],$=id=>document.getElementById(id);
+ // Keep the five-collection aggregate only for the unfiltered overview.
+ const collectionMetrics=[...context.querySelectorAll('[data-metric="collectionEntries"]')].map(metric=>{
+  const label=metric.parentElement.querySelector('span');
+  metric.setAttribute('aria-live','polite');
+  return {metric,total:metric.textContent,label,labelText:label?.textContent||''};
+ });
  const normal=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
  const list=(row,key)=>(row.dataset[key]||'').split('|').filter(Boolean);
  const unique=values=>new Set(values.filter(Boolean).map(normal));
@@ -42,11 +48,12 @@
   if(context.dataset.view==='all')document.querySelectorAll('[data-catalogue-filter]').forEach(link=>{if(link.dataset.catalogueFilter===$('catalogue').value)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
   if($('combined-applications'))$('combined-applications').hidden=$('catalogue').value!=='product';
   matching=rows.filter(r=>terms.every(t=>normal(r.dataset.search).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
+  const filtered=Boolean(terms.length||legacyScope||fields.some(id=>$(id).value)||normal($('author').value)||normal($('institution').value));
   matching.sort($('sort').value==='title'?(a,b)=>a.dataset.title.localeCompare(b.dataset.title):$('sort').value==='oldest'?(a,b)=>(Number(a.dataset.year)||9999)-(Number(b.dataset.year)||9999):(a,b)=>(Number(b.dataset.year)||0)-(Number(a.dataset.year)||0));
   const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.max(1,Math.min(page,pages));
   rows.forEach(r=>r.hidden=true);matching.slice((page-1)*pageSize,page*pageSize).forEach(r=>{r.hidden=false;holder.append(r);});
   const start=matching.length?(page-1)*pageSize+1:0,end=Math.min(page*pageSize,matching.length);
-  $('result-count').textContent=(context.dataset.view==='all'?(matching.length<rows.length?`${matching.length} matching publications · `:''):`${matching.length} of ${rows.length} publication records · `)+`Showing ${start}–${end} · Page ${page} of ${pages}`;
+  $('result-count').textContent=(context.dataset.view==='all'?(filtered?`${matching.length} matching publications · `:''):`${matching.length} of ${rows.length} publication records · `)+`Showing ${start}–${end} · Page ${page} of ${pages}`;
   $('page-label').textContent=`Page ${page} of ${pages}`;$('previous').disabled=page===1;$('next').disabled=page===pages;$('empty').hidden=matching.length>0;
   $('page-numbers').replaceChildren();$('page-numbers').closest('nav').hidden=pages===1;
   const numbered=pages<=7?Array.from({length:pages},(_,i)=>i+1):page<=4?[1,2,3,4,5,pages]:page>=pages-3?[1,pages-4,pages-3,pages-2,pages-1,pages]:[1,page-1,page,page+1,pages];
@@ -55,7 +62,11 @@
    const button=document.createElement('button');button.type='button';button.dataset.page=number;button.textContent=number;button.setAttribute('aria-label',`Page ${number}`);if(number===page)button.setAttribute('aria-current','page');$('page-numbers').append(button);
   });
   const stats={records:matching.length,groups:unique(matching.flatMap(r=>list(r,context.dataset.group))).size,institutions:unique(matching.flatMap(r=>list(r,'institution'))).size,journals:unique(matching.map(r=>r.dataset.journal)).size};
-  for(const [key,value] of Object.entries(stats)){const metric=document.querySelector('[data-metric="'+key+'"]');if(metric)metric.textContent=value;}
+  for(const [key,value] of Object.entries(stats))context.querySelectorAll('[data-metric="'+key+'"]').forEach(metric=>{metric.textContent=value;});
+  for(const {metric,total,label,labelText} of collectionMetrics){
+   metric.textContent=filtered?matching.length:total;
+   if(label)label.textContent=filtered?'Publication records in this selection':labelText;
+  }
   const query=prefix?new URLSearchParams([...new URLSearchParams(location.search)].filter(([key])=>!key.startsWith(prefix))):new URLSearchParams();for(const id of controls){const value=$(id).value;if(value&&!(id==='sort'&&value==='newest'))query.set(prefix+id,value);}if(legacyScope)query.set(prefix+'scope',legacyScope);
   if(page>1)query.set(prefix+'page',page);
   history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);
