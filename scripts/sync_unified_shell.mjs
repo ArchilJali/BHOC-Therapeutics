@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const version = '20261011-shell3';
+const version = '20261011-shell4';
 const release = JSON.parse(await fs.readFile(path.join(root, 'site-release.json'), 'utf8'));
 const releaseSummary = `First published ${release.first_published} · ${release.updates} updates · Last updated ${release.updated} · Version ${release.version}`;
 const shellPath = path.join(root, 'unified-shell.js');
