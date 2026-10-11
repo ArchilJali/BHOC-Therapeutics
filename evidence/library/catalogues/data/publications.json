@@ -3113,42 +3113,6 @@
       "recordType": "Bibliographic record"
     },
     {
-      "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)",
-      "year": "2020",
-      "authors": "",
-      "journal": "",
-      "doi": "",
-      "pmid": "",
-      "citation": "",
-      "product": "",
-      "keywords": "",
-      "directions": [
-        "Physiology"
-      ],
-      "institutions": [],
-      "species": [],
-      "evidence": "",
-      "urls": [],
-      "notes": [],
-      "provenance": [
-        {
-          "source": "Oxygen Master",
-          "row": "162",
-          "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)",
-          "year": "2020",
-          "doi": "",
-          "pmid": ""
-        }
-      ],
-      "originalVerification": "Needs external bibliographic verification",
-      "sourceReview": "",
-      "catalogue": "oxygen",
-      "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
-      "id": "pub-57ee8c3ab3f6",
-      "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
-    },
-    {
       "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE): a randomised, double-blind, paired, phase 3 trial",
       "year": "2020",
       "authors": "",
@@ -3177,6 +3141,14 @@
           "year": "2020",
           "doi": "101016s0140673620324119",
           "pmid": "33220737"
+        },
+        {
+          "source": "Oxygen Master",
+          "row": "162",
+          "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)",
+          "year": "2020",
+          "doi": "",
+          "pmid": ""
         }
       ],
       "originalVerification": "Verified identifier in file",
@@ -3185,7 +3157,13 @@
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-e5d4a1717203",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "aliases": [
+        "pub-57ee8c3ab3f6"
+      ],
+      "titleAliases": [
+        "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)"
+      ]
     },
     {
       "title": "The need for an artificial oxygen carrier for disasters and pandemics, including COVID-19",
@@ -4390,7 +4368,8 @@
         "University of Maryland"
       ],
       "species": [
-        "Human"
+        "Human",
+        "1,701 humans"
       ],
       "evidence": "Research Support, Non-U.S. Gov't; Journal Article",
       "urls": [
@@ -4424,6 +4403,22 @@
           "year": "2017",
           "doi": "10.1097/shk.0000000000001038",
           "pmid": "29076972"
+        },
+        {
+          "source": "Human Use",
+          "row": "372",
+          "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
+          "year": "2017",
+          "doi": "",
+          "pmid": ""
+        },
+        {
+          "source": "Master Catalogue",
+          "row": "155",
+          "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
+          "year": "2017",
+          "doi": "",
+          "pmid": ""
         }
       ],
       "originalVerification": "matched",
@@ -4432,7 +4427,13 @@
       "classificationBasis": "Named product in approved source metadata",
       "id": "pub-22a746112b9e",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "aliases": [
+        "pub-a664d66d45a8"
+      ],
+      "titleAliases": [
+        "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”"
+      ]
     },
     {
       "title": "Advanced nanomaterials targeting hypoxia to enhance radiotherapy",
@@ -6476,52 +6477,6 @@
       "verification": "Bibliographic verification required",
       "recordType": "Bibliographic record",
       "catalogueSummary": "Conference abstract on the use of a hemoglobin-based oxygen carrier as a bridge during emergencies for patients unable to receive blood products. Published in Blood, volume 130, supplement 1, page 4926 (2017)."
-    },
-    {
-      "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
-      "year": "2017",
-      "authors": "Mackenzie CF, Dubé GP, Pitman A, Zafirelis M",
-      "journal": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 During Clinical Trials, Expanded Access, and Clinical use in 1,701 Patients",
-      "doi": "",
-      "pmid": "",
-      "citation": "Mackenzie CF, Dubé GP, Pitman A, Zafirelis M. Users Guide to Pitfalls and Lessons Learned about HBOC-201 During Clinical Trials, Expanded Access, and Clinical use in 1,701 Patients. Shock. 2017;:1.",
-      "product": "HBOC-201 / Hemopure",
-      "keywords": "Trauma patients In vivo",
-      "directions": [
-        "Human Use"
-      ],
-      "institutions": [],
-      "species": [
-        "1,701 humans"
-      ],
-      "evidence": "Review / Editorial / Policy",
-      "urls": [],
-      "notes": [],
-      "provenance": [
-        {
-          "source": "Human Use",
-          "row": "372",
-          "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
-          "year": "2017",
-          "doi": "",
-          "pmid": ""
-        },
-        {
-          "source": "Master Catalogue",
-          "row": "155",
-          "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
-          "year": "2017",
-          "doi": "",
-          "pmid": ""
-        }
-      ],
-      "originalVerification": "Single-source - review",
-      "sourceReview": "",
-      "catalogue": "product",
-      "classificationBasis": "Named product in approved source metadata",
-      "id": "pub-a664d66d45a8",
-      "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
     },
     {
       "title": "A2A Adenosine receptor antagonists to weaken the hypoxia- HIF-1α driven immunosuppression and improve immunotherapies of cancer",
@@ -24677,18 +24632,20 @@
       "journal": "Anesthesiology",
       "doi": "10.1097/00000542-200003000-00007",
       "pmid": "10719942",
-      "citation": "",
+      "citation": "Lamy ML, Daily EK, Brichant JF, Larbuisson RP, Demeyere RH, Vandermeersch EA, Lehot JJ, Parsloe MR, Berridge JC, Sinclair CJ, Baron JF, Przybelski RJ. Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group. Anesthesiology. 2000 Mar;92(3):646-56.",
       "product": "",
       "keywords": "DCLHb, cardiac surgery, transfusion, clinical trial",
       "directions": [
-        "Veterinary"
+        "Veterinary",
+        "Human Use"
       ],
       "institutions": [
         "Centre Hospitalier Universitaire, Liège",
         "University of Liège"
       ],
       "species": [
-        "Human"
+        "Human",
+        "209 humans"
       ],
       "evidence": "Clinical Trial; Research Support, Non-U.S. Gov't; Randomized Controlled Trial; Journal Article",
       "urls": [
@@ -24704,37 +24661,7 @@
           "year": "2000",
           "doi": "10.1097/00000542-200003000-00007",
           "pmid": "10719942"
-        }
-      ],
-      "originalVerification": "matched",
-      "sourceReview": "Manually matched shortened supplied title to full indexed title; authors, year and article identity agree.",
-      "catalogue": "related",
-      "classificationBasis": "Clinical or scientific context; no direct product evidence established",
-      "id": "pub-21ea5f77ed49",
-      "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
-    },
-    {
-      "title": "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group",
-      "year": "2000",
-      "authors": "Lamy ML, Daily EK, Brichant JF, Larbuisson RP, Demeyere RH, Vandermeersch EA, Lehot JJ, Parsloe MR, Berridge JC, Sinclair CJ, Baron JF, Przybelski RJ",
-      "journal": "Anesthesiology",
-      "doi": "",
-      "pmid": "",
-      "citation": "Lamy ML, Daily EK, Brichant JF, Larbuisson RP, Demeyere RH, Vandermeersch EA, Lehot JJ, Parsloe MR, Berridge JC, Sinclair CJ, Baron JF, Przybelski RJ. Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group. Anesthesiology. 2000 Mar;92(3):646-56.",
-      "product": "HBOC-201 / Hemopure",
-      "keywords": "Cardiac Surgery In vivo",
-      "directions": [
-        "Human Use"
-      ],
-      "institutions": [],
-      "species": [
-        "209 humans"
-      ],
-      "evidence": "Human clinical",
-      "urls": [],
-      "notes": [],
-      "provenance": [
+        },
         {
           "source": "Human Use",
           "row": "364",
@@ -24752,13 +24679,19 @@
           "pmid": ""
         }
       ],
-      "originalVerification": "Single-source - review",
-      "sourceReview": "",
-      "catalogue": "product",
-      "classificationBasis": "Named product in approved source metadata",
-      "id": "pub-47ade32e1ddc",
+      "originalVerification": "matched",
+      "sourceReview": "Manually matched shortened supplied title to full indexed title; authors, year and article identity agree.",
+      "catalogue": "related",
+      "classificationBasis": "Clinical or scientific context; no direct product evidence established",
+      "id": "pub-21ea5f77ed49",
       "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "aliases": [
+        "pub-47ade32e1ddc"
+      ],
+      "titleAliases": [
+        "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group"
+      ]
     },
     {
       "title": "The Effects of a Hemoglobin-Based Oxygen Carrier (HBOC-301) on Left Ventricular Systolic Function in Anesthetized Dogs",
@@ -30503,6 +30436,154 @@
       "id": "pub-b96bcdf50bcd",
       "verification": "Incomplete source fragment",
       "recordType": "Import fragment requiring review"
+    }
+  ],
+  "mergedRecords": [
+    {
+      "retainedId": "pub-e5d4a1717203",
+      "checked": "2026-10-11",
+      "basis": "Short and full COMPARE trial title; same 2020 publication.",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33220737/",
+      "record": {
+        "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)",
+        "year": "2020",
+        "authors": "",
+        "journal": "",
+        "doi": "",
+        "pmid": "",
+        "citation": "",
+        "product": "",
+        "keywords": "",
+        "directions": [
+          "Physiology"
+        ],
+        "institutions": [],
+        "species": [],
+        "evidence": "",
+        "urls": [],
+        "notes": [],
+        "provenance": [
+          {
+            "source": "Oxygen Master",
+            "row": "162",
+            "title": "Oxygenated versus standard cold perfusion preservation in kidney transplantation (COMPARE)",
+            "year": "2020",
+            "doi": "",
+            "pmid": ""
+          }
+        ],
+        "originalVerification": "Needs external bibliographic verification",
+        "sourceReview": "",
+        "catalogue": "oxygen",
+        "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
+        "id": "pub-57ee8c3ab3f6",
+        "verification": "Bibliographic verification required",
+        "recordType": "Bibliographic record"
+      }
+    },
+    {
+      "retainedId": "pub-21ea5f77ed49",
+      "checked": "2026-10-11",
+      "basis": "Same Lamy et al. article, authors, journal, year and pages; collaborative-group suffix is part of the indexed title. The article concerns DCLHb, not Hemopure.",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/10719942/",
+      "record": {
+        "title": "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group",
+        "year": "2000",
+        "authors": "Lamy ML, Daily EK, Brichant JF, Larbuisson RP, Demeyere RH, Vandermeersch EA, Lehot JJ, Parsloe MR, Berridge JC, Sinclair CJ, Baron JF, Przybelski RJ",
+        "journal": "Anesthesiology",
+        "doi": "",
+        "pmid": "",
+        "citation": "Lamy ML, Daily EK, Brichant JF, Larbuisson RP, Demeyere RH, Vandermeersch EA, Lehot JJ, Parsloe MR, Berridge JC, Sinclair CJ, Baron JF, Przybelski RJ. Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group. Anesthesiology. 2000 Mar;92(3):646-56.",
+        "product": "HBOC-201 / Hemopure",
+        "keywords": "Cardiac Surgery In vivo",
+        "directions": [
+          "Human Use"
+        ],
+        "institutions": [],
+        "species": [
+          "209 humans"
+        ],
+        "evidence": "Human clinical",
+        "urls": [],
+        "notes": [],
+        "provenance": [
+          {
+            "source": "Human Use",
+            "row": "364",
+            "title": "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group",
+            "year": "2000",
+            "doi": "",
+            "pmid": ""
+          },
+          {
+            "source": "Master Catalogue",
+            "row": "56",
+            "title": "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group",
+            "year": "2000",
+            "doi": "",
+            "pmid": ""
+          }
+        ],
+        "originalVerification": "Single-source - review",
+        "sourceReview": "",
+        "catalogue": "product",
+        "classificationBasis": "Named product in approved source metadata",
+        "id": "pub-47ade32e1ddc",
+        "verification": "Bibliographic verification required",
+        "recordType": "Bibliographic record"
+      }
+    },
+    {
+      "retainedId": "pub-22a746112b9e",
+      "checked": "2026-10-11",
+      "basis": "Same authors and title; the 2017 ahead-of-print citation and 2019 issue publication refer to the same DOI and PMID.",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29076972/",
+      "record": {
+        "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
+        "year": "2017",
+        "authors": "Mackenzie CF, Dubé GP, Pitman A, Zafirelis M",
+        "journal": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 During Clinical Trials, Expanded Access, and Clinical use in 1,701 Patients",
+        "doi": "",
+        "pmid": "",
+        "citation": "Mackenzie CF, Dubé GP, Pitman A, Zafirelis M. Users Guide to Pitfalls and Lessons Learned about HBOC-201 During Clinical Trials, Expanded Access, and Clinical use in 1,701 Patients. Shock. 2017;:1.",
+        "product": "HBOC-201 / Hemopure",
+        "keywords": "Trauma patients In vivo",
+        "directions": [
+          "Human Use"
+        ],
+        "institutions": [],
+        "species": [
+          "1,701 humans"
+        ],
+        "evidence": "Review / Editorial / Policy",
+        "urls": [],
+        "notes": [],
+        "provenance": [
+          {
+            "source": "Human Use",
+            "row": "372",
+            "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
+            "year": "2017",
+            "doi": "",
+            "pmid": ""
+          },
+          {
+            "source": "Master Catalogue",
+            "row": "155",
+            "title": "Users Guide to Pitfalls and Lessons Learned about HBOC-201 during Clinical Trials, Expanded Access and Clinical Use in 1,701 Patients. “2017 MILITARY SUPPLEMENT”",
+            "year": "2017",
+            "doi": "",
+            "pmid": ""
+          }
+        ],
+        "originalVerification": "Single-source - review",
+        "sourceReview": "",
+        "catalogue": "product",
+        "classificationBasis": "Named product in approved source metadata",
+        "id": "pub-a664d66d45a8",
+        "verification": "Bibliographic verification required",
+        "recordType": "Bibliographic record"
+      }
     }
   ]
 }

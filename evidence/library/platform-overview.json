@@ -1,18 +1,18 @@
 {
   "snapshot": "2026-10-11",
-  "uniquePublications": 611,
-  "hubPlacements": 503,
+  "uniquePublications": 608,
+  "hubPlacements": 502,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 156,
   "normalizedJournalLabels": 186,
   "catalogues": {
-    "product": 194,
-    "oxygen": 211,
+    "product": 192,
+    "oxygen": 210,
     "related": 206
   },
   "hubs": {
     "veterinary": 260,
-    "human": 181,
+    "human": 180,
     "transplant": 62
   },
   "notes": {

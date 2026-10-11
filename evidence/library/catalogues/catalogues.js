@@ -1,6 +1,8 @@
 'use strict';
 (() => {
  const holder=document.getElementById('results');if(!holder)return;
+ const relocated=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+ if(relocated?.hasAttribute('data-record-redirect')){location.replace(relocated.querySelector('a').href);return;}
  const context=holder.closest('[data-view]')||document.body,prefix=context.dataset.queryPrefix||'';
  const rows=[...holder.querySelectorAll('.publication')],$=id=>document.getElementById(id);
  const normal=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();

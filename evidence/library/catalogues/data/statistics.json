@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-11",
   "total": {
-    "records": 611,
+    "records": 608,
     "groups": 10,
     "institutions": 156,
     "journals": 186,
@@ -10,7 +10,7 @@
   },
   "views": {
     "product": {
-      "records": 194,
+      "records": 192,
       "groups": 10,
       "institutions": 101,
       "journals": 92,
@@ -18,7 +18,7 @@
       "groupLabel": "Species / model groups"
     },
     "oxygen": {
-      "records": 211,
+      "records": 210,
       "groups": 4,
       "institutions": 5,
       "journals": 27,
@@ -42,9 +42,9 @@
       "groupLabel": "Species / model groups"
     },
     "human": {
-      "records": 181,
+      "records": 180,
       "groups": 6,
-      "institutions": 73,
+      "institutions": 75,
       "journals": 84,
       "groupField": "direction",
       "groupLabel": "Therapeutic areas"
@@ -58,7 +58,7 @@
       "groupLabel": "Organ groups"
     }
   },
-  "publicRecords": 611,
+  "publicRecords": 608,
   "archivedIncompleteEntries": 48,
   "duplicateIds": 0,
   "duplicateDOIs": 0,

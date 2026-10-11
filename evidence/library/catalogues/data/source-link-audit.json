@@ -1,7 +1,7 @@
 {
   "checked": "2026-10-11",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 611,
+  "publicRecords": 608,
   "uniqueUrlsChecked": 842,
   "states": {
     "matched": 826,
@@ -961,10 +961,6 @@
         }
       ]
     },
-    "pub-57ee8c3ab3f6": {
-      "publicLinks": [],
-      "checks": []
-    },
     "pub-e5d4a1717203": {
       "publicLinks": [
         "https://pubmed.ncbi.nlm.nih.gov/33220737/",
@@ -1881,10 +1877,6 @@
           "sourceTitle": "Use of hemoglobin based oxygen carrier HBOC-021 (Hemopure) as a bridge during emergencies in patients unable to receive blood products: experience at a tertiary care center"
         }
       ]
-    },
-    "pub-a664d66d45a8": {
-      "publicLinks": [],
-      "checks": []
     },
     "pub-8f7bb2c2e3d8": {
       "publicLinks": [],
@@ -8029,10 +8021,6 @@
           "sourceTitle": "Randomized trial of diaspirin cross-linked hemoglobin solution as an alternative to blood transfusion after cardiac surgery. The DCLHb Cardiac Surgery Trial Collaborative Group."
         }
       ]
-    },
-    "pub-47ade32e1ddc": {
-      "publicLinks": [],
-      "checks": []
     },
     "pub-c16bc26ec8dc": {
       "publicLinks": [

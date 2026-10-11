@@ -81,7 +81,7 @@ for r in RECORDS:
     r['organ']=unique(o.get('organ') for s,o in originals if s=='Transplant' or s.startswith('transplant/'))
     r['evidenceGroups']=unique(o.get('evidenceGroup') or o.get('evidence') or o.get('evidenceType') for s,o in originals)
     r['sites']=unique(site.get('institution') for s,o in originals for site in o.get('study_sites',[]) if site.get('source_url') and site.get('locator'))
-    r['legacyIds']=unique(str(o.get('id','')) for s,o in originals)
+    r['legacyIds']=unique([*(str(o.get('id','')) for s,o in originals),*r.get('aliases',[])])
     r['scope']='core' if core_scopes[r['id']] else 'related'
     r['collection']=unique('Historical oxygen-carrier research' if s=='Transplant' else 'Related transplantation studies' for s,o in originals if s=='Transplant' or s.startswith('transplant/'))
     r['application']=r['directions'];r['speciesGroups']=species(r);r['products']=products(r)
@@ -102,6 +102,36 @@ def stats(rows,kind='all'):
 STATS={k:stats(rows,k) for k,rows in VIEWS.items()}
 TOTAL=stats(RECORDS)
 
+def count_reconciliation():
+    """Account for every original source row and each net addition, without adding views."""
+    legacy_sources=['Veterinary base','Human Use','Transplant']
+    source_counts=Counter(p['source'] for r in ALL_RECORDS for p in r['provenance'])
+    expected={name:len(rows) for name,rows in sources.items()}
+    expected.update({'Master Catalogue':414,'Oxygen Master':243})
+    assert dict(source_counts)==expected, 'Imported source rows missing or counted twice'
+    mapping=[{'source':p['source'],'row':p['row'],'recordId':r['id'],'catalogue':r['catalogue']}
+             for r in RECORDS for p in r['provenance'] if p['source'] in legacy_sources]
+    assert len({(m['source'],m['row']) for m in mapping})==len(mapping)
+    for name in legacy_sources:
+        assert {m['row'] for m in mapping if m['source']==name}==set(sources[name]), name+' source coverage'
+    cohorts=[('Original Veterinary, Human and Transplant lists',set(legacy_sources)),
+             ('Veterinary curated additions',{'Veterinary curated additions'}),
+             ('Additional Master Catalogue records',{'Master Catalogue'}),
+             ('Related transplantation studies',{'transplant/related/data/related-evidence.json','transplant/Transplant-relevant-evidence.json'}),
+             ('Additional Oxygen Master records',{'Oxygen Master'})]
+    seen=set(); additions=[]
+    for label,names in cohorts:
+        ids=sorted(r['id'] for r in RECORDS if r['id'] not in seen and any(p['source'] in names for p in r['provenance']))
+        additions.append({'label':label,'records':len(ids),'recordIds':ids});seen.update(ids)
+    assert seen=={r['id'] for r in RECORDS}, 'Unaccounted public record'
+    return {'checked':'2026-10-11','originalSourceRows':len(mapping),
+            'originalSourceCounts':{name:source_counts[name] for name in legacy_sources},
+            'originalDistinctRecords':additions[0]['records'],
+            'originalRepeatedOccurrences':len(mapping)-additions[0]['records'],
+            'netAddedRecords':len(RECORDS)-additions[0]['records'],'publicRecords':len(RECORDS),
+            'catalogues':{k:len(VIEWS[k]) for k in ['product','oxygen','related']},
+            'sourceOccurrences':dict(source_counts),'cohorts':additions,'originalRecordMapping':mapping}
+
 def audit():
     for field in ['id','doi','pmid']:
         c=Counter(str(r[field]).strip().casefold() for r in RECORDS if r[field])
@@ -109,6 +139,7 @@ def audit():
     assert sum(len(VIEWS[k]) for k in ['product','oxygen','related'])==len(RECORDS)
     assert len({r['id'] for k in ['product','oxygen','related'] for r in VIEWS[k]})==len(RECORDS)
     assert sum(p['source']=='Oxygen Master' for r in ALL_RECORDS for p in r['provenance'])==243
+    count_reconciliation()
     return {'updated':'2026-10-11','total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),
             'archivedIncompleteEntries':len(ALL_RECORDS)-len(RECORDS),'duplicateIds':0,'duplicateDOIs':0,'duplicatePMIDs':0,
             'notes':'Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts.'}

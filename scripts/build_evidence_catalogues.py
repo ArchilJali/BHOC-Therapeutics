@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-pages4'
+VERSION='20261011-counts5'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -58,7 +58,7 @@ def field(label,value):
 def card(r,kind):
     attrs={'year':r['year'],'application':'|'.join(r['application']),'species':'|'.join(r['speciesGroups']), 'journal':r['journalLabel'],'institution':'|'.join(r['institutions']),'product':'|'.join(r['products']), 'direction':'|'.join(r['direction']),'organ':'|'.join(r['organ']),'evidence':'|'.join(r['evidenceGroups']), 'catalogue':r['catalogue'],'site':'|'.join(r['sites']),'author':r['authors'],'title':r['title'], 'legacy':'|'.join(r['legacyIds'])}
     # Search the approved original citation as well as the displayed normalized labels.
-    attrs['search']=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species']])
+    attrs['search']=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species'],*r.get('titleAliases',[])])
     attrs['scope']=r['scope'];attrs['collection']='|'.join(r['collection'])
     links=[]
     checked=LINK_AUDIT[r['id']]
@@ -74,7 +74,7 @@ def card(r,kind):
     availability='' if links else '<p class="source-availability">Citation record. A verified article link or abstract is not currently available.</p>'
     note='<p class="metadata-note">Bibliographic details require source verification.</p>' if r['verification']=='Bibliographic verification required' else ''
     return f'''<article class="publication" id="{r['id']}" {' '.join('data-'+k+'="'+E(v)+'"' for k,v in attrs.items())}>
-<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><span>{E(' · '.join(r['speciesGroups']))}</span></div>
+{''.join('<span id="'+E(alias)+'"></span>' for alias in r.get('aliases',[]))}<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><span>{E(' · '.join(r['speciesGroups']))}</span></div>
 <h2>{E(r['title'])}</h2><p class="citation-line">{E(' · '.join(v for v in [r['authors'],r['journalLabel']] if v))}</p>
 <div class="source-links">{''.join(links)}</div>
 <details><summary>{summary_label}</summary>{annotation}{availability}{note}<dl>{details}</dl>{'<p>'+E(r['sourceReview'])+'</p>' if r['sourceReview'] else ''}{'<p>'+E('; '.join(r['notes']))+'</p>' if r['notes'] else ''}</details></article>'''
@@ -106,13 +106,15 @@ def page(kind,path=None):
     extra=''
     if kind=='product':extra=f'<a href="{PREFIX}veterinary/Vet-03-publication-BHOC-Oxyglobin.html">Oxyglobin clinical &amp; regulatory evidence</a><a href="{PREFIX}human/BHOC-Human-fda-expanded-access.html">Hemopure Expanded Access</a>'
     if kind=='related':extra=f'<a href="{PREFIX}science/#featured-publications">Read the featured Science analyses →</a><a href="{PREFIX}science/#scientific-catalogues">Browse this same catalogue within Science →</a>'
+    row_ids={r['id'] for r in rows}
+    redirects=''.join(f'<p class="record-redirect" id="{E(m["record"]["id"])}" data-record-redirect><a href="{PREFIX+PATHS[next(r["catalogue"] for r in RECORDS if r["id"]==m["retainedId"])]}#{E(m["retainedId"])}">Read the consolidated publication record →</a></p>' for m in DATA.get('mergedRecords',[]) if m['record']['catalogue']==kind and m['retainedId'] not in row_ids)
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
 <link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script></head>
 <body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{appnav(kind)}
 <section class="catalogue-hero"><div class="eyebrow">Scientific Evidence Relevant to BHOC</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
-{pagination()}
+{pagination()}{redirects}
 <p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 11 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
     (BASE/path).write_text(text)
 
@@ -124,4 +126,5 @@ if __name__=='__main__':
     p=BASE/'veterinary/publication-catalogue.html'
     s=p.read_text();s=re.sub(r'<link rel="canonical"[^>]+>',f'<link rel="canonical" href="{ORIGIN+PREFIX+PATHS["veterinary"]}">',s);p.write_text(s)
     (BASE/'catalogues/data/statistics.json').write_text(json.dumps(result,indent=2)+'\n')
+    (BASE/'catalogues/data/count-reconciliation.json').write_text(json.dumps(count_reconciliation(),ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(result,indent=2))
