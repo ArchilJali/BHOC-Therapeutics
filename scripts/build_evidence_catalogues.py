@@ -1,11 +1,13 @@
 """Render all three evidence catalogues from one canonical record store."""
-import json,html,re
+import json,html,re,subprocess
+from urllib.parse import urlparse
 from pathlib import Path
 from collections import Counter
 ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/'evidence/library'
 DATA=json.loads((BASE/'catalogues/data/publications.json').read_text())
 records=DATA['records']
+journals=json.loads(subprocess.check_output(['node','-e',"const core=require('./evidence/library/assets/publications-core.js'); const data=require('./evidence/library/catalogues/data/publications.json'); console.log(JSON.stringify(Object.fromEntries(data.records.map(r=>[r.id,core.journalName(r)]))));"],cwd=ROOT,text=True))
 E=lambda s:html.escape(str(s or ''),quote=True)
 titles={'product':'Oxyglobin & Hemopure Evidence','oxygen':'Oxygen Diffusion & Microcirculation','related':'Related Scientific Articles'}
 descs={
@@ -26,15 +28,29 @@ def product(r):
  t=r['title']+' '+r['keywords'];p=[]
  if re.search(r'oxyglobin|hboc[- ]?301|glutamer[- ]?200|hb-200',t,re.I):p.append('Oxyglobin')
  if re.search(r'hemopure|hboc[- ]?201|glutamer[- ]?250',t,re.I):p.append('Hemopure')
- return p or ([r['product']] if r['product'] else [])
+ if not p:
+  if re.search(r'oxyglobin|301',r['product'],re.I):p.append('Oxyglobin')
+  if re.search(r'hemopure|201',r['product'],re.I):p.append('Hemopure')
+ return p
+def species(r):
+ s=' '.join(r['species']).lower();groups=[]
+ for label,pattern in [('Canine (Dog)',r'canine|\bdogs?\b|foxhound'),('Feline (Cat)',r'feline|\bcats?\b'),('Equine (Horse)',r'equine|horse|foal'),('Porcine (Pig)',r'porcine|\bpigs?\b|swine'),('Ovine (Sheep)',r'ovine|sheep|lamb'),('Rodent',r'rodent|\brats?\b|mice|mouse|hamster|hampster|guinea'),('Avian (Bird)',r'avian|bird|duck|hawk'),('Human',r'human'),('Other animal',r'ferret|rabbit|tamandua|otter|other animal'),('In vitro / laboratory',r'in vitro|samples|plasma|cell culture|analytes|instruments|machinery')]:
+  if re.search(pattern,s):groups.append(label)
+ return groups or ['Not specified']
+def public_url(u):
+ host=urlparse(u).hostname or ''
+ return bool(re.fullmatch(r'(?:[a-z0-9-]+\.)+[a-z]{2,}',host,re.I)) and not host.endswith(('.local','.internal','.localhost'))
 def field(label,value):return f'<div><dt>{label}</dt><dd>{E(value)}</dd></div>' if value else ''
 def card(r):
  fragment=r['recordType'].startswith('Import')
- attrs={'data-year':r['year'],'data-direction':'|'.join(r['directions']),'data-species':'|'.join(r['species']),'data-journal':r['journal'],'data-institution':'|'.join(r['institutions']),'data-status':'fragment' if fragment else 'bibliography','data-product':'|'.join(product(r)),'data-title':r['title']}
+ journal=journals[r['id']]
+ if len(journal)>100 or re.match(r'^A\d+-A\d+',journal):journal='Other / source not classified'
+ attrs={'data-year':r['year'],'data-direction':'|'.join(r['directions']),'data-species':'|'.join(species(r)),'data-journal':journal or 'Other / source not classified','data-institution':'|'.join(r['institutions']),'data-status':'fragment' if fragment else 'bibliography','data-product':'|'.join(product(r)),'data-title':r['title']}
  search=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species']])
  attrs['data-search']=search
  links=[]
  for u in r['urls']:
+  if not public_url(u):continue
   label='PubMed' if re.search(r'/\d+/?$',u) and 'pubmed' in u else 'DOI' if 'doi.org/' in u else 'Source search' if '?term=' in u or 'scholar.google' in u else 'Source record'
   links.append(f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a>')
  provenance=''.join('<li>'+E(p['source'])+' · row '+E(p['row'])+'</li>' for p in r['provenance'])
@@ -63,7 +79,7 @@ for i,(kind,title) in enumerate(titles.items(),1):
  <title>{E(title)} Catalogue | BHOC</title><meta name="description" content="{E(descs[kind])}"><link rel="canonical" href="{url}"><meta name="robots" content="index,follow"><meta name="yandex" content="noindex"><meta name="twitter:card" content="summary_large_image">
  <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(descs[kind])}"><meta property="og:url" content="{url}"><meta property="og:image" content="https://bhoctherapeutics.com/evidence/library/assets/bhoc-evidence-social.png">
  <link rel="stylesheet" href="../assets/evidence.css"><link rel="stylesheet" href="../assets/platform-shell.css"><link rel="stylesheet" href="catalogues.css"><script defer src="../assets/navigation.js"></script><script defer src="catalogues.js"></script></head>
- <body><a class="skip" href="#main">Skip to content</a>{header}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="../">Evidence Library</a> / Catalogue 0{i}</div>{nav(kind)}
+ <body class="evidence-catalogue"><a class="skip" href="#main">Skip to content</a>{header}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="../">Evidence Library</a> / Catalogue 0{i}</div>{nav(kind)}
  <section class="catalogue-hero"><div class="eyebrow">Scientific evidence catalogue · 0{i}</div><h1>{E(title)}</h1><p>{E(descs[kind])}</p><div class="catalogue-total"><strong>{counts[kind]}</strong> bibliographic records{f' <span>+ {fragment_count} incomplete source fragments</span>' if fragment_count else ''}</div><p class="boundary">{E(boundaries[kind])}</p><p>{extra}</p></section>
  <p class="method">One primary catalogue per record. DOI, PMID and bibliographic comparisons link repeated source entries to one record. “Source identifier supplied” means an identifier exists in the source data, not independent verification of every citation. <a href="methodology.html">Source reconciliation and classification →</a></p>
  <form class="catalogue-filters" onsubmit="return false" aria-label="Filter publications">{filters}</form><div class="results-bar"><p id="result-count" aria-live="polite">{counts[kind]} bibliographic records</p><button id="export" type="button">Export matching records (CSV)</button></div>

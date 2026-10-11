@@ -1131,10 +1131,11 @@
       "species": [],
       "evidence": "Preclinical animal",
       "urls": [
-        "https://doi.org/10.1097/01.tp.0000994584.62073.b9",
-        "http://10.1097/01.tp.0000994584.62073.b9"
+        "https://doi.org/10.1097/01.tp.0000994584.62073.b9"
       ],
-      "notes": [],
+      "notes": [
+        "Malformed legacy source URL omitted; use the retained DOI or PubMed link"
+      ],
       "provenance": [
         {
           "source": "Transplant",
@@ -2810,10 +2811,11 @@
       "species": [],
       "evidence": "Unclear - verify full text",
       "urls": [
-        "https://doi.org/10.23937/2469-5696/1410052",
-        "http://DOI:"
+        "https://doi.org/10.23937/2469-5696/1410052"
       ],
-      "notes": [],
+      "notes": [
+        "Malformed legacy source URL omitted; use the retained DOI or PubMed link"
+      ],
       "provenance": [
         {
           "source": "Human Use",
@@ -4388,10 +4390,11 @@
       "evidence": "Research Support, Non-U.S. Gov't; Journal Article",
       "urls": [
         "https://pubmed.ncbi.nlm.nih.gov/29076972/",
-        "https://doi.org/10.1097/shk.0000000000001038",
-        "https://10.1097/SHK.0000000000001038"
+        "https://doi.org/10.1097/shk.0000000000001038"
       ],
-      "notes": [],
+      "notes": [
+        "Malformed legacy source URL omitted; use the retained DOI or PubMed link"
+      ],
       "provenance": [
         {
           "source": "Veterinary base",
@@ -11230,10 +11233,11 @@
       "evidence": "Preclinical animal",
       "urls": [
         "https://pubmed.ncbi.nlm.nih.gov/20645681/",
-        "https://doi.org/10.3109/10731199.2010.501755",
-        "http://10.3109/10731199.2010.501755"
+        "https://doi.org/10.3109/10731199.2010.501755"
       ],
-      "notes": [],
+      "notes": [
+        "Malformed legacy source URL omitted; use the retained DOI or PubMed link"
+      ],
       "provenance": [
         {
           "source": "Human Use",
@@ -20042,10 +20046,11 @@
       "species": [],
       "evidence": "Unclear - verify full text",
       "urls": [
-        "https://pubmed.ncbi.nlm.nih.gov/15487829/",
-        "http://Bateman"
+        "https://pubmed.ncbi.nlm.nih.gov/15487829/"
       ],
-      "notes": [],
+      "notes": [
+        "Malformed legacy source URL omitted; use the retained DOI or PubMed link"
+      ],
       "provenance": [
         {
           "source": "Human Use",
