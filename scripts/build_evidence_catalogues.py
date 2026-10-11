@@ -6,6 +6,10 @@ E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
 VERSION='20261011-pages4'
+SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
+# Catalogue shares use the same approved cover as the main BHOC homepage.
+SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
+assert 'property="og:image"' in SOCIAL_IMAGE_META and 'name="twitter:image"' in SOCIAL_IMAGE_META
 DESCRIPTIONS={
  'product':'Research on Oxyglobin, Hemopure and their historical development. Search by species, author, institution, journal and year.',
  'oxygen':'Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.',
@@ -94,7 +98,7 @@ def metadata(kind,rows,path=None):
     path=path or PATHS[kind];url=ORIGIN+PREFIX+path;title=TITLES[kind]+' | BHOC Evidence';description=DESCRIPTIONS[kind]
     schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','@id':url+'#page','name':title,'description':description,'url':url,'inLanguage':'en','dateModified':'2026-10-11','isPartOf':{'@id':ORIGIN+PREFIX+'#website'},'mainEntity':{'@type':'ItemList','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':ORIGIN+PREFIX+PATHS[r['catalogue']]+'#'+r['id']} for i,r in enumerate(rows,1)]}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX},{'@type':'ListItem','position':2,'name':TITLES[kind],'item':url}]}]}
     return f'''<title>{E(title)}</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{url}"><meta name="robots" content="index,follow,max-image-preview:large"><meta name="yandex" content="noindex"><meta name="author" content="Archil Jaliashvili"><link rel="author" href="https://orcid.org/0009-0006-4712-4942"><link rel="sitemap" href="{PREFIX}sitemap.xml" type="application/xml">
-<meta property="og:type" content="website"><meta property="og:site_name" content="BHOC Therapeutics"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{ORIGIN+PREFIX}assets/bhoc-evidence-social.png"><meta property="og:image:alt" content="BHOC scientific evidence library"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(description)}"><meta name="twitter:image" content="{ORIGIN+PREFIX}assets/bhoc-evidence-social.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="BHOC Therapeutics"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{url}">{SOCIAL_IMAGE_META}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(description)}">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('</','<\\/')}</script>'''
 
 def page(kind,path=None):

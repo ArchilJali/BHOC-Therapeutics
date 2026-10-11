@@ -2,7 +2,7 @@
 import re, json, html
 from urllib.parse import quote
 from evidence_catalogue_model import *
-from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER, filters, card, BOUNDARIES, pagination
+from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER, filters, card, BOUNDARIES, pagination, SOCIAL_IMAGE_PATTERN, SOCIAL_IMAGE_META
 
 def css(s):
     href=PREFIX+'catalogues/catalogues.css?v='+VERSION
@@ -119,6 +119,7 @@ s=re.sub(r'<section class="vet-pub-metrics"[\s\S]*?</section>',overview('product
 
 # Shared counting method is user-facing; source-import housekeeping stays in the audit data.
 p=BASE/'catalogues/methodology.html';old=p.read_text();head=old.split('</head>')[0]+'</head>'
+head=re.sub(SOCIAL_IMAGE_PATTERN,'',head).replace('</head>',SOCIAL_IMAGE_META+'</head>')
 main=f'''<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / About the catalogue</div>{tabs()}{appnav()}<section class="catalogue-hero"><h1>About the evidence catalogue</h1><p>Find publications across oxygen therapeutics, oxygen physiology and relevant clinical research.</p></section><section><h2>Three topics, one publication record</h2><p>Each publication has one primary scientific catalogue. Repeated entries are reconciled using DOI, PMID and bibliographic comparisons. Application searches draw from the same publication records and can overlap.</p><h2>How the statistics work</h2><p>Publication totals count unique records. Species, model and therapeutic groups follow the recorded metadata. Author institutions count indexed affiliation names; journal abbreviations and corresponding full names are combined. Missing labels are excluded from these counts. Statistics on search pages update with the active filters.</p><h2>Read findings in context</h2><p>Clinical, preclinical, analytical and review evidence should be interpreted at publication level. Historical product findings and studies of oxygen physiology do not establish BHOC efficacy, safety or regulatory approval. Author affiliations do not imply institutional endorsement or identify a confirmed study location.</p><p>Available DOI, PubMed and original source links support source checking. A supplied identifier does not mean that every bibliographic field or study conclusion has been independently verified. Incomplete source entries are excluded from public search.</p><p><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></p></section></main>'''
 p.write_text(css(head)+'<body class="evidence-catalogue">'+HEADER+main+FOOTER+'</body></html>')
 
