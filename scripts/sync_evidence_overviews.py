@@ -28,6 +28,8 @@ for f in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html'
         s=re.sub(r'<strong>\d+</strong><span>publication records</span>',f'<strong>{TOTAL["records"]}</strong><span>publication records</span>',s)
         s=re.sub(r'<strong>\d+</strong><span>scientific journals</span>',f'<strong>{TOTAL["journals"]}</strong><span>scientific journals</span>',s)
     if f==BASE/'index.html':
+        if 'data-evidence-layout-fix' not in s:
+            s=s.replace('</head>','<style data-evidence-layout-fix>body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-header,body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-trail,body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-footer{width:100%;margin-left:0}</style></head>')
         if 'data-evidence-unified=' not in s:s=s.replace('<body','<body data-evidence-unified="true"',1)
         if 'evidence-library-unified' not in re.search(r'<body[^>]*>',s)[0]:s=re.sub(r'<body([^>]*)class="([^"]*)"',lambda m:'<body'+m[1]+'class="'+m[2]+' evidence-library-unified"',s,count=1)
         s=re.sub(r'<section class="overview-stats platform-stats"[\s\S]*?</section>','<section aria-label="Evidence Library statistics">'+metric_html('all')+'</section>',s)
