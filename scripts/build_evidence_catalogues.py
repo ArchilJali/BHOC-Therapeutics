@@ -5,12 +5,13 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-counts5'
+VERSION='20261011-all6'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
 assert 'property="og:image"' in SOCIAL_IMAGE_META and 'name="twitter:image"' in SOCIAL_IMAGE_META
 DESCRIPTIONS={
+ 'all':'Search Oxyglobin, Hemopure, oxygen diffusion, microcirculation and related scientific publications together. Filter by topic, species, author, journal and year.',
  'product':'Research on Oxyglobin, Hemopure and their historical development. Search by species, author, institution, journal and year.',
  'oxygen':'Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.',
  'related':'Scientific context for oxygen therapeutics across oncology, veterinary medicine, transplantation, emergency care and transfusion practice.',
@@ -18,6 +19,7 @@ DESCRIPTIONS={
  'human':'Search human-use and translational oxygen-carrier literature by therapeutic area, evidence group, author, institution, journal and year.',
  'transplant':'Search oxygen-carrier and related transplantation research by organ, evidence group, author, institution, journal and year.'}
 BOUNDARIES={
+ 'all':'Product evidence, oxygen physiology and related scientific literature retain their catalogue classifications. Read each publication in its original scientific context.',
  'product':'Historical product findings do not establish the efficacy or approval of a future BHOC formulation.',
  'oxygen':'Physiological and mechanistic studies provide research context. Inclusion does not establish a clinical benefit of BHOC.',
  'related':'These studies provide scientific context and are not presented as direct evidence of Oxyglobin, Hemopure or BHOC efficacy.',
@@ -33,7 +35,9 @@ LINK_AUDIT=json.loads(LINK_AUDIT_PATH.read_text())['records']
 
 def tabs(current=''):
     selected='product' if current in ['veterinary','human','transplant'] else current
-    return '<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+((' aria-current="page"' if current==k else ' aria-current="location"') if k==selected else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
+    unified=current=='all'
+    all_link=f'<div class="catalogue-overview-link"><a class="catalogue-all-link" href="{PREFIX+PATHS["all"]}"'+(' data-catalogue-filter="" aria-current="page"' if unified else '')+'>All publications</a><span>Browse by catalogue</span></div>'
+    return all_link+'<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS["all"]+"?catalogue="+k if unified else PREFIX+PATHS[k]}"'+(f' data-catalogue-filter="{k}"' if unified else '')+((' aria-current="page"' if current==k else ' aria-current="location"') if k==selected else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
 
 def appnav(current=''):
     if current not in ['product','veterinary','human','transplant']:return ''
@@ -74,7 +78,7 @@ def card(r,kind):
     availability='' if links else '<p class="source-availability">Citation record. A verified article link or abstract is not currently available.</p>'
     note='<p class="metadata-note">Bibliographic details require source verification.</p>' if r['verification']=='Bibliographic verification required' else ''
     return f'''<article class="publication" id="{r['id']}" {' '.join('data-'+k+'="'+E(v)+'"' for k,v in attrs.items())}>
-{''.join('<span id="'+E(alias)+'"></span>' for alias in r.get('aliases',[]))}<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><span>{E(' · '.join(r['speciesGroups']))}</span></div>
+{''.join('<span id="'+E(alias)+'"></span>' for alias in r.get('aliases',[]))}<div class="record-meta"><span>{E(r['year'] or 'Year not recorded')}</span><span>{E(' · '.join(r['speciesGroups']))}</span>{'<span>'+E(TITLES[r['catalogue']])+'</span>' if kind=='all' else ''}</div>
 <h2>{E(r['title'])}</h2><p class="citation-line">{E(' · '.join(v for v in [r['authors'],r['journalLabel']] if v))}</p>
 <div class="source-links">{''.join(links)}</div>
 <details><summary>{summary_label}</summary>{annotation}{availability}{note}<dl>{details}</dl>{'<p>'+E(r['sourceReview'])+'</p>' if r['sourceReview'] else ''}{'<p>'+E('; '.join(r['notes']))+'</p>' if r['notes'] else ''}</details></article>'''
@@ -90,6 +94,7 @@ def filters(kind):
     advanced+=select('product','Product','All products')+select('evidence','Evidence group','All evidence groups')
     if kind in ['product','oxygen','related']:advanced+=select('application','Application','All applications')
     else:advanced+=select('catalogue','Catalogue','All catalogues')
+    if kind=='all':advanced+=select('application','Application','All applications')
     if kind=='veterinary':advanced+=select('site','Documented study site','All documented sites')
     if kind=='transplant':advanced+=select('collection','Research collection','All collections')
     return '<span id="journalInput"></span><span id="scopeSelect"></span><form class="catalogue-filters" onsubmit="return false" aria-label="Filter publications"><div class="filter-grid">'+basic+'</div><div class="filter-actions"><details id="advanced"><summary>More filters</summary><div class="filter-grid advanced-grid">'+advanced+'</div></details><button id="reset" type="button">Reset filters</button></div></form>'
@@ -110,13 +115,13 @@ def page(kind,path=None):
     redirects=''.join(f'<p class="record-redirect" id="{E(m["record"]["id"])}" data-record-redirect><a href="{PREFIX+PATHS[next(r["catalogue"] for r in RECORDS if r["id"]==m["retainedId"])]}#{E(m["retainedId"])}">Read the consolidated publication record →</a></p>' for m in DATA.get('mergedRecords',[]) if m['record']['catalogue']==kind and m['retainedId'] not in row_ids)
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
 <link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script></head>
-<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{appnav(kind)}
-<section class="catalogue-hero"><div class="eyebrow">Scientific Evidence Relevant to BHOC</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
+<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
+<section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}
 <p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 11 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
-    (BASE/path).write_text(text)
+    (BASE/path/('index.html') if path.endswith('/') else BASE/path).write_text(text)
 
 if __name__=='__main__':
     result=audit()

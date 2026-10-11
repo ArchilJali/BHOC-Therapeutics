@@ -36,15 +36,17 @@
  const fragment=decodeURIComponent(location.hash.slice(1));
  const hashRow=rows.find(r=>r.id===fragment||list(r,'legacy').includes(fragment));
  if(hashRow){$('q').value=hashRow.dataset.title;page=1;}
- if(controls.some(id=>$(id).closest('#advanced')&&$(id).value))$('advanced').open=true;
+ if(controls.some(id=>$(id).closest('#advanced')&&$(id).value&&!(context.dataset.view==='all'&&id==='catalogue')))$('advanced').open=true;
  function render(reset=true){
   if(reset)page=1;const terms=normal($('q').value).split(/\s+/).filter(Boolean);
+  if(context.dataset.view==='all')document.querySelectorAll('[data-catalogue-filter]').forEach(link=>{if(link.dataset.catalogueFilter===$('catalogue').value)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
+  if($('combined-applications'))$('combined-applications').hidden=$('catalogue').value!=='product';
   matching=rows.filter(r=>terms.every(t=>normal(r.dataset.search).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
   matching.sort($('sort').value==='title'?(a,b)=>a.dataset.title.localeCompare(b.dataset.title):$('sort').value==='oldest'?(a,b)=>(Number(a.dataset.year)||9999)-(Number(b.dataset.year)||9999):(a,b)=>(Number(b.dataset.year)||0)-(Number(a.dataset.year)||0));
   const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.max(1,Math.min(page,pages));
   rows.forEach(r=>r.hidden=true);matching.slice((page-1)*pageSize,page*pageSize).forEach(r=>{r.hidden=false;holder.append(r);});
   const start=matching.length?(page-1)*pageSize+1:0,end=Math.min(page*pageSize,matching.length);
-  $('result-count').textContent=`${matching.length} of ${rows.length} publication records · Showing ${start}–${end}`;
+  $('result-count').textContent=`${matching.length} of ${rows.length} publication records · Showing ${start}–${end} · Page ${page} of ${pages}`;
   $('page-label').textContent=`Page ${page} of ${pages}`;$('previous').disabled=page===1;$('next').disabled=page===pages;$('empty').hidden=matching.length>0;
   $('page-numbers').replaceChildren();$('page-numbers').closest('nav').hidden=pages===1;
   const numbered=pages<=7?Array.from({length:pages},(_,i)=>i+1):page<=4?[1,2,3,4,5,pages]:page>=pages-3?[1,pages-4,pages-3,pages-2,pages-1,pages]:[1,page-1,page,page+1,pages];
@@ -59,6 +61,7 @@
   history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);
  }
  for(const id of controls)$(id).addEventListener(['q','author','institution'].includes(id)?'input':'change',()=>render());
+ if(context.dataset.view==='all')document.querySelectorAll('[data-catalogue-filter]').forEach(link=>link.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();$('catalogue').value=link.dataset.catalogueFilter;render();}));
  $('reset').addEventListener('click',()=>{controls.forEach(id=>$(id).value=id==='sort'?'newest':'');legacyScope='';if(!prefix)history.replaceState(null,'',location.pathname);render();});
  $('previous').addEventListener('click',()=>{page--;render(false);$('result-count').scrollIntoView({block:'start'});});
  $('next').addEventListener('click',()=>{page++;render(false);$('result-count').scrollIntoView({block:'start'});});

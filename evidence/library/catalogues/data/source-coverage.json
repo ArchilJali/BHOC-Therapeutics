@@ -1,0 +1,84 @@
+{
+  "checked": "2026-10-11",
+  "sources": [
+    {
+      "source": "Master Catalogue",
+      "rows": 414,
+      "retainedRows": 414,
+      "missingRows": 0
+    },
+    {
+      "source": "Oxygen Master",
+      "rows": 243,
+      "retainedRows": 243,
+      "missingRows": 0
+    },
+    {
+      "source": "Veterinary base",
+      "rows": 236,
+      "retainedRows": 236,
+      "missingRows": 0
+    },
+    {
+      "source": "Human Use",
+      "rows": 185,
+      "retainedRows": 185,
+      "missingRows": 0
+    },
+    {
+      "source": "Transplant",
+      "rows": 54,
+      "retainedRows": 54,
+      "missingRows": 0
+    },
+    {
+      "source": "Veterinary curated additions",
+      "rows": 3,
+      "retainedRows": 3,
+      "missingRows": 0
+    },
+    {
+      "source": "transplant/related/data/related-evidence.json",
+      "rows": 8,
+      "retainedRows": 8,
+      "missingRows": 0
+    },
+    {
+      "source": "transplant/Transplant-relevant-evidence.json",
+      "rows": 5,
+      "retainedRows": 5,
+      "missingRows": 0
+    }
+  ],
+  "workbooks": [
+    {
+      "filename": "HBOC_Publications_by_Direction_Updated_2026-10-11.xlsx",
+      "sheet": "Master Catalogue",
+      "sha256": "67bc9c934ea46a732b9fc60e2c7f403981059592d0b8953643e8d37869b90a76",
+      "rows": 414,
+      "retainedRows": 414,
+      "missingRows": 0
+    },
+    {
+      "filename": "Oxygen_MASTER_ONE_PUBLICATION_EACH_2026(1).xlsx",
+      "sheet": "PUBLICATIONS ONE EACH",
+      "sha256": "5ed42c69f9e85d3eadaf4fddf22f81a0e73ca1f1ef3cd4f64b812b2a45dfbd37",
+      "rows": 243,
+      "retainedRows": 243,
+      "missingRows": 0
+    }
+  ],
+  "sourceOccurrences": 1148,
+  "retainedRecordsIncludingFragments": 656,
+  "repeatedSourceOccurrences": 492,
+  "incompleteSourceFragments": 48,
+  "publicRecords": 608,
+  "catalogues": {
+    "oxygen": 210,
+    "related": 206,
+    "product": 192
+  },
+  "missingSourceRows": 0,
+  "calculation": "1148 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 608 public records",
+  "note": "This verifies coverage of the supplied files. It does not claim that this collection contains every publication in the scientific literature."
+}

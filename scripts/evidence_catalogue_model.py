@@ -13,6 +13,8 @@ PATHS = {**{k:f'catalogues/{k}.html' for k in ['product','oxygen','related']}, '
 GROUP_FIELDS = {'human':'direction', 'transplant':'organ'}
 GROUP_LABELS = {'human':'Therapeutic areas', 'transplant':'Organ groups'}
 APP_LABELS = {'veterinary':'Veterinary','human':'Human Use','transplant':'Transplant'}
+TITLES['all']='Scientific Evidence Relevant to BHOC'
+PATHS['all']='catalogues/'
 
 def read(name):
     return json.loads((BASE / name).read_text())
@@ -91,6 +93,7 @@ for r in RECORDS:
 
 VIEWS={k:[r for r in RECORDS if r['catalogue']==k] for k in ['product','oxygen','related']}
 VIEWS.update({k:[r for r in RECORDS if label in r['application']] for k,label in APP_LABELS.items()})
+VIEWS['all']=RECORDS
 
 def stats(rows,kind='all'):
     field=GROUP_FIELDS.get(kind,'speciesGroups')

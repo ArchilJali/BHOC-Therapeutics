@@ -56,6 +56,14 @@
       "journals": 31,
       "groupField": "organ",
       "groupLabel": "Organ groups"
+    },
+    "all": {
+      "records": 608,
+      "groups": 10,
+      "institutions": 156,
+      "journals": 186,
+      "groupField": "speciesGroups",
+      "groupLabel": "Species / model groups"
     }
   },
   "publicRecords": 608,
