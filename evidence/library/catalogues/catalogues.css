@@ -53,3 +53,13 @@ body.evidence-catalogue.bhoc-shell-ready .catalogue-shell>.breadcrumbs{display:n
 .evidence-catalogue .source-availability{color:#617582;font-size:11px}
 .embedded-catalogue{padding:15px}.embedded-catalogue>h2{font-size:25px}.embedded-catalogue>p{font-size:13px}
 @media(max-width:760px){.evidence-catalogue .publication{padding:10px 12px}.evidence-catalogue .publication h2,.embedded-catalogue .publication h3{font-size:15px}.evidence-catalogue .catalogue-shell{padding:12px}.evidence-catalogue .source-links{gap:6px 10px}.catalogue-tabs{margin:5px 0 10px}.catalogue-tabs a{padding:8px 10px}.evidence-catalogue .evidence-metrics>div{padding:8px 10px}}
+
+/* Compact pagination shared by every catalogue and the embedded Science search. */
+.evidence-catalogue .pagination{gap:5px;margin:16px 0;flex-wrap:wrap}
+.evidence-catalogue .page-numbers{display:flex;align-items:center;gap:5px}
+.evidence-catalogue .pagination button{min-width:32px;height:32px;padding:0 7px;font:600 12px/1 system-ui,sans-serif;border:1px solid #d5e0e6;border-radius:5px}
+.evidence-catalogue .pagination #previous,.evidence-catalogue .pagination #next{font-size:21px}
+.evidence-catalogue .pagination button[aria-current="page"]{background:#183448;border-color:#183448;color:#fff}
+.evidence-catalogue .page-gap{min-width:16px;text-align:center;font-size:12px;color:#617582}
+.evidence-catalogue #result-count{scroll-margin-top:18px}
+@media(max-width:480px){.evidence-catalogue .pagination,.evidence-catalogue .page-numbers{gap:3px}.evidence-catalogue .pagination button{min-width:30px;height:36px;padding:0 5px}.evidence-catalogue .page-gap{min-width:10px}}

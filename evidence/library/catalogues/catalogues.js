@@ -29,31 +29,40 @@
   }
   el.value=value;
  }
- let legacyScope=params.get('scope')||'',page=1,matching=[],pageSize=24;
+ const requestedPage=Number(params.get('page'));
+ let legacyScope=params.get('scope')||'',page=Number.isSafeInteger(requestedPage)&&requestedPage>0?requestedPage:1,matching=[],pageSize=24;
  const fragment=decodeURIComponent(location.hash.slice(1));
  const hashRow=rows.find(r=>r.id===fragment||list(r,'legacy').includes(fragment));
- if(hashRow)$('q').value=hashRow.dataset.title;
+ if(hashRow){$('q').value=hashRow.dataset.title;page=1;}
  if(controls.some(id=>$(id).closest('#advanced')&&$(id).value))$('advanced').open=true;
  function render(reset=true){
   if(reset)page=1;const terms=normal($('q').value).split(/\s+/).filter(Boolean);
   matching=rows.filter(r=>terms.every(t=>normal(r.dataset.search).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
   matching.sort($('sort').value==='title'?(a,b)=>a.dataset.title.localeCompare(b.dataset.title):$('sort').value==='oldest'?(a,b)=>(Number(a.dataset.year)||9999)-(Number(b.dataset.year)||9999):(a,b)=>(Number(b.dataset.year)||0)-(Number(a.dataset.year)||0));
-  const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.min(page,pages);
+  const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.max(1,Math.min(page,pages));
   rows.forEach(r=>r.hidden=true);matching.slice((page-1)*pageSize,page*pageSize).forEach(r=>{r.hidden=false;holder.append(r);});
   const start=matching.length?(page-1)*pageSize+1:0,end=Math.min(page*pageSize,matching.length);
   $('result-count').textContent=`${matching.length} of ${rows.length} publication records · Showing ${start}–${end}`;
   $('page-label').textContent=`Page ${page} of ${pages}`;$('previous').disabled=page===1;$('next').disabled=page===pages;$('empty').hidden=matching.length>0;
+  $('page-numbers').replaceChildren();$('page-numbers').closest('nav').hidden=pages===1;
+  const numbered=pages<=7?Array.from({length:pages},(_,i)=>i+1):page<=4?[1,2,3,4,5,pages]:page>=pages-3?[1,pages-4,pages-3,pages-2,pages-1,pages]:[1,page-1,page,page+1,pages];
+  numbered.forEach((number,index)=>{
+   if(index&&number>numbered[index-1]+1){const gap=document.createElement('span');gap.className='page-gap';gap.textContent='…';gap.setAttribute('aria-hidden','true');$('page-numbers').append(gap);}
+   const button=document.createElement('button');button.type='button';button.dataset.page=number;button.textContent=number;button.setAttribute('aria-label',`Page ${number}`);if(number===page)button.setAttribute('aria-current','page');$('page-numbers').append(button);
+  });
   const stats={records:matching.length,groups:unique(matching.flatMap(r=>list(r,context.dataset.group))).size,institutions:unique(matching.flatMap(r=>list(r,'institution'))).size,journals:unique(matching.map(r=>r.dataset.journal)).size};
   for(const [key,value] of Object.entries(stats))document.querySelector('[data-metric="'+key+'"]').textContent=value;
   const query=prefix?new URLSearchParams([...new URLSearchParams(location.search)].filter(([key])=>!key.startsWith(prefix))):new URLSearchParams();for(const id of controls){const value=$(id).value;if(value&&!(id==='sort'&&value==='newest'))query.set(prefix+id,value);}if(legacyScope)query.set(prefix+'scope',legacyScope);
+  if(page>1)query.set(prefix+'page',page);
   history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);
  }
  for(const id of controls)$(id).addEventListener(['q','author','institution'].includes(id)?'input':'change',()=>render());
  $('reset').addEventListener('click',()=>{controls.forEach(id=>$(id).value=id==='sort'?'newest':'');legacyScope='';if(!prefix)history.replaceState(null,'',location.pathname);render();});
  $('previous').addEventListener('click',()=>{page--;render(false);$('result-count').scrollIntoView({block:'start'});});
  $('next').addEventListener('click',()=>{page++;render(false);$('result-count').scrollIntoView({block:'start'});});
+ $('page-numbers').addEventListener('click',event=>{const button=event.target.closest('button[data-page]');if(!button||Number(button.dataset.page)===page)return;page=Number(button.dataset.page);render(false);$('page-numbers').querySelector('[aria-current]').focus({preventScroll:true});$('result-count').scrollIntoView({block:'start'});});
  $('export').addEventListener('click',()=>{const cell=s=>'"'+String(s||'').replace(/"/g,'""')+'"';const csv=['Title,Year,Catalogue,Application,Authors,Journal,Author institutions,Species or model,Source links',...matching.map(r=>[r.dataset.title,r.dataset.year,labels[r.dataset.catalogue],r.dataset.application,r.dataset.author,r.dataset.journal,r.dataset.institution,r.dataset.species,[...r.querySelectorAll('.source-links a:not(.permalink)')].map(a=>a.href).join(' | ')].map(cell).join(','))].join('\r\n');const url=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='BHOC-'+context.dataset.view+'-publications.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
- render();
+ render(false);
  const anchors={institutionSearch:'institution',authorInput:'author',journalInput:'journal',scopeSelect:'catalogue'};
  const target=hashRow||$(anchors[fragment]||fragment);if(target){if(target.closest('#advanced'))$('advanced').open=true;target.scrollIntoView({block:'center'});}
 })();

@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-compact3'
+VERSION='20261011-pages4'
 DESCRIPTIONS={
  'product':'Research on Oxyglobin, Hemopure and their historical development. Search by species, author, institution, journal and year.',
  'oxygen':'Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.',
@@ -34,6 +34,9 @@ def tabs(current=''):
 def appnav(current=''):
     if current not in ['product','veterinary','human','transplant']:return ''
     return '<nav class="application-tabs" aria-label="Search by application"><span>By application:</span>'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'>{E(APP_LABELS[k])}</a>' for k in ['veterinary','human','transplant'])+'</nav>'
+
+def pagination():
+    return '<nav class="pagination" aria-label="Publication pages" hidden><button id="previous" type="button" aria-label="Previous page">‹</button><div id="page-numbers" class="page-numbers"></div><button id="next" type="button" aria-label="Next page">›</button><span id="page-label" class="visually-hidden" aria-live="polite"></span></nav>'
 
 def metric_html(kind, live=False):
     s=STATS[kind] if kind in STATS else TOTAL
@@ -105,7 +108,7 @@ def page(kind,path=None):
 <section class="catalogue-hero"><div class="eyebrow">Scientific Evidence Relevant to BHOC</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
-<nav class="pagination" aria-label="Results pages"><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></nav>
+{pagination()}
 <p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 11 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
     (BASE/path).write_text(text)
 
