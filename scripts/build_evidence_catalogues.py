@@ -1,11 +1,11 @@
 """Build every public search and its statistics from the shared catalogue model."""
 import html, json, re
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlencode
 from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-all6'
+VERSION='20261011-collections7'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -48,8 +48,16 @@ def pagination():
 
 def metric_html(kind, live=False):
     s=STATS[kind] if kind in STATS else TOTAL
-    labels={'records':'Publication records','groups':s['groupLabel'],'institutions':'Author institutions','journals':'Journals'}
+    labels={'records':'Distinct publications' if kind=='all' else 'Publication records','groups':s['groupLabel'],'institutions':'Author institutions','journals':'Journals'}
     return '<div class="evidence-metrics"'+(' id="evidence-metrics" aria-label="Statistics for matching publications"' if live else '')+'>'+''.join(f'<div><strong'+(f' data-metric="{key}"' if live else '')+f'>{s[key]}</strong><span>{label}</span></div>' for key,label in labels.items())+'</div>'
+
+def collection_summary():
+    totals=collection_totals()
+    links=[]
+    for kind in COLLECTIONS:
+        query={'application':APP_LABELS[kind]} if kind in APP_LABELS else {'catalogue':kind}
+        links.append(f'<a href="{PREFIX+PATHS["all"]}?{E(urlencode(query))}" data-collection-link="{kind}"><strong>{STATS[kind]["records"]}</strong> {E(COLLECTION_LABELS[kind])}</a>')
+    return '<!-- collection-summary:start --><div class="collection-summary" id="collection-summary"><div class="collection-summary-total"><strong data-collection-total>'+str(totals['entries'])+'</strong><span>Publication entries across five collections</span></div><nav class="collection-counts" aria-label="Five publication collections">'+''.join(links)+'</nav><p>A publication may appear in more than one collection. <a href="'+PREFIX+'catalogues/methodology.html#collection-counting">How these counts work</a>.</p></div><!-- collection-summary:end -->'
 
 def public_url(url):
     try:p=urlparse(url);host=p.hostname or ''
@@ -116,7 +124,7 @@ def page(kind,path=None):
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
 <link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script></head>
 <body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
-<section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
+<section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{collection_summary() if kind=='all' else ''}{metric_html(kind,True)}</section>
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}

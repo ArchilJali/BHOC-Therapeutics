@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const version = '20261011-shell4';
+const version = '20261011-shell5';
 const release = JSON.parse(await fs.readFile(path.join(root, 'site-release.json'), 'utf8'));
 const releaseSummary = `First published ${release.first_published} · ${release.updates} updates · Last updated ${release.updated} · Version ${release.version}`;
 const shellPath = path.join(root, 'unified-shell.js');
@@ -34,6 +34,7 @@ for (const file of await files(root)) {
   if (!/<\/head>/i.test(source) || !/<body\b/i.test(source)) continue;
   let next = source.replace(/<link\b[^>]*href=["']\/unified-shell\.css(?:\?[^"']*)?["'][^>]*>\s*/gi, '')
     .replace(/<script\b[^>]*src=["']\/unified-shell\.js(?:\?[^"']*)?["'][^>]*><\/script>\s*/gi, '');
+  next = next.replace(/<(header|footer)\b[^>]*>[\s\S]*?<\/\1>/gi, block => block.replace(/href="\/evidence\/"/g, 'href="/evidence/library/catalogues/"'));
   next = next.replace(/First published 20 Aug 2026 · \d+ updates · Last updated [^<\n]+? · Version [0-9.]+/g, releaseSummary);
   next = next.replace(/<nav\b[^>]*data-bhoc-evidence-links[^>]*>[\s\S]*?<\/nav>\s*/g, '');
   next = next.replace(/<footer\b/i, `${evidenceLinks}\n<footer`);

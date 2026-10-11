@@ -105,6 +105,19 @@ def stats(rows,kind='all'):
 STATS={k:stats(rows,k) for k,rows in VIEWS.items()}
 TOTAL=stats(RECORDS)
 
+COLLECTIONS = ['transplant', 'human', 'veterinary', 'oxygen', 'related']
+COLLECTION_LABELS = {'transplant':'Transplant', 'human':'Human', 'veterinary':'Veterinary',
+                     'oxygen':'Oxygen Diffusion & Microcirculation', 'related':'Related Scientific Articles'}
+
+def collection_totals():
+    ids = {r['id'] for kind in COLLECTIONS for r in VIEWS[kind]}
+    return {'entries':sum(len(VIEWS[k]) for k in COLLECTIONS),
+            'collections':{k:len(VIEWS[k]) for k in COLLECTIONS},
+            'distinctRecordsInFiveCollections':len(ids),
+            'repeatedPlacements':sum(len(VIEWS[k]) for k in COLLECTIONS)-len(ids),
+            'additionalProductRecordIds':sorted(r['id'] for r in RECORDS if r['id'] not in ids),
+            'distinctRecordsInFullLibrary':len(RECORDS)}
+
 def count_reconciliation():
     """Account for every original source row and each net addition, without adding views."""
     legacy_sources=['Veterinary base','Human Use','Transplant']
@@ -143,6 +156,6 @@ def audit():
     assert len({r['id'] for k in ['product','oxygen','related'] for r in VIEWS[k]})==len(RECORDS)
     assert sum(p['source']=='Oxygen Master' for r in ALL_RECORDS for p in r['provenance'])==243
     count_reconciliation()
-    return {'updated':'2026-10-11','total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),
+    return {'updated':'2026-10-11','total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),'collectionTotals':collection_totals(),
             'archivedIncompleteEntries':len(ALL_RECORDS)-len(RECORDS),'duplicateIds':0,'duplicateDOIs':0,'duplicatePMIDs':0,
             'notes':'Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts.'}

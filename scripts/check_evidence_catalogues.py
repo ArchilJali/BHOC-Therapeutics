@@ -90,3 +90,18 @@ assert coverage['publicRecords']==len(RECORDS) and coverage['missingSourceRows']
 assert coverage['sourceOccurrences']==sum(len(r['provenance']) for r in ALL_RECORDS)
 assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
+
+collection_stats=collection_totals()
+assert collection_stats['entries']==918
+assert collection_stats['collections']=={'transplant':62,'human':180,'veterinary':260,'oxygen':210,'related':206}
+assert collection_stats['distinctRecordsInFiveCollections']==599
+assert len(collection_stats['additionalProductRecordIds'])==9
+assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
+for source in [home,combined]:
+    assert 'data-collection-total>918</strong>' in source
+    assert 'Publication entries across five collections' in source
+    assert 'Distinct publications' in source
+    for kind in COLLECTIONS:
+        assert 'data-collection-link="'+kind+'"' in source
+assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
+print('PASS: five-collection total 918, 599 distinct records in those views, 9 additional product records; primary Evidence navigation opens combined search.')

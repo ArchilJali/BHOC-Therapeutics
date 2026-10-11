@@ -12,7 +12,7 @@
     {name: 'Science', href: '/science/', path: '/science/'},
     {name: 'Technology', href: '/technology/', path: '/technology/'},
     {name: 'Applications', href: '/applications/', path: '/applications/'},
-    {name: 'Evidence', href: '/evidence/', path: '/evidence/'},
+    {name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'},
     {name: 'Concepts & Hypotheses', href: '/evidence/library/concepts-hypotheses/', path: '/evidence/library/concepts-hypotheses/'},
     {name: 'News', href: '/news/', path: '/news/'},
     {name: 'Company', href: '/#company', path: '/#company'},
@@ -42,11 +42,11 @@
     const add = (label, href) => parts.push({label, href});
     if (pagePath.startsWith('/bhoc/')) add('BHOC', '/bhoc/');
     else if (pagePath.startsWith('/evidence/')) {
-      add('Evidence', '/evidence/');
+      add('Evidence', LIBRARY);
       if (pagePath.startsWith(LIBRARY)) {
-        add('Scientific Evidence Hub', LIBRARY);
         const branch = pagePath.slice(LIBRARY.length).split('/')[0];
         const branches = {
+          catalogues: ['All publications', LIBRARY + 'catalogues/'],
           human: ['Human Use', LIBRARY + 'human/BHOC-Human-index.html'],
           veterinary: ['Veterinary', LIBRARY + 'veterinary/Vet-index.html'],
           transplant: ['Transplantation', LIBRARY + 'transplant/Transplant-index.html'],

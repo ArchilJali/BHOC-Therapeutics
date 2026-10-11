@@ -1,4 +1,28 @@
 {
+  "collectionTotals": {
+    "entries": 918,
+    "collections": {
+      "transplant": 62,
+      "human": 180,
+      "veterinary": 260,
+      "oxygen": 210,
+      "related": 206
+    },
+    "distinctRecordsInFiveCollections": 599,
+    "repeatedPlacements": 319,
+    "additionalProductRecordIds": [
+      "pub-0fcfeb0c713c",
+      "pub-24a6e7c41bb5",
+      "pub-47e65a84da07",
+      "pub-4e860eb058ab",
+      "pub-50a2dfd1c1c0",
+      "pub-6a4c997ed6e9",
+      "pub-c14b2f7963d0",
+      "pub-e31201f2d3fc",
+      "pub-fa6f61740148"
+    ],
+    "distinctRecordsInFullLibrary": 608
+  },
   "snapshot": "2026-10-11",
   "uniquePublications": 608,
   "hubPlacements": 502,
