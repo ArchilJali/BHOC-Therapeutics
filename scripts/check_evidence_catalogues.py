@@ -41,4 +41,12 @@ assert len(VIEWS['human'])==181
 assert sum(any(p['source']=='Human Use' for p in r['provenance']) for r in VIEWS['human'])==181
 assert sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS['transplant'])==54
 assert sum('Related transplantation studies' in r['collection'] for r in VIEWS['transplant'])==8
+science=(BASE/'science/index.html').read_text();embedded=Page(science)
+assert {a['id'] for a in embedded.records}=={r['id'] for r in VIEWS['related']},'Science / Related collection mismatch'
+assert len(embedded.records)==len(VIEWS['related']) and len(embedded.ids)==len(set(embedded.ids))
+assert science.index('class="nobel-feature"')<science.index('class="paper-card"')<science.index('id="scientific-catalogues"')
+home=(BASE/'index.html').read_text()
+assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
+assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
+print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')

@@ -2,7 +2,7 @@
 import re, json, html
 from urllib.parse import quote
 from evidence_catalogue_model import *
-from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER
+from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER, filters, card, BOUNDARIES
 
 def css(s):
     href=PREFIX+'catalogues/catalogues.css?v='+VERSION
@@ -14,20 +14,27 @@ def css(s):
 def catalogue_entry(cards=True):
     out='<section id="scientific-catalogues" class="catalogue-entry"><div class="eyebrow">Explore the scientific literature</div><h2>Scientific Evidence Relevant to BHOC</h2><p>Find publications by topic, species, author, institution, journal and year.</p>'
     if cards:
-        out+='<div class="catalogue-card-grid">'
-        for i,k in enumerate(['product','oxygen','related'],1):
-            out+=f'<article class="catalogue-card"><div class="eyebrow">Catalogue 0{i}</div><h3>{E(TITLES[k])}</h3><p>{E(DESCRIPTIONS[k])}</p>{metric_html(k)}<a class="button" href="{PREFIX+PATHS[k]}">Explore catalogue →</a></article>'
+        out+='<div class="catalogue-card-grid catalogue-card-pair">'
+        for k in ['oxygen','related']:
+            out+=f'<article class="catalogue-card"><div class="eyebrow">Research catalogue</div><h3>{E(TITLES[k])}</h3><p>{E(DESCRIPTIONS[k])}</p>{metric_html(k)}<a class="button" href="{PREFIX+PATHS[k]}">Explore catalogue →</a></article>'
         out+='</div>'
     else:out+=tabs()
     return out+'</section>'
 
-for f in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html']:
+for f in [BASE/'index.html',ROOT/'evidence/index.html']:
     s=f.read_text();s=re.sub(r'<section[^>]*id="scientific-catalogues"[\s\S]*?</section>',catalogue_entry(f==BASE/'index.html'),s)
     if f==ROOT/'evidence/index.html':
         s=re.sub(r'<strong>\d+</strong><span>publication &amp; evidence records</span>|<strong>\d+</strong><span>publication & evidence records</span>',f'<strong>{TOTAL["records"]}</strong><span>publication records</span>',s)
         s=re.sub(r'<strong>\d+</strong><span>publication records</span>',f'<strong>{TOTAL["records"]}</strong><span>publication records</span>',s)
         s=re.sub(r'<strong>\d+</strong><span>scientific journals</span>',f'<strong>{TOTAL["journals"]}</strong><span>scientific journals</span>',s)
     if f==BASE/'index.html':
+        # The original application hubs stay together, before the two new research catalogues.
+        s=re.sub(r'<section[^>]*id="scientific-catalogues"[\s\S]*?</section>','',s)
+        s=re.sub(r'(<section id="evidence-hubs"[\s\S]*?</section>)',lambda m:m[1]+'\n'+catalogue_entry(True),s)
+        s=s.replace('href="#scientific-catalogues">Explore the evidence','href="#evidence-hubs">Explore the evidence')
+        product_link=f'<p class="application-catalogue-link" data-product-catalogue-link><a href="{PREFIX+PATHS["product"]}">Oxyglobin &amp; Hemopure: search {STATS["product"]["records"]} product-specific records across applications →</a></p>'
+        s=re.sub(r'<p[^>]*data-product-catalogue-link[\s\S]*?</p>','',s)
+        s=re.sub(r'(<section id="evidence-hubs"[\s\S]*?)(</section>)',lambda m:m[1]+product_link+m[2],s)
         if 'data-evidence-layout-fix' not in s:
             s=s.replace('</head>','<style data-evidence-layout-fix>body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-header,body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-trail,body.evidence-library-unified.bhoc-shell-ready>.bhoc-shell-footer{width:100%;margin-left:0}</style></head>')
         if 'data-evidence-unified=' not in s:s=s.replace('<body','<body data-evidence-unified="true"',1)
@@ -39,7 +46,21 @@ for f in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html'
             st=STATS[kind];facts=''.join(f'<div><strong>{st[field]}</strong><span>{label}</span></div>' for field,label in [('records','PUBLICATION RECORDS'),('groups',st['groupLabel'].upper()),('institutions','AUTHOR INSTITUTIONS'),('journals','JOURNALS')])
             s=re.sub(pattern,lambda m:m[1]+facts+m[2],s)
         s=s.replace('Updated 4 Oct 2026','Updated 11 Oct 2026')
-    f.write_text(css(s))
+    f.write_text(re.sub(r' +\n','\n',css(s)))
+
+# Science keeps every original feature and article. The complete Related catalogue follows them.
+p=BASE/'science/index.html';s=p.read_text()
+rows=VIEWS['related']
+embedded=f'''<section id="scientific-catalogues" class="catalogue-entry evidence-catalogue embedded-catalogue" data-query-prefix="related_" data-view="related" data-group="species" aria-labelledby="related-catalogue-title"><div class="eyebrow">Complete research catalogue</div><h2 id="related-catalogue-title">Related Scientific Articles</h2><p>The featured articles above provide scientific analysis and commentary. Below, search all {len(rows)} bibliographic records from the <a href="{PREFIX+PATHS['related']}">Related Scientific Articles catalogue</a>. This is the same collection, counted once in the Evidence Library.</p>{metric_html('related',True)}{filters('related')}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div><noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,'related').replace('<h2>','<h3>').replace('</h2>','</h3>') for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p><nav class="pagination" aria-label="Related publication pages"><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></nav><p class="catalogue-context">{E(BOUNDARIES['related'])} <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p></section>'''
+s=re.sub(r'<section[^>]*id="scientific-catalogues"[\s\S]*?</section>',lambda m:embedded,s)
+if 'id="featured-publications"' not in s:s=s.replace('<section class="panel knowledge-card">','<section class="panel knowledge-card" id="featured-publications">',1)
+if 'href="#scientific-catalogues"' not in s:s=s.replace('<div class="knowledge-actions">','<div class="knowledge-actions"><a class="button" href="#scientific-catalogues">Search all related publications →</a>',1)
+s=re.sub(r'<script[^>]*src="[^"]*catalogues/catalogues.js[^"]*"[^>]*></script>','',s)
+s=s.replace('</head>',f'<script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script></head>')
+schema={'@context':'https://schema.org','@type':'ItemList','@id':'https://bhoctherapeutics.com/evidence/library/science/#scientific-catalogues','name':'Related Scientific Articles','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':'https://bhoctherapeutics.com'+PREFIX+PATHS['related']+'#'+r['id']} for i,r in enumerate(rows,1)]}
+s=re.sub(r'<script[^>]*id="science-related-catalogue-schema"[\s\S]*?</script>','',s)
+s=s.replace('</head>','<script type="application/ld+json" id="science-related-catalogue-schema">'+json.dumps(schema,ensure_ascii=False).replace('</','<\\/')+'</script></head>')
+p.write_text(css(s))
 
 def overview(kind):
     st=STATS[kind];link=PREFIX+PATHS[kind]

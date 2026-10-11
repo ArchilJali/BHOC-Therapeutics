@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-unified1'
+VERSION='20261011-connected2'
 DESCRIPTIONS={
  'product':'Research on Oxyglobin, Hemopure and their historical development. Search by species, author, institution, journal and year.',
  'oxygen':'Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.',
@@ -89,10 +89,11 @@ def page(kind,path=None):
     rows=VIEWS[kind];group=GROUP_FIELDS.get(kind,'species');path=path or PATHS[kind]
     extra=''
     if kind=='product':extra=f'<a href="{PREFIX}veterinary/Vet-03-publication-BHOC-Oxyglobin.html">Oxyglobin clinical &amp; regulatory evidence</a><a href="{PREFIX}human/BHOC-Human-fda-expanded-access.html">Hemopure Expanded Access</a>'
+    if kind=='related':extra=f'<a href="{PREFIX}science/#featured-publications">Read the featured Science analyses →</a><a href="{PREFIX}science/#scientific-catalogues">Browse this same catalogue within Science →</a>'
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
 <link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script></head>
 <body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{appnav(kind)}
-<section class="catalogue-hero"><div class="eyebrow">Scientific Evidence Relevant to BHOC</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{metric_html(kind,True)}</section>
+<section class="catalogue-hero"><div class="eyebrow">Scientific Evidence Relevant to BHOC</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{metric_html(kind,True)}</section>
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{len(rows)} publication records</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 <nav class="pagination" aria-label="Results pages"><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></nav>
