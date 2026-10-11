@@ -63,7 +63,7 @@ def collection_summary():
     for kind in COLLECTIONS:
         query={'application':APP_LABELS[kind]} if kind in APP_LABELS else {'catalogue':kind}
         links.append(f'<a href="{PREFIX+PATHS["all"]}?{E(urlencode(query))}" data-collection-link="{kind}"><strong>{STATS[kind]["records"]}</strong> {E(COLLECTION_LABELS[kind])}</a>')
-    return '<!-- collection-summary:start --><div class="collection-summary" id="collection-summary"><div class="collection-summary-total"><span>Browse five publication collections</span></div><nav class="collection-counts" aria-label="Five publication collections">'+''.join(links)+'</nav><p>A publication may appear in more than one collection. <a href="'+PREFIX+'catalogues/methodology.html#collection-counting">How these counts work</a>.</p></div><!-- collection-summary:end -->'
+    return '<!-- collection-summary:start --><div class="collection-summary" id="collection-summary"><div class="collection-summary-total"><span>Browse five publication collections</span></div><nav class="collection-counts" aria-label="Five publication collections">'+''.join(links)+'</nav></div><!-- collection-summary:end -->'
 
 def public_url(url):
     try:p=urlparse(url);host=p.hostname or ''
