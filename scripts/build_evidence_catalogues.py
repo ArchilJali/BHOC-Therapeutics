@@ -29,6 +29,7 @@ def tabs(current=''):
     return '<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
 
 def appnav(current=''):
+    if current!='product':return ''
     return '<nav class="application-tabs" aria-label="Search by application"><span>By application:</span>'+''.join(f'<a href="{PREFIX+PATHS[k]}"'+(' aria-current="page"' if k==current else '')+f'>{E(APP_LABELS[k])}</a>' for k in ['veterinary','human','transplant'])+'</nav>'
 
 def metric_html(kind, live=False):
