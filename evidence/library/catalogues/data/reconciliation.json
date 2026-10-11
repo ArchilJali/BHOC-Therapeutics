@@ -1,0 +1,24 @@
+{
+  "updated": "2026-10-11",
+  "counts": {
+    "product": 194,
+    "oxygen": 211,
+    "related": 206
+  },
+  "bibliographicRecords": 611,
+  "incompleteFragments": 48,
+  "retainedRecords": 659,
+  "sourceRows": 1148,
+  "sourceOccurrences": {
+    "Oxygen Master": 243,
+    "transplant/related/data/related-evidence.json": 8,
+    "transplant/Transplant-relevant-evidence.json": 5,
+    "Human Use": 185,
+    "Transplant": 54,
+    "Master Catalogue": 414,
+    "Veterinary base": 236,
+    "Veterinary curated additions": 3
+  },
+  "oxygenImportRows": 243,
+  "oxygenImportEntries": 242
+}
