@@ -136,7 +136,7 @@ const overview=JSON.parse(read('evidence/library/platform-overview.json'));
 const evidenceLanding=read('evidence/index.html');
 assert.equal(overview.collectionTotals.entries,Object.values(overview.collectionTotals.collections).reduce((sum,count)=>sum+count,0),'collection total must equal its five published counts');
 assert.ok(evidenceLanding.includes(`<strong>${overview.collectionTotals.entries}</strong><span>entries across five collections</span>`),'collection entries must match platform-overview.json');
-assert.ok(read('evidence/library/catalogues/index.html').includes(`data-metric="records">${overview.uniquePublications}</strong><span>Distinct publications</span>`),'distinct evidence count must match platform-overview.json');
+assert.ok(read('evidence/library/catalogues/index.html').includes(`data-metric="collectionEntries" data-collection-total>${overview.collectionTotals.entries}</strong><span>Entries in five collections</span>`),'displayed collection entries must match platform-overview.json');
 assert.ok(evidenceLanding.includes(`<strong>${overview.indexedAuthorInstitutions}</strong><span>author institutions</span>`),'institution count must match platform-overview.json');
 assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Oxyglobin'),'unapproved product association in meta keywords');
 assert.ok(!read('bhoc/index.html').includes('Archil Jaliashvili Hemopure'),'unapproved product association in meta keywords');

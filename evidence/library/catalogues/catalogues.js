@@ -46,7 +46,7 @@
   const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.max(1,Math.min(page,pages));
   rows.forEach(r=>r.hidden=true);matching.slice((page-1)*pageSize,page*pageSize).forEach(r=>{r.hidden=false;holder.append(r);});
   const start=matching.length?(page-1)*pageSize+1:0,end=Math.min(page*pageSize,matching.length);
-  $('result-count').textContent=`${matching.length} of ${rows.length} publication records · Showing ${start}–${end} · Page ${page} of ${pages}`;
+  $('result-count').textContent=(context.dataset.view==='all'?(matching.length<rows.length?`${matching.length} matching publications · `:''):`${matching.length} of ${rows.length} publication records · `)+`Showing ${start}–${end} · Page ${page} of ${pages}`;
   $('page-label').textContent=`Page ${page} of ${pages}`;$('previous').disabled=page===1;$('next').disabled=page===pages;$('empty').hidden=matching.length>0;
   $('page-numbers').replaceChildren();$('page-numbers').closest('nav').hidden=pages===1;
   const numbered=pages<=7?Array.from({length:pages},(_,i)=>i+1):page<=4?[1,2,3,4,5,pages]:page>=pages-3?[1,pages-4,pages-3,pages-2,pages-1,pages]:[1,page-1,page,page+1,pages];
@@ -55,7 +55,7 @@
    const button=document.createElement('button');button.type='button';button.dataset.page=number;button.textContent=number;button.setAttribute('aria-label',`Page ${number}`);if(number===page)button.setAttribute('aria-current','page');$('page-numbers').append(button);
   });
   const stats={records:matching.length,groups:unique(matching.flatMap(r=>list(r,context.dataset.group))).size,institutions:unique(matching.flatMap(r=>list(r,'institution'))).size,journals:unique(matching.map(r=>r.dataset.journal)).size};
-  for(const [key,value] of Object.entries(stats))document.querySelector('[data-metric="'+key+'"]').textContent=value;
+  for(const [key,value] of Object.entries(stats)){const metric=document.querySelector('[data-metric="'+key+'"]');if(metric)metric.textContent=value;}
   const query=prefix?new URLSearchParams([...new URLSearchParams(location.search)].filter(([key])=>!key.startsWith(prefix))):new URLSearchParams();for(const id of controls){const value=$(id).value;if(value&&!(id==='sort'&&value==='newest'))query.set(prefix+id,value);}if(legacyScope)query.set(prefix+'scope',legacyScope);
   if(page>1)query.set(prefix+'page',page);
   history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);

@@ -25,7 +25,10 @@ for kind,rows in VIEWS.items():
     assert len(page.records)==st['records'],kind+' total mismatch'
     assert len(page.ids)==len(set(page.ids)),kind+' duplicate HTML IDs'
     for metric in ['records','groups','institutions','journals']:
-        assert f'data-metric="{metric}">{st[metric]}</strong>' in source,kind+' metric mismatch '+metric
+        if kind=='all' and metric=='records':
+            assert f'data-metric="collectionEntries" data-collection-total>{collection_totals()["entries"]}</strong>' in source
+        else:
+            assert f'data-metric="{metric}">{st[metric]}</strong>' in source,kind+' metric mismatch '+metric
     assert 'incomplete imported fragments' not in source and 'data-status="fragment"' not in source,kind+' internal import text exposed'
     canonical=re.findall(r'<link rel="canonical" href="([^"]+)"',source)
     assert canonical==['https://bhoctherapeutics.com/evidence/library/'+PATHS[kind]],kind+' canonical mismatch'
@@ -69,7 +72,7 @@ assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text()
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
 assert reconciliation['netAddedRecords']==274
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
-assert [int(v) for v in re.findall(r'<strong>(\d+)</strong>',home_metrics)]==[TOTAL[k] for k in ['records','groups','institutions','journals']], 'Homepage statistics are stale'
+assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[collection_totals()['entries'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
     old=merged['record'];target=next(r for r in RECORDS if r['id']==merged['retainedId'])
     assert old['id'] not in {r['id'] for r in RECORDS}
@@ -99,8 +102,8 @@ assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
     assert 'data-collection-total>918</strong>' in source
-    assert 'Publication entries across five collections' in source
-    assert 'Distinct publications' in source
+    assert 'Entries in five collections' in source
+    assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
