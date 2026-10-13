@@ -16,7 +16,7 @@
   }catch(error){console.warn('Oxygen catalogue synchronization unavailable',error);}
   const oxygenCount=holder.querySelectorAll('article.publication[data-catalogue="oxygen"]').length;
   const totalCount=holder.querySelectorAll('article.publication').length;
-  if(oxygenCount===215&&totalCount>=923){
+  if(oxygenCount===215&&totalCount>=613){
    document.querySelectorAll('[data-metric="collectionEntries"]').forEach(el=>el.textContent='923');
    document.querySelectorAll('a[data-collection-link="oxygen"],a[href$="/catalogues/oxygen.html"]').forEach(a=>{a.innerHTML=a.innerHTML.replace(/210(?=\\s|<)/,'215');});
   }
