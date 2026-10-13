@@ -1,14 +1,14 @@
 {
   "collectionTotals": {
-    "entries": 918,
+    "entries": 923,
     "collections": {
       "transplant": 62,
       "human": 180,
       "veterinary": 260,
-      "oxygen": 210,
+      "oxygen": 215,
       "related": 206
     },
-    "distinctRecordsInFiveCollections": 599,
+    "distinctRecordsInFiveCollections": 604,
     "repeatedPlacements": 319,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
@@ -21,17 +21,17 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 608
+    "distinctRecordsInFullLibrary": 613
   },
-  "snapshot": "2026-10-11",
-  "uniquePublications": 608,
+  "snapshot": "2026-10-13",
+  "uniquePublications": 613,
   "hubPlacements": 502,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 156,
   "normalizedJournalLabels": 186,
   "catalogues": {
     "product": 192,
-    "oxygen": 210,
+    "oxygen": 215,
     "related": 206
   },
   "hubs": {
