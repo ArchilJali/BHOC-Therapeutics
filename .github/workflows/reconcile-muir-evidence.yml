@@ -1,0 +1,53 @@
+name: Reconcile approved Muir veterinary evidence
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/add_muir_evidence.py'
+permissions:
+  contents: write
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Merge source-verified Muir studies
+        run: python3 scripts/add_muir_evidence.py
+      - name: Build public evidence catalogues and counters
+        run: python3 scripts/build_evidence_catalogues.py
+      - name: Verify evidence and source records
+        run: python3 scripts/check_evidence_catalogues.py
+      - name: Validate generated website
+        run: node scripts/check_site.mjs
+      - name: Record verified catalogue additions
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("evidence/library/catalogues/data/statistics.json")
+          stats=json.loads(p.read_text())
+          total=stats["publicationCounter"]["displayedTotal"]
+          vet=stats["views"]["veterinary"]["records"]
+          oxygen=stats["views"]["oxygen"]["records"]
+          path=Path("news/knowledge-updates/index.html")
+          html=path.read_text()
+          key='id="muir-catalogue-additions-20261014"'
+          if key not in html:
+              title='Muir-authored studies incorporated into Veterinary publication search'
+              entry=f'<article class="timeline-item" {key}><div class="timeline-date"><time datetime="2026-10-14">14 Oct 2026</time><span>Veterinary · oxygenation research</span></div><div class="timeline-copy"><h2>{title}</h2><p>Reviewed William W. Muir\'s published studies on oxygenation, gas exchange, hemorrhagic shock and HBOCs. Integrated source-verified, previously absent research records into the shared evidence catalogue. Earlier HBOC-301 (2000), Muir and Wellman (2003), and HBOC-201 (2011) entries remain unique without duplication. The shared library shows {total} publications, Veterinary {vet}, Oxygen Diffusion &amp; Microcirculation {oxygen}.</p><div class="timeline-links"><a href="/evidence/library/veterinary/Vet-search.html?q=Muir">Search Muir in Veterinary publications →</a><a href="/evidence/library/catalogues/oxygen.html">Oxygen diffusion catalogue →</a></div></div></article>'
+              marker='<section class="timeline" aria-label="October 2026 BHOC knowledge updates">'
+              assert marker in html
+              path.write_text(html.replace(marker,marker+'\n'+entry,1))
+          PY
+      - name: Commit generated canonical pages
+        run: |
+          git config user.name "BHOC evidence automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add evidence/library/catalogues/ evidence/library/veterinary/Vet-search.html evidence/library/veterinary/publication-catalogue.html evidence/library/human/BHOC-Human-search.html evidence/library/transplant/Transplant-search.html news/knowledge-updates/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish Muir studies in canonical veterinary evidence and reconcile count"
+            git push
+          fi
