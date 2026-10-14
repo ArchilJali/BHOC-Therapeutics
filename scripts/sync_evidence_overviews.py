@@ -32,6 +32,7 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
         s=re.sub(r'<strong>\d+</strong><span>(?:publication records|entries across five collections)</span>',f'<strong>{collection_totals()["entries"]}</strong><span>entries across five collections</span>',s)
         s=s.replace('href="https://bhoctherapeutics.com/evidence/library/" target="_blank" rel="noopener noreferrer">Explore the evidence ↗','href="/evidence/library/catalogues/">Search all publications →')
         s=re.sub(r'<strong>\d+</strong><span>scientific journals</span>',f'<strong>{TOTAL["journals"]}</strong><span>scientific journals</span>',s)
+        s=re.sub(r'<strong>\d+</strong><span>author institutions</span>',f'<strong>{TOTAL["institutions"]}</strong><span>author institutions</span>',s)
         s=s.replace('<strong>3</strong><span>application hubs</span>','<strong>5</strong><span>publication collections</span>')
         s=re.sub(r'<p id="evidence-count-note">[\s\S]*?</p>','',s)
     if f==BASE/'index.html':
@@ -111,17 +112,18 @@ for kind,file,field,cls in [('veterinary','veterinary/Vet-index.html','speciesGr
         s=re.sub(r'(<dt>Human clinical records</dt><dd>)\d+',lambda m:m[1]+str(clinical),s)
     if kind=='transplant':
         # Keep the two scientific evidence layers and expose their actual matching subsets.
-        s=s.replace('5 related records','8 related records')
+        s=re.sub(r'\b(?:5|8|10) related records',str(sum('Related transplantation studies' in r['collection'] for r in VIEWS[kind]))+' related records',s)
         s=s.replace('href="Transplant-search.html">Historical HBOC evidence','href="Transplant-search.html?collection=Historical%20oxygen-carrier%20research">Historical HBOC evidence')
         s=s.replace('href="Transplant-search.html">Search historical evidence','href="Transplant-search.html?collection=Historical%20oxygen-carrier%20research">Search historical evidence')
         s=s.replace('<h2>54 source-linked records</h2>','<h2>Search the complete transplantation catalogue</h2>')
-        s=s.replace('The statistics below apply to the existing HBOC / oxygen-carrier catalogue only. The external relevant-evidence layer is counted separately.','The statistics below cover all 62 unique transplantation records. Use the research-collection filter to separate 54 historical oxygen-carrier records from 8 related studies.')
+        s=s.replace('The statistics below apply to the existing HBOC / oxygen-carrier catalogue only. The external relevant-evidence layer is counted separately.','The statistics below cover all 64 unique transplantation records. Use the research-collection filter to separate 54 historical oxygen-carrier records from 10 related studies.')
         s=s.replace('Historical evidence by organ','Browse evidence by organ')
         s=s.replace('Counts represent catalogue records assigned to one primary transplant direction.','Counts represent records with the selected organ label. A study may appear under more than one organ.')
         s=s.replace('>Historical / direct oxygen-carrier catalogue</div><h2>Search','>Complete transplantation catalogue</div><h2>Search')
         # The collection remains 54 in the layer card; metadata describes the complete search.
         before,body=s.split('</head>',1)
-        before=re.sub(r'\b54 (source-linked publications|publications|publication records)',lambda m:'62 '+m[1],before)
+        before=re.sub(r'\b54 (source-linked publications|publications|publication records)',lambda m:str(STATS[kind]['records'])+' '+m[1],before)
+        before=re.sub(r'\b62 (source-linked publications|publications|publication records)',lambda m:str(STATS[kind]['records'])+' '+m[1],before)
         before=before.replace('"dateModified":"2026-10-04"','"dateModified":"2026-10-11"')
         s=before+'</head>'+body
     # Legacy "institutionSearch" and other filter anchors are handled by the new shared search.
@@ -138,21 +140,10 @@ main=main.replace('</main>',collection_summary()+'</main>')
 p.write_text(css(head)+'<body class="evidence-catalogue">'+HEADER+main+FOOTER+'</body></html>')
 
 # Every linked metrics endpoint reflects the same published views.
-platform={'collectionTotals':collection_totals(),'snapshot':'2026-10-11','uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'Three topic catalogues are mutually exclusive. Application views overlap. Statistics use public bibliographic records only.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}
+platform={'collectionTotals':collection_totals(),'snapshot':DATA['updated'],'uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'Three topic catalogues are mutually exclusive. Application views overlap. Statistics use public bibliographic records only.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}
 (BASE/'platform-overview.json').write_text(json.dumps(platform,indent=2)+'\n')
-news=ROOT/'news/knowledge-updates/index.html';s=news.read_text()
-s=re.sub(r'The library contains \d+ unique publication records;',f'The library contains {len(RECORDS)} unique publication records;',s)
-s=re.sub(r'<p id="combined-catalogue-update">[\s\S]*?</p>','',s)
-if 'id="combined-search-20261011"' not in s:
-    s=s.replace('<article class="timeline-item" id="evidence-catalogues-20261011">', '<article class="timeline-item" id="combined-search-20261011"><div class="timeline-date"><time datetime="2026-10-11">11 Oct 2026</time><span>Evidence Library · Update 84</span></div><div class="timeline-copy"><h2>One search across all three scientific catalogues</h2><p>Oxyglobin &amp; Hemopure Evidence, Oxygen Diffusion &amp; Microcirculation and Related Scientific Articles can now be searched together, with catalogue filters and shared statistics.</p><div class="timeline-links"><a href="/evidence/library/catalogues/">Search all publications →</a></div></div></article>\n<article class="timeline-item" id="evidence-catalogues-20261011">',1)
-if 'id="five-collection-update"' not in s:
-    s=s.replace('<h2>One search across all three scientific catalogues</h2>', '<h2>One search across all three scientific catalogues</h2><p id="five-collection-update">The overview now shows 918 publication entries across Transplant (62), Human (180), Veterinary (260), Oxygen Diffusion &amp; Microcirculation (210), and Related Scientific Articles (206). The main Evidence navigation opens the combined search directly.</p>')
-s=s.replace("the complete search also reports distinct publications separately.", "the complete search keeps one card for each publication.")
-s=s.replace('Publications can appear in multiple collections; the complete search keeps one card for each publication. ', '')
-s=s.replace(' The publication count has been checked against every imported source row, including both original spreadsheets. All source rows remain accounted for.', '')
-s=re.sub(r'<a href="/evidence/library/catalogues/methodology.html#counting">[\s\S]*?</a>', '', s)
-news.write_text(s)
-vet={'snapshot':'2026-10-11',**STATS['veterinary'],'total':STATS['veterinary']['records'],'journalLabels':STATS['veterinary']['journals'],'groups':[{'value':v,'label':v,'count':n} for v,n in Counter(v for r in VIEWS['veterinary'] for v in r['speciesGroups']).items()],'notes':{'counts':'Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model.'}}
+# Historical knowledge-update entries retain the counts at their publication date.
+vet={'snapshot':DATA['updated'],**STATS['veterinary'],'total':STATS['veterinary']['records'],'journalLabels':STATS['veterinary']['journals'],'groups':[{'value':v,'label':v,'count':n} for v,n in Counter(v for r in VIEWS['veterinary'] for v in r['speciesGroups']).items()],'notes':{'counts':'Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model.'}}
 (BASE/'veterinary/overview-statistics.json').write_text(json.dumps(vet,indent=2)+'\n')
 
 # Preserve queries and anchors through the old root search URL.

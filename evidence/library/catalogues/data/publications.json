@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-14",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -14142,7 +14142,12 @@
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-71157fa7691a",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
     },
     {
       "title": "Hemoglobin-based oxygen carriers as rescue therapy: justified experiment or unnecessary risk?",
@@ -22985,7 +22990,12 @@
       "classificationBasis": "Oxygen Master / primary oxygen physiology topic",
       "id": "pub-a83410d3b3fe",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ]
     },
     {
       "title": "Use of a hemoglobin-based oxygen-carrying solution in cats: 72 cases (1998-2000)",
@@ -30436,6 +30446,1648 @@
       "id": "pub-b96bcdf50bcd",
       "verification": "Incomplete source fragment",
       "recordType": "Import fragment requiring review"
+    },
+    {
+      "title": "Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review",
+      "year": "2019",
+      "authors": "Thomas Parker; David Brealey; Alex Dyson; Mervyn Singer",
+      "journal": "British Journal of Anaesthesia",
+      "doi": "10.1016/j.bja.2019.03.027",
+      "pmid": "31054772",
+      "citation": "Thomas Parker; David Brealey; Alex Dyson; Mervyn Singer. Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review. British Journal of Anaesthesia. 2019;123(2):170-176. doi:10.1016/j.bja.2019.03.027. PMID:31054772.",
+      "product": "",
+      "keywords": "",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Tissue oxygenation / perfusion",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/31054772/",
+        "https://doi.org/10.1016/j.bja.2019.03.027"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "31054772",
+          "title": "Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review",
+          "year": "2019",
+          "doi": "10.1016/j.bja.2019.03.027",
+          "pmid": "31054772"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Previously approved published oxygen-physiology record",
+      "id": "pub-dyson-singer-2019-bja201903027",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": []
+    },
+    {
+      "title": "Tissue oxygen monitoring in rodent models of shock",
+      "year": "2007",
+      "authors": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer",
+      "journal": "American Journal of Physiology Heart and Circulatory Physiology",
+      "doi": "10.1152/ajpheart.00052.2007",
+      "pmid": "17384135",
+      "citation": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer. Tissue oxygen monitoring in rodent models of shock. American Journal of Physiology Heart and Circulatory Physiology. 2007;293(1):H526-H533. doi:10.1152/ajpheart.00052.2007. PMID:17384135.",
+      "product": "",
+      "keywords": "",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Tissue oxygenation / perfusion",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/17384135/",
+        "https://doi.org/10.1152/ajpheart.00052.2007"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "17384135",
+          "title": "Tissue oxygen monitoring in rodent models of shock",
+          "year": "2007",
+          "doi": "10.1152/ajpheart.00052.2007",
+          "pmid": "17384135"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Previously approved published oxygen-physiology record",
+      "id": "pub-dyson-singer-2007-art000522007",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": []
+    },
+    {
+      "title": "Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients",
+      "year": "2013",
+      "authors": "Nasirul J Ekbal; Alex Dyson; Claire Black; Mervyn Singer",
+      "journal": "Chest",
+      "doi": "10.1378/chest.12-1849",
+      "pmid": "23732592",
+      "citation": "Nasirul J Ekbal; Alex Dyson; Claire Black; Mervyn Singer. Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients. Chest. 2013;143(6):1799-1808. doi:10.1378/chest.12-1849. PMID:23732592.",
+      "product": "",
+      "keywords": "",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Tissue oxygenation / perfusion",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/23732592/",
+        "https://doi.org/10.1378/chest.12-1849"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "23732592",
+          "title": "Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients",
+          "year": "2013",
+          "doi": "10.1378/chest.12-1849",
+          "pmid": "23732592"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Previously approved published oxygen-physiology record",
+      "id": "pub-dyson-singer-2013-8chest121849",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": []
+    },
+    {
+      "title": "The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage",
+      "year": "2009",
+      "authors": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer",
+      "journal": "Intensive Care Medicine",
+      "doi": "10.1007/s00134-009-1577-2",
+      "pmid": "19618165",
+      "citation": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer. The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage. Intensive Care Medicine. 2009;35(10):1783-1791. doi:10.1007/s00134-009-1577-2. PMID:19618165.",
+      "product": "",
+      "keywords": "",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Tissue oxygenation / perfusion",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/19618165/",
+        "https://doi.org/10.1007/s00134-009-1577-2"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "19618165",
+          "title": "The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage",
+          "year": "2009",
+          "doi": "10.1007/s00134-009-1577-2",
+          "pmid": "19618165"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Previously approved published oxygen-physiology record",
+      "id": "pub-dyson-singer-2009-013400915772",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": []
+    },
+    {
+      "title": "Temporal changes in tissue cardiorespiratory function during faecal peritonitis",
+      "year": "2011",
+      "authors": "Alex Dyson; Alain Rudiger; Mervyn Singer",
+      "journal": "Intensive Care Medicine",
+      "doi": "10.1007/s00134-011-2227-z",
+      "pmid": "21533572",
+      "citation": "Alex Dyson; Alain Rudiger; Mervyn Singer. Temporal changes in tissue cardiorespiratory function during faecal peritonitis. Intensive Care Medicine. 2011;37(7):1192-1200. doi:10.1007/s00134-011-2227-z. PMID:21533572.",
+      "product": "",
+      "keywords": "",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Tissue oxygenation / perfusion",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21533572/",
+        "https://doi.org/10.1007/s00134-011-2227-z"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "21533572",
+          "title": "Temporal changes in tissue cardiorespiratory function during faecal peritonitis",
+          "year": "2011",
+          "doi": "10.1007/s00134-011-2227-z",
+          "pmid": "21533572"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Previously approved published oxygen-physiology record",
+      "id": "pub-dyson-singer-2011-01340112227z",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": []
+    },
+    {
+      "title": "Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance",
+      "year": "1998",
+      "authors": "T C Page; W R Light; C B McKay; J D Hellums",
+      "journal": "Microvascular Research",
+      "doi": "10.1006/mvre.1997.2055",
+      "pmid": "9473409",
+      "citation": "T C Page; W R Light; C B McKay; J D Hellums. Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance. Microvascular Research. 1998;55(1):54-64. doi:10.1006/mvre.1997.2055. PMID:9473409.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Rice University"
+      ],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/9473409/",
+        "https://doi.org/10.1006/mvre.1997.2055"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "9473409",
+          "title": "Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance",
+          "year": "1998",
+          "doi": "10.1006/mvre.1997.2055",
+          "pmid": "9473409"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-9473409",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures",
+      "year": "1998",
+      "authors": "T C Page; W R Light; J D Hellums",
+      "journal": "Microvascular Research",
+      "doi": "10.1006/mvre.1998.2088",
+      "pmid": "9756734",
+      "citation": "T C Page; W R Light; J D Hellums. Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures. Microvascular Research. 1998;56(2):113-126. doi:10.1006/mvre.1998.2088. PMID:9756734.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; RBC and extracellular hemoglobin comparisons",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Biopure Corporation"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/9756734/",
+        "https://doi.org/10.1006/mvre.1998.2088"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "9756734",
+          "title": "Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures",
+          "year": "1998",
+          "doi": "10.1006/mvre.1998.2088",
+          "pmid": "9756734"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-9756734",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers",
+      "year": "2001",
+      "authors": "M R McCarthy; K D Vandegriff; R M Winslow",
+      "journal": "Biophysical Chemistry",
+      "doi": "10.1016/s0301-4622(01)00194-6",
+      "pmid": "11527583",
+      "citation": "M R McCarthy; K D Vandegriff; R M Winslow. The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers. Biophysical Chemistry. 2001;92(1-2):103-117. doi:10.1016/s0301-4622(01)00194-6. PMID:11527583.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "University of California San Diego"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/11527583/",
+        "https://doi.org/10.1016/s0301-4622(01)00194-6"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "11527583",
+          "title": "The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers",
+          "year": "2001",
+          "doi": "10.1016/s0301-4622(01)00194-6",
+          "pmid": "11527583"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-11527583",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries",
+      "year": "2002",
+      "authors": "Arjun Vadapalli; Daniel Goldman; Aleksander S Popel",
+      "journal": "Artificial Cells, Blood Substitutes, and Immobilization Biotechnology",
+      "doi": "10.1081/bio-120004338",
+      "pmid": "12066873",
+      "citation": "Arjun Vadapalli; Daniel Goldman; Aleksander S Popel. Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries. Artificial Cells, Blood Substitutes, and Immobilization Biotechnology. 2002;30(3):157-188. doi:10.1081/bio-120004338. PMID:12066873.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; RBC and extracellular hemoglobin comparisons; P50, oxygen affinity and cooperativity; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Johns Hopkins University"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12066873/",
+        "https://doi.org/10.1081/bio-120004338"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "12066873",
+          "title": "Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries",
+          "year": "2002",
+          "doi": "10.1081/bio-120004338",
+          "pmid": "12066873"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-vadapalli-goldman-popel-2002",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers",
+      "year": "2006",
+      "authors": "Jaqunda N Patton; Andre F Palmer",
+      "journal": "Biotechnology Progress",
+      "doi": "10.1021/bp060022a",
+      "pmid": "16889379",
+      "citation": "Jaqunda N Patton; Andre F Palmer. Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers. Biotechnology Progress. 2006;22(4):1025-1049. doi:10.1021/bp060022a. PMID:16889379.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/16889379/",
+        "https://doi.org/10.1021/bp060022a"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "16889379",
+          "title": "Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers",
+          "year": "2006",
+          "doi": "10.1021/bp060022a",
+          "pmid": "16889379"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-16889379",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks",
+      "year": "2007",
+      "authors": "Nikolaos M Tsoukias; Daniel Goldman; Arjun Vadapalli; Roland N Pittman; Aleksander S Popel",
+      "journal": "Journal of Theoretical Biology",
+      "doi": "10.1016/j.jtbi.2007.06.012",
+      "pmid": "17686494",
+      "citation": "Nikolaos M Tsoukias; Daniel Goldman; Arjun Vadapalli; Roland N Pittman; Aleksander S Popel. A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks. Journal of Theoretical Biology. 2007;248(4):657-674. doi:10.1016/j.jtbi.2007.06.012. PMID:17686494.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Microcirculation, low hematocrit and tissue hypoxia; Oxygen distribution and vascular effects",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/17686494/",
+        "https://doi.org/10.1016/j.jtbi.2007.06.012"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "17686494",
+          "title": "A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks",
+          "year": "2007",
+          "doi": "10.1016/j.jtbi.2007.06.012",
+          "pmid": "17686494"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-17686494",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions",
+      "year": "2007",
+      "authors": "Russell H Cole; Kim D Vandegriff; Andrew J Szeri; Omer Savaş; Dale A Baker; Robert M Winslow",
+      "journal": "Biophysical Chemistry",
+      "doi": "10.1016/j.bpc.2007.03.004",
+      "pmid": "17418478",
+      "citation": "Russell H Cole; Kim D Vandegriff; Andrew J Szeri; Omer Savaş; Dale A Baker; Robert M Winslow. A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions. Biophysical Chemistry. 2007;128(1):63-74. doi:10.1016/j.bpc.2007.03.004. PMID:17418478.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; P50, oxygen affinity and cooperativity; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/17418478/",
+        "https://doi.org/10.1016/j.bpc.2007.03.004"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "17418478",
+          "title": "A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions",
+          "year": "2007",
+          "doi": "10.1016/j.bpc.2007.03.004",
+          "pmid": "17418478"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-17418478",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products",
+      "year": "2008",
+      "authors": "Russell Cole; Kim Vandegriff; Andrew Szeri; Omer Savas; Robert Winslow",
+      "journal": "Microvascular Research",
+      "doi": "10.1016/j.mvr.2008.07.002",
+      "pmid": "18671987",
+      "citation": "Russell Cole; Kim Vandegriff; Andrew Szeri; Omer Savas; Robert Winslow. Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products. Microvascular Research. 2008;76(3):169-179. doi:10.1016/j.mvr.2008.07.002. PMID:18671987.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; P50, oxygen affinity and cooperativity; Oxygen distribution and vascular effects",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/18671987/",
+        "https://doi.org/10.1016/j.mvr.2008.07.002"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "18671987",
+          "title": "Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products",
+          "year": "2008",
+          "doi": "10.1016/j.mvr.2008.07.002",
+          "pmid": "18671987"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-18671987",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Facilitated diffusion of oxygen in the presence of hemoglobin",
+      "year": "1970",
+      "authors": "F Kreuzer; L J Hoofd",
+      "journal": "Respiration Physiology",
+      "doi": "10.1016/0034-5687(70)90037-x",
+      "pmid": "5434415",
+      "citation": "F Kreuzer; L J Hoofd. Facilitated diffusion of oxygen in the presence of hemoglobin. Respiration Physiology. 1970;8(3):280-302. doi:10.1016/0034-5687(70)90037-x. PMID:5434415.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/5434415/",
+        "https://doi.org/10.1016/0034-5687(70)90037-x"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "5434415",
+          "title": "Facilitated diffusion of oxygen in the presence of hemoglobin",
+          "year": "1970",
+          "doi": "10.1016/0034-5687(70)90037-x",
+          "pmid": "5434415"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-5434415",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects",
+      "year": "1972",
+      "authors": "J A Jacquez; H Kutchai; E Daniels",
+      "journal": "Respiration Physiology",
+      "doi": "10.1016/0034-5687(72)90096-5",
+      "pmid": "5042165",
+      "citation": "J A Jacquez; H Kutchai; E Daniels. Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects. Respiration Physiology. 1972;15(2):166-181. doi:10.1016/0034-5687(72)90096-5. PMID:5042165.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/5042165/",
+        "https://doi.org/10.1016/0034-5687(72)90096-5"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "5042165",
+          "title": "Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects",
+          "year": "1972",
+          "doi": "10.1016/0034-5687(72)90096-5",
+          "pmid": "5042165"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-5042165",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "The facilitated diffusion of oxygen by hemoglobin and myoglobin",
+      "year": "1977",
+      "authors": "S I Rubinow; M Dembo",
+      "journal": "Biophysical Journal",
+      "doi": "10.1016/S0006-3495(77)85594-X",
+      "pmid": "856316",
+      "citation": "S I Rubinow; M Dembo. The facilitated diffusion of oxygen by hemoglobin and myoglobin. Biophysical Journal. 1977;18(1):29-42. doi:10.1016/S0006-3495(77)85594-X. PMID:856316.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/856316/",
+        "https://doi.org/10.1016/S0006-3495(77)85594-X"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "856316",
+          "title": "The facilitated diffusion of oxygen by hemoglobin and myoglobin",
+          "year": "1977",
+          "doi": "10.1016/S0006-3495(77)85594-X",
+          "pmid": "856316"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-856316",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "An in vitro capillary system for studies on microcirculatory O2 transport",
+      "year": "1987",
+      "authors": "E J Boland; P K Nair; D D Lemon; J S Olson; J D Hellums",
+      "journal": "Journal of Applied Physiology",
+      "doi": "10.1152/jappl.1987.62.2.791",
+      "pmid": "3558238",
+      "citation": "E J Boland; P K Nair; D D Lemon; J S Olson; J D Hellums. An in vitro capillary system for studies on microcirculatory O2 transport. Journal of Applied Physiology. 1987;62(2):791-797. doi:10.1152/jappl.1987.62.2.791. PMID:3558238.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/3558238/",
+        "https://doi.org/10.1152/jappl.1987.62.2.791"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "3558238",
+          "title": "An in vitro capillary system for studies on microcirculatory O2 transport",
+          "year": "1987",
+          "doi": "10.1152/jappl.1987.62.2.791",
+          "pmid": "3558238"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-3558238",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Oxygen transfer of red blood cells: experimental data and model analysis",
+      "year": "1988",
+      "authors": "C Hook; K Yamaguchi; P Scheid; J Piiper",
+      "journal": "Respiration Physiology",
+      "doi": "10.1016/0034-5687(88)90080-1",
+      "pmid": "3363237",
+      "citation": "C Hook; K Yamaguchi; P Scheid; J Piiper. Oxygen transfer of red blood cells: experimental data and model analysis. Respiration Physiology. 1988;72(1):65-82. doi:10.1016/0034-5687(88)90080-1. PMID:3363237.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/3363237/",
+        "https://doi.org/10.1016/0034-5687(88)90080-1"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "3363237",
+          "title": "Oxygen transfer of red blood cells: experimental data and model analysis",
+          "year": "1988",
+          "doi": "10.1016/0034-5687(88)90080-1",
+          "pmid": "3363237"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-3363237",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Theory of oxygen transport to tissue",
+      "year": "1989",
+      "authors": "A S Popel",
+      "journal": "Critical Reviews in Biomedical Engineering",
+      "doi": "",
+      "pmid": "2673661",
+      "citation": "A S Popel. Theory of oxygen transport to tissue. Critical Reviews in Biomedical Engineering. 1989;17(3):257-321. PMID:2673661.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Facilitated diffusion and transport resistance; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Johns Hopkins University"
+      ],
+      "species": [],
+      "evidence": "Review",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/2673661/"
+      ],
+      "notes": [
+        "DOI not confirmed in the checked bibliographic sources; use the verified PubMed record."
+      ],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "2673661",
+          "title": "Theory of oxygen transport to tissue",
+          "year": "1989",
+          "doi": "",
+          "pmid": "2673661"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-2673661",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Facilitated transport of oxygen through hemoglobin solutions",
+      "year": "1990",
+      "authors": "M Hashimoto; R Hata; T Shiga; A Isomoto; M Uozumi",
+      "journal": "Advances in Experimental Medicine and Biology",
+      "doi": "10.1007/978-1-4684-8181-5_23",
+      "pmid": "2096624",
+      "citation": "M Hashimoto; R Hata; T Shiga; A Isomoto; M Uozumi. Facilitated transport of oxygen through hemoglobin solutions. Advances in Experimental Medicine and Biology. 1990;277:181-190. doi:10.1007/978-1-4684-8181-5_23. PMID:2096624.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Osaka University"
+      ],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/2096624/",
+        "https://doi.org/10.1007/978-1-4684-8181-5_23"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "2096624",
+          "title": "Facilitated transport of oxygen through hemoglobin solutions",
+          "year": "1990",
+          "doi": "10.1007/978-1-4684-8181-5_23",
+          "pmid": "2096624"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-2096624",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Effect of red blood cell shape on oxygen transport in capillaries",
+      "year": "1993",
+      "authors": "C H Wang; A S Popel",
+      "journal": "Mathematical Biosciences",
+      "doi": "10.1016/0025-5564(93)90062-f",
+      "pmid": "8343620",
+      "citation": "C H Wang; A S Popel. Effect of red blood cell shape on oxygen transport in capillaries. Mathematical Biosciences. 1993;116(1):89-110. doi:10.1016/0025-5564(93)90062-f. PMID:8343620.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Johns Hopkins University"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/8343620/",
+        "https://doi.org/10.1016/0025-5564(93)90062-f"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "8343620",
+          "title": "Effect of red blood cell shape on oxygen transport in capillaries",
+          "year": "1993",
+          "doi": "10.1016/0025-5564(93)90062-f",
+          "pmid": "8343620"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-8343620",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "[A mathematical model of O2 transport by erythrocytes in capillaries]",
+      "year": "1996",
+      "authors": "Iu Ia Kisliakov",
+      "journal": "Biofizika",
+      "doi": "",
+      "pmid": "8924469",
+      "citation": "Iu Ia Kisliakov. [A mathematical model of O2 transport by erythrocytes in capillaries]. Biofizika. 1996;41(3):681-685. PMID:8924469.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/8924469/"
+      ],
+      "notes": [
+        "DOI not confirmed in the checked bibliographic sources; use the verified PubMed record."
+      ],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "8924469",
+          "title": "[A mathematical model of O2 transport by erythrocytes in capillaries]",
+          "year": "1996",
+          "doi": "",
+          "pmid": "8924469"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-8924469",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes",
+      "year": "2002",
+      "authors": "Maithili Sharan; Aleksander S Popel",
+      "journal": "Journal of Theoretical Biology",
+      "doi": "10.1006/jtbi.2002.3001",
+      "pmid": "12151262",
+      "citation": "Maithili Sharan; Aleksander S Popel. A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes. Journal of Theoretical Biology. 2002;216(4):479-500. doi:10.1006/jtbi.2002.3001. PMID:12151262.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Microcirculation, low hematocrit and tissue hypoxia; Oxygen distribution and vascular effects",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Indian Institute of Technology Delhi"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12151262/",
+        "https://doi.org/10.1006/jtbi.2002.3001"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "12151262",
+          "title": "A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes",
+          "year": "2002",
+          "doi": "10.1006/jtbi.2002.3001",
+          "pmid": "12151262"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-12151262",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution",
+      "year": "2005",
+      "authors": "Pedro Cabrales; Hiromi Sakai; Amy G Tsai; Shinji Takeoka; Eishun Tsuchida; Marcos Intaglietta",
+      "journal": "American Journal of Physiology Heart and Circulatory Physiology",
+      "doi": "10.1152/ajpheart.01004.2004",
+      "pmid": "15563528",
+      "citation": "Pedro Cabrales; Hiromi Sakai; Amy G Tsai; Shinji Takeoka; Eishun Tsuchida; Marcos Intaglietta. Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution. American Journal of Physiology Heart and Circulatory Physiology. 2005;288(4):H1885-H1892. doi:10.1152/ajpheart.01004.2004. PMID:15563528.",
+      "product": "Hemoglobin vesicles (HbV)",
+      "keywords": "P50, oxygen affinity and cooperativity; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of California San Diego"
+      ],
+      "species": [
+        "Hamster"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/15563528/",
+        "https://doi.org/10.1152/ajpheart.01004.2004"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "15563528",
+          "title": "Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution",
+          "year": "2005",
+          "doi": "10.1152/ajpheart.01004.2004",
+          "pmid": "15563528"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-15563528",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery",
+      "year": "2007",
+      "authors": "Hiromi Sakai; Eishun Tsuchida",
+      "journal": "Journal of Liposome Research",
+      "doi": "10.1080/08982100701529904",
+      "pmid": "18027243",
+      "citation": "Hiromi Sakai; Eishun Tsuchida. Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery. Journal of Liposome Research. 2007;17(3-4):227-235. doi:10.1080/08982100701529904. PMID:18027243.",
+      "product": "Hemoglobin vesicles (HbV)",
+      "keywords": "P50, oxygen affinity and cooperativity; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Waseda University"
+      ],
+      "species": [],
+      "evidence": "Review",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/18027243/",
+        "https://doi.org/10.1080/08982100701529904"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "18027243",
+          "title": "Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery",
+          "year": "2007",
+          "doi": "10.1080/08982100701529904",
+          "pmid": "18027243"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "related",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-18027243",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model",
+      "year": "2018",
+      "authors": "Esra'a Alomari; Luca Ronda; Stefano Bruno; Gianluca Paredi; Marialaura Marchetti; Stefano Bettati; Davide Olivari; Francesca Fumagalli; Deborah Novelli; Giuseppe Ristagno; Roberto Latini; Chris E Cooper; Brandon J Reeder; Andrea Mozzarelli",
+      "journal": "Free Radical Biology & Medicine",
+      "doi": "10.1016/j.freeradbiomed.2018.06.018",
+      "pmid": "29920341",
+      "citation": "Esra'a Alomari; Luca Ronda; Stefano Bruno; Gianluca Paredi; Marialaura Marchetti; Stefano Bettati; Davide Olivari; Francesca Fumagalli; Deborah Novelli; Giuseppe Ristagno; Roberto Latini; Chris E Cooper; Brandon J Reeder; Andrea Mozzarelli. High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model. Free Radical Biology & Medicine. 2018;124:299-310. doi:10.1016/j.freeradbiomed.2018.06.018. PMID:29920341.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "P50, oxygen affinity and cooperativity; Oxygen distribution and vascular effects",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of Parma",
+        "University of Essex",
+        "Istituto di Ricerche Farmacologiche Mario Negri",
+        "Istituto Nazionale Biostrutture e Biosistemi",
+        "Consiglio Nazionale delle Ricerche"
+      ],
+      "species": [
+        "Guinea pig"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/29920341/",
+        "https://doi.org/10.1016/j.freeradbiomed.2018.06.018"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "29920341",
+          "title": "High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model",
+          "year": "2018",
+          "doi": "10.1016/j.freeradbiomed.2018.06.018",
+          "pmid": "29920341"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "related",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-29920341",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier",
+      "year": "2020",
+      "authors": "Donald A Belcher; Alfredo Lucas; Pedro Cabrales; Andre F Palmer",
+      "journal": "Scientific Reports",
+      "doi": "10.1038/s41598-020-68190-0",
+      "pmid": "32647211",
+      "citation": "Donald A Belcher; Alfredo Lucas; Pedro Cabrales; Andre F Palmer. Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier. Scientific Reports. 2020;10(1):11372. doi:10.1038/s41598-020-68190-0. PMID:32647211.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "P50, oxygen affinity and cooperativity; Microcirculation, low hematocrit and tissue hypoxia; Oxygen distribution and vascular effects",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of California San Diego",
+        "The Ohio State University"
+      ],
+      "species": [
+        "Mouse"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/32647211/",
+        "https://doi.org/10.1038/s41598-020-68190-0"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "32647211",
+          "title": "Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier",
+          "year": "2020",
+          "doi": "10.1038/s41598-020-68190-0",
+          "pmid": "32647211"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-32647211",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition",
+      "year": "2023",
+      "authors": "Farhad A Amiri; Junfeng Zhang",
+      "journal": "Bulletin of Mathematical Biology",
+      "doi": "10.1007/s11538-023-01155-2",
+      "pmid": "37129671",
+      "citation": "Farhad A Amiri; Junfeng Zhang. Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition. Bulletin of Mathematical Biology. 2023;85(6):50. doi:10.1007/s11538-023-01155-2. PMID:37129671.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Capillary oxygen transport models; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Laurentian University"
+      ],
+      "species": [
+        "In silico / modelling"
+      ],
+      "evidence": "Computational model",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/37129671/",
+        "https://doi.org/10.1007/s11538-023-01155-2"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "37129671",
+          "title": "Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition",
+          "year": "2023",
+          "doi": "10.1007/s11538-023-01155-2",
+          "pmid": "37129671"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-37129671",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model",
+      "year": "1997",
+      "authors": "Y Izumi; H Sakai; T Kose; K Hamada; S Takeoka; A Yoshizu; H Horinouchi; R Kato; H Nishide; E Tsuchida; K Kobayashi",
+      "journal": "ASAIO Journal",
+      "doi": "10.1097/00002480-199707000-00006",
+      "pmid": "9242942",
+      "citation": "Y Izumi; H Sakai; T Kose; K Hamada; S Takeoka; A Yoshizu; H Horinouchi; R Kato; H Nishide; E Tsuchida; K Kobayashi. Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model. ASAIO Journal. 1997;43(4):289-297. doi:10.1097/00002480-199707000-00006. PMID:9242942.",
+      "product": "Hemoglobin vesicles (HbV)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "Keio University"
+      ],
+      "species": [
+        "Rat"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/9242942/",
+        "https://doi.org/10.1097/00002480-199707000-00006"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "9242942",
+          "title": "Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model",
+          "year": "1997",
+          "doi": "10.1097/00002480-199707000-00006",
+          "pmid": "9242942"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "related",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-9242942",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Oxygen transport in 10 microns artificial capillaries",
+      "year": "1999",
+      "authors": "T C Page; W R Light; J D Hellums",
+      "journal": "Advances in Experimental Medicine and Biology",
+      "doi": "",
+      "pmid": "10659206",
+      "citation": "T C Page; W R Light; J D Hellums. Oxygen transport in 10 microns artificial capillaries. Advances in Experimental Medicine and Biology. 1999;471:715-721. PMID:10659206.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "RBC and extracellular hemoglobin comparisons; Facilitated diffusion and transport resistance",
+      "directions": [
+        "Physiology"
+      ],
+      "institutions": [
+        "Biopure Corporation"
+      ],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/10659206/"
+      ],
+      "notes": [
+        "DOI not confirmed in the checked bibliographic sources; use the verified PubMed record."
+      ],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "10659206",
+          "title": "Oxygen transport in 10 microns artificial capillaries",
+          "year": "1999",
+          "doi": "",
+          "pmid": "10659206"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-10659206",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study",
+      "year": "2012",
+      "authors": "Manabu Yamamoto; Hirohisa Horinouchi; Koichi Kobayashi; Yasuhisa Seishi; Natsue Sato; Manabu Itoh; Hiromi Sakai",
+      "journal": "Artificial Cells, Blood Substitutes, and Immobilization Biotechnology",
+      "doi": "10.3109/10731199.2011.637929",
+      "pmid": "22288842",
+      "citation": "Manabu Yamamoto; Hirohisa Horinouchi; Koichi Kobayashi; Yasuhisa Seishi; Natsue Sato; Manabu Itoh; Hiromi Sakai. Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study. Artificial Cells, Blood Substitutes, and Immobilization Biotechnology. 2012;40(1-2):179-195. doi:10.3109/10731199.2011.637929. PMID:22288842.",
+      "product": "Hemoglobin vesicles (HbV)",
+      "keywords": "Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "Keio University"
+      ],
+      "species": [
+        "Canine (Dog)"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/22288842/",
+        "https://doi.org/10.3109/10731199.2011.637929"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "22288842",
+          "title": "Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study",
+          "year": "2012",
+          "doi": "10.3109/10731199.2011.637929",
+          "pmid": "22288842"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "related",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-22288842",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics",
+      "year": "2018",
+      "authors": "Scott K Ferguson; Julie W Harral; David I Pak; Katherine M Redinius; Kurt R Stenmark; Dominik J Schaer; Paul W Buehler; David C Irwin",
+      "journal": "Nitric Oxide",
+      "doi": "10.1016/j.niox.2018.03.005",
+      "pmid": "29526566",
+      "citation": "Scott K Ferguson; Julie W Harral; David I Pak; Katherine M Redinius; Kurt R Stenmark; Dominik J Schaer; Paul W Buehler; David C Irwin. Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics. Nitric Oxide. 2018;76:29-36. doi:10.1016/j.niox.2018.03.005. PMID:29526566.",
+      "product": "HBOC / oxygen carrier (general or other)",
+      "keywords": "Microcirculation, low hematocrit and tissue hypoxia; Oxygen distribution and vascular effects",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of Colorado",
+        "University of Zurich",
+        "U.S. Food and Drug Administration"
+      ],
+      "species": [
+        "Rat"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/29526566/",
+        "https://doi.org/10.1016/j.niox.2018.03.005"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "29526566",
+          "title": "Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics",
+          "year": "2018",
+          "doi": "10.1016/j.niox.2018.03.005",
+          "pmid": "29526566"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "oxygen",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-29526566",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": []
+    },
+    {
+      "title": "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneumonectomy in dog models: an experimental study",
+      "year": "2024",
+      "authors": "Kei Nakano; Mitsutomo Kohno; Hiroto Onozawa; Ryo Hashimoto; Kana Oiwa; Ryota Masuda; Masatoshi Yamaguchi; Tai Hato; Masazumi Watanabe; Hirohisa Horinouchi; Hiromi Sakai; Koichi Kobayashi; Masayuki Iwazaki",
+      "journal": "Biomedical Research",
+      "doi": "10.2220/biomedres.45.91",
+      "pmid": "38556266",
+      "citation": "Kei Nakano; Mitsutomo Kohno; Hiroto Onozawa; Ryo Hashimoto; Kana Oiwa; Ryota Masuda; Masatoshi Yamaguchi; Tai Hato; Masazumi Watanabe; Hirohisa Horinouchi; Hiromi Sakai; Koichi Kobayashi; Masayuki Iwazaki. Using hemoglobin vesicles to treat operative hemorrhagic shock after pneumonectomy in dog models: an experimental study. Biomedical Research. 2024;45(2):91-101. doi:10.2220/biomedres.45.91. PMID:38556266.",
+      "product": "Hemoglobin vesicles (HbV)",
+      "keywords": "Microcirculation, low hematocrit and tissue hypoxia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "Keio University",
+        "Tokai University",
+        "Saitama Medical University",
+        "Saitama City Hospital",
+        "Nara Medical University"
+      ],
+      "species": [
+        "Canine (Dog)"
+      ],
+      "evidence": "Animal experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/38556266/",
+        "https://doi.org/10.2220/biomedres.45.91"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "38556266",
+          "title": "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneumonectomy in dog models: an experimental study",
+          "year": "2024",
+          "doi": "10.2220/biomedres.45.91",
+          "pmid": "38556266"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "",
+      "catalogue": "related",
+      "classificationBasis": "Approved oxygen-transport literature, verified by PMID and DOI",
+      "id": "pub-pmid-38556266",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "titleAliases": [
+        "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneu- monectomy in dog models: an experimental study"
+      ]
+    },
+    {
+      "title": "Ex vivo normothermic machine perfusion is safe, simple, and reliable: results from a large animal model",
+      "year": "2015",
+      "authors": "Ahmed Nassar; Qiang Liu; Kevin Farias; Giuseppe D'Amico; Cynthia Tom; Patrick Grady; Ana Bennett; Teresa Diago Uso; Bijan Eghtesad; Dympna Kelly; John Fung; Kareem Abu-Elmagd; Charles Miller; Cristiano Quintini",
+      "journal": "Surgical innovation",
+      "doi": "10.1177/1553350614528383",
+      "pmid": "24694840",
+      "citation": "Ahmed Nassar; Qiang Liu; Kevin Farias; Giuseppe D'Amico; Cynthia Tom; Patrick Grady; Ana Bennett; Teresa Diago Uso; Bijan Eghtesad; Dympna Kelly; John Fung; Kareem Abu-Elmagd; Charles Miller; Cristiano Quintini. Ex vivo normothermic machine perfusion is safe, simple, and reliable: results from a large animal model. Surgical innovation. 2015;22(1):61-69. doi:10.1177/1553350614528383. PMID:24694840.",
+      "product": "",
+      "keywords": "Liver Normothermic machine perfusion",
+      "directions": [
+        "Transplant"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Preclinical porcine ex vivo study with transplant simulation",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/24694840/",
+        "https://doi.org/10.1177/1553350614528383"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "transplant/related/data/related-evidence.json",
+          "row": "TR-REL-2015-009",
+          "title": "Ex Vivo Normothermic Machine Perfusion Is Safe, Simple, and Reliable: Results From a Large Animal Model",
+          "year": "2015",
+          "doi": "10.1177/1553350614528383",
+          "pmid": "24694840"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "related",
+      "classificationBasis": "Previously approved Transplant Related Evidence only",
+      "id": "pub-pmid-24694840",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": [],
+      "catalogueSummary": "Ex vivo simulation, without transplantation into recipient animals. Neither BHOC nor clinical safety was established."
+    },
+    {
+      "title": "A Small Animal Model of Ex Vivo Normothermic Liver Perfusion",
+      "year": "2018",
+      "authors": "Eliza W Beal; Curtis Dumond; Jung-Lye Kim; Clifford Akateh; Emre Eren; Katelyn Maynard; Chandan K Sen; Jay L Zweier; Kenneth Washburn; Bryan A Whitson; Sylvester M Black",
+      "journal": "Journal of visualized experiments : JoVE",
+      "doi": "10.3791/57541",
+      "pmid": "30010635",
+      "citation": "Eliza W Beal; Curtis Dumond; Jung-Lye Kim; Clifford Akateh; Emre Eren; Katelyn Maynard; Chandan K Sen; Jay L Zweier; Kenneth Washburn; Bryan A Whitson; Sylvester M Black. A Small Animal Model of Ex Vivo Normothermic Liver Perfusion. Journal of visualized experiments : JoVE. 2018;(136). doi:10.3791/57541. PMID:30010635.",
+      "product": "",
+      "keywords": "Liver Normothermic ex vivo perfusion with PEG-catalase",
+      "directions": [
+        "Transplant"
+      ],
+      "institutions": [
+        "UCL"
+      ],
+      "species": [],
+      "evidence": "Preclinical rat ex vivo methods study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/30010635/",
+        "https://doi.org/10.3791/57541"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "transplant/related/data/related-evidence.json",
+          "row": "TR-REL-2018-010",
+          "title": "A Small Animal Model of Ex Vivo Normothermic Liver Perfusion",
+          "year": "2018",
+          "doi": "10.3791/57541",
+          "pmid": "30010635"
+        }
+      ],
+      "originalVerification": "matched",
+      "sourceReview": "Scientific context relevant to tissue oxygenation and microcirculation; not evidence of BHOC efficacy.",
+      "catalogue": "related",
+      "classificationBasis": "Previously approved Transplant Related Evidence only",
+      "id": "pub-pmid-30010635",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [],
+      "titleAliases": [],
+      "catalogueSummary": "Small exploratory groups and no transplantation after perfusion. Post-transplant function and BHOC benefit were not established."
     }
   ],
   "mergedRecords": [

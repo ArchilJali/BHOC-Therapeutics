@@ -1,6 +1,6 @@
 {
-  "snapshot": "2026-10-11",
-  "records": 260,
+  "snapshot": "2026-10-14",
+  "records": 267,
   "groups": [
     {
       "value": "Human",
@@ -10,12 +10,12 @@
     {
       "value": "Porcine (Pig)",
       "label": "Porcine (Pig)",
-      "count": 43
+      "count": 44
     },
     {
       "value": "Rodent",
       "label": "Rodent",
-      "count": 41
+      "count": 46
     },
     {
       "value": "Other animal",
@@ -25,7 +25,7 @@
     {
       "value": "Canine (Dog)",
       "label": "Canine (Dog)",
-      "count": 28
+      "count": 30
     },
     {
       "value": "Feline (Cat)",
@@ -53,12 +53,12 @@
       "count": 4
     }
   ],
-  "institutions": 154,
-  "journals": 116,
+  "institutions": 166,
+  "journals": 123,
   "groupField": "speciesGroups",
   "groupLabel": "Species / model groups",
-  "total": 260,
-  "journalLabels": 116,
+  "total": 267,
+  "journalLabels": 123,
   "notes": {
     "counts": "Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model."
   }

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-14",
   "total": {
-    "records": 608,
-    "groups": 10,
-    "institutions": 156,
-    "journals": 186,
+    "records": 643,
+    "groups": 11,
+    "institutions": 174,
+    "journals": 208,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
@@ -18,26 +18,26 @@
       "groupLabel": "Species / model groups"
     },
     "oxygen": {
-      "records": 210,
-      "groups": 4,
-      "institutions": 5,
-      "journals": 27,
+      "records": 238,
+      "groups": 5,
+      "institutions": 15,
+      "journals": 45,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "related": {
-      "records": 206,
+      "records": 213,
       "groups": 8,
-      "institutions": 74,
-      "journals": 117,
+      "institutions": 86,
+      "journals": 124,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 260,
+      "records": 267,
       "groups": 10,
-      "institutions": 154,
-      "journals": 116,
+      "institutions": 166,
+      "journals": 123,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -50,34 +50,34 @@
       "groupLabel": "Therapeutic areas"
     },
     "transplant": {
-      "records": 62,
+      "records": 64,
       "groups": 6,
-      "institutions": 45,
-      "journals": 31,
+      "institutions": 46,
+      "journals": 33,
       "groupField": "organ",
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 608,
-      "groups": 10,
-      "institutions": 156,
-      "journals": 186,
+      "records": 643,
+      "groups": 11,
+      "institutions": 174,
+      "journals": 208,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 608,
+  "publicRecords": 643,
   "collectionTotals": {
-    "entries": 918,
+    "entries": 962,
     "collections": {
-      "transplant": 62,
+      "transplant": 64,
       "human": 180,
-      "veterinary": 260,
-      "oxygen": 210,
-      "related": 206
+      "veterinary": 267,
+      "oxygen": 238,
+      "related": 213
     },
-    "distinctRecordsInFiveCollections": 599,
-    "repeatedPlacements": 319,
+    "distinctRecordsInFiveCollections": 634,
+    "repeatedPlacements": 328,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,7 +89,7 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 608
+    "distinctRecordsInFullLibrary": 643
   },
   "archivedIncompleteEntries": 48,
   "duplicateIds": 0,

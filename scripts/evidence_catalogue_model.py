@@ -1,4 +1,4 @@
-"""Shared, source-backed catalogue views and statistics. No external enrichment."""
+"""Shared catalogue views and statistics from imported and user-approved sources."""
 import json, re, subprocess
 from pathlib import Path
 from collections import Counter
@@ -46,7 +46,7 @@ core_scopes=json.loads(subprocess.check_output(['node','-e',"const C=require('./
 
 def species(r):
     s=' '.join(r['species']).lower(); result=[]
-    for label,pattern in [('Canine (Dog)',r'canine|\bdogs?\b|foxhound'),('Feline (Cat)',r'feline|\bcats?\b'),('Equine (Horse)',r'equine|horse|foal'),('Porcine (Pig)',r'porcine|\bpigs?\b|swine'),('Ovine (Sheep)',r'ovine|sheep|lamb'),('Rodent',r'rodent|\brats?\b|mice|mouse|hamster|hampster|guinea'),('Avian (Bird)',r'avian|bird|duck|hawk'),('Other animal',r'ferret|rabbit|tamandua|otter|other animal'),('Human',r'human'),('In vitro / laboratory',r'in vitro|samples|plasma|cell culture|analytes|instruments|machinery')]:
+    for label,pattern in [('Canine (Dog)',r'canine|\bdogs?\b|foxhound'),('Feline (Cat)',r'feline|\bcats?\b'),('Equine (Horse)',r'equine|horse|foal'),('Porcine (Pig)',r'porcine|\bpigs?\b|swine'),('Ovine (Sheep)',r'ovine|sheep|lamb'),('Rodent',r'rodent|\brats?\b|mice|mouse|hamster|hampster|guinea'),('Avian (Bird)',r'avian|bird|duck|hawk'),('Other animal',r'ferret|rabbit|tamandua|otter|other animal'),('Human',r'human'),('In vitro / laboratory',r'in vitro|samples|plasma|cell culture|analytes|instruments|machinery'),('In silico / modelling',r'in silico|computational|mathematical model')]:
         if re.search(pattern,s):result.append(label)
     return result
 
@@ -64,6 +64,7 @@ sources={
  'Transplant':{str(r['id']):r for r in read('transplant/Transplant-publications.json')},
  'Veterinary base':{str(r['id']):r for r in read('veterinary/Vet-publications.json')},
  'Veterinary curated additions':{str(r['id']):r for r in read('veterinary/Vet-publications-curation.json')['additions']},
+ 'Approved scientific additions':{str(r['id']):r for r in read('catalogues/data/approved-scientific-additions.json')['records']},
 }
 for path in ['transplant/related/data/related-evidence.json','transplant/Transplant-relevant-evidence.json']:
     sources[path]={str(r['id']):r for r in read(path)['records']}
@@ -134,13 +135,14 @@ def count_reconciliation():
              ('Veterinary curated additions',{'Veterinary curated additions'}),
              ('Additional Master Catalogue records',{'Master Catalogue'}),
              ('Related transplantation studies',{'transplant/related/data/related-evidence.json','transplant/Transplant-relevant-evidence.json'}),
-             ('Additional Oxygen Master records',{'Oxygen Master'})]
+             ('Additional Oxygen Master records',{'Oxygen Master'}),
+             ('User-approved scientific additions',{'Approved scientific additions'})]
     seen=set(); additions=[]
     for label,names in cohorts:
         ids=sorted(r['id'] for r in RECORDS if r['id'] not in seen and any(p['source'] in names for p in r['provenance']))
         additions.append({'label':label,'records':len(ids),'recordIds':ids});seen.update(ids)
     assert seen=={r['id'] for r in RECORDS}, 'Unaccounted public record'
-    return {'checked':'2026-10-11','originalSourceRows':len(mapping),
+    return {'checked':DATA['updated'],'originalSourceRows':len(mapping),
             'originalSourceCounts':{name:source_counts[name] for name in legacy_sources},
             'originalDistinctRecords':additions[0]['records'],
             'originalRepeatedOccurrences':len(mapping)-additions[0]['records'],
@@ -156,6 +158,6 @@ def audit():
     assert len({r['id'] for k in ['product','oxygen','related'] for r in VIEWS[k]})==len(RECORDS)
     assert sum(p['source']=='Oxygen Master' for r in ALL_RECORDS for p in r['provenance'])==243
     count_reconciliation()
-    return {'updated':'2026-10-11','total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),'collectionTotals':collection_totals(),
+    return {'updated':DATA['updated'],'total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),'collectionTotals':collection_totals(),
             'archivedIncompleteEntries':len(ALL_RECORDS)-len(RECORDS),'duplicateIds':0,'duplicateDOIs':0,'duplicatePMIDs':0,
             'notes':'Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts.'}

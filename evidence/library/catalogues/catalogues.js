@@ -4,23 +4,6 @@
  const relocated=document.getElementById(decodeURIComponent(location.hash.slice(1)));
  if(relocated?.hasAttribute('data-record-redirect')){location.replace(relocated.querySelector('a').href);return;}
  const context=holder.closest('[data-view]')||document.body,prefix=context.dataset.queryPrefix||'';
- if(context.dataset.view==='all'){
-  // Keep the combined publication search aligned with the updated oxygen catalogue.
-  try{
-   const response=await fetch('/evidence/library/catalogues/oxygen.html',{cache:'no-store'});
-   if(response.ok){
-    const parsed=new DOMParser().parseFromString(await response.text(),'text/html');
-    const additions=[...parsed.querySelectorAll('article.publication[id^="pub-dyson-singer-"]')];
-    for(const article of additions)if(!document.getElementById(article.id))holder.append(document.importNode(article,true));
-   }
-  }catch(error){console.warn('Oxygen catalogue synchronization unavailable',error);}
-  const oxygenCount=holder.querySelectorAll('article.publication[data-catalogue="oxygen"]').length;
-  const totalCount=holder.querySelectorAll('article.publication').length;
-  if(oxygenCount===215&&totalCount>=613){
-   document.querySelectorAll('[data-metric="collectionEntries"]').forEach(el=>el.textContent='923');
-   document.querySelectorAll('a[data-collection-link="oxygen"],a[href$="/catalogues/oxygen.html"]').forEach(a=>{a.innerHTML=a.innerHTML.replace(/210(?=\\s|<)/,'215');});
-  }
- }
  const rows=[...holder.querySelectorAll('.publication')],$=id=>document.getElementById(id);
  // Keep the five-collection aggregate only for the unfiltered overview.
  const collectionMetrics=[...context.querySelectorAll('[data-metric="collectionEntries"]')].map(metric=>{
@@ -31,7 +14,7 @@
  const normal=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
  const list=(row,key)=>(row.dataset[key]||'').split('|').filter(Boolean);
  const unique=values=>new Set(values.filter(Boolean).map(normal));
- const fields=['year','application','species','journal','product','direction','organ','evidence','catalogue','site','collection'].filter(id=>$(id));
+ const fields=['year','application','species','journal','product','direction','organ','evidence','catalogue','site','collection','topic'].filter(id=>$(id));
  const labels={product:'Oxyglobin & Hemopure Evidence',oxygen:'Oxygen Diffusion & Microcirculation',related:'Related Scientific Articles'};
  for(const name of fields){
   const values=[...new Set(rows.flatMap(r=>list(r,name)))];values.sort(name==='year'?(a,b)=>Number(b)-Number(a):(a,b)=>a.localeCompare(b));

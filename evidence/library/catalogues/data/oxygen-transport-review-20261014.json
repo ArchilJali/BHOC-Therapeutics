@@ -1,0 +1,355 @@
+{
+  "checked": "2026-10-14",
+  "requestedPublications": 30,
+  "newPublications": 27,
+  "alreadyPublished": 3,
+  "newByCatalogue": {
+    "oxygen": 22,
+    "related": 5
+  },
+  "researchDirections": [
+    "Capillary oxygen transport models",
+    "RBC and extracellular hemoglobin comparisons",
+    "P50, oxygen affinity and cooperativity",
+    "Facilitated diffusion and transport resistance",
+    "Microcirculation, low hematocrit and tissue hypoxia",
+    "Oxygen distribution and vascular effects"
+  ],
+  "records": [
+    {
+      "pmid": "9473409",
+      "doi": "10.1006/mvre.1997.2055",
+      "recordId": "pub-pmid-9473409",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "9756734",
+      "doi": "10.1006/mvre.1998.2088",
+      "recordId": "pub-pmid-9756734",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons"
+      ]
+    },
+    {
+      "pmid": "11527583",
+      "doi": "10.1016/s0301-4622(01)00194-6",
+      "recordId": "pub-pmid-11527583",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "12066873",
+      "doi": "10.1081/bio-120004338",
+      "recordId": "pub-vadapalli-goldman-popel-2002",
+      "catalogue": "oxygen",
+      "status": "Already published; centralized",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "16889379",
+      "doi": "10.1021/bp060022a",
+      "recordId": "pub-pmid-16889379",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "17686494",
+      "doi": "10.1016/j.jtbi.2007.06.012",
+      "recordId": "pub-pmid-17686494",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "17418478",
+      "doi": "10.1016/j.bpc.2007.03.004",
+      "recordId": "pub-pmid-17418478",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "18671987",
+      "doi": "10.1016/j.mvr.2008.07.002",
+      "recordId": "pub-pmid-18671987",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "5434415",
+      "doi": "10.1016/0034-5687(70)90037-x",
+      "recordId": "pub-pmid-5434415",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "5042165",
+      "doi": "10.1016/0034-5687(72)90096-5",
+      "recordId": "pub-pmid-5042165",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "856316",
+      "doi": "10.1016/S0006-3495(77)85594-X",
+      "recordId": "pub-pmid-856316",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "3558238",
+      "doi": "10.1152/jappl.1987.62.2.791",
+      "recordId": "pub-pmid-3558238",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "3363237",
+      "doi": "10.1016/0034-5687(88)90080-1",
+      "recordId": "pub-pmid-3363237",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "2673661",
+      "doi": "",
+      "recordId": "pub-pmid-2673661",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "2096624",
+      "doi": "10.1007/978-1-4684-8181-5_23",
+      "recordId": "pub-pmid-2096624",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "8343620",
+      "doi": "10.1016/0025-5564(93)90062-f",
+      "recordId": "pub-pmid-8343620",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "8924469",
+      "doi": "",
+      "recordId": "pub-pmid-8924469",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "12151262",
+      "doi": "10.1006/jtbi.2002.3001",
+      "recordId": "pub-pmid-12151262",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "12391075",
+      "doi": "10.1152/japplphysiol.00676.2002",
+      "recordId": "pub-a83410d3b3fe",
+      "catalogue": "oxygen",
+      "status": "Already catalogued",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "15563528",
+      "doi": "10.1152/ajpheart.01004.2004",
+      "recordId": "pub-pmid-15563528",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "18027243",
+      "doi": "10.1080/08982100701529904",
+      "recordId": "pub-pmid-18027243",
+      "catalogue": "related",
+      "status": "New publication",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "19194950",
+      "doi": "10.1002/btpr.56",
+      "recordId": "pub-71157fa7691a",
+      "catalogue": "oxygen",
+      "status": "Already catalogued",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "29920341",
+      "doi": "10.1016/j.freeradbiomed.2018.06.018",
+      "recordId": "pub-pmid-29920341",
+      "catalogue": "related",
+      "status": "New publication",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "32647211",
+      "doi": "10.1038/s41598-020-68190-0",
+      "recordId": "pub-pmid-32647211",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "37129671",
+      "doi": "10.1007/s11538-023-01155-2",
+      "recordId": "pub-pmid-37129671",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "9242942",
+      "doi": "10.1097/00002480-199707000-00006",
+      "recordId": "pub-pmid-9242942",
+      "catalogue": "related",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "10659206",
+      "doi": "",
+      "recordId": "pub-pmid-10659206",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ]
+    },
+    {
+      "pmid": "22288842",
+      "doi": "10.3109/10731199.2011.637929",
+      "recordId": "pub-pmid-22288842",
+      "catalogue": "related",
+      "status": "New publication",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    },
+    {
+      "pmid": "29526566",
+      "doi": "10.1016/j.niox.2018.03.005",
+      "recordId": "pub-pmid-29526566",
+      "catalogue": "oxygen",
+      "status": "New publication",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ]
+    },
+    {
+      "pmid": "38556266",
+      "doi": "10.2220/biomedres.45.91",
+      "recordId": "pub-pmid-38556266",
+      "catalogue": "related",
+      "status": "New publication",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ]
+    }
+  ]
+}

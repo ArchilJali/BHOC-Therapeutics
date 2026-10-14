@@ -1,10 +1,10 @@
 {
-  "checked": "2026-10-11",
+  "checked": "2026-10-14",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 608,
-  "uniqueUrlsChecked": 842,
+  "publicRecords": 643,
+  "uniqueUrlsChecked": 909,
   "states": {
-    "matched": 826,
+    "matched": 893,
     "access-limited": 10,
     "matched-publisher-metadata": 2,
     "search-query-removed": 1,
@@ -9338,6 +9338,685 @@
           "state": "matched",
           "method": "Crossref",
           "sourceTitle": "Comparison of Centrifugal and Pulsatile Perfusion to Preserve Donor Kidneys Using Ex Vivo Subnormothermic Perfusion"
+        }
+      ]
+    },
+    "pub-dyson-singer-2019-bja201903027": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/31054772/",
+        "https://doi.org/10.1016/j.bja.2019.03.027"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31054772/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.bja.2019.03.027",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review"
+        }
+      ]
+    },
+    "pub-dyson-singer-2007-art000522007": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/17384135/",
+        "https://doi.org/10.1152/ajpheart.00052.2007"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17384135/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Tissue oxygen monitoring in rodent models of shock"
+        },
+        {
+          "url": "https://doi.org/10.1152/ajpheart.00052.2007",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Tissue oxygen monitoring in rodent models of shock"
+        }
+      ]
+    },
+    "pub-dyson-singer-2013-8chest121849": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/23732592/",
+        "https://doi.org/10.1378/chest.12-1849"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23732592/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients"
+        },
+        {
+          "url": "https://doi.org/10.1378/chest.12-1849",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients"
+        }
+      ]
+    },
+    "pub-dyson-singer-2009-013400915772": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/19618165/",
+        "https://doi.org/10.1007/s00134-009-1577-2"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19618165/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage"
+        },
+        {
+          "url": "https://doi.org/10.1007/s00134-009-1577-2",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage"
+        }
+      ]
+    },
+    "pub-dyson-singer-2011-01340112227z": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/21533572/",
+        "https://doi.org/10.1007/s00134-011-2227-z"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21533572/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Temporal changes in tissue cardiorespiratory function during faecal peritonitis"
+        },
+        {
+          "url": "https://doi.org/10.1007/s00134-011-2227-z",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Temporal changes in tissue cardiorespiratory function during faecal peritonitis"
+        }
+      ]
+    },
+    "pub-pmid-9473409": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/9473409/",
+        "https://doi.org/10.1006/mvre.1997.2055"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9473409/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance"
+        },
+        {
+          "url": "https://doi.org/10.1006/mvre.1997.2055",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance"
+        }
+      ]
+    },
+    "pub-pmid-9756734": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/9756734/",
+        "https://doi.org/10.1006/mvre.1998.2088"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9756734/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures"
+        },
+        {
+          "url": "https://doi.org/10.1006/mvre.1998.2088",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures"
+        }
+      ]
+    },
+    "pub-pmid-11527583": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/11527583/",
+        "https://doi.org/10.1016/s0301-4622(01)00194-6"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11527583/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers"
+        },
+        {
+          "url": "https://doi.org/10.1016/s0301-4622(01)00194-6",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers"
+        }
+      ]
+    },
+    "pub-vadapalli-goldman-popel-2002": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/12066873/",
+        "https://doi.org/10.1081/bio-120004338"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12066873/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries"
+        },
+        {
+          "url": "https://doi.org/10.1081/bio-120004338",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries"
+        }
+      ]
+    },
+    "pub-pmid-16889379": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/16889379/",
+        "https://doi.org/10.1021/bp060022a"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16889379/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers"
+        },
+        {
+          "url": "https://doi.org/10.1021/bp060022a",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers"
+        }
+      ]
+    },
+    "pub-pmid-17686494": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/17686494/",
+        "https://doi.org/10.1016/j.jtbi.2007.06.012"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17686494/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.jtbi.2007.06.012",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks"
+        }
+      ]
+    },
+    "pub-pmid-17418478": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/17418478/",
+        "https://doi.org/10.1016/j.bpc.2007.03.004"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17418478/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.bpc.2007.03.004",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions"
+        }
+      ]
+    },
+    "pub-pmid-18671987": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/18671987/",
+        "https://doi.org/10.1016/j.mvr.2008.07.002"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18671987/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.mvr.2008.07.002",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products"
+        }
+      ]
+    },
+    "pub-pmid-5434415": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/5434415/",
+        "https://doi.org/10.1016/0034-5687(70)90037-x"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/5434415/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Facilitated diffusion of oxygen in the presence of hemoglobin"
+        },
+        {
+          "url": "https://doi.org/10.1016/0034-5687(70)90037-x",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Facilitated diffusion of oxygen in the presence of hemoglobin"
+        }
+      ]
+    },
+    "pub-pmid-5042165": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/5042165/",
+        "https://doi.org/10.1016/0034-5687(72)90096-5"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/5042165/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects"
+        },
+        {
+          "url": "https://doi.org/10.1016/0034-5687(72)90096-5",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects"
+        }
+      ]
+    },
+    "pub-pmid-856316": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/856316/",
+        "https://doi.org/10.1016/S0006-3495(77)85594-X"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/856316/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The facilitated diffusion of oxygen by hemoglobin and myoglobin"
+        },
+        {
+          "url": "https://doi.org/10.1016/S0006-3495(77)85594-X",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "The facilitated diffusion of oxygen by hemoglobin and myoglobin"
+        }
+      ]
+    },
+    "pub-pmid-3558238": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/3558238/",
+        "https://doi.org/10.1152/jappl.1987.62.2.791"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3558238/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "An in vitro capillary system for studies on microcirculatory O2 transport"
+        },
+        {
+          "url": "https://doi.org/10.1152/jappl.1987.62.2.791",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "An in vitro capillary system for studies on microcirculatory O2 transport"
+        }
+      ]
+    },
+    "pub-pmid-3363237": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/3363237/",
+        "https://doi.org/10.1016/0034-5687(88)90080-1"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3363237/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transfer of red blood cells: experimental data and model analysis"
+        },
+        {
+          "url": "https://doi.org/10.1016/0034-5687(88)90080-1",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transfer of red blood cells: experimental data and model analysis"
+        }
+      ]
+    },
+    "pub-pmid-2673661": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/2673661/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2673661/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Theory of oxygen transport to tissue"
+        }
+      ]
+    },
+    "pub-pmid-2096624": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/2096624/",
+        "https://doi.org/10.1007/978-1-4684-8181-5_23"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2096624/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Facilitated transport of oxygen through hemoglobin solutions"
+        },
+        {
+          "url": "https://doi.org/10.1007/978-1-4684-8181-5_23",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Facilitated transport of oxygen through hemoglobin solutions"
+        }
+      ]
+    },
+    "pub-pmid-8343620": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/8343620/",
+        "https://doi.org/10.1016/0025-5564(93)90062-f"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8343620/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Effect of red blood cell shape on oxygen transport in capillaries"
+        },
+        {
+          "url": "https://doi.org/10.1016/0025-5564(93)90062-f",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Effect of red blood cell shape on oxygen transport in capillaries"
+        }
+      ]
+    },
+    "pub-pmid-8924469": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/8924469/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8924469/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "[A mathematical model of O2 transport by erythrocytes in capillaries]"
+        }
+      ]
+    },
+    "pub-pmid-12151262": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/12151262/",
+        "https://doi.org/10.1006/jtbi.2002.3001"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12151262/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes"
+        },
+        {
+          "url": "https://doi.org/10.1006/jtbi.2002.3001",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes"
+        }
+      ]
+    },
+    "pub-pmid-15563528": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/15563528/",
+        "https://doi.org/10.1152/ajpheart.01004.2004"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15563528/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution"
+        },
+        {
+          "url": "https://doi.org/10.1152/ajpheart.01004.2004",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution"
+        }
+      ]
+    },
+    "pub-pmid-18027243": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/18027243/",
+        "https://doi.org/10.1080/08982100701529904"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18027243/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery"
+        },
+        {
+          "url": "https://doi.org/10.1080/08982100701529904",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery"
+        }
+      ]
+    },
+    "pub-pmid-29920341": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/29920341/",
+        "https://doi.org/10.1016/j.freeradbiomed.2018.06.018"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29920341/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.freeradbiomed.2018.06.018",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model"
+        }
+      ]
+    },
+    "pub-pmid-32647211": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/32647211/",
+        "https://doi.org/10.1038/s41598-020-68190-0"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32647211/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier"
+        },
+        {
+          "url": "https://doi.org/10.1038/s41598-020-68190-0",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier"
+        }
+      ]
+    },
+    "pub-pmid-37129671": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/37129671/",
+        "https://doi.org/10.1007/s11538-023-01155-2"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37129671/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition"
+        },
+        {
+          "url": "https://doi.org/10.1007/s11538-023-01155-2",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition"
+        }
+      ]
+    },
+    "pub-pmid-9242942": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/9242942/",
+        "https://doi.org/10.1097/00002480-199707000-00006"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9242942/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI; publisher DOI confirmed against Crossref",
+          "sourceTitle": "Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model"
+        },
+        {
+          "url": "https://doi.org/10.1097/00002480-199707000-00006",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI; publisher DOI confirmed against Crossref",
+          "sourceTitle": "Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model"
+        }
+      ]
+    },
+    "pub-pmid-10659206": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/10659206/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10659206/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Oxygen transport in 10 microns artificial capillaries"
+        }
+      ]
+    },
+    "pub-pmid-22288842": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/22288842/",
+        "https://doi.org/10.3109/10731199.2011.637929"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22288842/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study"
+        },
+        {
+          "url": "https://doi.org/10.3109/10731199.2011.637929",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study"
+        }
+      ]
+    },
+    "pub-pmid-29526566": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/29526566/",
+        "https://doi.org/10.1016/j.niox.2018.03.005"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29526566/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.niox.2018.03.005",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics"
+        }
+      ]
+    },
+    "pub-pmid-38556266": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/38556266/",
+        "https://doi.org/10.2220/biomedres.45.91"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38556266/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneumonectomy in dog models: an experimental study"
+        },
+        {
+          "url": "https://doi.org/10.2220/biomedres.45.91",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneumonectomy in dog models: an experimental study"
+        }
+      ]
+    },
+    "pub-pmid-24694840": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/24694840/",
+        "https://doi.org/10.1177/1553350614528383"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24694840/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Ex vivo normothermic machine perfusion is safe, simple, and reliable: results from a large animal model"
+        },
+        {
+          "url": "https://doi.org/10.1177/1553350614528383",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "Ex vivo normothermic machine perfusion is safe, simple, and reliable: results from a large animal model"
+        }
+      ]
+    },
+    "pub-pmid-30010635": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/30010635/",
+        "https://doi.org/10.3791/57541"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30010635/",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A Small Animal Model of Ex Vivo Normothermic Liver Perfusion"
+        },
+        {
+          "url": "https://doi.org/10.3791/57541",
+          "state": "matched",
+          "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
+          "sourceTitle": "A Small Animal Model of Ex Vivo Normothermic Liver Perfusion"
         }
       ]
     }

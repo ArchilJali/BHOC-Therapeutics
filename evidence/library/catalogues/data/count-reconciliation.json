@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-11",
+  "checked": "2026-10-14",
   "originalSourceRows": 475,
   "originalSourceCounts": {
     "Veterinary base": 236,
@@ -8,22 +8,23 @@
   },
   "originalDistinctRecords": 334,
   "originalRepeatedOccurrences": 141,
-  "netAddedRecords": 274,
-  "publicRecords": 608,
+  "netAddedRecords": 309,
+  "publicRecords": 643,
   "catalogues": {
     "product": 192,
-    "oxygen": 210,
-    "related": 206
+    "oxygen": 238,
+    "related": 213
   },
   "sourceOccurrences": {
     "Oxygen Master": 243,
-    "transplant/related/data/related-evidence.json": 8,
+    "transplant/related/data/related-evidence.json": 10,
     "transplant/Transplant-relevant-evidence.json": 5,
     "Human Use": 185,
     "Transplant": 54,
     "Master Catalogue": 414,
     "Veterinary base": 236,
-    "Veterinary curated additions": 3
+    "Veterinary curated additions": 3,
+    "Approved scientific additions": 33
   },
   "cohorts": [
     {
@@ -455,7 +456,7 @@
     },
     {
       "label": "Related transplantation studies",
-      "records": 8,
+      "records": 10,
       "recordIds": [
         "pub-3a771be20310",
         "pub-6272aed1c8a6",
@@ -464,7 +465,9 @@
         "pub-b41fee532ba0",
         "pub-babd35463747",
         "pub-d2c82b764dc6",
-        "pub-ec51b2bd231e"
+        "pub-ec51b2bd231e",
+        "pub-pmid-24694840",
+        "pub-pmid-30010635"
       ]
     },
     {
@@ -662,6 +665,45 @@
         "pub-fc507aa8fcae",
         "pub-fcfafac1d5f8",
         "pub-fed12f241f5e"
+      ]
+    },
+    {
+      "label": "User-approved scientific additions",
+      "records": 33,
+      "recordIds": [
+        "pub-dyson-singer-2007-art000522007",
+        "pub-dyson-singer-2009-013400915772",
+        "pub-dyson-singer-2011-01340112227z",
+        "pub-dyson-singer-2013-8chest121849",
+        "pub-dyson-singer-2019-bja201903027",
+        "pub-pmid-10659206",
+        "pub-pmid-11527583",
+        "pub-pmid-12151262",
+        "pub-pmid-15563528",
+        "pub-pmid-16889379",
+        "pub-pmid-17418478",
+        "pub-pmid-17686494",
+        "pub-pmid-18027243",
+        "pub-pmid-18671987",
+        "pub-pmid-2096624",
+        "pub-pmid-22288842",
+        "pub-pmid-2673661",
+        "pub-pmid-29526566",
+        "pub-pmid-29920341",
+        "pub-pmid-32647211",
+        "pub-pmid-3363237",
+        "pub-pmid-3558238",
+        "pub-pmid-37129671",
+        "pub-pmid-38556266",
+        "pub-pmid-5042165",
+        "pub-pmid-5434415",
+        "pub-pmid-8343620",
+        "pub-pmid-856316",
+        "pub-pmid-8924469",
+        "pub-pmid-9242942",
+        "pub-pmid-9473409",
+        "pub-pmid-9756734",
+        "pub-vadapalli-goldman-popel-2002"
       ]
     }
   ],

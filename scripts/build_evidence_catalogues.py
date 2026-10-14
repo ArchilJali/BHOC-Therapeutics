@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261011-entries8'
+VERSION='20261014-oxygen-transport1'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -81,7 +81,7 @@ def card(r,kind):
     attrs={'year':r['year'],'application':'|'.join(r['application']),'species':'|'.join(r['speciesGroups']), 'journal':r['journalLabel'],'institution':'|'.join(r['institutions']),'product':'|'.join(r['products']), 'direction':'|'.join(r['direction']),'organ':'|'.join(r['organ']),'evidence':'|'.join(r['evidenceGroups']), 'catalogue':r['catalogue'],'site':'|'.join(r['sites']),'author':r['authors'],'title':r['title'], 'legacy':'|'.join(r['legacyIds'])}
     # Search the approved original citation as well as the displayed normalized labels.
     attrs['search']=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species'],*r.get('titleAliases',[])])
-    attrs['scope']=r['scope'];attrs['collection']='|'.join(r['collection'])
+    attrs['scope']=r['scope'];attrs['collection']='|'.join(r['collection']);attrs['topic']='|'.join(r.get('topics',[]))
     links=[]
     checked=LINK_AUDIT[r['id']]
     source_urls=checked['publicLinks']
@@ -91,6 +91,7 @@ def card(r,kind):
         links.append(f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a>')
     url=PREFIX+PATHS[r['catalogue']]+'#'+r['id']
     details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'])+field('PMID',r['pmid'])+field('Original citation',r['citation'])
+    details+=field('Research direction','; '.join(r.get('topics',[])))
     annotation='<p class="record-summary">'+E(r.get('catalogueSummary',''))+'</p>' if r.get('catalogueSummary') else ''
     summary_label='Summary &amp; details' if annotation else 'Record details'
     availability='' if links else '<p class="source-availability">Citation record. A verified article link or abstract is not currently available.</p>'
@@ -110,6 +111,7 @@ def filters(kind):
     advanced='<label><span id="authorInput"></span>Author<input id="author" type="search" list="authors" placeholder="Type an author"><datalist id="authors"></datalist></label><label><span id="institutionSearch"></span>Author institution<input id="institution" type="search" list="institutions" placeholder="Type an institution"><datalist id="institutions"></datalist></label>'
     if primary[0]!='species':advanced+=select('species','Species / model','All species / models')
     advanced+=select('product','Product','All products')+select('evidence','Evidence group','All evidence groups')
+    if kind in ['all','oxygen','related','veterinary']:advanced+=select('topic','Research direction','All research directions')
     if kind in ['product','oxygen','related']:advanced+=select('application','Application','All applications')
     else:advanced+=select('catalogue','Catalogue','All catalogues')
     if kind=='all':advanced+=select('application','Application','All applications')
@@ -119,7 +121,7 @@ def filters(kind):
 
 def metadata(kind,rows,path=None):
     path=path or PATHS[kind];url=ORIGIN+PREFIX+path;title=TITLES[kind]+' | BHOC Evidence';description=DESCRIPTIONS[kind]
-    schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','@id':url+'#page','name':title,'description':description,'url':url,'inLanguage':'en','dateModified':'2026-10-11','isPartOf':{'@id':ORIGIN+PREFIX+'#website'},'mainEntity':{'@type':'ItemList','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':ORIGIN+PREFIX+PATHS[r['catalogue']]+'#'+r['id']} for i,r in enumerate(rows,1)]}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX},{'@type':'ListItem','position':2,'name':TITLES[kind],'item':url}]}]}
+    schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','@id':url+'#page','name':title,'description':description,'url':url,'inLanguage':'en','dateModified':DATA['updated'],'isPartOf':{'@id':ORIGIN+PREFIX+'#website'},'mainEntity':{'@type':'ItemList','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':ORIGIN+PREFIX+PATHS[r['catalogue']]+'#'+r['id']} for i,r in enumerate(rows,1)]}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX},{'@type':'ListItem','position':2,'name':TITLES[kind],'item':url}]}]}
     return f'''<title>{E(title)}</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{url}"><meta name="robots" content="index,follow,max-image-preview:large"><meta name="yandex" content="noindex"><meta name="author" content="Archil Jaliashvili"><link rel="author" href="https://orcid.org/0009-0006-4712-4942"><link rel="sitemap" href="{PREFIX}sitemap.xml" type="application/xml">
 <meta property="og:type" content="website"><meta property="og:site_name" content="BHOC Therapeutics"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{url}">{SOCIAL_IMAGE_META}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(description)}">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('</','<\\/')}</script>'''
@@ -138,7 +140,7 @@ def page(kind,path=None):
 {filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}
-<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 11 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
+<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 14 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
     (BASE/path/('index.html') if path.endswith('/') else BASE/path).write_text(text)
 
 if __name__=='__main__':

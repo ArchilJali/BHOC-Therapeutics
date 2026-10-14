@@ -1,0 +1,729 @@
+{
+  "updated": "2026-10-14",
+  "approval": "User-approved literature catalogue additions; PubMed bibliographic metadata checked on 14 October 2026. Earlier published records retain their original anchors.",
+  "records": [
+    {
+      "id": "31054772",
+      "direction": "Physiology",
+      "evidenceType": "Tissue oxygenation / perfusion",
+      "topics": [],
+      "pmid": "31054772",
+      "doi": "10.1016/j.bja.2019.03.027",
+      "title": "Optimising organ perfusion in the high-risk surgical and critical care patient: a narrative review",
+      "authors": "Thomas Parker; David Brealey; Alex Dyson; Mervyn Singer",
+      "journal": "British journal of anaesthesia",
+      "year": "2019",
+      "volume": "123",
+      "issue": "2",
+      "pages": "170-176",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/31054772/",
+      "affiliations": [
+        "Bloomsbury Institute of Intensive Care Medicine, Division of Medicine, University College London, London, UK.",
+        "Bloomsbury Institute of Intensive Care Medicine, Division of Medicine, University College London, London, UK. Electronic address: m.singer@ucl.ac.uk."
+      ]
+    },
+    {
+      "id": "17384135",
+      "direction": "Physiology",
+      "evidenceType": "Tissue oxygenation / perfusion",
+      "topics": [],
+      "pmid": "17384135",
+      "doi": "10.1152/ajpheart.00052.2007",
+      "title": "Tissue oxygen monitoring in rodent models of shock",
+      "authors": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer",
+      "journal": "American journal of physiology. Heart and circulatory physiology",
+      "year": "2007",
+      "volume": "293",
+      "issue": "1",
+      "pages": "H526-H533",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/17384135/",
+      "affiliations": [
+        "Bloomsbury Institute of Intensive Care Medicine, University College London, Gower Street, London, UK."
+      ]
+    },
+    {
+      "id": "23732592",
+      "direction": "Physiology",
+      "evidenceType": "Tissue oxygenation / perfusion",
+      "topics": [],
+      "pmid": "23732592",
+      "doi": "10.1378/chest.12-1849",
+      "title": "Monitoring tissue perfusion, oxygenation, and metabolism in critically ill patients",
+      "authors": "Nasirul J Ekbal; Alex Dyson; Claire Black; Mervyn Singer",
+      "journal": "Chest",
+      "year": "2013",
+      "volume": "143",
+      "issue": "6",
+      "pages": "1799-1808",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23732592/",
+      "affiliations": [
+        "Bloomsbury Institute of Intensive Care Medicine, Division of Medicine, University College London, London, England.",
+        "Bloomsbury Institute of Intensive Care Medicine, Division of Medicine, University College London, London, England. Electronic address: m.singer@ucl.ac.uk."
+      ]
+    },
+    {
+      "id": "19618165",
+      "direction": "Physiology",
+      "evidenceType": "Tissue oxygenation / perfusion",
+      "topics": [],
+      "pmid": "19618165",
+      "doi": "10.1007/s00134-009-1577-2",
+      "title": "The impact of inspired oxygen concentration on tissue oxygenation during progressive haemorrhage",
+      "authors": "Alex Dyson; Ray Stidwill; Val Taylor; Mervyn Singer",
+      "journal": "Intensive care medicine",
+      "year": "2009",
+      "volume": "35",
+      "issue": "10",
+      "pages": "1783-1791",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/19618165/",
+      "affiliations": [
+        "Bloomsbury Institute of Intensive Care Medicine, Department of Medicine and Wolfson Institute for Biomedical Research, University College London, Gower Street, London, UK. a.dyson@ucl.ac.uk"
+      ]
+    },
+    {
+      "id": "21533572",
+      "direction": "Physiology",
+      "evidenceType": "Tissue oxygenation / perfusion",
+      "topics": [],
+      "pmid": "21533572",
+      "doi": "10.1007/s00134-011-2227-z",
+      "title": "Temporal changes in tissue cardiorespiratory function during faecal peritonitis",
+      "authors": "Alex Dyson; Alain Rudiger; Mervyn Singer",
+      "journal": "Intensive care medicine",
+      "year": "2011",
+      "volume": "37",
+      "issue": "7",
+      "pages": "1192-1200",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/21533572/",
+      "affiliations": [
+        "Bloomsbury Institute of Intensive Care Medicine, Department of Medicine and Wolfson Institute for Biomedical Research, University College London, Cruciform Building, Gower St., London, WC1E 6BT, UK."
+      ]
+    },
+    {
+      "id": "9473409",
+      "direction": "Physiology",
+      "evidenceType": "In vitro experimental study",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "9473409",
+      "doi": "10.1006/mvre.1997.2055",
+      "title": "Oxygen transport by erythrocyte/hemoglobin solution mixtures in an in vitro capillary as a model of hemoglobin-based oxygen carrier performance",
+      "authors": "T C Page; W R Light; C B McKay; J D Hellums",
+      "journal": "Microvascular research",
+      "year": "1998",
+      "volume": "55",
+      "issue": "1",
+      "pages": "54-64",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/9473409/",
+      "affiliations": [
+        "Cox Laboratory for Biomedical Engineering, Rice University, Houston, Texas 77251, USA."
+      ]
+    },
+    {
+      "id": "9756734",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons"
+      ],
+      "pmid": "9756734",
+      "doi": "10.1006/mvre.1998.2088",
+      "title": "Prediction of microcirculatory oxygen transport by erythrocyte/hemoglobin solution mixtures",
+      "authors": "T C Page; W R Light; J D Hellums",
+      "journal": "Microvascular research",
+      "year": "1998",
+      "volume": "56",
+      "issue": "2",
+      "pages": "113-126",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/9756734/",
+      "affiliations": [
+        "Biopure Corporation, 11 Hurley Street, Cambridge, Massachusetts 02141, USA."
+      ]
+    },
+    {
+      "id": "11527583",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "11527583",
+      "doi": "10.1016/s0301-4622(01)00194-6",
+      "title": "The role of facilitated diffusion in oxygen transport by cell-free hemoglobins: implications for the design of hemoglobin-based oxygen carriers",
+      "authors": "M R McCarthy; K D Vandegriff; R M Winslow",
+      "journal": "Biophysical chemistry",
+      "year": "2001",
+      "volume": "92",
+      "issue": "1-2",
+      "pages": "103-117",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/11527583/",
+      "affiliations": [
+        "Department of Bioengineering, University of California, San Diego, 92161, USA."
+      ]
+    },
+    {
+      "id": "12066873",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "12066873",
+      "doi": "10.1081/bio-120004338",
+      "title": "Calculations of oxygen transport by red blood cells and hemoglobin solutions in capillaries",
+      "authors": "Arjun Vadapalli; Daniel Goldman; Aleksander S Popel",
+      "journal": "Artificial cells, blood substitutes, and immobilization biotechnology",
+      "year": "2002",
+      "volume": "30",
+      "issue": "3",
+      "pages": "157-188",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/12066873/",
+      "affiliations": [
+        "Department of Biomedical Engineering, School of Medicine, John Hopkins University, Baltimore, MD 21205, USA."
+      ]
+    },
+    {
+      "id": "16889379",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "16889379",
+      "doi": "10.1021/bp060022a",
+      "title": "Numerical simulation of oxygen delivery to muscle tissue in the presence of hemoglobin-based oxygen carriers",
+      "authors": "Jaqunda N Patton; Andre F Palmer",
+      "journal": "Biotechnology progress",
+      "year": "2006",
+      "volume": "22",
+      "issue": "4",
+      "pages": "1025-1049",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/16889379/",
+      "affiliations": [
+        "Department of Chemical and Biomolecular Engineering, University of Notre Dame, Indiana 46556, USA."
+      ]
+    },
+    {
+      "id": "17686494",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "17686494",
+      "doi": "10.1016/j.jtbi.2007.06.012",
+      "title": "A computational model of oxygen delivery by hemoglobin-based oxygen carriers in three-dimensional microvascular networks",
+      "authors": "Nikolaos M Tsoukias; Daniel Goldman; Arjun Vadapalli; Roland N Pittman; Aleksander S Popel",
+      "journal": "Journal of theoretical biology",
+      "year": "2007",
+      "volume": "248",
+      "issue": "4",
+      "pages": "657-674",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/17686494/",
+      "affiliations": [
+        "Department of Biomedical Engineering, Florida International University, 10555 W. Flagler Street, Miami, FL 33174, USA. tsoukias@fiu.edu"
+      ]
+    },
+    {
+      "id": "17418478",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "P50, oxygen affinity and cooperativity",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "17418478",
+      "doi": "10.1016/j.bpc.2007.03.004",
+      "title": "A quantitative framework for the design of acellular hemoglobins as blood substitutes: implications of dynamic flow conditions",
+      "authors": "Russell H Cole; Kim D Vandegriff; Andrew J Szeri; Omer Savaş; Dale A Baker; Robert M Winslow",
+      "journal": "Biophysical chemistry",
+      "year": "2007",
+      "volume": "128",
+      "issue": "1",
+      "pages": "63-74",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/17418478/",
+      "affiliations": [
+        "Department of Mechanical Engineering, 140 Hesse Hall, University of California, Berkeley, CA 94720, USA. rusell@me.berkeley.edu"
+      ]
+    },
+    {
+      "id": "18671987",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "18671987",
+      "doi": "10.1016/j.mvr.2008.07.002",
+      "title": "Targeted O2 delivery by blood substitutes: in vitro arteriolar simulations of first- and second-generation products",
+      "authors": "Russell Cole; Kim Vandegriff; Andrew Szeri; Omer Savas; Robert Winslow",
+      "journal": "Microvascular research",
+      "year": "2008",
+      "volume": "76",
+      "issue": "3",
+      "pages": "169-179",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/18671987/",
+      "affiliations": [
+        "Department of Mechanical Engineering, 140 Hesse Hall, University of California, Berkeley, California 94720, USA. Russell@me.berkeley.edu"
+      ]
+    },
+    {
+      "id": "5434415",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "5434415",
+      "doi": "10.1016/0034-5687(70)90037-x",
+      "title": "Facilitated diffusion of oxygen in the presence of hemoglobin",
+      "authors": "F Kreuzer; L J Hoofd",
+      "journal": "Respiration physiology",
+      "year": "1970",
+      "volume": "8",
+      "issue": "3",
+      "pages": "280-302",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/5434415/",
+      "affiliations": []
+    },
+    {
+      "id": "5042165",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "5042165",
+      "doi": "10.1016/0034-5687(72)90096-5",
+      "title": "Hemoglobin-facilitated diffusion of oxygen: interfacial and thickness effects",
+      "authors": "J A Jacquez; H Kutchai; E Daniels",
+      "journal": "Respiration physiology",
+      "year": "1972",
+      "volume": "15",
+      "issue": "2",
+      "pages": "166-181",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/5042165/",
+      "affiliations": []
+    },
+    {
+      "id": "856316",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "856316",
+      "doi": "10.1016/S0006-3495(77)85594-X",
+      "title": "The facilitated diffusion of oxygen by hemoglobin and myoglobin",
+      "authors": "S I Rubinow; M Dembo",
+      "journal": "Biophysical journal",
+      "year": "1977",
+      "volume": "18",
+      "issue": "1",
+      "pages": "29-42",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/856316/",
+      "affiliations": []
+    },
+    {
+      "id": "3558238",
+      "direction": "Physiology",
+      "evidenceType": "In vitro experimental study",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "3558238",
+      "doi": "10.1152/jappl.1987.62.2.791",
+      "title": "An in vitro capillary system for studies on microcirculatory O2 transport",
+      "authors": "E J Boland; P K Nair; D D Lemon; J S Olson; J D Hellums",
+      "journal": "Journal of applied physiology (Bethesda, Md. : 1985)",
+      "year": "1987",
+      "volume": "62",
+      "issue": "2",
+      "pages": "791-797",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/3558238/",
+      "affiliations": []
+    },
+    {
+      "id": "3363237",
+      "direction": "Physiology",
+      "evidenceType": "In vitro experimental study",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "3363237",
+      "doi": "10.1016/0034-5687(88)90080-1",
+      "title": "Oxygen transfer of red blood cells: experimental data and model analysis",
+      "authors": "C Hook; K Yamaguchi; P Scheid; J Piiper",
+      "journal": "Respiration physiology",
+      "year": "1988",
+      "volume": "72",
+      "issue": "1",
+      "pages": "65-82",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/3363237/",
+      "affiliations": [
+        "Abteilung Physiologie, Max-Planck-Institut für experimentelle Medizin, Göttingen, F.R.G."
+      ]
+    },
+    {
+      "id": "2673661",
+      "direction": "Physiology",
+      "evidenceType": "Review",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "2673661",
+      "doi": "",
+      "title": "Theory of oxygen transport to tissue",
+      "authors": "A S Popel",
+      "journal": "Critical reviews in biomedical engineering",
+      "year": "1989",
+      "volume": "17",
+      "issue": "3",
+      "pages": "257-321",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/2673661/",
+      "affiliations": [
+        "Department of Biomedical Engineering, School of Medicine, Johns Hopkins University, Baltimore, Maryland."
+      ]
+    },
+    {
+      "id": "2096624",
+      "direction": "Physiology",
+      "evidenceType": "In vitro experimental study",
+      "topics": [
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "2096624",
+      "doi": "10.1007/978-1-4684-8181-5_23",
+      "title": "Facilitated transport of oxygen through hemoglobin solutions",
+      "authors": "M Hashimoto; R Hata; T Shiga; A Isomoto; M Uozumi",
+      "journal": "Advances in experimental medicine and biology",
+      "year": "1990",
+      "volume": "277",
+      "issue": "",
+      "pages": "181-190",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/2096624/",
+      "affiliations": [
+        "Department of Physico-chemical Physiology, Osaka University Medical School, Japan."
+      ]
+    },
+    {
+      "id": "8343620",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "8343620",
+      "doi": "10.1016/0025-5564(93)90062-f",
+      "title": "Effect of red blood cell shape on oxygen transport in capillaries",
+      "authors": "C H Wang; A S Popel",
+      "journal": "Mathematical biosciences",
+      "year": "1993",
+      "volume": "116",
+      "issue": "1",
+      "pages": "89-110",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/8343620/",
+      "affiliations": [
+        "Department of Biomedical Engineering, School of Medicine, Johns Hopkins University, Baltimore, Maryland."
+      ]
+    },
+    {
+      "id": "8924469",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "8924469",
+      "doi": "",
+      "title": "[A mathematical model of O2 transport by erythrocytes in capillaries]",
+      "authors": "Iu Ia Kisliakov",
+      "journal": "Biofizika",
+      "year": "1996",
+      "volume": "41",
+      "issue": "3",
+      "pages": "681-685",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/8924469/",
+      "affiliations": []
+    },
+    {
+      "id": "12151262",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "12151262",
+      "doi": "10.1006/jtbi.2002.3001",
+      "title": "A compartmental model for oxygen transport in brain microcirculation in the presence of blood substitutes",
+      "authors": "Maithili Sharan; Aleksander S Popel",
+      "journal": "Journal of theoretical biology",
+      "year": "2002",
+      "volume": "216",
+      "issue": "4",
+      "pages": "479-500",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/12151262/",
+      "affiliations": [
+        "Centre for Atmospheric Sciences, Indian Institute of Technology Delhi, Hauz Khas, New Delhi 110016, India. mathilis@cas.iitd.ernet.in"
+      ]
+    },
+    {
+      "id": "15563528",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "15563528",
+      "doi": "10.1152/ajpheart.01004.2004",
+      "title": "Oxygen transport by low and normal oxygen affinity hemoglobin vesicles in extreme hemodilution",
+      "authors": "Pedro Cabrales; Hiromi Sakai; Amy G Tsai; Shinji Takeoka; Eishun Tsuchida; Marcos Intaglietta",
+      "journal": "American journal of physiology. Heart and circulatory physiology",
+      "year": "2005",
+      "volume": "288",
+      "issue": "4",
+      "pages": "H1885-H1892",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/15563528/",
+      "affiliations": [
+        "Dept. of Bioengineering 0412, University of California-San Diego, 9500 Gilman Drive, La Jolla, CA 92093-0412, USA. pcabrales@ucsd.edu"
+      ]
+    },
+    {
+      "id": "18027243",
+      "direction": "Physiology",
+      "evidenceType": "Review",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "18027243",
+      "doi": "10.1080/08982100701529904",
+      "title": "Hemoglobin-vesicles for a transfusion alternative and targeted oxygen delivery",
+      "authors": "Hiromi Sakai; Eishun Tsuchida",
+      "journal": "Journal of liposome research",
+      "year": "2007",
+      "volume": "17",
+      "issue": "3-4",
+      "pages": "227-235",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/18027243/",
+      "affiliations": [
+        "Advanced Research Institute for Science and Engineering, Waseda University, Tokyo, Japan. hiromi@waseda.jp"
+      ]
+    },
+    {
+      "id": "29920341",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "29920341",
+      "doi": "10.1016/j.freeradbiomed.2018.06.018",
+      "title": "High- and low-affinity PEGylated hemoglobin-based oxygen carriers: Differential oxidative stress in a Guinea pig transfusion model",
+      "authors": "Esra'a Alomari; Luca Ronda; Stefano Bruno; Gianluca Paredi; Marialaura Marchetti; Stefano Bettati; Davide Olivari; Francesca Fumagalli; Deborah Novelli; Giuseppe Ristagno; Roberto Latini; Chris E Cooper; Brandon J Reeder; Andrea Mozzarelli",
+      "journal": "Free radical biology & medicine",
+      "year": "2018",
+      "volume": "124",
+      "issue": "",
+      "pages": "299-310",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29920341/",
+      "affiliations": [
+        "Department of Food and Drug, University of Parma, Parma, Italy.",
+        "Department of Medicine and Surgery, University of Parma, Parma, Italy; Biopharmanet-TEC, University of Parma, Parma, Italy.",
+        "Department of Food and Drug, University of Parma, Parma, Italy; Biopharmanet-TEC, University of Parma, Parma, Italy. Electronic address: stefano.bruno@unipr.it.",
+        "Department of Food and Drug, University of Parma, Parma, Italy; Interdepartmental Center SITEIA.PARMA, University of Parma, Parma 43121, Italy.",
+        "Department of Medicine and Surgery, University of Parma, Parma, Italy; Biopharmanet-TEC, University of Parma, Parma, Italy; Istituto Nazionale Biostrutture e Biosistemi, Rome, Italy.",
+        "Istituto di Ricerche Farmacologiche 'Mario Negri', Milan, Italy.",
+        "School of Biological Sciences, University of Essex, Colchester, United Kingdom.",
+        "Department of Food and Drug, University of Parma, Parma, Italy; Biopharmanet-TEC, University of Parma, Parma, Italy; Istituto Nazionale Biostrutture e Biosistemi, Rome, Italy; Istituto di Biofisica, Consiglio Nazionale delle Ricerche, Pisa, Italy."
+      ]
+    },
+    {
+      "id": "32647211",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "P50, oxygen affinity and cooperativity",
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "32647211",
+      "doi": "10.1038/s41598-020-68190-0",
+      "title": "Polymerized human hemoglobin facilitated modulation of tumor oxygenation is dependent on tumor oxygenation status and oxygen affinity of the hemoglobin-based oxygen carrier",
+      "authors": "Donald A Belcher; Alfredo Lucas; Pedro Cabrales; Andre F Palmer",
+      "journal": "Scientific reports",
+      "year": "2020",
+      "volume": "10",
+      "issue": "1",
+      "pages": "11372",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/32647211/",
+      "affiliations": [
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, OH, 43210, USA.",
+        "Department of Bioengineering, University of California San Diego, La Jolla, CA, 92093, USA.",
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, OH, 43210, USA. palmer.351@osu.edu."
+      ]
+    },
+    {
+      "id": "37129671",
+      "direction": "Physiology",
+      "evidenceType": "Computational model",
+      "topics": [
+        "Capillary oxygen transport models",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "37129671",
+      "doi": "10.1007/s11538-023-01155-2",
+      "title": "Tissue Oxygenation Around Capillaries: Effects of Hematocrit and Arteriole Oxygen Condition",
+      "authors": "Farhad A Amiri; Junfeng Zhang",
+      "journal": "Bulletin of mathematical biology",
+      "year": "2023",
+      "volume": "85",
+      "issue": "6",
+      "pages": "50",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/37129671/",
+      "affiliations": [
+        "Bharti School of Engineering and Computer Science, Laurentian University, 935 Ramsey Lake Road, Sudbury, Ontario, P3E 2C6, Canada.",
+        "Bharti School of Engineering and Computer Science, Laurentian University, 935 Ramsey Lake Road, Sudbury, Ontario, P3E 2C6, Canada. jzhang@laurentian.ca."
+      ]
+    },
+    {
+      "id": "9242942",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "9242942",
+      "doi": "10.1097/00002480-199707000-00006",
+      "title": "Evaluation of the capabilities of a hemoglobin vesicle as an artificial oxygen carrier in a rat exchange transfusion model",
+      "authors": "Y Izumi; H Sakai; T Kose; K Hamada; S Takeoka; A Yoshizu; H Horinouchi; R Kato; H Nishide; E Tsuchida; K Kobayashi",
+      "journal": "ASAIO journal (American Society for Artificial Internal Organs : 1992)",
+      "year": "1997",
+      "volume": "43",
+      "issue": "4",
+      "pages": "289-297",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/9242942/",
+      "affiliations": [
+        "Department of Surgery, School of Medicine, Keio University, Tokyo, Japan."
+      ]
+    },
+    {
+      "id": "10659206",
+      "direction": "Physiology",
+      "evidenceType": "In vitro experimental study",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Facilitated diffusion and transport resistance"
+      ],
+      "pmid": "10659206",
+      "doi": "",
+      "title": "Oxygen transport in 10 microns artificial capillaries",
+      "authors": "T C Page; W R Light; J D Hellums",
+      "journal": "Advances in experimental medicine and biology",
+      "year": "1999",
+      "volume": "471",
+      "issue": "",
+      "pages": "715-721",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/10659206/",
+      "affiliations": [
+        "Research and Development, Biopure Corporation, Cambridge, Massachusetts 02141, USA."
+      ]
+    },
+    {
+      "id": "22288842",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "22288842",
+      "doi": "10.3109/10731199.2011.637929",
+      "title": "Fluid resuscitation of hemorrhagic shock with hemoglobin vesicles in Beagle dogs: pilot study",
+      "authors": "Manabu Yamamoto; Hirohisa Horinouchi; Koichi Kobayashi; Yasuhisa Seishi; Natsue Sato; Manabu Itoh; Hiromi Sakai",
+      "journal": "Artificial cells, blood substitutes, and immobilization biotechnology",
+      "year": "2012",
+      "volume": "40",
+      "issue": "1-2",
+      "pages": "179-195",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/22288842/",
+      "affiliations": [
+        "Department of Surgery, School of Medicine, Keio University, Tokyo, Japan."
+      ]
+    },
+    {
+      "id": "29526566",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "29526566",
+      "doi": "10.1016/j.niox.2018.03.005",
+      "title": "Impact of cell-free hemoglobin on contracting skeletal muscle microvascular oxygen pressure dynamics",
+      "authors": "Scott K Ferguson; Julie W Harral; David I Pak; Katherine M Redinius; Kurt R Stenmark; Dominik J Schaer; Paul W Buehler; David C Irwin",
+      "journal": "Nitric oxide : biology and chemistry",
+      "year": "2018",
+      "volume": "76",
+      "issue": "",
+      "pages": "29-36",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/29526566/",
+      "affiliations": [
+        "Cardiovascular and Pulmonary Research Group, School of Medicine, University of Colorado, Denver, Aurora, CO, USA. Electronic address: Scott.ferguson@ucdenver.edu.",
+        "Cardiovascular and Pulmonary Research Group, School of Medicine, University of Colorado, Denver, Aurora, CO, USA.",
+        "Division of Internal Medicine, University of Zurich, CH-8091 Zurich, Switzerland.",
+        "Laboratory of Biochemistry and Vascular Biology, Center for Biologics Evaluation and Research, U.S. Food and Drug Administration, Silver Spring, MD, USA."
+      ]
+    },
+    {
+      "id": "38556266",
+      "direction": "Veterinary",
+      "evidenceType": "Animal experimental study",
+      "topics": [
+        "Microcirculation, low hematocrit and tissue hypoxia"
+      ],
+      "pmid": "38556266",
+      "doi": "10.2220/biomedres.45.91",
+      "title": "Using hemoglobin vesicles to treat operative hemorrhagic shock after pneu- monectomy in dog models: an experimental study",
+      "authors": "Kei Nakano; Mitsutomo Kohno; Hiroto Onozawa; Ryo Hashimoto; Kana Oiwa; Ryota Masuda; Masatoshi Yamaguchi; Tai Hato; Masazumi Watanabe; Hirohisa Horinouchi; Hiromi Sakai; Koichi Kobayashi; Masayuki Iwazaki",
+      "journal": "Biomedical research (Tokyo, Japan)",
+      "year": "2024",
+      "volume": "45",
+      "issue": "2",
+      "pages": "91-101",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38556266/",
+      "affiliations": [
+        "Division of General Thoracic Surgery, Department of Surgery, Tokai University School of Medicine, Isehara, Japan.",
+        "Department of General Thoracic Surgery, Saitama Medical Center, Saitama Medical University, Kawagoe, Japan.",
+        "Department of General Thoracic Surgery, Keio University School of Medicine, Tokyo, Japan.",
+        "Department of General Thoracic Surgery, Saitama City Hospital.",
+        "Department of Chemistry, Nara Medical University, Kashihara, Nara, Japan."
+      ]
+    }
+  ]
+}

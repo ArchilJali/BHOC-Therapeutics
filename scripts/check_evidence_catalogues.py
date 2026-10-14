@@ -54,7 +54,7 @@ for p in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html'
 assert len(VIEWS['human'])==180
 assert sum(any(p['source']=='Human Use' for p in r['provenance']) for r in VIEWS['human'])==180
 assert sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS['transplant'])==54
-assert sum('Related transplantation studies' in r['collection'] for r in VIEWS['transplant'])==8
+assert sum('Related transplantation studies' in r['collection'] for r in VIEWS['transplant'])==10
 science=(BASE/'science/index.html').read_text();embedded=Page(science)
 assert {a['id'] for a in embedded.records}=={r['id'] for r in VIEWS['related']},'Science / Related collection mismatch'
 assert len(embedded.records)==len(VIEWS['related']) and len(embedded.ids)==len(set(embedded.ids))
@@ -70,7 +70,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==274
+assert reconciliation['netAddedRecords']==309
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[collection_totals()['entries'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -85,7 +85,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 274 net additions; all 1,148 imported source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 309 net additions; all 1,183 source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
@@ -95,16 +95,28 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==918
-assert collection_stats['collections']=={'transplant':62,'human':180,'veterinary':260,'oxygen':210,'related':206}
-assert collection_stats['distinctRecordsInFiveCollections']==599
+assert collection_stats['entries']==962
+assert collection_stats['collections']=={'transplant':64,'human':180,'veterinary':267,'oxygen':238,'related':213}
+assert collection_stats['distinctRecordsInFiveCollections']==634
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-collection-total>918</strong>' in source
+    assert 'data-collection-total>962</strong>' in source
     assert 'Entries in five collections' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-print('PASS: five-collection total 918, 599 distinct records in those views, 9 additional product records; primary Evidence navigation opens combined search.')
+print('PASS: five-collection total 962, 634 distinct records in those views, 9 additional product records; primary Evidence navigation opens combined search.')
+
+selection=read('catalogues/data/oxygen-transport-review-20261014.json')
+assert selection['requestedPublications']==30 and selection['newPublications']==27 and selection['alreadyPublished']==3
+assert selection['newByCatalogue']=={'oxygen':22,'related':5}
+for selected in selection['records']:
+    matched=[r for r in RECORDS if r['pmid']==selected['pmid']]
+    assert len(matched)==1 and matched[0]['id']==selected['recordId'], 'Requested publication missing or duplicated'
+    assert matched[0]['doi'].casefold()==selected['doi'].casefold()
+    assert matched[0]['topics']==selected['topics']
+assert len(selection['researchDirections'])==6
+assert all('data-topic=' in (BASE/PATHS[k]/'index.html' if PATHS[k].endswith('/') else BASE/PATHS[k]).read_text() for k in ['all','oxygen','related','veterinary'])
+print('PASS: all 30 requested publications are indexed once; 27 additions, 3 existing; six research directions are searchable.')
