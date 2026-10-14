@@ -46,7 +46,7 @@ jobs:
                   s['rows']=len(json.loads((base/'approved-scientific-additions.json').read_text())['records'])
                   s['retainedRows']=s['rows']
                   s['missingRows']=0
-          (base/'source-coverage.json').write_text(json.dumps(old,ensure_ascii=False,indent=2)+'\\n')
+          (base/'source-coverage.json').write_text(json.dumps(old,ensure_ascii=False,indent=2)+'\n')
           PY
       - name: Verify evidence and source records
         run: python3 scripts/check_evidence_catalogues.py
