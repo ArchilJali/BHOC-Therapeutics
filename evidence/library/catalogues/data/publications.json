@@ -32137,6 +32137,258 @@
       ],
       "titleAliases": [],
       "catalogueSummary": "Review of acellular hemoglobin-based oxygen carriers, oxygen loading and unloading, blood rheology, microcirculatory autoregulation and tissue oxygenation."
+    },
+    {
+      "title": "Ventilatory alterations in normal horses in response to changes in inspired oxygen and carbon dioxide",
+      "year": "1975",
+      "authors": "William W Muir; Charles A Moore; Robert L Hamlin",
+      "journal": "American Journal of Veterinary Research",
+      "doi": "",
+      "pmid": "1111380",
+      "citation": "William W Muir, Charles A Moore, Robert L Hamlin. Ventilatory alterations in normal horses in response to changes in inspired oxygen and carbon dioxide. American Journal of Veterinary Research. 1975;36(2):155-159.",
+      "product": "",
+      "keywords": "Respiratory physiology; Oxygen and carbon dioxide response",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [
+        "Equine (Horse)"
+      ],
+      "evidence": "Experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/1111380/"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "1111380",
+          "title": "Ventilatory alterations in normal horses in response to changes in inspired oxygen and carbon dioxide",
+          "year": "1975",
+          "doi": "",
+          "pmid": "1111380"
+        }
+      ],
+      "originalVerification": "Original PubMed or publisher record checked; historical study.",
+      "sourceReview": "Muir-authored publication. Original experimental research or review as labelled. Findings relate to veterinary oxygenation and should not be interpreted as efficacy evidence for a new BHOC formulation.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen transport, gas exchange, tissue perfusion and/or tissue oxygenation. Appears also in Veterinary application search.",
+      "id": "pub-pmid-1111380",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Respiratory physiology",
+        "Oxygen and carbon dioxide response"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": ""
+    },
+    {
+      "title": "Dobutamine-induced augmentation of cardiac output does not enhance respiratory gas exchange in anesthetized recumbent healthy horses",
+      "year": "1986",
+      "authors": "C R Swanson; William W Muir",
+      "journal": "American Journal of Veterinary Research",
+      "doi": "",
+      "pmid": "3740627",
+      "citation": "C R Swanson, William W Muir. Dobutamine-induced augmentation of cardiac output does not enhance respiratory gas exchange in anesthetized recumbent healthy horses. American Journal of Veterinary Research. 1986;47(7):1573-1576.",
+      "product": "",
+      "keywords": "Cardiac output versus gas exchange; Equine physiology",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [
+        "Equine (Horse)"
+      ],
+      "evidence": "Experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/3740627/"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "3740627",
+          "title": "Dobutamine-induced augmentation of cardiac output does not enhance respiratory gas exchange in anesthetized recumbent healthy horses",
+          "year": "1986",
+          "doi": "",
+          "pmid": "3740627"
+        }
+      ],
+      "originalVerification": "Original PubMed or publisher record checked; historical study.",
+      "sourceReview": "Muir-authored publication. Original experimental research or review as labelled. Findings relate to veterinary oxygenation and should not be interpreted as efficacy evidence for a new BHOC formulation.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen transport, gas exchange, tissue perfusion and/or tissue oxygenation. Appears also in Veterinary application search.",
+      "id": "pub-pmid-3740627",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Cardiac output versus gas exchange",
+        "Equine physiology"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": ""
+    },
+    {
+      "title": "Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study",
+      "year": "2009",
+      "authors": "Edward S Cooper; Shane W Bateman; William W Muir",
+      "journal": "Journal of Trauma",
+      "doi": "10.1097/ta.0b013e3181919e43",
+      "pmid": "19430240",
+      "citation": "Edward S Cooper, Shane W Bateman, William W Muir. Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study. Journal of Trauma. 2009;66(5):1365-1373.",
+      "product": "",
+      "keywords": "Perfusion; Hemorrhagic shock; Viscosity",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [
+        "Canine (Dog)"
+      ],
+      "evidence": "Experimental study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/19430240/",
+        "https://doi.org/10.1097/ta.0b013e3181919e43"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "19430240",
+          "title": "Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study",
+          "year": "2009",
+          "doi": "10.1097/ta.0b013e3181919e43",
+          "pmid": "19430240"
+        }
+      ],
+      "originalVerification": "Original PubMed or publisher record checked; historical study.",
+      "sourceReview": "Muir-authored publication. Original experimental research or review as labelled. Findings relate to veterinary oxygenation and should not be interpreted as efficacy evidence for a new BHOC formulation.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen transport, gas exchange, tissue perfusion and/or tissue oxygenation. Appears also in Veterinary application search.",
+      "id": "pub-pmid-19430240",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Perfusion",
+        "Hemorrhagic shock",
+        "Viscosity"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": ""
+    },
+    {
+      "title": "Dose-Dependent Hemodynamic, Biochemical, and Tissue Oxygen Effects of OC99 following Severe Oxygen Debt Produced by Hemorrhagic Shock in Dogs",
+      "year": "2014",
+      "authors": "William W Muir; Carlos L del Rio; Yukie Ueyama; Bradley L Youngblood; Robert S George; Carl W Rausch; Billy S H Lau; Robert L Hamlin",
+      "journal": "Critical Care Research and Practice",
+      "doi": "10.1155/2014/864237",
+      "pmid": "",
+      "citation": "William W Muir, Carlos L del Rio, Yukie Ueyama, Bradley L Youngblood, Robert S George, Carl W Rausch, Billy S H Lau, Robert L Hamlin. Dose-Dependent Hemodynamic, Biochemical, and Tissue Oxygen Effects of OC99 following Severe Oxygen Debt Produced by Hemorrhagic Shock in Dogs. Critical Care Research and Practice. 2014;2014():864237.",
+      "product": "OC99",
+      "keywords": "Oxygen debt; Tissue oxygenation; HBOC; Hemorrhagic shock",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "QTest Labs",
+        "New A Innovation Ltd."
+      ],
+      "species": [
+        "Canine (Dog)"
+      ],
+      "evidence": "Experimental study",
+      "urls": [
+        "https://doi.org/10.1155/2014/864237"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "muir-oc99-2014",
+          "title": "Dose-Dependent Hemodynamic, Biochemical, and Tissue Oxygen Effects of OC99 following Severe Oxygen Debt Produced by Hemorrhagic Shock in Dogs",
+          "year": "2014",
+          "doi": "10.1155/2014/864237",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "Original PubMed or publisher record checked; historical study.",
+      "sourceReview": "Muir-authored publication. Original experimental research or review as labelled. Findings relate to veterinary oxygenation and should not be interpreted as efficacy evidence for a new BHOC formulation.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen transport, gas exchange, tissue perfusion and/or tissue oxygenation. Appears also in Veterinary application search.",
+      "id": "pub-muir-oc99-2014",
+      "verification": "Publisher metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Oxygen debt",
+        "Tissue oxygenation",
+        "HBOC",
+        "Hemorrhagic shock"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": ""
+    },
+    {
+      "title": "Oxygenation, oxygen delivery and anaesthesia in the horse",
+      "year": "2015",
+      "authors": "John A E Hubbell; William W Muir",
+      "journal": "Equine Veterinary Journal",
+      "doi": "10.1111/evj.12258",
+      "pmid": "24612155",
+      "citation": "John A E Hubbell, William W Muir. Oxygenation, oxygen delivery and anaesthesia in the horse. Equine Veterinary Journal. 2015;47(1):25-35.",
+      "product": "",
+      "keywords": "Oxygen delivery; Anaesthesia; Equine physiology",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [
+        "Equine (Horse)"
+      ],
+      "evidence": "Review",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/24612155/",
+        "https://doi.org/10.1111/evj.12258"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "24612155",
+          "title": "Oxygenation, oxygen delivery and anaesthesia in the horse",
+          "year": "2015",
+          "doi": "10.1111/evj.12258",
+          "pmid": "24612155"
+        }
+      ],
+      "originalVerification": "Original PubMed or publisher record checked; historical study.",
+      "sourceReview": "Muir-authored publication. Original experimental research or review as labelled. Findings relate to veterinary oxygenation and should not be interpreted as efficacy evidence for a new BHOC formulation.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen transport, gas exchange, tissue perfusion and/or tissue oxygenation. Appears also in Veterinary application search.",
+      "id": "pub-pmid-24612155",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Oxygen delivery",
+        "Anaesthesia",
+        "Equine physiology"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": ""
     }
   ],
   "mergedRecords": [

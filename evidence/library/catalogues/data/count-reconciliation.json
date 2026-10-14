@@ -8,11 +8,11 @@
   },
   "originalDistinctRecords": 334,
   "originalRepeatedOccurrences": 141,
-  "netAddedRecords": 310,
-  "publicRecords": 644,
+  "netAddedRecords": 315,
+  "publicRecords": 649,
   "catalogues": {
     "product": 192,
-    "oxygen": 239,
+    "oxygen": 244,
     "related": 213
   },
   "sourceOccurrences": {
@@ -24,7 +24,7 @@
     "Master Catalogue": 414,
     "Veterinary base": 236,
     "Veterinary curated additions": 3,
-    "Approved scientific additions": 34
+    "Approved scientific additions": 39
   },
   "cohorts": [
     {
@@ -669,14 +669,16 @@
     },
     {
       "label": "User-approved scientific additions",
-      "records": 34,
+      "records": 39,
       "recordIds": [
         "pub-dyson-singer-2007-art000522007",
         "pub-dyson-singer-2009-013400915772",
         "pub-dyson-singer-2011-01340112227z",
         "pub-dyson-singer-2013-8chest121849",
         "pub-dyson-singer-2019-bja201903027",
+        "pub-muir-oc99-2014",
         "pub-pmid-10659206",
+        "pub-pmid-1111380",
         "pub-pmid-11527583",
         "pub-pmid-12151262",
         "pub-pmid-12683610",
@@ -686,8 +688,10 @@
         "pub-pmid-17686494",
         "pub-pmid-18027243",
         "pub-pmid-18671987",
+        "pub-pmid-19430240",
         "pub-pmid-2096624",
         "pub-pmid-22288842",
+        "pub-pmid-24612155",
         "pub-pmid-2673661",
         "pub-pmid-29526566",
         "pub-pmid-29920341",
@@ -695,6 +699,7 @@
         "pub-pmid-3363237",
         "pub-pmid-3558238",
         "pub-pmid-37129671",
+        "pub-pmid-3740627",
         "pub-pmid-38556266",
         "pub-pmid-5042165",
         "pub-pmid-5434415",

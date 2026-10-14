@@ -68,17 +68,17 @@
       "missingRows": 0
     }
   ],
-  "sourceOccurrences": 1184,
-  "retainedRecordsIncludingFragments": 692,
+  "sourceOccurrences": 1189,
+  "retainedRecordsIncludingFragments": 697,
   "repeatedSourceOccurrences": 492,
   "incompleteSourceFragments": 48,
-  "publicRecords": 644,
+  "publicRecords": 649,
   "catalogues": {
-    "oxygen": 239,
+    "oxygen": 244,
     "related": 213,
     "product": 192
   },
   "missingSourceRows": 0,
-  "calculation": "1184 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 644 public records",
+  "calculation": "1189 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 649 public records",
   "note": "This verifies coverage of the supplied files. It does not claim that this collection contains every publication in the scientific literature."
 }

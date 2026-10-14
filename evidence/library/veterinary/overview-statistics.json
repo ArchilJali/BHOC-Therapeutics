@@ -1,6 +1,6 @@
 {
   "snapshot": "2026-10-14",
-  "records": 268,
+  "records": 273,
   "groups": [
     {
       "value": "Human",
@@ -25,7 +25,7 @@
     {
       "value": "Canine (Dog)",
       "label": "Canine (Dog)",
-      "count": 30
+      "count": 32
     },
     {
       "value": "Feline (Cat)",
@@ -50,15 +50,15 @@
     {
       "value": "Equine (Horse)",
       "label": "Equine (Horse)",
-      "count": 4
+      "count": 7
     }
   ],
-  "institutions": 166,
-  "journals": 123,
+  "institutions": 168,
+  "journals": 125,
   "groupField": "speciesGroups",
   "groupLabel": "Species / model groups",
-  "total": 268,
-  "journalLabels": 123,
+  "total": 273,
+  "journalLabels": 125,
   "notes": {
     "counts": "Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model."
   }

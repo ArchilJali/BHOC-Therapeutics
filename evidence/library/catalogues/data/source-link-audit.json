@@ -1,8 +1,8 @@
 {
   "checked": "2026-10-14",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 644,
-  "uniqueUrlsChecked": 912,
+  "publicRecords": 649,
+  "uniqueUrlsChecked": 919,
   "states": {
     "matched": 895,
     "access-limited": 10,
@@ -10044,6 +10044,85 @@
           "state": "matched-publisher-metadata",
           "method": "PubMed and journal publisher bibliographic metadata",
           "sourceTitle": "Hemoglobin Solutions and Tissue Oxygenation"
+        }
+      ]
+    },
+    "pub-pmid-1111380": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/1111380/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/1111380/",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Ventilatory alterations in normal horses in response to changes in inspired oxygen and carbon dioxide"
+        }
+      ]
+    },
+    "pub-pmid-3740627": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/3740627/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3740627/",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Dobutamine-induced augmentation of cardiac output does not enhance respiratory gas exchange in anesthetized recumbent healthy horses"
+        }
+      ]
+    },
+    "pub-pmid-19430240": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/19430240/",
+        "https://doi.org/10.1097/ta.0b013e3181919e43"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19430240/",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study"
+        },
+        {
+          "url": "https://doi.org/10.1097/ta.0b013e3181919e43",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study"
+        }
+      ]
+    },
+    "pub-muir-oc99-2014": {
+      "publicLinks": [
+        "https://doi.org/10.1155/2014/864237"
+      ],
+      "checks": [
+        {
+          "url": "https://doi.org/10.1155/2014/864237",
+          "state": "matched",
+          "method": "Journal article DOI and PMC original record",
+          "sourceTitle": "Dose-Dependent Hemodynamic, Biochemical, and Tissue Oxygen Effects of OC99 following Severe Oxygen Debt Produced by Hemorrhagic Shock in Dogs"
+        }
+      ]
+    },
+    "pub-pmid-24612155": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/24612155/",
+        "https://doi.org/10.1111/evj.12258"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24612155/",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Oxygenation, oxygen delivery and anaesthesia in the horse"
+        },
+        {
+          "url": "https://doi.org/10.1111/evj.12258",
+          "state": "matched",
+          "method": "PubMed indexed publication / journal DOI",
+          "sourceTitle": "Oxygenation, oxygen delivery and anaesthesia in the horse"
         }
       ]
     }

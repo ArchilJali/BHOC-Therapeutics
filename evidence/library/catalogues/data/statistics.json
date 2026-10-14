@@ -1,10 +1,10 @@
 {
   "updated": "2026-10-14",
   "total": {
-    "records": 644,
+    "records": 649,
     "groups": 11,
-    "institutions": 174,
-    "journals": 208,
+    "institutions": 176,
+    "journals": 210,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
@@ -18,10 +18,10 @@
       "groupLabel": "Species / model groups"
     },
     "oxygen": {
-      "records": 239,
-      "groups": 5,
-      "institutions": 15,
-      "journals": 46,
+      "records": 244,
+      "groups": 7,
+      "institutions": 17,
+      "journals": 48,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -34,10 +34,10 @@
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 268,
+      "records": 273,
       "groups": 10,
-      "institutions": 166,
-      "journals": 123,
+      "institutions": 168,
+      "journals": 125,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -58,26 +58,26 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 644,
+      "records": 649,
       "groups": 11,
-      "institutions": 174,
-      "journals": 208,
+      "institutions": 176,
+      "journals": 210,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 644,
+  "publicRecords": 649,
   "collectionTotals": {
-    "entries": 964,
+    "entries": 974,
     "collections": {
       "transplant": 64,
       "human": 180,
-      "veterinary": 268,
-      "oxygen": 239,
+      "veterinary": 273,
+      "oxygen": 244,
       "related": 213
     },
-    "distinctRecordsInFiveCollections": 635,
-    "repeatedPlacements": 329,
+    "distinctRecordsInFiveCollections": 640,
+    "repeatedPlacements": 334,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,14 +89,19 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 644
+    "distinctRecordsInFullLibrary": 649
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 1,
-    "displayedTotal": 963,
+    "newPublications": 6,
+    "displayedTotal": 968,
     "newRecordIds": [
-      "pub-pmid-12683610"
+      "pub-muir-oc99-2014",
+      "pub-pmid-1111380",
+      "pub-pmid-12683610",
+      "pub-pmid-19430240",
+      "pub-pmid-24612155",
+      "pub-pmid-3740627"
     ]
   },
   "archivedIncompleteEntries": 48,
