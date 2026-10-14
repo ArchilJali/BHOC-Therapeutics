@@ -44,9 +44,15 @@
 .living-repository{margin-top:10px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .home-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
 .home-history{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px;align-items:center;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:12px;padding:16px 20px;margin:16px 0}
-.home-linkedin{border-left-color:#0a66c2;scroll-margin-top:145px}
-.home-linkedin .eyebrow{color:#0a66c2}
-.home-linkedin .button{background:#0a66c2;border-color:#0a66c2;color:#fff}
+.home-publication-grid{margin:22px 0;scroll-margin-top:145px}
+.home-publication-card{scroll-margin-top:145px}
+.home-publication-card h2{font-size:20px;line-height:1.3;margin:9px 0}
+.home-publication-card>p{min-height:0}
+.home-publication-feature{border-top:1px solid var(--line);margin-top:12px;padding-top:14px}
+.home-publication-feature h3{font-size:18px;margin:8px 0}
+.home-publication-feature p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.home-publication-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px}
+.home-publication-actions .button{margin-top:0;min-height:38px}
 .home-history h2{font-size:clamp(20px,1.8vw,23px);line-height:1.25;letter-spacing:-.35px;margin:5px 0 6px;color:var(--ink)}
 .home-history p{font-size:.875rem;line-height:1.5;color:var(--muted);margin:0 0 10px}
 .home-history .button{font-size:.8125rem;min-height:36px!important;padding:7px 12px}
@@ -149,34 +155,6 @@
     <!-- collection-summary:start --><div class="collection-summary" id="collection-summary"><div class="collection-summary-total"><span>Browse five publication collections</span></div><nav class="collection-counts" aria-label="Five publication collections"><a href="/evidence/library/catalogues/?application=Transplant" data-collection-link="transplant"><strong>64</strong> Transplant</a><a href="/evidence/library/catalogues/?application=Human+Use" data-collection-link="human"><strong>180</strong> Human</a><a href="/evidence/library/catalogues/?application=Veterinary" data-collection-link="veterinary"><strong>267</strong> Veterinary</a><a href="/evidence/library/catalogues/?catalogue=oxygen" data-collection-link="oxygen"><strong>238</strong> Oxygen Diffusion &amp; Microcirculation</a><a href="/evidence/library/catalogues/?catalogue=related" data-collection-link="related"><strong>213</strong> Related Scientific Articles</a></nav></div><!-- collection-summary:end --><section aria-label="Evidence Library statistics"><div class="evidence-metrics"><div><strong data-collection-total>962</strong><span>Entries in five collections</span></div><div><strong>11</strong><span>Species / model groups</span></div><div><strong>174</strong><span>Author institutions</span></div><div><strong>208</strong><span>Journals</span></div></div></section><p class="catalogue-search-action" id="all-publications-entry" style="text-align:center"><a href="/evidence/library/catalogues/">Search all publications together →</a></p>
 
 
-    <section class="home-history" aria-labelledby="home-history-title">
-      <div>
-        <div class="eyebrow">Historical archive</div>
-        <h2 id="home-history-title">Historical Sources &amp; Primary Documents</h2>
-        <p>Biopure, Hemopure and Oxyglobin: the people, primary documents and regulatory milestones behind early oxygen therapeutics.</p>
-        <a class="button secondary" href="historical-sources/">Explore historical sources</a>
-      </div>
-      <article class="home-history-feature" aria-labelledby="home-history-article-title">
-        <div class="eyebrow">Historical perspective</div>
-        <h3 id="home-history-article-title"><a href="historical-sources/biopure-standing-on-the-shoulders-of-giants/">Standing on the Shoulders of Giants</a></h3>
-        <p>Biopure and the People Behind an Early Oxygen-Therapeutics Platform</p>
-      </article>
-    </section>
-
-    <section class="home-history home-linkedin" id="linkedin-publications" aria-labelledby="home-linkedin-title">
-      <div>
-        <div class="eyebrow">Public discussion</div>
-        <h2 id="home-linkedin-title">LinkedIn Publications</h2>
-        <p>BHOC posts and public discussions on tissue oxygenation, microcirculation and oxygen therapeutics.</p>
-        <a class="button" href="social-media/linkedin/">Explore LinkedIn Publications →</a>
-      </div>
-      <article class="home-history-feature" aria-labelledby="home-linkedin-latest-title">
-        <div class="eyebrow">Latest BHOC post · 14 October 2026</div>
-        <h3 id="home-linkedin-latest-title"><a href="social-media/linkedin/#oxygen-transport-in-capillaries">Oxygen transport in capillaries</a></h3>
-        <p>Illustration, model results and a link to the BHOC LinkedIn post.</p>
-      </article>
-    </section>
-
     <section id="evidence-hubs" aria-labelledby="hubs-title"><div class="overview-heading"><div><div class="eyebrow">Three application lenses · one evidence foundation</div><h2 id="hubs-title" class="section-heading">Explore the evidence in context.</h2></div><span class="tag">Updated 11 Oct 2026</span></div>
       <div class="hub-grid">
         <article class="panel hub-card vet"><span class="hub-mark" aria-hidden="true">VET</span><h2>Veterinary</h2><p>Oxyglobin regulatory history, animal and model evidence, species distribution, author institutions and original publication records.</p><div class="hub-facts"><div><strong>267</strong><span>PUBLICATION RECORDS</span></div><div><strong>10</strong><span>SPECIES / MODEL GROUPS</span></div><div><strong>166</strong><span>AUTHOR INSTITUTIONS</span></div><div><strong>123</strong><span>JOURNALS</span></div></div><a class="button" href="veterinary/Vet-index.html">Open Veterinary →</a></article>
@@ -185,6 +163,37 @@
       </div>
     <p class="application-catalogue-link" data-product-catalogue-link><a href="/evidence/library/catalogues/product.html">Oxyglobin &amp; Hemopure: search product evidence across applications →</a></p></section>
 <section id="scientific-catalogues" class="catalogue-entry"><div class="eyebrow">Explore the scientific literature</div><h2>Scientific Evidence Relevant to BHOC</h2><p>Find publications by topic, species, author, institution, journal and year.</p><p class="catalogue-search-action"><a href="/evidence/library/catalogues/">Search all publications together →</a></p><div class="catalogue-card-grid"><article class="catalogue-card"><div class="eyebrow">Research collections</div><h3>Veterinary, Human &amp; Transplant Evidence</h3><p>Browse veterinary, human-use and transplantation publications. Search by species, author, institution, journal and year.</p><div class="evidence-metrics"><div><strong>511</strong><span>Publication records</span></div><div><strong>10</strong><span>Species / model groups</span></div><div><strong>169</strong><span>Author institutions</span></div><div><strong>163</strong><span>Journals</span></div></div><a class="button" href="#evidence-hubs">Explore collections →</a></article><article class="catalogue-card"><div class="eyebrow">Research catalogue</div><h3>Oxygen Diffusion &amp; Microcirculation</h3><p>Research on oxygen diffusion, tissue oxygenation, microcirculation and perfusion. Search by author, journal, year and study model.</p><div class="evidence-metrics"><div><strong>238</strong><span>Publication records</span></div><div><strong>5</strong><span>Species / model groups</span></div><div><strong>15</strong><span>Author institutions</span></div><div><strong>45</strong><span>Journals</span></div></div><a class="button" href="/evidence/library/catalogues/oxygen.html">Explore catalogue →</a></article><article class="catalogue-card"><div class="eyebrow">Research catalogue</div><h3>Related Scientific Articles</h3><p>Scientific context for oxygen therapeutics across oncology, veterinary medicine, transplantation, emergency care and transfusion practice.</p><div class="evidence-metrics"><div><strong>213</strong><span>Publication records</span></div><div><strong>8</strong><span>Species / model groups</span></div><div><strong>86</strong><span>Author institutions</span></div><div><strong>124</strong><span>Journals</span></div></div><a class="button" href="/evidence/library/catalogues/related.html">Explore catalogue →</a></article></div></section>
+    <div class="catalogue-card-grid catalogue-card-pair home-publication-grid" id="publications-and-history">
+      <section class="catalogue-card home-publication-card" aria-labelledby="home-history-title">
+        <div class="eyebrow">Historical archive</div>
+        <h2 id="home-history-title">Historical Sources &amp; Primary Documents</h2>
+        <p>Biopure, Hemopure and Oxyglobin: the people, primary documents and regulatory milestones behind early oxygen therapeutics.</p>
+      <article class="home-publication-feature" aria-labelledby="home-history-article-title">
+        <div class="eyebrow">Historical perspective</div>
+        <h3 id="home-history-article-title">Standing on the Shoulders of Giants</h3>
+        <p>Biopure and the People Behind an Early Oxygen-Therapeutics Platform</p>
+      </article>
+        <div class="home-publication-actions">
+          <a class="button" href="historical-sources/">Explore historical sources →</a>
+          <a class="button secondary" href="historical-sources/biopure-standing-on-the-shoulders-of-giants/">Read featured article →</a>
+        </div>
+      </section>
+      <section class="catalogue-card home-publication-card" id="linkedin-publications" aria-labelledby="home-linkedin-title">
+        <div class="eyebrow">Public discussion</div>
+        <h2 id="home-linkedin-title">LinkedIn Publications</h2>
+        <p>BHOC posts and public discussions on tissue oxygenation, microcirculation and oxygen therapeutics.</p>
+      <article class="home-publication-feature" aria-labelledby="home-linkedin-latest-title">
+        <div class="eyebrow">Latest BHOC post · 14 October 2026</div>
+        <h3 id="home-linkedin-latest-title">Oxygen transport in capillaries</h3>
+        <p>Illustration, model results and a link to the BHOC LinkedIn post.</p>
+      </article>
+        <div class="home-publication-actions">
+          <a class="button" href="social-media/linkedin/">Explore LinkedIn Publications →</a>
+          <a class="button secondary" href="social-media/linkedin/#oxygen-transport-in-capillaries">Read latest BHOC post →</a>
+        </div>
+      </section>
+    </div>
+
 
 
 
