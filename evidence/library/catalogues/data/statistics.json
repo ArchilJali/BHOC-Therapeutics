@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-14",
   "total": {
-    "records": 643,
+    "records": 644,
     "groups": 11,
     "institutions": 174,
     "journals": 208,
@@ -18,10 +18,10 @@
       "groupLabel": "Species / model groups"
     },
     "oxygen": {
-      "records": 238,
+      "records": 239,
       "groups": 5,
       "institutions": 15,
-      "journals": 45,
+      "journals": 46,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -34,7 +34,7 @@
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 267,
+      "records": 268,
       "groups": 10,
       "institutions": 166,
       "journals": 123,
@@ -58,7 +58,7 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 643,
+      "records": 644,
       "groups": 11,
       "institutions": 174,
       "journals": 208,
@@ -66,18 +66,18 @@
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 643,
+  "publicRecords": 644,
   "collectionTotals": {
-    "entries": 962,
+    "entries": 964,
     "collections": {
       "transplant": 64,
       "human": 180,
-      "veterinary": 267,
-      "oxygen": 238,
+      "veterinary": 268,
+      "oxygen": 239,
       "related": 213
     },
-    "distinctRecordsInFiveCollections": 634,
-    "repeatedPlacements": 328,
+    "distinctRecordsInFiveCollections": 635,
+    "repeatedPlacements": 329,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,7 +89,15 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 643
+    "distinctRecordsInFullLibrary": 644
+  },
+  "publicationCounter": {
+    "baseline": 962,
+    "newPublications": 1,
+    "displayedTotal": 963,
+    "newRecordIds": [
+      "pub-pmid-12683610"
+    ]
   },
   "archivedIncompleteEntries": 48,
   "duplicateIds": 0,

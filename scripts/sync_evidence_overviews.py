@@ -29,7 +29,7 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
     s=f.read_text();s=re.sub(r'<!-- collection-summary:start -->[\s\S]*?<!-- collection-summary:end -->','',s);s=re.sub(r'<section[^>]*id="scientific-catalogues"[\s\S]*?</section>',catalogue_entry(f==BASE/'index.html'),s)
     if f==ROOT/'evidence/index.html':
         s=re.sub(r'<strong>\d+</strong><span>publication &amp; evidence records</span>|<strong>\d+</strong><span>publication & evidence records</span>',f'<strong>{TOTAL["records"]}</strong><span>publication records</span>',s)
-        s=re.sub(r'<strong>\d+</strong><span>(?:publication records|entries across five collections)</span>',f'<strong>{collection_totals()["entries"]}</strong><span>entries across five collections</span>',s)
+        s=re.sub(r'<strong>\d+</strong><span>(?:publication records|entries across five collections|library entries)</span>',f'<strong>{publication_counter()["displayedTotal"]}</strong><span>library entries</span>',s)
         s=s.replace('href="https://bhoctherapeutics.com/evidence/library/" target="_blank" rel="noopener noreferrer">Explore the evidence ↗','href="/evidence/library/catalogues/">Search all publications →')
         s=re.sub(r'<strong>\d+</strong><span>scientific journals</span>',f'<strong>{TOTAL["journals"]}</strong><span>scientific journals</span>',s)
         s=re.sub(r'<strong>\d+</strong><span>author institutions</span>',f'<strong>{TOTAL["institutions"]}</strong><span>author institutions</span>',s)
@@ -51,10 +51,8 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
         s=re.sub(r'<p class="catalogue-search-action" id="all-publications-entry"[^>]*>[\s\S]*?</p>','',s)
         s=re.sub(r'(<section aria-label="Evidence Library statistics">[\s\S]*?</section>)',lambda m:m[1]+f'<p class="catalogue-search-action" id="all-publications-entry" style="text-align:center"><a href="{PREFIX+PATHS["all"]}">Search all publications together →</a></p>',s)
         application_total=sum(STATS[k]['records'] for k in APP_LABELS)
-        breakdown='<div class="count-breakdown" id="catalogue-count-breakdown"><a href="#evidence-hubs"><strong>'+str(application_total)+'</strong> Veterinary, Human &amp; Transplant Evidence</a>'+''.join(f'<a href="{PREFIX+PATHS[k]}"><strong>{STATS[k]["records"]}</strong> {E(TITLES[k])}</a>' for k in ['oxygen','related'])+'</div>'
         s=re.sub(r'<div class="count-breakdown" id="catalogue-count-breakdown">[\s\S]*?</div>','',s)
         s=re.sub(r'<p class="metric-note" id="institutions-note">[\s\S]*?</p>','',s)
-        s=re.sub(r'(<p class="catalogue-search-action" id="all-publications-entry"[^>]*>[\s\S]*?</p>)',lambda m:m[1]+breakdown,s)
         for kind,cls in [('veterinary','vet'),('transplant','transplant'),('human','human')]:
             pattern=r'(<article class="panel hub-card '+cls+r'">[\s\S]*?<div class="hub-facts">)[\s\S]*?(</div><a class="button")'
             st=STATS[kind];facts=''.join(f'<div><strong>{st[field]}</strong><span>{label}</span></div>' for field,label in [('records','PUBLICATION RECORDS'),('groups',st['groupLabel'].upper()),('institutions','AUTHOR INSTITUTIONS'),('journals','JOURNALS')])
@@ -140,7 +138,7 @@ main=main.replace('</main>',collection_summary()+'</main>')
 p.write_text(css(head)+'<body class="evidence-catalogue">'+HEADER+main+FOOTER+'</body></html>')
 
 # Every linked metrics endpoint reflects the same published views.
-platform={'collectionTotals':collection_totals(),'snapshot':DATA['updated'],'uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'Three topic catalogues are mutually exclusive. Application views overlap. Statistics use public bibliographic records only.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}
+platform={'publicationCounter':publication_counter(),'collectionTotals':collection_totals(),'snapshot':DATA['updated'],'uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'The displayed publication counter retains the user-approved baseline and increments once per new publication. Topic catalogues are mutually exclusive; application views overlap.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}
 (BASE/'platform-overview.json').write_text(json.dumps(platform,indent=2)+'\n')
 # Historical knowledge-update entries retain the counts at their publication date.
 vet={'snapshot':DATA['updated'],**STATS['veterinary'],'total':STATS['veterinary']['records'],'journalLabels':STATS['veterinary']['journals'],'groups':[{'value':v,'label':v,'count':n} for v,n in Counter(v for r in VIEWS['veterinary'] for v in r['speciesGroups']).items()],'notes':{'counts':'Records may carry more than one species or model label. Missing labels are not counted as an in-vitro model.'}}

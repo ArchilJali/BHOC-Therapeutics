@@ -724,6 +724,38 @@
         "Department of General Thoracic Surgery, Saitama City Hospital.",
         "Department of Chemistry, Nara Medical University, Kashihara, Nara, Japan."
       ]
+    },
+    {
+      "id": "12683610",
+      "direction": "Veterinary",
+      "evidenceType": "Review",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Oxygen distribution and vascular effects"
+      ],
+      "pmid": "12683610",
+      "doi": "10.1111/j.1939-1676.2003.tb02423.x",
+      "title": "Hemoglobin Solutions and Tissue Oxygenation",
+      "authors": "William W Muir; Maxey L Wellman",
+      "journal": "Journal of Veterinary Internal Medicine",
+      "year": "2003",
+      "volume": "17",
+      "issue": "2",
+      "pages": "127-135",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/12683610/",
+      "affiliations": [
+        "Department of Veterinary Clinical Sciences, College of Veterinary Medicine, The Ohio State University, Columbus, Ohio, USA.",
+        "Department of Veterinary Biosciences, College of Veterinary Medicine, The Ohio State University, Columbus, Ohio, USA."
+      ],
+      "publicationTypes": [
+        "Review"
+      ],
+      "approval": "User authorized incorporation into the veterinary article list on 14 October 2026.",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/12683610/",
+        "https://doi.org/10.1111/j.1939-1676.2003.tb02423.x",
+        "https://academic.oup.com/jvim/article/17/2/127/8453490"
+      ]
     }
   ]
 }

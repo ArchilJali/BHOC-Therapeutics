@@ -76,3 +76,13 @@ body.evidence-catalogue.bhoc-shell-ready .catalogue-shell>.breadcrumbs{display:n
 .count-table{border-collapse:collapse;width:100%;max-width:760px;font-size:14px;margin:12px 0 18px}
 .count-table th,.count-table td{padding:8px 10px;border-bottom:1px solid #dce5eb;text-align:left}.count-table td:last-child{text-align:right}
 @media(max-width:480px){.evidence-catalogue .pagination,.evidence-catalogue .page-numbers{gap:3px}.evidence-catalogue .pagination button{min-width:30px;height:36px;padding:0 5px}.evidence-catalogue .page-gap{min-width:10px}}
+
+.vet-library-navigation{display:grid;gap:9px;margin:16px 0 20px;padding:13px 0;border-top:1px solid #d5e0e6;border-bottom:1px solid #d5e0e6}
+.vet-location-links,.vet-research-links,.vet-browse-actions{display:flex;flex-wrap:wrap;gap:8px}
+.vet-library-navigation .button,.vet-browse-actions .button{font-size:12px;padding:8px 12px;min-height:34px}
+.vet-library-navigation [aria-current="page"]{border-color:#147d84;box-shadow:inset 0 -3px #147d84}
+.vet-browse-actions{margin:14px 0 20px}
+.vet-review-entry{margin:12px 0 18px;padding:14px 16px;border:1px solid #d5e0e6;border-left:3px solid #147d84;border-radius:10px;background:#fff}
+.vet-review-entry p{margin:0 0 9px;font-size:13px;line-height:1.5}
+.vet-review-entry .button{font-size:12px;padding:8px 12px;min-height:34px}
+.vet-review-entry h2{font-size:18px;line-height:1.3;margin:5px 0 8px}

@@ -5,8 +5,8 @@
  if(relocated?.hasAttribute('data-record-redirect')){location.replace(relocated.querySelector('a').href);return;}
  const context=holder.closest('[data-view]')||document.body,prefix=context.dataset.queryPrefix||'';
  const rows=[...holder.querySelectorAll('.publication')],$=id=>document.getElementById(id);
- // Keep the five-collection aggregate only for the unfiltered overview.
- const collectionMetrics=[...context.querySelectorAll('[data-metric="collectionEntries"]')].map(metric=>{
+ // Preserve the user-approved display baseline and count each new publication once.
+ const publicationMetrics=[...context.querySelectorAll('[data-metric="publicationCounter"]')].map(metric=>{
   const label=metric.parentElement.querySelector('span');
   metric.setAttribute('aria-live','polite');
   return {metric,total:metric.textContent,label,labelText:label?.textContent||''};
@@ -45,7 +45,7 @@
  if(controls.some(id=>$(id).closest('#advanced')&&$(id).value&&!(context.dataset.view==='all'&&id==='catalogue')))$('advanced').open=true;
  function render(reset=true){
   if(reset)page=1;const terms=normal($('q').value).split(/\s+/).filter(Boolean);
-  if(context.dataset.view==='all')document.querySelectorAll('[data-catalogue-filter]').forEach(link=>{if(link.dataset.catalogueFilter===$('catalogue').value)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
+  if(['all','veterinary'].includes(context.dataset.view))document.querySelectorAll('[data-catalogue-filter]').forEach(link=>{if(link.dataset.catalogueFilter===$('catalogue').value)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
   if($('combined-applications'))$('combined-applications').hidden=$('catalogue').value!=='product';
   matching=rows.filter(r=>terms.every(t=>normal(r.dataset.search).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
   const filtered=Boolean(terms.length||legacyScope||fields.some(id=>$(id).value)||normal($('author').value)||normal($('institution').value));
@@ -63,7 +63,7 @@
   });
   const stats={records:matching.length,groups:unique(matching.flatMap(r=>list(r,context.dataset.group))).size,institutions:unique(matching.flatMap(r=>list(r,'institution'))).size,journals:unique(matching.map(r=>r.dataset.journal)).size};
   for(const [key,value] of Object.entries(stats))context.querySelectorAll('[data-metric="'+key+'"]').forEach(metric=>{metric.textContent=value;});
-  for(const {metric,total,label,labelText} of collectionMetrics){
+  for(const {metric,total,label,labelText} of publicationMetrics){
    metric.textContent=filtered?matching.length:total;
    if(label)label.textContent=filtered?'Publication records in this selection':labelText;
   }
@@ -72,7 +72,7 @@
   history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);
  }
  for(const id of controls)$(id).addEventListener(['q','author','institution'].includes(id)?'input':'change',()=>render());
- if(context.dataset.view==='all')document.querySelectorAll('[data-catalogue-filter]').forEach(link=>link.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();$('catalogue').value=link.dataset.catalogueFilter;render();}));
+ if(['all','veterinary'].includes(context.dataset.view))document.querySelectorAll('[data-catalogue-filter]').forEach(link=>link.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();$('catalogue').value=link.dataset.catalogueFilter;render();}));
  $('reset').addEventListener('click',()=>{controls.forEach(id=>$(id).value=id==='sort'?'newest':'');legacyScope='';if(!prefix)history.replaceState(null,'',location.pathname);render();});
  $('previous').addEventListener('click',()=>{page--;render(false);$('result-count').scrollIntoView({block:'start'});});
  $('next').addEventListener('click',()=>{page++;render(false);$('result-count').scrollIntoView({block:'start'});});

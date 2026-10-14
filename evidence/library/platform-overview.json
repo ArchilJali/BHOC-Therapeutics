@@ -1,15 +1,23 @@
 {
+  "publicationCounter": {
+    "baseline": 962,
+    "newPublications": 1,
+    "displayedTotal": 963,
+    "newRecordIds": [
+      "pub-pmid-12683610"
+    ]
+  },
   "collectionTotals": {
-    "entries": 962,
+    "entries": 964,
     "collections": {
       "transplant": 64,
       "human": 180,
-      "veterinary": 267,
-      "oxygen": 238,
+      "veterinary": 268,
+      "oxygen": 239,
       "related": 213
     },
-    "distinctRecordsInFiveCollections": 634,
-    "repeatedPlacements": 328,
+    "distinctRecordsInFiveCollections": 635,
+    "repeatedPlacements": 329,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -21,26 +29,26 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 643
+    "distinctRecordsInFullLibrary": 644
   },
   "snapshot": "2026-10-14",
-  "uniquePublications": 643,
-  "hubPlacements": 511,
+  "uniquePublications": 644,
+  "hubPlacements": 512,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 174,
   "normalizedJournalLabels": 208,
   "catalogues": {
     "product": 192,
-    "oxygen": 238,
+    "oxygen": 239,
     "related": 213
   },
   "hubs": {
-    "veterinary": 267,
+    "veterinary": 268,
     "human": 180,
     "transplant": 64
   },
   "notes": {
-    "counts": "Three topic catalogues are mutually exclusive. Application views overlap. Statistics use public bibliographic records only.",
+    "counts": "The displayed publication counter retains the user-approved baseline and increments once per new publication. Topic catalogues are mutually exclusive; application views overlap.",
     "institutions": "Indexed author affiliations, not endorsements or confirmed study locations."
   }
 }

@@ -32088,6 +32088,55 @@
       "topics": [],
       "titleAliases": [],
       "catalogueSummary": "Small exploratory groups and no transplantation after perfusion. Post-transplant function and BHOC benefit were not established."
+    },
+    {
+      "title": "Hemoglobin Solutions and Tissue Oxygenation",
+      "year": "2003",
+      "authors": "William W Muir; Maxey L Wellman",
+      "journal": "Journal of Veterinary Internal Medicine",
+      "doi": "10.1111/j.1939-1676.2003.tb02423.x",
+      "pmid": "12683610",
+      "citation": "Muir WW, Wellman ML. Hemoglobin Solutions and Tissue Oxygenation. J Vet Intern Med. 2003;17(2):127-135. doi:10.1111/j.1939-1676.2003.tb02423.x. PMID:12683610.",
+      "product": "HBOC / oxygen carrier (general)",
+      "keywords": "HBOC; hemoglobin-based oxygen carriers; oxygen loading and unloading; tissue oxygenation; microcirculation; functional capillary density; nitric oxide; viscosity; review",
+      "directions": [
+        "Veterinary",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [],
+      "evidence": "Review",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12683610/",
+        "https://doi.org/10.1111/j.1939-1676.2003.tb02423.x",
+        "https://academic.oup.com/jvim/article/17/2/127/8453490"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "12683610",
+          "title": "Hemoglobin Solutions and Tissue Oxygenation",
+          "year": "2003",
+          "doi": "10.1111/j.1939-1676.2003.tb02423.x",
+          "pmid": "12683610"
+        }
+      ],
+      "originalVerification": "PubMed and publisher metadata verified",
+      "sourceReview": "Review article. The source discusses class-level HBOC physiology and tissue oxygenation; it is not an original clinical case report.",
+      "catalogue": "oxygen",
+      "classificationBasis": "User-approved HBOC review with tissue oxygenation and microcirculation as its primary topic; the same record is included in the Veterinary application view.",
+      "id": "pub-pmid-12683610",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "RBC and extracellular hemoglobin comparisons",
+        "Oxygen distribution and vascular effects"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Review of acellular hemoglobin-based oxygen carriers, oxygen loading and unloading, blood rheology, microcirculatory autoregulation and tissue oxygenation."
     }
   ],
   "mergedRecords": [

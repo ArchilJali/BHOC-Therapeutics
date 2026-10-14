@@ -106,6 +106,14 @@ def stats(rows,kind='all'):
 STATS={k:stats(rows,k) for k,rows in VIEWS.items()}
 TOTAL=stats(RECORDS)
 
+def publication_counter():
+    """Retain the user-approved display baseline; count each new publication once."""
+    counter=read('catalogues/data/publication-counter.json')
+    baseline=set(counter['baselineRecordIds'])
+    additions=[r['id'] for r in RECORDS if r['id'] not in baseline and not baseline.intersection(r.get('aliases',[]))]
+    return {'baseline':counter['baseline'],'newPublications':len(additions),
+            'displayedTotal':counter['baseline']+len(additions),'newRecordIds':sorted(additions)}
+
 COLLECTIONS = ['transplant', 'human', 'veterinary', 'oxygen', 'related']
 COLLECTION_LABELS = {'transplant':'Transplant', 'human':'Human', 'veterinary':'Veterinary',
                      'oxygen':'Oxygen Diffusion & Microcirculation', 'related':'Related Scientific Articles'}
@@ -158,6 +166,6 @@ def audit():
     assert len({r['id'] for k in ['product','oxygen','related'] for r in VIEWS[k]})==len(RECORDS)
     assert sum(p['source']=='Oxygen Master' for r in ALL_RECORDS for p in r['provenance'])==243
     count_reconciliation()
-    return {'updated':DATA['updated'],'total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),'collectionTotals':collection_totals(),
+    return {'updated':DATA['updated'],'total':TOTAL,'views':STATS,'publicRecords':len(RECORDS),'collectionTotals':collection_totals(),'publicationCounter':publication_counter(),
             'archivedIncompleteEntries':len(ALL_RECORDS)-len(RECORDS),'duplicateIds':0,'duplicateDOIs':0,'duplicatePMIDs':0,
             'notes':'Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts.'}

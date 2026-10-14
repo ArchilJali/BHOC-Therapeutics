@@ -5,7 +5,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261014-oxygen-transport1'
+VERSION='20261014-muir-review2'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -27,6 +27,8 @@ BOUNDARIES={
  'human':'Human clinical and preclinical evidence are labelled separately. Animal studies are not presented as human clinical evidence.',
  'transplant':'Historical oxygen-carrier research and related transplantation studies remain separately classified.'}
 HOME=(BASE/'index.html').read_text()
+SHARED_CONTEXT_SCRIPTS=''.join(re.findall(r'<script[^>]*src="/(?:assets/ga4|navigation-context)\.js[^"]*"[^>]*></script>',HOME))
+assert '/assets/ga4.js' in SHARED_CONTEXT_SCRIPTS and '/navigation-context.js' in SHARED_CONTEXT_SCRIPTS
 HEADER=re.search(r'<header class="site-header">[\s\S]*?</header>',HOME)[0]
 FOOTER=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',HOME)[0]
 FOOTER=re.sub(r'<p class="platform-version"[\s\S]*?</p>','',FOOTER)
@@ -34,7 +36,9 @@ LINK_AUDIT_PATH=BASE/'catalogues/data/source-link-audit.json'
 LINK_AUDIT=json.loads(LINK_AUDIT_PATH.read_text())['records']
 
 def tabs(current=''):
-    selected='product' if current in ['veterinary','human','transplant'] else current
+    if current=='veterinary':
+        return '<div class="catalogue-overview-link"><a class="catalogue-all-link" href="'+PREFIX+PATHS[current]+'" data-catalogue-filter="" aria-current="page">All veterinary publications</a><a href="'+PREFIX+PATHS['all']+'">All BHOC publications →</a></div><nav class="catalogue-tabs" aria-label="Filter veterinary publications by catalogue">'+''.join('<a href="'+PREFIX+PATHS[current]+'?catalogue='+k+'" data-catalogue-filter="'+k+'"><span>0'+str(i)+'</span>'+E(TITLES[k])+'</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
+    selected='' if current in APP_LABELS else current
     unified=current=='all'
     all_link=f'<div class="catalogue-overview-link"><a class="catalogue-all-link" href="{PREFIX+PATHS["all"]}"'+(' data-catalogue-filter="" aria-current="page"' if unified else '')+'>All publications</a><span>Browse by catalogue</span></div>'
     return all_link+'<nav class="catalogue-tabs" aria-label="Evidence catalogues">'+''.join(f'<a href="{PREFIX+PATHS["all"]+"?catalogue="+k if unified else PREFIX+PATHS[k]}"'+(f' data-catalogue-filter="{k}"' if unified else '')+((' aria-current="page"' if current==k else ' aria-current="location"') if k==selected else '')+f'><span>0{i}</span>{E(TITLES[k])}</a>' for i,k in enumerate(['product','oxygen','related'],1))+'</nav>'
@@ -46,18 +50,24 @@ def appnav(current=''):
 def pagination():
     return '<nav class="pagination" aria-label="Publication pages" hidden><button id="previous" type="button" aria-label="Previous page">‹</button><div id="page-numbers" class="page-numbers"></div><button id="next" type="button" aria-label="Next page">›</button><span id="page-label" class="visually-hidden" aria-live="polite"></span></nav>'
 
+def vet_library_navigation(current):
+    links=[('overview','Vet Real-World Evidence & Cases',ORIGIN+PREFIX+'veterinary/Vet-index.html'),('search','Vet Publication Search','Vet-search.html')]
+    primary=''.join('<a class="button secondary" href="'+url+'"'+(' aria-current="page"' if key==current else '')+'>'+E(label)+'</a>' for key,label,url in links)
+    secondary=''.join('<a class="button secondary" href="'+url+'">'+E(label)+' →</a>' for label,url in [('Vet Related Scientific Evidence','https://bhocvet.com/science.html'),('Vet Research Questions',ORIGIN+PREFIX+'veterinary/direct-studies/'),('Vet Concepts & Questions',ORIGIN+PREFIX+'veterinary/direct-studies/concepts-questions/'),('BHOC Veterinary Site','https://bhocvet.com/')])
+    return '<nav class="vet-library-navigation" aria-label="Veterinary evidence navigation"><div class="vet-location-links">'+primary+'</div><div class="vet-research-links">'+secondary+'</div></nav>'
+
 def metric_html(kind, live=False):
     s=dict(STATS[kind] if kind in STATS else TOTAL)
     if kind=='applications':
         rows=list({r['id']:r for k in APP_LABELS for r in VIEWS[k]}.values())
         s=stats(rows)
         s['records']=sum(STATS[k]['records'] for k in APP_LABELS)
-    if kind=='all':s['records']=collection_totals()['entries']
-    labels={'records':'Entries in five collections' if kind=='all' else 'Publication records','groups':s['groupLabel'],'institutions':'Author institutions','journals':'Journals'}
+    if kind=='all':s['records']=publication_counter()['displayedTotal']
+    labels={'records':'Library entries' if kind=='all' else 'Publication records','groups':s['groupLabel'],'institutions':'Author institutions','journals':'Journals'}
     items=[]
     for key,label in labels.items():
-        metric='collectionEntries' if kind=='all' and key=='records' else key
-        attrs=(f' data-metric="{metric}"' if live else '')+(' data-collection-total' if metric=='collectionEntries' else '')
+        metric='publicationCounter' if kind=='all' and key=='records' else key
+        attrs=(f' data-metric="{metric}"' if live else '')+(' data-publication-counter' if metric=='publicationCounter' else '')
         items.append(f'<div><strong{attrs}>{s[key]}</strong><span>{label}</span></div>')
     return '<div class="evidence-metrics"'+(' id="evidence-metrics" aria-label="Collection total and search statistics"' if live else '')+'>'+''.join(items)+'</div>'
 
@@ -121,7 +131,10 @@ def filters(kind):
 
 def metadata(kind,rows,path=None):
     path=path or PATHS[kind];url=ORIGIN+PREFIX+path;title=TITLES[kind]+' | BHOC Evidence';description=DESCRIPTIONS[kind]
-    schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','@id':url+'#page','name':title,'description':description,'url':url,'inLanguage':'en','dateModified':DATA['updated'],'isPartOf':{'@id':ORIGIN+PREFIX+'#website'},'mainEntity':{'@type':'ItemList','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':ORIGIN+PREFIX+PATHS[r['catalogue']]+'#'+r['id']} for i,r in enumerate(rows,1)]}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX},{'@type':'ListItem','position':2,'name':TITLES[kind],'item':url}]}]}
+    crumbs=[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX}]
+    if kind=='veterinary':crumbs.append({'@type':'ListItem','position':2,'name':'Vet Real-World Evidence & Cases','item':ORIGIN+PREFIX+'veterinary/Vet-index.html'})
+    crumbs.append({'@type':'ListItem','position':len(crumbs)+1,'name':TITLES[kind],'item':url})
+    schema={'@context':'https://schema.org','@graph':[{'@type':'CollectionPage','@id':url+'#page','name':title,'description':description,'url':url,'inLanguage':'en','dateModified':DATA['updated'],'isPartOf':{'@id':ORIGIN+PREFIX+'#website'},'mainEntity':{'@type':'ItemList','numberOfItems':len(rows),'itemListElement':[{'@type':'ListItem','position':i,'name':r['title'],'url':ORIGIN+PREFIX+PATHS[r['catalogue']]+'#'+r['id']} for i,r in enumerate(rows,1)]}},{'@type':'BreadcrumbList','itemListElement':crumbs}]}
     return f'''<title>{E(title)}</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{url}"><meta name="robots" content="index,follow,max-image-preview:large"><meta name="yandex" content="noindex"><meta name="author" content="Archil Jaliashvili"><link rel="author" href="https://orcid.org/0009-0006-4712-4942"><link rel="sitemap" href="{PREFIX}sitemap.xml" type="application/xml">
 <meta property="og:type" content="website"><meta property="og:site_name" content="BHOC Therapeutics"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{url}">{SOCIAL_IMAGE_META}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(description)}">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('</','<\\/')}</script>'''
@@ -133,11 +146,14 @@ def page(kind,path=None):
     if kind=='related':extra=f'<a href="{PREFIX}science/#featured-publications">Read the featured Science analyses →</a><a href="{PREFIX}science/#scientific-catalogues">Browse this same catalogue within Science →</a>'
     row_ids={r['id'] for r in rows}
     redirects=''.join(f'<p class="record-redirect" id="{E(m["record"]["id"])}" data-record-redirect><a href="{PREFIX+PATHS[next(r["catalogue"] for r in RECORDS if r["id"]==m["retainedId"])]}#{E(m["retainedId"])}">Read the consolidated publication record →</a></p>' for m in DATA.get('mergedRecords',[]) if m['record']['catalogue']==kind and m['retainedId'] not in row_ids)
+    parent='<a href="'+PREFIX+'veterinary/Vet-index.html">Vet Real-World Evidence &amp; Cases</a> / ' if kind=='veterinary' else ''
+    navigation=vet_library_navigation('search') if kind=='veterinary' else ''
+    review_note='<p class="catalogue-relationship">Clinical reports, animal studies and reviews are labelled separately in each record. Catalogue filters on this page keep the Veterinary selection.</p>' if kind=='veterinary' else ''
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
-<link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script></head>
-<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {E(TITLES[kind])}</div>{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
+<link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script>{SHARED_CONTEXT_SCRIPTS}</head>
+<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {parent}{E(TITLES[kind])}</div>{navigation}{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
 <section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{collection_summary() if kind=='all' else ''}{metric_html(kind,True)}</section>
-{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
+{review_note}{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}
 <p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 14 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''

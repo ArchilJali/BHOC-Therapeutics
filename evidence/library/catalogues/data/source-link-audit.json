@@ -1,12 +1,12 @@
 {
   "checked": "2026-10-14",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 643,
-  "uniqueUrlsChecked": 909,
+  "publicRecords": 644,
+  "uniqueUrlsChecked": 912,
   "states": {
-    "matched": 893,
+    "matched": 895,
     "access-limited": 10,
-    "matched-publisher-metadata": 2,
+    "matched-publisher-metadata": 3,
     "search-query-removed": 1,
     "collection-doi-removed": 1,
     "unverified-document-removed": 1,
@@ -10017,6 +10017,33 @@
           "state": "matched",
           "method": "NCBI PubMed XML bibliographic record, matched PMID, title and DOI",
           "sourceTitle": "A Small Animal Model of Ex Vivo Normothermic Liver Perfusion"
+        }
+      ]
+    },
+    "pub-pmid-12683610": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/12683610/",
+        "https://doi.org/10.1111/j.1939-1676.2003.tb02423.x",
+        "https://academic.oup.com/jvim/article/17/2/127/8453490"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12683610/",
+          "state": "matched",
+          "method": "PubMed and journal publisher bibliographic metadata",
+          "sourceTitle": "Hemoglobin Solutions and Tissue Oxygenation"
+        },
+        {
+          "url": "https://doi.org/10.1111/j.1939-1676.2003.tb02423.x",
+          "state": "matched",
+          "method": "PubMed and journal publisher bibliographic metadata",
+          "sourceTitle": "Hemoglobin Solutions and Tissue Oxygenation"
+        },
+        {
+          "url": "https://academic.oup.com/jvim/article/17/2/127/8453490",
+          "state": "matched-publisher-metadata",
+          "method": "PubMed and journal publisher bibliographic metadata",
+          "sourceTitle": "Hemoglobin Solutions and Tissue Oxygenation"
         }
       ]
     }

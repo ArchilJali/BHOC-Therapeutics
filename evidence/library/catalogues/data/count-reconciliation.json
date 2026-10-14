@@ -8,11 +8,11 @@
   },
   "originalDistinctRecords": 334,
   "originalRepeatedOccurrences": 141,
-  "netAddedRecords": 309,
-  "publicRecords": 643,
+  "netAddedRecords": 310,
+  "publicRecords": 644,
   "catalogues": {
     "product": 192,
-    "oxygen": 238,
+    "oxygen": 239,
     "related": 213
   },
   "sourceOccurrences": {
@@ -24,7 +24,7 @@
     "Master Catalogue": 414,
     "Veterinary base": 236,
     "Veterinary curated additions": 3,
-    "Approved scientific additions": 33
+    "Approved scientific additions": 34
   },
   "cohorts": [
     {
@@ -669,7 +669,7 @@
     },
     {
       "label": "User-approved scientific additions",
-      "records": 33,
+      "records": 34,
       "recordIds": [
         "pub-dyson-singer-2007-art000522007",
         "pub-dyson-singer-2009-013400915772",
@@ -679,6 +679,7 @@
         "pub-pmid-10659206",
         "pub-pmid-11527583",
         "pub-pmid-12151262",
+        "pub-pmid-12683610",
         "pub-pmid-15563528",
         "pub-pmid-16889379",
         "pub-pmid-17418478",
