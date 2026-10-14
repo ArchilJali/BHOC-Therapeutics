@@ -95,23 +95,23 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==964
-assert collection_stats['collections']=={'transplant':64,'human':180,'veterinary':268,'oxygen':239,'related':213}
-assert collection_stats['distinctRecordsInFiveCollections']==635
+assert collection_stats['entries']==974
+assert collection_stats['collections']=={'transplant':64,'human':180,'veterinary':273,'oxygen':244,'related':213}
+assert collection_stats['distinctRecordsInFiveCollections']==640
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-publication-counter>963</strong>' in source
+    assert 'data-publication-counter>968</strong>' in source
     assert 'Library entries' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==1
-assert publication_counter()['newRecordIds']==['pub-pmid-12683610']
+assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==6
+assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014'}
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])
-print('PASS: displayed publication counter 962 + one new review = 963; review appears once in each matching view.')
+print('PASS: displayed publication counter 962 + six distinct additions = 968; records indexed once.')
 
 selection=read('catalogues/data/oxygen-transport-review-20261014.json')
 assert selection['requestedPublications']==30 and selection['newPublications']==27 and selection['alreadyPublished']==3
