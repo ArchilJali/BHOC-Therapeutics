@@ -1,6 +1,6 @@
 """Reconcile user-approved Muir studies into the canonical evidence catalogue.
 
-Run from repository root. Idempotent by DOI and PMID. Source verified October 2026; synchronized catalogue release.
+Run from repository root. Idempotent by DOI and PMID. Source verified October 2026; synchronized catalogue release, including source coverage.
 """
 import json
 from pathlib import Path
