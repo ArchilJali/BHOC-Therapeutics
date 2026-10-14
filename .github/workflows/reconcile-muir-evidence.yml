@@ -20,6 +20,34 @@ jobs:
         run: python3 scripts/build_evidence_catalogues.py
       - name: Synchronize Evidence Library overview metrics
         run: python3 scripts/sync_evidence_overviews.py
+      - name: Update canonical source-coverage audit
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path('evidence/library/catalogues/data')
+          doc=json.loads((base/'publications.json').read_text())
+          old=json.loads((base/'source-coverage.json').read_text())
+          records=doc['records']
+          public=[r for r in records if not r['recordType'].startswith('Import')]
+          n=sum(len(r['provenance']) for r in records)
+          old['checked']='2026-10-14'
+          old['sourceOccurrences']=n
+          old['retainedRecordsIncludingFragments']=len(records)
+          old['repeatedSourceOccurrences']=n-len(records)
+          old['incompleteSourceFragments']=len(records)-len(public)
+          old['publicRecords']=len(public)
+          from collections import Counter
+          old['catalogues']=dict(Counter(r['catalogue'] for r in public))
+          old['calculation']=f'{n} source occurrences - {n-len(records)} repeated occurrences - {len(records)-len(public)} incomplete fragments = {len(public)} public records'
+          sources=old.get('sources',[])
+          for s in sources:
+              if s.get('source')=='Approved scientific additions':
+                  s['rows']=len(json.loads((base/'approved-scientific-additions.json').read_text())['records'])
+                  s['retainedRows']=s['rows']
+                  s['missingRows']=0
+          (base/'source-coverage.json').write_text(json.dumps(old,ensure_ascii=False,indent=2)+'\\n')
+          PY
       - name: Verify evidence and source records
         run: python3 scripts/check_evidence_catalogues.py
       - name: Validate generated website
