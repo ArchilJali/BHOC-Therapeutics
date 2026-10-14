@@ -756,6 +756,156 @@
         "https://doi.org/10.1111/j.1939-1676.2003.tb02423.x",
         "https://academic.oup.com/jvim/article/17/2/127/8453490"
       ]
+    },
+    {
+      "pmid": "1111380",
+      "doi": "",
+      "title": "Ventilatory alterations in normal horses in response to changes in inspired oxygen and carbon dioxide",
+      "authors": "William W Muir; Charles A Moore; Robert L Hamlin",
+      "journal": "American Journal of Veterinary Research",
+      "year": "1975",
+      "volume": "36",
+      "issue": "2",
+      "pages": "155-159",
+      "direction": "Veterinary",
+      "evidenceType": "Original experimental study",
+      "topics": [
+        "Respiratory physiology",
+        "Oxygen and carbon dioxide response"
+      ],
+      "affiliations": [
+        "The Ohio State University, College of Veterinary Medicine, Columbus, Ohio, USA"
+      ],
+      "id": "1111380",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/1111380/",
+      "publicationTypes": [
+        "Original experimental study"
+      ],
+      "approval": "User requested veterinary catalogue inclusion 14 October 2026",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/1111380/"
+      ]
+    },
+    {
+      "pmid": "3740627",
+      "doi": "",
+      "title": "Dobutamine-induced augmentation of cardiac output does not enhance respiratory gas exchange in anesthetized recumbent healthy horses",
+      "authors": "C R Swanson; William W Muir",
+      "journal": "American Journal of Veterinary Research",
+      "year": "1986",
+      "volume": "47",
+      "issue": "7",
+      "pages": "1573-1576",
+      "direction": "Veterinary",
+      "evidenceType": "Original experimental study",
+      "topics": [
+        "Cardiac output versus gas exchange",
+        "Equine physiology"
+      ],
+      "affiliations": [
+        "The Ohio State University, College of Veterinary Medicine, Columbus, Ohio, USA"
+      ],
+      "id": "3740627",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/3740627/",
+      "publicationTypes": [
+        "Original experimental study"
+      ],
+      "approval": "User requested veterinary catalogue inclusion 14 October 2026",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/3740627/"
+      ]
+    },
+    {
+      "pmid": "19430240",
+      "doi": "10.1097/TA.0b013e3181919e43",
+      "title": "Evaluation of hyperviscous fluid resuscitation in a canine model of hemorrhagic shock: a randomized, controlled study",
+      "authors": "Edward S Cooper; Shane W Bateman; William W Muir",
+      "journal": "Journal of Trauma",
+      "year": "2009",
+      "volume": "66",
+      "issue": "5",
+      "pages": "1365-1373",
+      "direction": "Veterinary",
+      "evidenceType": "Original experimental study",
+      "topics": [
+        "Perfusion",
+        "Hemorrhagic shock",
+        "Viscosity"
+      ],
+      "affiliations": [
+        "Department of Veterinary Clinical Sciences, The Ohio State University, Columbus, Ohio, USA"
+      ],
+      "id": "19430240",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/19430240/",
+      "publicationTypes": [
+        "Original experimental study"
+      ],
+      "approval": "User requested veterinary catalogue inclusion 14 October 2026",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/19430240/"
+      ]
+    },
+    {
+      "pmid": "",
+      "doi": "10.1155/2014/864237",
+      "title": "Dose-Dependent Hemodynamic, Biochemical, and Tissue Oxygen Effects of OC99 following Severe Oxygen Debt Produced by Hemorrhagic Shock in Dogs",
+      "authors": "William W Muir; Carlos L del Rio; Yukie Ueyama; Bradley L Youngblood; Robert S George; Carl W Rausch; Billy S H Lau; Robert L Hamlin",
+      "journal": "Critical Care Research and Practice",
+      "year": "2014",
+      "volume": "2014",
+      "issue": "",
+      "pages": "864237",
+      "direction": "Veterinary",
+      "evidenceType": "Original experimental study",
+      "topics": [
+        "Oxygen debt",
+        "Tissue oxygenation",
+        "HBOC",
+        "Hemorrhagic shock"
+      ],
+      "affiliations": [
+        "QTest Labs, Columbus, Ohio, USA",
+        "New A Innovation Ltd."
+      ],
+      "id": "muir-oc99-2014",
+      "sourceUrl": "https://doi.org/10.1155/2014/864237",
+      "publicationTypes": [
+        "Original experimental study"
+      ],
+      "approval": "User requested veterinary catalogue inclusion 14 October 2026",
+      "metadataSources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4227330/"
+      ]
+    },
+    {
+      "pmid": "24612155",
+      "doi": "10.1111/evj.12258",
+      "title": "Oxygenation, oxygen delivery and anaesthesia in the horse",
+      "authors": "John A E Hubbell; William W Muir",
+      "journal": "Equine Veterinary Journal",
+      "year": "2015",
+      "volume": "47",
+      "issue": "1",
+      "pages": "25-35",
+      "direction": "Veterinary",
+      "evidenceType": "Review",
+      "topics": [
+        "Oxygen delivery",
+        "Anaesthesia",
+        "Equine physiology"
+      ],
+      "affiliations": [
+        "The Ohio State University, College of Veterinary Medicine, Columbus, Ohio, USA"
+      ],
+      "id": "24612155",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/24612155/",
+      "publicationTypes": [
+        "Review"
+      ],
+      "approval": "User requested veterinary catalogue inclusion 14 October 2026",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/24612155/"
+      ]
     }
   ]
 }
