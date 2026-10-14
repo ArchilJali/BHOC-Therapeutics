@@ -70,7 +70,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==310
+assert reconciliation['netAddedRecords']==315
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[publication_counter()['displayedTotal'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -85,7 +85,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 310 net additions; all 1,184 source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 315 net additions; all 1,189 source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
