@@ -86,3 +86,13 @@ body.evidence-catalogue.bhoc-shell-ready .catalogue-shell>.breadcrumbs{display:n
 .vet-review-entry p{margin:0 0 9px;font-size:13px;line-height:1.5}
 .vet-review-entry .button{font-size:12px;padding:8px 12px;min-height:34px}
 .vet-review-entry h2{font-size:18px;line-height:1.3;margin:5px 0 8px}
+
+/* Keep catalogue figures legible inside narrow cards. */
+@media (max-width: 480px) {
+  .catalogue-card .evidence-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .evidence-metrics > div { min-width: 0; overflow-wrap: anywhere; }
+}
+
+@media (max-width: 600px) {
+  .evidence-catalogue input, .evidence-catalogue select { font-size: 16px; }
+}
