@@ -96,10 +96,10 @@ for kind,file,field,cls in [('veterinary','veterinary/Vet-index.html','speciesGr
     s=re.sub(r'<div class="'+cls+r'-list">[\s\S]*?</div>',distribution(kind,field,cls),s)
     s=re.sub(r'<span class="tag">\d+ total records</span>',f'<span class="tag">{st["records"]} total records</span>',s)
     # Old source snapshot metrics are replaced; clinical source paragraphs are untouched.
-    s=s.replace('Search 154 author institutions, browse 109 normalized journal labels',f'Search {st["institutions"]} author institutions, browse {st["journals"]} normalized journal labels')
+    s=re.sub(r'Search \d+ author institutions, browse \d+ normalized journal labels',f'Search {st["institutions"]} author institutions, browse {st["journals"]} normalized journal labels',s)
     s=re.sub(r'Search \d+ indexed author institutions and \d+ normalized journal labels',f'Search {st["institutions"]} indexed author institutions and {st["journals"]} normalized journal labels',s)
     if kind=='veterinary':
-        s=re.sub(r'<p class="overview-caption">The species distribution and catalogue below[\s\S]*?</p>','<p class="overview-caption">The distribution and search use the same 260 unique publication records. A record can carry more than one species or model label.</p>',s)
+        s=re.sub(r'<p class="overview-caption">The (?:species distribution and catalogue below|distribution and search use the same)[\s\S]*?</p>',f'<p class="overview-caption">The distribution and search use the same {st["records"]} unique publication records. A record can carry more than one species or model label.</p>',s)
         s=re.sub(r'(?:236|239) (?:base |searchable )?(?:publication )?records',f'{st["records"]} publication records',s)
         s=s.replace('Other / In vitro includes in-vitro labels and 13 records with no species label.','Missing species labels are shown separately from in-vitro models.')
         s=s.replace('Use Library scope to separate BHOC / Oxyglobin-focused records from background literature. Every record remains accessible under All records.','Use the Catalogue filter to distinguish Oxyglobin and Hemopure research, oxygen physiology and related scientific literature.')
