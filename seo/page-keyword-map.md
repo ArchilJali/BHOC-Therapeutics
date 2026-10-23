@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 28 September 2026
+Updated: 23 October 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -16,6 +16,8 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; donor blood; patient blood management; PBM; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
 | `/evidence/` | BHOC scientific, clinical and regulatory evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; Biopure; regulatory history; scientific sources; historical evidence |
 | `/news/us-navy-biopure-hboc-201-2005-resus/` | Historical 2005 Navy–Biopure RESUS agreement and HBOC-201 $650 clause | NMRC; 1,500-unit conditional provision; cost ceiling; SEC exhibit; not a purchase price or endorsement |
+| `/news/us-navy-biopure-crada-edward-kennedy/` | People and institutions behind the historical Navy-Biopure RESUS CRADA | Edward M. Kennedy; Carl W. Rausch; 2003 research agreement; historical photograph; LinkedIn archive |
+| `/news/biopure-carl-rausch-david-judelson-2001-press-archive/` | Biopure leadership and the 4 March 2001 press archive | Carl W. Rausch; David N. Judelson; Barnaby J. Feder; The New York Times; industrial and organizational history |
 | `/partners/` | BHOC investors and strategic partners | BHOC investors; BHOC partners; oxygen therapeutics investment; Biological Hemoglobin Oxygen Carrier partnership; clinical collaboration; manufacturing partnership; regulatory partnership |
 
 ## Site / evidence separation
