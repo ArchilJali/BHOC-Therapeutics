@@ -64,7 +64,7 @@
           <label><span>Email *</span><input name="email" type="email" autocomplete="email" required></label>
           <label><span>Organisation</span><input name="organisation" autocomplete="organization"></label>
           <label><span>Area of interest</span><select name="area"><option>Research collaboration</option><option>Clinical translation</option><option>Strategic partnership</option><option>Investment</option><option>Manufacturing and regulatory</option><option>Media and general inquiry</option><option>Other</option></select></label>
-          <label class="bhoc-contact-message"><span>Message *</span><textarea name="message" rows="5" required></textarea></label>
+          <label class="bhoc-contact-message"><span>Message *</span><textarea name="message" rows="5" placeholder="What would you like to discuss, and what could your team contribute?" required></textarea></label>
           <label class="bhoc-contact-human"><input name="human_check" type="checkbox" value="confirmed" required><span>I am not a robot</span></label>
 
           <div class="bhoc-contact-submit">
@@ -105,6 +105,7 @@
     const button=form?.querySelector('button[type="submit"]');
     form?.addEventListener('submit',async event=>{
       event.preventDefault();
+      if(button.disabled)return;
       if(!form.reportValidity())return;
       const honey=form.querySelector('input[name="_honey"]');
       if(honey&&honey.value)return;
@@ -115,7 +116,8 @@
         new FormData(form).forEach((value,key)=>{if(key!=='_honey')body[key]=value;});
         const response=await fetch(form.dataset.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
         const result=await response.json().catch(()=>({}));
-        if(!response.ok||result.success===false)throw new Error('Submission failed');
+        if(!response.ok||![true,'true'].includes(result.success))throw new Error('Submission failed');
+        window.BHOCLeadContext?.submitted(form);
         form.reset();
         form.hidden=true;
         success.hidden=false;
