@@ -1,5 +1,13 @@
 (() => {
   'use strict';
+  // Canonical evidence pages share enquiry attribution with the public website.
+  if (window.location.hostname === 'bhoctherapeutics.com' && !window.BHOCLeadContext &&
+      !Array.from(document.scripts).some(script => /\/assets\/ga4\.js(?:\?|$)/.test(script.src))) {
+    const enquiryContext = document.createElement('script');
+    enquiryContext.src = '/assets/ga4.js?v=20261023';
+    enquiryContext.defer = true;
+    document.head.appendChild(enquiryContext);
+  }
   const GA4_MEASUREMENT_ID = '';
   const AHREFS_DATA_KEY = 'npWICTTrMv3ktsAlhswQ7g';
 
