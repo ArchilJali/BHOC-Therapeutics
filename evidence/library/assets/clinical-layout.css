@@ -1,0 +1,31 @@
+/* A single content width for the clinical overview and its evidence pages.
+   Scoped to clinical-page so other scientific reading pages keep their layout. */
+body.clinical-page main.shell {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 24px 32px 42px !important;
+  min-width: 0;
+}
+body.clinical-page .clinical-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+body.clinical-page .clinical-subnav a {
+  max-width: 100%;
+  white-space: normal;
+}
+body.clinical-page .clinical-subnav a:focus-visible {
+  outline: 2px solid #087a76;
+  outline-offset: 3px;
+}
+@media (max-width: 950px) {
+  body.clinical-page main.shell { padding-inline: 22px !important; }
+}
+@media (max-width: 760px) {
+  body.clinical-page main.shell { padding: 16px 14px 32px !important; }
+  body.clinical-page main.reading .hero,
+  body.clinical-page main.reading .section { padding: 22px; }
+}
