@@ -84,15 +84,31 @@ for(const [relative,target] of Object.entries(redirects)){
 }
 
 const htmlFiles=[];
+const sitemapFiles=[];
 function walk(directory){
   for(const entry of fs.readdirSync(directory,{withFileTypes:true})){
     if(entry.name.startsWith('.')||entry.name.startsWith('_')||entry.name==='node_modules')continue;
     const absolute=path.join(directory,entry.name);
     if(entry.isDirectory())walk(absolute);
     else if(entry.isFile()&&/\.html?$/i.test(entry.name))htmlFiles.push(path.relative(root,absolute));
+    else if(entry.isFile()&&entry.name==='sitemap.xml')sitemapFiles.push(path.relative(root,absolute));
   }
 }
 walk(root);
+
+// Validate every public sitemap, including the separate Evidence Library map.
+for(const sitemapFile of sitemapFiles){
+  const urls=[...read(sitemapFile).matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(match=>match[1].replaceAll('&amp;','&'));
+  assert.equal(new Set(urls).size,urls.length,`${sitemapFile}: duplicate page URLs`);
+  for(const location of urls){
+    const relative=pathForUrl(location);
+    assert.ok(fs.existsSync(path.join(root,relative)),`${sitemapFile}: missing target ${location}`);
+    const source=read(relative);
+    const canonicals=[...source.matchAll(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi)].map(([tag])=>tag.match(/\bhref=["']([^"']+)["']/i)?.[1]);
+    assert.deepEqual(canonicals,[location],`${sitemapFile}: noncanonical page ${location}`);
+    assert.ok(!['robots','googlebot'].some(agent=>indexingDirectives(source,agent).some(value=>['noindex','none'].includes(value))),`${sitemapFile}: noindex page ${location}`);
+  }
+}
 
 for(const relative of htmlFiles){
   const source=read(relative);
@@ -108,6 +124,11 @@ for(const relative of htmlFiles){
     assert.ok(canonical,`${relative}: canonical href missing`);
     const target=pathForUrl(canonical);
     assert.ok(fs.existsSync(path.join(root,target)),`${relative}: canonical target missing at ${target}`);
+    for(const property of ['og:title','og:type','og:image','og:url']){
+      const tags=[...head.matchAll(/<meta\b[^>]*>/gi)].map(([tag])=>tag).filter(tag=>tag.match(/\bproperty=["']([^"']+)["']/i)?.[1]===property);
+      assert.equal(tags.length,1,`${relative}: exactly one required ${property} property`);
+      assert.ok(tags[0].match(/\bcontent=["']([^"']+)["']/i)?.[1]?.trim(),`${relative}: empty ${property} property`);
+    }
   }
 }
 
@@ -152,7 +173,7 @@ assert.ok(!sitemap.includes('https://bhoctherapeutics.com/historical-evolution/'
 assert.ok(sitemap.includes('https://bhoctherapeutics.com/bhoc/historical-evolution/'),'canonical historical URL missing from sitemap');
 assert.ok(sitemap.includes('https://bhoctherapeutics.com/assets/news/zipline-rwanda-drone-delivery.jpg'),'local drone image missing from sitemap');
 
-console.log(`Passed: ${locations.length} canonical pages, ${Object.keys(redirects).length} migration redirects, ${htmlFiles.length} HTML files and ${checkedLinks} local references.`);
+console.log(`Passed: ${locations.length} primary canonical pages, ${sitemapFiles.length} sitemaps, required Open Graph properties, ${Object.keys(redirects).length} migration redirects, ${htmlFiles.length} HTML files and ${checkedLinks} local references.`);
 
 // Parse whole directive tokens: "noindex" must never satisfy an "index" check.
 function indexingDirectives(source,agent){

@@ -133,6 +133,8 @@ s=re.sub(r'<section class="vet-pub-metrics"[\s\S]*?</section>',overview('product
 # Keep catalogue guidance without public counting explanations.
 p=BASE/'catalogues/methodology.html';old=p.read_text();head=old.split('</head>')[0]+'</head>'
 head=re.sub(SOCIAL_IMAGE_PATTERN,'',head).replace('</head>',SOCIAL_IMAGE_META+'</head>')
+head=re.sub(r'<meta\b(?=[^>]*\bproperty=["\']og:type["\'])[^>]*>','',head,flags=re.I)
+head=head.replace('</head>','<meta property="og:type" content="website"></head>')
 main=f'''<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / About the catalogue</div>{tabs()}{appnav()}<section class="catalogue-hero"><h1>About the evidence catalogue</h1><p>Find publications across oxygen therapeutics, oxygen physiology and relevant clinical research.</p></section><section><h2>Read findings in context</h2><p>Clinical, preclinical, analytical and review evidence should be interpreted at publication level. Historical product findings and studies of oxygen physiology do not establish BHOC efficacy, safety or regulatory approval. Author affiliations do not imply institutional endorsement or identify a confirmed study location.</p><p>Available DOI, PubMed and original source links support source checking. A supplied identifier does not mean that every bibliographic field or study conclusion has been independently verified. Incomplete source entries are excluded from public search.</p><p><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></p></section></main>'''
 main=main.replace('</main>',collection_summary()+'</main>')
 p.write_text(css(head)+'<body class="evidence-catalogue">'+HEADER+main+FOOTER+'</body></html>')
