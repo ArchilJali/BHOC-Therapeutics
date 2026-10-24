@@ -130,7 +130,10 @@ def filters(kind):
     return '<span id="journalInput"></span><span id="scopeSelect"></span><form class="catalogue-filters" onsubmit="return false" aria-label="Filter publications"><div class="filter-grid">'+basic+'</div><div class="filter-actions"><details id="advanced"><summary>More filters</summary><div class="filter-grid advanced-grid">'+advanced+'</div></details><button id="reset" type="button">Reset filters</button></div></form>'
 
 def metadata(kind,rows,path=None):
-    path=path or PATHS[kind];url=ORIGIN+PREFIX+path;title=TITLES[kind]+' | BHOC Evidence';description=DESCRIPTIONS[kind]
+    path=path or PATHS[kind]
+    # Preserve the old catalogue and its record anchors while using one search identity.
+    canonical_path=PATHS['veterinary'] if path=='veterinary/publication-catalogue.html' else path
+    url=ORIGIN+PREFIX+canonical_path;title=TITLES[kind]+' | BHOC Evidence';description=DESCRIPTIONS[kind]
     crumbs=[{'@type':'ListItem','position':1,'name':'Evidence Library','item':ORIGIN+PREFIX}]
     if kind=='veterinary':crumbs.append({'@type':'ListItem','position':2,'name':'Vet Real-World Evidence & Cases','item':ORIGIN+PREFIX+'veterinary/Vet-index.html'})
     crumbs.append({'@type':'ListItem','position':len(crumbs)+1,'name':TITLES[kind],'item':url})
@@ -164,8 +167,6 @@ if __name__=='__main__':
     for k in VIEWS:page(k)
     # Existing citation-catalogue URL remains a functioning view, including old record anchors.
     page('veterinary','veterinary/publication-catalogue.html')
-    p=BASE/'veterinary/publication-catalogue.html'
-    s=p.read_text();s=re.sub(r'<link rel="canonical"[^>]+>',f'<link rel="canonical" href="{ORIGIN+PREFIX+PATHS["veterinary"]}">',s);p.write_text(s)
     (BASE/'catalogues/data/statistics.json').write_text(json.dumps(result,indent=2)+'\n')
     (BASE/'catalogues/data/count-reconciliation.json').write_text(json.dumps(count_reconciliation(),ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(result,indent=2))

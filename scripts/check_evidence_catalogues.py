@@ -45,6 +45,15 @@ for kind,rows in VIEWS.items():
         assert '?term=' not in block and 'Publication link' not in block,'Misleading source action'
     print(kind+': '+str(st['records'])+' records; statistics, facets, source links and structured data agree')
 
+legacy_search=(BASE/'veterinary/publication-catalogue.html').read_text()
+search_url='https://bhoctherapeutics.com/evidence/library/'+PATHS['veterinary']
+assert re.findall(r'<link rel="canonical" href="([^"]+)"',legacy_search)==[search_url]
+assert re.findall(r'<meta property="og:url" content="([^"]+)"',legacy_search)==[search_url]
+legacy_schema=json.loads(re.search(r'<script type="application/ld\+json"[^>]*>([\s\S]*?)</script>',legacy_search)[1])['@graph']
+assert legacy_schema[0]['url']==search_url and legacy_schema[0]['@id']==search_url+'#page'
+assert legacy_schema[1]['itemListElement'][-1]['item']==search_url
+assert {a['id'] for a in Page(legacy_search).records}=={r['id'] for r in VIEWS['veterinary']},'Legacy search preserves its publication anchors'
+
 platform=json.loads((BASE/'platform-overview.json').read_text())
 assert platform['uniquePublications']==sum(STATS[k]['records'] for k in ['product','oxygen','related'])
 assert platform['hubs']=={k:STATS[k]['records'] for k in APP_LABELS}
