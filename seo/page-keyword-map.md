@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 23 October 2026
+Updated: 24 October 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -14,6 +14,11 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/science/hypoxic-rbc-storage-kidney-oxygen-delivery.html` | Hypoxic RBC storage and kidney oxygen delivery | red blood cell function; oxygen unloading; ex vivo human kidney perfusion; oxygen diffusion capacity; external experimental evidence |
 | `/technology/` | Biological Hemoglobin Oxygen Carrier technology | BHOC technology; hemoglobin oxygen carrier; cell-free hemoglobin oxygen carrier; HBOC; oxygen delivery technology; artificial blood and blood substitute terminology in concise corrective context |
 | `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; donor blood; patient blood management; PBM; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
+| `/evidence/library/clinical/` | Clinical oxygen delivery: evidence and research questions | prehospital care; sickle cell disease; maternal hemorrhage; blood access; organ perfusion; research boundaries |
+| `/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html` | Sickle cell disease: matched blood and oxygen delivery | red-cell exchange; alloimmunization; hyperhaemolysis; transfusion compatibility; tissue hypoxia |
+| `/applications/military-disaster-medicine/` | Prolonged casualty care and delayed evacuation | battlefield blood logistics; contested evacuation; disaster medicine; oxygen delivery before definitive care |
+| `/science/rbc-unit-hemoglobin-dose-variability.html` | Hemoglobin dose and RBC unit variability | component variability; administered hemoglobin mass; transfusion measurement; oxygen transport function |
+| `/news/hemoglobin-dose-red-cell-transfusion-preprint-2026/` | Publication announcement and version record | exact published title; author names; preprint status; DOI; link to the related permanent analysis |
 | `/evidence/` | BHOC scientific, clinical and regulatory evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; Biopure; regulatory history; scientific sources; historical evidence |
 | `/news/us-navy-biopure-hboc-201-2005-resus/` | Historical 2005 Navy–Biopure RESUS agreement and HBOC-201 $650 clause | NMRC; 1,500-unit conditional provision; cost ceiling; SEC exhibit; not a purchase price or endorsement |
 | `/news/us-navy-biopure-crada-edward-kennedy/` | People and institutions behind the historical Navy-Biopure RESUS CRADA | Edward M. Kennedy; Carl W. Rausch; 2003 research agreement; historical photograph; LinkedIn archive |
@@ -212,3 +217,10 @@ Report changes as `NEW`, `UP`, `DOWN`, `STABLE` or `LOST` based on comparable pu
 One URL owns one primary intent. New application-specific URLs should be added only when enough unique, verified content exists. Until then, `/applications/` remains the canonical corporate page for those directions.
 
 The master keyword vocabulary remains `seo/BHOC-SEO-Keywords.md`. This file must route and prioritize that vocabulary, not create a competing keyword master.
+
+
+## Implementation decision: 24 October 2026
+
+The clinical hub now links its SCD and transplant cards to existing detailed pages. Clinical navigation also points to military/disaster medicine, hemoglobin-dose analysis and organ-perfusion evidence. The SCD page keeps its SEO title and places its original heading beneath the explicit disease-specific H1. Clinical collection and social metadata match the wider existing content. Existing Science, military/disaster, PPH and hemoglobin-dose titles are retained.
+
+The four proposed full reviews remain deferred by the user: Tumor Hypoxia, Oxygenation & Treatment Resistance; Diabetic Foot Ulcers: Perfusion & Tissue Oxygenation; Perioperative Oxygen Delivery, Anemia & Transfusion; ECMO Oxygen Delivery: Hemoglobin, Dose & Circuit. These are content plans, not published pages or established BHOC indications. Check the existing evidence library for overlap before drafting each review. Use only approved sources and the public, permitted hemoglobin-dose version for the ECMO topic.
