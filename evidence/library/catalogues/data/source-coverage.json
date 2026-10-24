@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-14",
+  "checked": "2026-10-24",
   "sources": [
     {
       "source": "Master Catalogue",
@@ -68,17 +68,17 @@
       "missingRows": 0
     }
   ],
-  "sourceOccurrences": 1189,
-  "retainedRecordsIncludingFragments": 697,
+  "sourceOccurrences": 1190,
+  "retainedRecordsIncludingFragments": 698,
   "repeatedSourceOccurrences": 492,
   "incompleteSourceFragments": 48,
-  "publicRecords": 649,
+  "publicRecords": 650,
   "catalogues": {
-    "oxygen": 244,
+    "oxygen": 245,
     "related": 213,
     "product": 192
   },
   "missingSourceRows": 0,
-  "calculation": "1189 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 649 public records",
+  "calculation": "1190 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 650 public records",
   "note": "This verifies coverage of the supplied files. It does not claim that this collection contains every publication in the scientific literature."
 }

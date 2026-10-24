@@ -1,5 +1,6 @@
 """Build every public search and its statistics from the shared catalogue model."""
 import html, json, re
+from datetime import date
 from urllib.parse import urlparse, urlencode
 from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
@@ -159,7 +160,7 @@ def page(kind,path=None):
 {review_note}{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}
-<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated 14 October 2026</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
+<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated {date.fromisoformat(DATA['updated']).strftime('%d %B %Y')}</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
     (BASE/path/('index.html') if path.endswith('/') else BASE/path).write_text(text)
 
 if __name__=='__main__':

@@ -1,8 +1,8 @@
 {
-  "checked": "2026-10-14",
+  "checked": "2026-10-24",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 649,
-  "uniqueUrlsChecked": 919,
+  "publicRecords": 650,
+  "uniqueUrlsChecked": 921,
   "states": {
     "matched": 895,
     "access-limited": 10,
@@ -10123,6 +10123,26 @@
           "state": "matched",
           "method": "PubMed indexed publication / journal DOI",
           "sourceTitle": "Oxygenation, oxygen delivery and anaesthesia in the horse"
+        }
+      ]
+    },
+    "pub-pmid-19816963": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/19816963/",
+        "https://doi.org/10.1002/bit.22571"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19816963/",
+          "state": "matched",
+          "method": "PubMed record and abstract checked 24 October 2026",
+          "sourceTitle": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors"
+        },
+        {
+          "url": "https://doi.org/10.1002/bit.22571",
+          "state": "matched",
+          "method": "DOI confirmed in PubMed record; publisher full text not reviewed",
+          "sourceTitle": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors"
         }
       ]
     }

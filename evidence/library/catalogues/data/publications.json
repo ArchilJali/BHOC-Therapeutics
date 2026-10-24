@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-24",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -32389,6 +32389,58 @@
       ],
       "titleAliases": [],
       "catalogueSummary": ""
+    },
+    {
+      "title": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors",
+      "year": "2010",
+      "authors": "Guo Chen; Andre F Palmer",
+      "journal": "Biotechnology and Bioengineering",
+      "doi": "10.1002/bit.22571",
+      "pmid": "19816963",
+      "citation": "Chen G, Palmer AF. Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors. Biotechnology and Bioengineering. 2010;105(3):534-542.",
+      "product": "",
+      "keywords": "Oxygen transport; Hemoglobin-based oxygen carriers; Perfluorocarbons; Hepatic bioreactors",
+      "directions": [
+        "Human Use",
+        "Physiology"
+      ],
+      "institutions": [
+        "The Ohio State University"
+      ],
+      "species": [
+        "In silico / mathematical model"
+      ],
+      "evidence": "In silico modelling",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/19816963/",
+        "https://doi.org/10.1002/bit.22571"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "19816963",
+          "title": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors",
+          "year": "2010",
+          "doi": "10.1002/bit.22571",
+          "pmid": "19816963"
+        }
+      ],
+      "originalVerification": "PubMed bibliographic record and abstract checked 24 October 2026. Full text not reviewed.",
+      "sourceReview": "Mechanistic context for oxygen-delivery research. This modelling study did not test cancer treatment, BHOC, clinical safety or therapeutic efficacy. Its relevance to tumour oxygenation is a research question.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Oxygen-transport modelling, indexed in Human Use / Oncology & Tumor Oxygenation as user-requested mechanistic context. The original study concerns a hepatic bioreactor, not tumour treatment.",
+      "id": "pub-pmid-19816963",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Oxygen transport",
+        "Hemoglobin-based oxygen carriers",
+        "Perfluorocarbons",
+        "Hepatic bioreactors"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "A mathematical model predicted enhanced oxygen transport to hepatocytes in a hollow-fiber bioreactor when HBOCs and perfluorocarbons were combined. The study concerns a bioartificial liver device."
     }
   ],
   "mergedRecords": [

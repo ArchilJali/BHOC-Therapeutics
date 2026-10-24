@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-14",
+  "updated": "2026-10-24",
   "approval": "User-approved literature catalogue additions; PubMed bibliographic metadata checked on 14 October 2026. Earlier published records retain their original anchors.",
   "records": [
     {
@@ -906,6 +906,41 @@
       "metadataSources": [
         "https://pubmed.ncbi.nlm.nih.gov/24612155/"
       ]
+    },
+    {
+      "pmid": "19816963",
+      "doi": "10.1002/bit.22571",
+      "title": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors",
+      "authors": "Guo Chen; Andre F Palmer",
+      "journal": "Biotechnology and Bioengineering",
+      "year": "2010",
+      "volume": "105",
+      "issue": "3",
+      "pages": "534-542",
+      "direction": "Physiology",
+      "evidenceType": "In silico modelling",
+      "topics": [
+        "Oxygen transport",
+        "Hemoglobin-based oxygen carriers",
+        "Perfluorocarbons",
+        "Hepatic bioreactors"
+      ],
+      "affiliations": [
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, USA"
+      ],
+      "id": "19816963",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/19816963/",
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "approval": "User explicitly requested PMID 19816963 as the second record in Human Use / Oncology & Tumor Oxygenation on 24 October 2026. Indexed as mechanistic context, not cancer-treatment efficacy evidence.",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/19816963/"
+      ],
+      "therapeuticAreas": [
+        "Oncology & Tumor Oxygenation"
+      ],
+      "evidenceGroup": "Mechanistic / in silico research context"
     }
   ]
 }

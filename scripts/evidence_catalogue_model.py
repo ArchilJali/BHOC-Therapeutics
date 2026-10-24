@@ -80,7 +80,8 @@ def source_for(p):
 
 for r in RECORDS:
     originals=[(p['source'],source_for(p)) for p in r['provenance']]
-    r['direction']=unique(o.get('direction') for s,o in originals if s=='Human Use')
+    r['direction']=unique([*(o.get('direction') for s,o in originals if s=='Human Use'),
+                           *(area for s,o in originals if s=='Approved scientific additions' for area in o.get('therapeuticAreas',[]))])
     r['organ']=unique(o.get('organ') for s,o in originals if s=='Transplant' or s.startswith('transplant/'))
     r['evidenceGroups']=unique(o.get('evidenceGroup') or o.get('evidence') or o.get('evidenceType') for s,o in originals)
     r['sites']=unique(site.get('institution') for s,o in originals for site in o.get('study_sites',[]) if site.get('source_url') and site.get('locator'))
