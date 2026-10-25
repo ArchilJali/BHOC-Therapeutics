@@ -1,0 +1,325 @@
+{
+  "date": "2026-10-25",
+  "keywordCount": 1076,
+  "topics": [
+    {
+      "id": "H01",
+      "topic": "BHOC Therapeutics: Precision Oxygen Therapeutics",
+      "destination": "https://bhoctherapeutics.com/",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H02",
+      "topic": "What Is a Biological Hemoglobin Oxygen Carrier?",
+      "destination": "https://bhoctherapeutics.com/bhoc/definition/",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H03",
+      "topic": "HBOC and Blood Substitute Terminology",
+      "destination": "https://bhoctherapeutics.com/bhoc/terminology/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H04",
+      "topic": "Hemoglobin, Oxygen Affinity and P50",
+      "destination": "https://bhoctherapeutics.com/bhoc/hemoglobin/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H05",
+      "topic": "Microcirculation and Tissue Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/bhoc/microcirculation-tissue-oxygenation/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H06",
+      "topic": "Cell-Free Hemoglobin and Oxygen Transport",
+      "destination": "https://bhoctherapeutics.com/bhoc/outside-rbc/",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H07",
+      "topic": "Nitric Oxide, Vascular Responses and HBOC Research",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/nitric-oxide-scavenging-hboc-vasoconstriction.html",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H08",
+      "topic": "Hemoglobin Dose in Red Cell Transfusion",
+      "destination": "https://bhoctherapeutics.com/science/rbc-unit-hemoglobin-dose-variability.html",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H09",
+      "topic": "Hemopure and HBOC-201: Evidence and History",
+      "destination": "https://bhoctherapeutics.com/science/hemopure-hboc-201/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H10",
+      "topic": "Hemopure Expanded Access and Regulatory Context",
+      "destination": "https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-fda-expanded-access.html",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H11",
+      "topic": "Prehospital Blood Access and Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H12",
+      "topic": "Air Medical Blood Logistics and Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html#air-medical",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H13",
+      "topic": "Donor Blood Availability and Supply Constraints",
+      "destination": "https://bhoctherapeutics.com/applications/donor-blood-availability/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H14",
+      "topic": "Severe Anemia and Oxygen-Delivery Evidence",
+      "destination": "https://bhoctherapeutics.com/applications/severe-anemia-oxygen-delivery/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H15",
+      "topic": "Bloodless Medicine and Oxygen Carrier Evidence",
+      "destination": "https://bhoctherapeutics.com/applications/severe-anemia-oxygen-delivery/#bloodless-medicine",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H16",
+      "topic": "Postpartum Hemorrhage and the Oxygen-Delivery Gap",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/pph-humanitarian-problem.html",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H17",
+      "topic": "Hemorrhagic Shock and Tissue Oxygen Debt",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html#hemorrhagic-shock",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H18",
+      "topic": "Tumor Hypoxia and Oxygen-Delivery Research",
+      "destination": "https://bhoctherapeutics.com/applications/oncology-tumor-oxygenation/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H19",
+      "topic": "HIF, VHL and Physical Oxygen Availability",
+      "destination": "https://bhoctherapeutics.com/applications/oncology-tumor-oxygenation/#hif-vhl",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H20",
+      "topic": "Oxygen Continuity: A Research Hypothesis",
+      "destination": "https://bhoctherapeutics.com/evidence/library/concepts-hypotheses/oxygen-exposure-transport-delivery-tissue-response.html",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H21",
+      "topic": "Measuring Oxygen Delivery Beyond Saturation",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/oxygen-delivery-potency.html",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H22",
+      "topic": "Ischemia, Reperfusion and Oxygen Carrier Research",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html#ischemia-reperfusion",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H23",
+      "topic": "Renal Anemia and Oxygen-Delivery Questions",
+      "destination": "https://bhoctherapeutics.com/applications/severe-anemia-oxygen-delivery/#renal-anemia",
+      "keywordCount": 8,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H24",
+      "topic": "BHOC Research Collaboration",
+      "destination": "https://bhoctherapeutics.com/partners/",
+      "keywordCount": 10,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H25",
+      "topic": "Sickle Cell Disease, Matched Blood and Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html",
+      "keywordCount": 20,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H26",
+      "topic": "Sepsis, Microcirculation and Tissue Oxygenation",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html",
+      "keywordCount": 22,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H27",
+      "topic": "Endothelium, Nitric Oxide and Oxygen Transport",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/nitric-oxide-scavenging-hboc-vasoconstriction.html#endothelial-barrier",
+      "keywordCount": 18,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H28",
+      "topic": "Oxygen, Cellular Metabolism and Bioenergetics",
+      "destination": "https://bhoctherapeutics.com/science/oxygen-metabolism-mitochondria/",
+      "keywordCount": 20,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H29",
+      "topic": "Mitochondria, Cellular Respiration and Oxygen Availability",
+      "destination": "https://bhoctherapeutics.com/science/oxygen-metabolism-mitochondria/#mitochondria",
+      "keywordCount": 20,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H30",
+      "topic": "Endothelial Glycocalyx and Microvascular Barrier",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/nitric-oxide-scavenging-hboc-vasoconstriction.html#endothelial-barrier",
+      "keywordCount": 16,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H31",
+      "topic": "Inflammation, Immune Context and Tissue Oxygenation",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html#inflammation-metabolism",
+      "keywordCount": 16,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H32",
+      "topic": "Cardiac Ischemia and Oxygen-Carrier Research",
+      "destination": "https://bhoctherapeutics.com/applications/cardiac-ischemia-oxygen-delivery/",
+      "keywordCount": 22,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H33",
+      "topic": "Brain Microcirculation and Oxygen-Transport Models",
+      "destination": "https://bhoctherapeutics.com/bhoc/microcirculation-tissue-oxygenation/",
+      "keywordCount": 12,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H34",
+      "topic": "Wound Hypoxia and Ischemic-Tissue Research Questions",
+      "destination": "https://bhoctherapeutics.com/bhoc/microcirculation-tissue-oxygenation/",
+      "keywordCount": 11,
+      "status": "Planning only. Additional approved direct evidence needed."
+    },
+    {
+      "id": "H35",
+      "topic": "ECMO, Cardiopulmonary Bypass and Oxygen-Delivery Research",
+      "destination": "https://bhoctherapeutics.com/applications/extracorporeal-oxygen-delivery/",
+      "keywordCount": 18,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H36",
+      "topic": "Hemolysis, Oxidation and Cell-Free Hemoglobin",
+      "destination": "https://bhoctherapeutics.com/bhoc/outside-rbc/",
+      "keywordCount": 16,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H37",
+      "topic": "Hypoxia, Hypoxemia and Functional Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/topics/#oxygen-problem",
+      "keywordCount": 23,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H38",
+      "topic": "Organ Dysfunction, Perfusion and Oxygen Use",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html#organ-dysfunction",
+      "keywordCount": 14,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H39",
+      "topic": "Glycolysis, Oxidative Metabolism and Hypoxia",
+      "destination": "https://bhoctherapeutics.com/science/oxygen-metabolism-mitochondria/#metabolic-pathways",
+      "keywordCount": 16,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H40",
+      "topic": "Resuscitation, Oxygen Debt and Functional Endpoints",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html#hemorrhagic-shock",
+      "keywordCount": 15,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H41",
+      "topic": "Plasma and Red-Cell Oxygen-Transport Compartments",
+      "destination": "https://bhoctherapeutics.com/bhoc/outside-rbc/",
+      "keywordCount": 15,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H42",
+      "topic": "Monitoring Perfusion, Oxygenation and Metabolism",
+      "destination": "https://bhoctherapeutics.com/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html#monitoring-metabolism",
+      "keywordCount": 15,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H43",
+      "topic": "Golden Hour, Trauma and Prehospital Oxygen Delivery",
+      "destination": "https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html#golden-hour",
+      "keywordCount": 16,
+      "status": "Integrated topic route"
+    },
+    {
+      "id": "H44",
+      "topic": "Medical Drone Delivery and Blood Logistics",
+      "destination": "https://bhoctherapeutics.com/news/blood-by-drone-global-innovation/",
+      "keywordCount": 20,
+      "status": "Integrated topic route"
+    }
+  ],
+  "newPages": [
+    "/science/hemopure-hboc-201/",
+    "/applications/donor-blood-availability/",
+    "/applications/severe-anemia-oxygen-delivery/",
+    "/applications/oncology-tumor-oxygenation/",
+    "/science/oxygen-metabolism-mitochondria/",
+    "/applications/cardiac-ischemia-oxygen-delivery/",
+    "/applications/extracorporeal-oxygen-delivery/"
+  ],
+  "topicGuide": "/topics/",
+  "startingCommit": "e4940cf3e8db2d2c60d1ae3d2955ddba57951ef2"
+}
