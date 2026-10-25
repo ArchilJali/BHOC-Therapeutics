@@ -6,7 +6,7 @@
 
   const HOME = 'https://bhoctherapeutics.com/';
   const LIBRARY = '/evidence/library/';
-  const releaseSummary = 'First published 20 Aug 2026 · 85 updates · Last updated 25 Oct 2026 · Version 26.10.25';
+  const releaseSummary = 'First published 20 Aug 2026 · 86 updates · Last updated 25 Oct 2026 · Version 26.10.25';
   const routes = [
     {name: 'BHOC', href: '/bhoc/', path: '/bhoc/'},
     {name: 'Science', href: '/science/', path: '/science/'},
