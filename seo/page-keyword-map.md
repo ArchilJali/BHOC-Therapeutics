@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 24 October 2026
+Updated: 25 October 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -8,6 +8,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 
 | Page | Primary intent | Secondary terms |
 |---|---|---|
+| `/news/tissue-oxygenation-plasma-hemoglobin-1996/` | 1996 plasma hemoglobin and tissue oxygenation evidence | BHOC; Standl 1996; canine hemodilution; oxygen extraction; Precision Oxygenation Therapeutics; Oxyglobin; oxiglobin (search spelling); HIF context |
 | `/` | Precision Oxygen Therapeutics | BHOC; Biological Hemoglobin Oxygen Carrier; oxygenation; oxygen delivery; emergency; transplantation; veterinary; human use |
 | `/bhoc/` | What is BHOC / Biological Hemoglobin Oxygen Carrier | BHOC meaning; BHOC definition; HBOC; hemoglobin-based oxygen carrier; hemoglobin oxygen carrier; artificial blood; blood substitute; blood substitutes; Hemopure; HBOC-201; Oxyglobin; Biopure; Precision Oxygen Therapeutics; Archil Jaliashvili |
 | `/science/` | BHOC oxygen delivery science | oxygen physiology; metabolism; hemoglobin; microcirculation; nitric oxide; hypoxia; HIF; oxygen sensing; tissue oxygenation |
