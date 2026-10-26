@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 25 October 2026
+Updated: 26 October 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -8,6 +8,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 
 | Page | Primary intent | Secondary terms |
 |---|---|---|
+| `/news/bhoc-therapeutics-congratulations-carl-rausch-us-congress/` | BHOC Therapeutics congratulations to Carl W. Rausch | U.S. Congress 1999; Joint Economic Committee; U.S. Senate; blood transfusion; RBCs; prehospital oxygen delivery; Biopure; Hemopure; Oxyglobin; Precision Oxygen Therapeutics |
 | `/news/tissue-oxygenation-plasma-hemoglobin-1996/` | 1996 plasma hemoglobin and tissue oxygenation evidence | BHOC; Standl 1996; canine hemodilution; oxygen extraction; Precision Oxygenation Therapeutics; Oxyglobin; oxiglobin (search spelling); HIF context |
 | `/` | Precision Oxygen Therapeutics | BHOC; Biological Hemoglobin Oxygen Carrier; oxygenation; oxygen delivery; emergency; transplantation; veterinary; human use |
 | `/bhoc/` | What is BHOC / Biological Hemoglobin Oxygen Carrier | BHOC meaning; BHOC definition; HBOC; hemoglobin-based oxygen carrier; hemoglobin oxygen carrier; artificial blood; blood substitute; blood substitutes; Hemopure; HBOC-201; Oxyglobin; Biopure; Precision Oxygen Therapeutics; Archil Jaliashvili |
