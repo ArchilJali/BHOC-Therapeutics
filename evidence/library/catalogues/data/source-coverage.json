@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-24",
+  "checked": "2026-10-26",
   "sources": [
     {
       "source": "Master Catalogue",
@@ -48,6 +48,12 @@
       "rows": 5,
       "retainedRows": 5,
       "missingRows": 0
+    },
+    {
+      "source": "Approved scientific additions",
+      "rows": 41,
+      "retainedRows": 41,
+      "missingRows": 0
     }
   ],
   "workbooks": [
@@ -68,17 +74,17 @@
       "missingRows": 0
     }
   ],
-  "sourceOccurrences": 1190,
-  "retainedRecordsIncludingFragments": 698,
+  "sourceOccurrences": 1191,
+  "retainedRecordsIncludingFragments": 699,
   "repeatedSourceOccurrences": 492,
   "incompleteSourceFragments": 48,
-  "publicRecords": 650,
+  "publicRecords": 651,
   "catalogues": {
     "oxygen": 245,
-    "related": 213,
+    "related": 214,
     "product": 192
   },
   "missingSourceRows": 0,
-  "calculation": "1190 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 650 public records",
+  "calculation": "1191 source occurrences - 492 repeated occurrences - 48 incomplete fragments = 651 public records",
   "note": "This verifies coverage of the supplied files. It does not claim that this collection contains every publication in the scientific literature."
 }

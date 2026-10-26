@@ -1,8 +1,8 @@
 {
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 7,
-    "displayedTotal": 969,
+    "newPublications": 8,
+    "displayedTotal": 970,
     "newRecordIds": [
       "pub-muir-oc99-2014",
       "pub-pmid-1111380",
@@ -10,20 +10,21 @@
       "pub-pmid-19430240",
       "pub-pmid-19816963",
       "pub-pmid-24612155",
+      "pub-pmid-33872358",
       "pub-pmid-3740627"
     ]
   },
   "collectionTotals": {
-    "entries": 976,
+    "entries": 978,
     "collections": {
       "transplant": 64,
-      "human": 181,
+      "human": 182,
       "veterinary": 273,
       "oxygen": 245,
-      "related": 213
+      "related": 214
     },
-    "distinctRecordsInFiveCollections": 641,
-    "repeatedPlacements": 335,
+    "distinctRecordsInFiveCollections": 642,
+    "repeatedPlacements": 336,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -35,22 +36,22 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 650
+    "distinctRecordsInFullLibrary": 651
   },
-  "snapshot": "2026-10-24",
-  "uniquePublications": 650,
-  "hubPlacements": 518,
+  "snapshot": "2026-10-26",
+  "uniquePublications": 651,
+  "hubPlacements": 519,
   "evidenceHubs": 3,
-  "indexedAuthorInstitutions": 176,
-  "normalizedJournalLabels": 211,
+  "indexedAuthorInstitutions": 178,
+  "normalizedJournalLabels": 212,
   "catalogues": {
     "product": 192,
     "oxygen": 245,
-    "related": 213
+    "related": 214
   },
   "hubs": {
     "veterinary": 273,
-    "human": 181,
+    "human": 182,
     "transplant": 64
   },
   "notes": {

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-26",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -32441,6 +32441,60 @@
       ],
       "titleAliases": [],
       "catalogueSummary": "A mathematical model predicted enhanced oxygen transport to hepatocytes in a hollow-fiber bioreactor when HBOCs and perfluorocarbons were combined. The study concerns a bioartificial liver device."
+    },
+    {
+      "title": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
+      "year": "2021",
+      "authors": "Miki Fujii; Hiroto Terashi; Koichi Yokono; David G Armstrong",
+      "journal": "Journal of the American Podiatric Medical Association",
+      "doi": "10.7547/18-185",
+      "pmid": "33872358",
+      "citation": "Fujii M, Terashi H, Yokono K, Armstrong DG. The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis. J Am Podiatr Med Assoc. 2021 Mar 1;111(2):Article_4. doi: 10.7547/18-185.",
+      "product": "",
+      "keywords": "Diabetic foot; Chronic limb-threatening ischemia; Skin perfusion pressure; Infection control; Osteomyelitis; Wound healing",
+      "directions": [
+        "Human Use"
+      ],
+      "institutions": [
+        "Kitaharima Medical Center",
+        "Kobe University Hospital"
+      ],
+      "species": [
+        "Human"
+      ],
+      "evidence": "Retrospective clinical study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/33872358/",
+        "https://doi.org/10.7547/18-185"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "33872358",
+          "title": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
+          "year": "2021",
+          "doi": "10.7547/18-185",
+          "pmid": "33872358"
+        }
+      ],
+      "originalVerification": "PubMed bibliographic record and abstract, plus available publisher-indexed text, checked 26 October 2026. Publisher page access was rate-limited during direct retrieval.",
+      "sourceReview": "Related clinical evidence, not direct BHOC/HBOC evidence. Skin perfusion pressure was measured; transcutaneous tissue oxygen pressure was not used. The small retrospective cohort supports an association, not a universal treatment threshold or proof that an oxygen therapeutic improves healing.",
+      "catalogue": "related",
+      "classificationBasis": "User-approved clinical context for diabetic foot ischemia, infection control and wound healing. No oxygen-carrier intervention was tested.",
+      "id": "pub-pmid-33872358",
+      "verification": "PubMed metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Diabetic foot",
+        "Chronic limb-threatening ischemia",
+        "Skin perfusion pressure",
+        "Infection control",
+        "Osteomyelitis",
+        "Wound healing"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Retrospective study of 30 patients and 44 operations for diabetic chronic limb-threatening ischemia with forefoot osteomyelitis. Higher skin perfusion pressure and lower preoperative CRP were associated with healing. An SPP of approximately 55 mm Hg was associated with successful treatment in this cohort."
     }
   ],
   "mergedRecords": [

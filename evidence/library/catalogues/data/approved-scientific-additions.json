@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24",
+  "updated": "2026-10-26",
   "approval": "User-approved literature catalogue additions; PubMed bibliographic metadata checked on 14 October 2026. Earlier published records retain their original anchors.",
   "records": [
     {
@@ -941,6 +941,48 @@
         "Oncology & Tumor Oxygenation"
       ],
       "evidenceGroup": "Mechanistic / in silico research context"
+    },
+    {
+      "id": "33872358",
+      "pmid": "33872358",
+      "doi": "10.7547/18-185",
+      "title": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
+      "authors": "Miki Fujii; Hiroto Terashi; Koichi Yokono; David G Armstrong",
+      "journal": "Journal of the American Podiatric Medical Association",
+      "year": "2021",
+      "volume": "111",
+      "issue": "2",
+      "pages": "Article_4",
+      "publicationDate": "2021-03-01",
+      "direction": "Human Use",
+      "evidenceType": "Retrospective clinical study",
+      "evidenceGroup": "Human clinical / retrospective observational study",
+      "topics": [
+        "Diabetic foot",
+        "Chronic limb-threatening ischemia",
+        "Skin perfusion pressure",
+        "Infection control",
+        "Osteomyelitis",
+        "Wound healing"
+      ],
+      "therapeuticAreas": [
+        "Diabetic Foot & Wound Healing"
+      ],
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/33872358/",
+      "publicationTypes": [
+        "Journal Article",
+        "Retrospective Study"
+      ],
+      "affiliations": [
+        "Department of Plastic and Reconstructive Surgery, Critical Limb Ischemia Center, Kitaharima Medical Center, Ono, Japan",
+        "Department of Plastic and Reconstructive Surgery, Kobe University Hospital, Kobe, Japan"
+      ],
+      "approval": "Archil explicitly approved Related Articles inclusion and counter synchronization on 26 October 2026.",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/33872358/",
+        "https://doi.org/10.7547/18-185",
+        "https://www.mdpi.com/1930-8264/111/2/18185"
+      ]
     }
   ]
 }

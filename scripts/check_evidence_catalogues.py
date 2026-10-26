@@ -60,7 +60,7 @@ assert platform['hubs']=={k:STATS[k]['records'] for k in APP_LABELS}
 for p in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html']:
     s=p.read_text();assert '48 incomplete imported fragments' not in s
     assert s.count('id="scientific-catalogues"')==1
-assert len(VIEWS['human'])==181
+assert len(VIEWS['human'])==182
 oncology=[r for r in VIEWS['human'] if 'Oncology & Tumor Oxygenation' in r['direction']]
 assert len(oncology)==2, 'Requested oncology filter must show two records'
 assert any(r['pmid']=='19816963' and 'Mechanistic / in silico research context' in r['evidenceGroups'] for r in oncology), 'Bioreactor model must remain labelled as mechanistic context'
@@ -82,7 +82,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==316
+assert reconciliation['netAddedRecords']==317
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[publication_counter()['displayedTotal'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -97,7 +97,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 316 net additions; all 1,190 source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 317 net additions; all 1,191 source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
@@ -107,23 +107,23 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==976
-assert collection_stats['collections']=={'transplant':64,'human':181,'veterinary':273,'oxygen':245,'related':213}
-assert collection_stats['distinctRecordsInFiveCollections']==641
+assert collection_stats['entries']==978
+assert collection_stats['collections']=={'transplant':64,'human':182,'veterinary':273,'oxygen':245,'related':214}
+assert collection_stats['distinctRecordsInFiveCollections']==642
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-publication-counter>969</strong>' in source
+    assert 'data-publication-counter>970</strong>' in source
     assert 'Library entries' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==7
-assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963'}
+assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==8
+assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358'}
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])
-print('PASS: displayed publication counter 962 + seven distinct additions = 969; records indexed once.')
+print('PASS: displayed publication counter 962 + eight distinct additions = 970; records indexed once.')
 
 selection=read('catalogues/data/oxygen-transport-review-20261014.json')
 assert selection['requestedPublications']==30 and selection['newPublications']==27 and selection['alreadyPublished']==3
@@ -136,3 +136,11 @@ for selected in selection['records']:
 assert len(selection['researchDirections'])==6
 assert all('data-topic=' in (BASE/PATHS[k]/'index.html' if PATHS[k].endswith('/') else BASE/PATHS[k]).read_text() for k in ['all','oxygen','related','veterinary'])
 print('PASS: all 30 requested publications are indexed once; 27 additions, 3 existing; six research directions are searchable.')
+
+# User-approved Fujii diabetic-foot study: one record, shared human/related views.
+fujii=[r for r in RECORDS if r["pmid"]=="33872358" or r["doi"]=="10.7547/18-185"]
+assert len(fujii)==1 and fujii[0]["catalogue"]=="related"
+assert fujii[0] in VIEWS["human"] and fujii[0] in VIEWS["related"]
+assert fujii[0] not in VIEWS["product"] and fujii[0] not in VIEWS["oxygen"]
+assert "Retrospective" in fujii[0]["catalogueSummary"] and "not direct BHOC/HBOC evidence" in fujii[0]["sourceReview"]
+assert "transcutaneous tissue oxygen pressure was not used" in fujii[0]["sourceReview"]

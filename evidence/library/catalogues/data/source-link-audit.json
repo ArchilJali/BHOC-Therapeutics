@@ -1,10 +1,10 @@
 {
-  "checked": "2026-10-24",
+  "checked": "2026-10-26",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 650,
-  "uniqueUrlsChecked": 921,
+  "publicRecords": 651,
+  "uniqueUrlsChecked": 923,
   "states": {
-    "matched": 895,
+    "matched": 906,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
@@ -10143,6 +10143,28 @@
           "state": "matched",
           "method": "DOI confirmed in PubMed record; publisher full text not reviewed",
           "sourceTitle": "Mixtures of hemoglobin-based oxygen carriers and perfluorocarbons exhibit a synergistic effect in oxygenating hepatic hollow fiber bioreactors"
+        }
+      ]
+    },
+    "pub-pmid-33872358": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/33872358/",
+        "https://doi.org/10.7547/18-185"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33872358/",
+          "state": "matched",
+          "method": "DOI and PMID matched to original title in PubMed; abstract read",
+          "sourceTitle": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
+          "checked": "2026-10-26"
+        },
+        {
+          "url": "https://doi.org/10.7547/18-185",
+          "state": "matched",
+          "method": "DOI and PMID matched to original title in PubMed; abstract read",
+          "sourceTitle": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
+          "checked": "2026-10-26"
         }
       ]
     }
