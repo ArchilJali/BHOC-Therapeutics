@@ -1,0 +1,98 @@
+name: Prepare approved SEO routing repairs
+on:
+  push:
+    branches: [preview/seo-routing-fixes-20261027]
+    paths:
+      - scripts/prepare_seo_routing_20261027.py
+      - .github/workflows/preview-seo-routing-20261027.yml
+permissions:
+  contents: write
+concurrency:
+  group: preview-seo-routing-20261027
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out this preview branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: preview/seo-routing-fixes-20261027
+          fetch-depth: 0
+      - name: Apply minimal routing and metadata corrections
+        run: python3 scripts/prepare_seo_routing_20261027.py
+      - name: Validate preserved content, SEO, links and source counts
+        run: |
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+          python3 scripts/check_evidence_catalogues.py
+          node --check navigation-context.js
+          git diff --check
+          git diff --stat
+          git diff > /tmp/seo-routing.patch
+      - name: Check topic filtering and width on desktop and mobile
+        run: |
+          mkdir -p /tmp/bhoc-browser-check
+          cd /tmp/bhoc-browser-check
+          npm install --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+          cat > check.cjs <<'NODE'
+          const {chromium}=require('playwright');
+          const fs=require('fs');
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            const result=[];
+            for (const width of [1440,390]) {
+              const page=await browser.newPage({viewport:{width,height:1000}});
+              await page.route('https://analytics.ahrefs.com/**',r=>r.abort());
+              await page.route('https://www.googletagmanager.com/**',r=>r.abort());
+              for (const path of ['/topics/','/applications/#perioperative-oxygen-delivery']) {
+                const res=await page.goto('http://127.0.0.1:8765'+path,{waitUntil:'networkidle'});
+                if(res.status()!==200) throw new Error('HTTP '+res.status());
+                const measurements=await page.evaluate(()=>({viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
+                if(measurements.scroll>width+2) throw new Error('Horizontal overflow '+path+' '+JSON.stringify(measurements));
+                result.push({width,path,...measurements});
+                await page.screenshot({path:'/tmp/seo-'+(path.startsWith('/topics')?'topics':'surgery')+'-'+width+'.png',fullPage:false});
+                if(path==='/topics/'){
+                  const count=await page.locator('[data-topic-card]').count();
+                  if(count!==45) throw new Error('Expected45 routes, got '+count);
+                  for(const term of ['delayed evacuation','perioperative']){
+                    await page.locator('#topic-filter').fill(term);
+                    await page.waitForTimeout(200);
+                    if(await page.locator('[data-topic-card]:visible').count()<1) throw new Error('Missing filtered route '+term);
+                  }
+                  await page.locator('#topic-filter').fill('');
+                }
+              }
+              await page.close();
+            }
+            fs.writeFileSync('/tmp/seo-layout-report.json',JSON.stringify(result,null,2));
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+          cd "$GITHUB_WORKSPACE"
+          python3 -m http.server 8765 >/tmp/bhoc-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
+          node /tmp/bhoc-browser-check/check.cjs
+      - name: Record exact scoped changes on preview
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add topics/index.html applications/index.html evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html seo/page-keyword-map.md seo/BHOC-SEO-Keywords.md sitemap.xml evidence/library/sitemap.xml
+          git commit -m 'Repair topic routing, perioperative links and sepsis metadata; preserve scientific content'
+          git push origin HEAD:preview/seo-routing-fixes-20261027
+      - name: Keep audit files and layout previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-routing-validation-20261027
+          path: |
+            /tmp/seo-routing-report.json
+            /tmp/seo-routing.patch
+            /tmp/seo-layout-report.json
+            /tmp/seo-topics-*.png
+            /tmp/seo-surgery-*.png
+          retention-days: 7
