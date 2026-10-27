@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 26 October 2026
+Updated: 27 October 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -19,6 +19,8 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/evidence/library/clinical/` | Clinical oxygen delivery: evidence and research questions | prehospital care; sickle cell disease; maternal hemorrhage; blood access; organ perfusion; research boundaries |
 | `/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html` | Sickle cell disease: matched blood and oxygen delivery | red-cell exchange; alloimmunization; hyperhaemolysis; transfusion compatibility; tissue hypoxia |
 | `/applications/military-disaster-medicine/` | Prolonged casualty care and delayed evacuation | battlefield blood logistics; contested evacuation; disaster medicine; oxygen delivery before definitive care |
+| `/applications/#perioperative-oxygen-delivery` | Surgery and perioperative oxygen delivery | perioperative anemia; surgical blood loss; patient blood management; hemoglobin dose; donor blood availability; cardiopulmonary bypass |
+| `/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html` | Sepsis, microcirculation and tissue oxygenation | septic shock; endothelial dysfunction; perfusion monitoring; organ dysfunction; cellular metabolism |
 | `/science/rbc-unit-hemoglobin-dose-variability.html` | Hemoglobin dose and RBC unit variability | component variability; administered hemoglobin mass; transfusion measurement; oxygen transport function |
 | `/news/hemoglobin-dose-red-cell-transfusion-preprint-2026/` | Publication announcement and version record | exact published title; author names; preprint status; DOI; link to the related permanent analysis |
 | `/evidence/` | BHOC scientific, clinical and regulatory evidence | BHOC research; HBOC publications; Hemopure research; Oxyglobin evidence; Biopure; regulatory history; scientific sources; historical evidence |
@@ -226,3 +228,14 @@ The master keyword vocabulary remains `seo/BHOC-SEO-Keywords.md`. This file must
 The clinical hub now links its SCD and transplant cards to existing detailed pages. Clinical navigation also points to military/disaster medicine, hemoglobin-dose analysis and organ-perfusion evidence. The SCD page keeps its SEO title and places its original heading beneath the explicit disease-specific H1. Clinical collection and social metadata match the wider existing content. Existing Science, military/disaster, PPH and hemoglobin-dose titles are retained.
 
 The four proposed full reviews remain deferred by the user: Tumor Hypoxia, Oxygenation & Treatment Resistance; Diabetic Foot Ulcers: Perfusion & Tissue Oxygenation; Perioperative Oxygen Delivery, Anemia & Transfusion; ECMO Oxygen Delivery: Hemoglobin, Dose & Circuit. These are content plans, not published pages or established BHOC indications. Check the existing evidence library for overlap before drafting each review. Use only approved sources and the public, permitted hemoglobin-dose version for the ECMO topic.
+
+
+## Routing corrections — 27 October 2026
+
+- `/topics/` retains its existing 43 routes and adds two: military/disaster medicine and the perioperative section of `/applications/`. Its 45 route cards and ItemList use the same destinations.
+- Perioperative ownership is an anchored section of an existing page, not a separate indexable page. Hemoglobin-dose, anemia, donor-blood and bypass articles retain their own primary intent and canonical URLs.
+- All topic-card anchors now describe their subject instead of repeating `Explore this topic`. Existing titles, summaries and destinations are retained.
+- Sepsis title, Open Graph, Twitter title and WebPage name: `Sepsis, Microcirculation & Tissue Oxygenation | BHOC`. Scientific text and the established URL remain unchanged.
+- Existing oncology, SCD, physiology, publication titles, DOI records and homepage positioning are preserved. Wound healing and longevity remain research reserves; this repair does not publish new treatment claims or new disease pages.
+- Use the relevant permanent topic page in publication announcements and editorial plans; do not rewrite old social posts as part of this repair. The existing donor-blood page remains the route for blood-system resilience and availability.
+- These are implemented content/routing corrections, not measured ranking gains. Search volume, positions and traffic impact require separate comparable measurements.

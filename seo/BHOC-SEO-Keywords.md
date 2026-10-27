@@ -147,6 +147,8 @@ Each page should have one primary search intent, three to five secondary terms a
 
 **Primary:** prehospital oxygenation
 
+**Military/disaster subcluster owner:** `/applications/military-disaster-medicine/`. Keep delayed evacuation, prolonged casualty care, military blood logistics and disaster blood availability with this existing page; the general EMS evidence page keeps its broader prehospital intent.
+
 - prehospital oxygen delivery
 - prehospital resuscitation
 - prehospital blood transfusion
@@ -305,6 +307,8 @@ Do not target `SCA` alone because it competes with `sickle cell anemia` and othe
 ### 4.11 Surgery
 
 **Primary:** surgical blood loss
+
+**Existing route:** `/applications/#perioperative-oxygen-delivery` (assigned 27 October 2026). A section linking existing anemia, hemoglobin-dose, donor-blood and bypass sources, not a duplicate review.
 
 - surgery blood transfusion
 - surgical oxygenation
@@ -1044,3 +1048,14 @@ This is an SEO and market-language document, not a regulatory or clinical-claims
 - Scientific claims must begin with the `BHOC-platform` CORE/VERIFIED evidence base.
 - New external scientific sources remain **External / Pending Review** until approved.
 - PPH, myocardial infarction, cardiac arrest, SCD/SCA and other application pages must use careful `research context`, `scientific rationale`, `potential application` or `evidence landscape` language until specific claims are verified.
+
+### Routing vocabulary synchronized 27 October 2026
+
+These terms support the existing military/disaster page and perioperative section. They are editorial targets, not measured search demand or evidence of BHOC efficacy.
+
+- prolonged casualty care
+- delayed medical evacuation
+- contested medical evacuation
+- military blood logistics
+- disaster medicine blood supply
+- perioperative oxygen delivery
