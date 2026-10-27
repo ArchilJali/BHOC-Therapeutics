@@ -1,37 +1,39 @@
-name: Prepare approved SEO routing repairs
+name: Verify approved SEO routing repairs
 on:
   push:
     branches: [preview/seo-routing-fixes-20261027]
-    paths:
-      - scripts/prepare_seo_routing_20261027.py
-      - .github/workflows/preview-seo-routing-20261027.yml
+    paths: [.github/workflows/preview-seo-routing-20261027.yml]
 permissions:
   contents: write
-concurrency:
-  group: preview-seo-routing-20261027
-  cancel-in-progress: false
 jobs:
-  prepare:
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - name: Check out this preview branch
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: preview/seo-routing-fixes-20261027
           fetch-depth: 0
-      - name: Apply minimal routing and metadata corrections
-        run: python3 scripts/prepare_seo_routing_20261027.py
-      - name: Validate preserved content, SEO, links and source counts
+      - name: Match only the new section to the existing centered container
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('applications/index.html')
+          s=p.read_text()
+          a='<section class="topic-shell topic-section" id="perioperative-oxygen-delivery" aria-labelledby="perioperative-heading">'
+          b=a[:-1]+' style="max-width:1180px;margin-inline:auto">'
+          assert s.count(a)==1
+          p.write_text(s.replace(a,b,1))
+          PY
+      - name: Validate content, schema, links and whitespace
         run: |
           node scripts/check_bhoc_content.mjs
           node scripts/check_site.mjs
           python3 scripts/check_evidence_catalogues.py
           node --check navigation-context.js
           git diff --check
-          git diff --stat
-          git diff > /tmp/seo-routing.patch
-      - name: Check topic filtering and width on desktop and mobile
+          git diff b983a810454fe6c03fd0e4164b8c73d9313e9e01 -- topics/index.html applications/index.html evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html seo/page-keyword-map.md seo/BHOC-SEO-Keywords.md sitemap.xml evidence/library/sitemap.xml > /tmp/seo-routing.patch
+      - name: Verify centered layouts, sections and filter results
         run: |
           mkdir -p /tmp/bhoc-browser-check
           cd /tmp/bhoc-browser-check
@@ -47,23 +49,33 @@ jobs:
               const page=await browser.newPage({viewport:{width,height:1000}});
               await page.route('https://analytics.ahrefs.com/**',r=>r.abort());
               await page.route('https://www.googletagmanager.com/**',r=>r.abort());
-              for (const path of ['/topics/','/applications/#perioperative-oxygen-delivery']) {
+              for (const path of ['/topics/','/applications/']) {
                 const res=await page.goto('http://127.0.0.1:8765'+path,{waitUntil:'networkidle'});
                 if(res.status()!==200) throw new Error('HTTP '+res.status());
-                const measurements=await page.evaluate(()=>({viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
-                if(measurements.scroll>width+2) throw new Error('Horizontal overflow '+path+' '+JSON.stringify(measurements));
-                result.push({width,path,...measurements});
-                await page.screenshot({path:'/tmp/seo-'+(path.startsWith('/topics')?'topics':'surgery')+'-'+width+'.png',fullPage:false});
-                if(path==='/topics/'){
+                if(path==='/applications/'){
+                  const section=page.locator('#perioperative-oxygen-delivery');
+                  await section.scrollIntoViewIfNeeded();
+                  const box=await section.boundingBox();
+                  if(box.x < -1 || box.x+box.width > width+1) throw new Error('Section outside viewport');
+                  if(Math.abs(box.x-(width-box.x-box.width))>2) throw new Error('Section not centered');
+                  await section.screenshot({path:'/tmp/seo-surgery-'+width+'.png'});
+                  result.push({width,path,sectionBox:box});
+                } else {
                   const count=await page.locator('[data-topic-card]').count();
                   if(count!==45) throw new Error('Expected45 routes, got '+count);
                   for(const term of ['delayed evacuation','perioperative']){
                     await page.locator('#topic-filter').fill(term);
                     await page.waitForTimeout(200);
-                    if(await page.locator('[data-topic-card]:visible').count()<1) throw new Error('Missing filtered route '+term);
+                    if(await page.locator('[data-topic-card]:visible').count()<1) throw new Error('Missing route '+term);
                   }
                   await page.locator('#topic-filter').fill('');
+                  const military=page.locator('[data-topic-card]').filter({has:page.locator('a[href="https://bhoctherapeutics.com/applications/military-disaster-medicine/"]')});
+                  await military.scrollIntoViewIfNeeded();
+                  await page.screenshot({path:'/tmp/seo-topics-'+width+'.png'});
+                  result.push({width,path,topicCount:count});
                 }
+                const scroll=await page.evaluate(()=>document.documentElement.scrollWidth);
+                if(scroll>width+2) throw new Error('Horizontal overflow '+path);
               }
               await page.close();
             }
@@ -77,20 +89,19 @@ jobs:
           trap 'kill $SERVER_PID || true' EXIT
           sleep 2
           node /tmp/bhoc-browser-check/check.cjs
-      - name: Record exact scoped changes on preview
+      - name: Commit the scoped container alignment to preview
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add topics/index.html applications/index.html evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html seo/page-keyword-map.md seo/BHOC-SEO-Keywords.md sitemap.xml evidence/library/sitemap.xml
-          git commit -m 'Repair topic routing, perioperative links and sepsis metadata; preserve scientific content'
+          git add applications/index.html
+          git commit -m 'Align perioperative research links with the existing Applications width'
           git push origin HEAD:preview/seo-routing-fixes-20261027
-      - name: Keep audit files and layout previews
+      - name: Save verification screenshots and patch
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: seo-routing-validation-20261027
+          name: seo-routing-final-verification
           path: |
-            /tmp/seo-routing-report.json
             /tmp/seo-routing.patch
             /tmp/seo-layout-report.json
             /tmp/seo-topics-*.png
