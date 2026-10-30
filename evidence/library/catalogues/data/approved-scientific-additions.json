@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-26",
-  "approval": "User-approved literature catalogue additions; PubMed bibliographic metadata checked on 14 October 2026. Earlier published records retain their original anchors.",
+  "updated": "2026-10-30",
+  "approval": "User-approved literature additions. Existing approval and source-review fields are retained per publication; the Oxyglobin literature batch was approved for incorporation on 30 October 2026.",
   "records": [
     {
       "id": "31054772",
@@ -983,6 +983,1203 @@
         "https://doi.org/10.7547/18-185",
         "https://www.mdpi.com/1930-8264/111/2/18185"
       ]
+    },
+    {
+      "id": "39748550",
+      "pmid": "39748550",
+      "doi": "10.1111/trf.18116",
+      "title": "Hemoglobin-based oxygen carriers: Biochemical, biophysical differences, and safety",
+      "authors": "Jonathan S Jahr, Khrystia MacKinnon, Victor C Baum, Abdu I Alayash",
+      "journal": "Transfusion",
+      "year": "2025",
+      "volume": "65",
+      "issue": "2",
+      "pages": "386",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39748550/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/39748550/",
+        "https://doi.org/10.1111/trf.18116",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11826291/"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "David Geffen School of Medicine at UCLA, Ronald Reagan UCLA Medical Center, Los Angeles, California, USA.",
+        "Cumming School of Medicine, University of Calgary, Calgary, Alberta, Canada.",
+        "Office of Blood Research and Review, Center for Biologics Evaluation and Research, United States Food and Drug Administration, Silver Spring, Maryland, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Mixed models (review)"
+      ],
+      "product": "Oxyglobin; Hemopure; other HBOCs",
+      "catalogue": "product",
+      "evidenceType": "Review",
+      "evidenceGroup": "Review",
+      "topics": [
+        "HBOC biochemistry",
+        "Hemoglobin oxidation",
+        "Formulation safety"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Review of biochemical and biophysical differences among HBOC formulations, including Oxyglobin and Hemopure. It is background synthesis, not a new clinical trial.",
+      "sourceReview": "The full-text formulation table and discussion were reviewed. The article has a CC BY-NC-ND licence; this catalogue links to the source rather than hosting a copy.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "38815289",
+      "pmid": "38815289",
+      "doi": "10.1016/j.biopha.2024.116789",
+      "title": "Novel high molecular weight polymerized hemoglobin in a non-obese model of cardiovascular and metabolic dysfunction",
+      "authors": "Cynthia R Muller, Alexander T Williams, Allyn M Eaker, Cynthia Walser, Fernando Dos Santos, Clayton T Cuddington, Savannah R Wolfe, Andre F Palmer, Pedro Cabrales",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "year": "2024",
+      "volume": "176",
+      "issue": "",
+      "pages": "116789",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38815289/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/38815289/",
+        "https://doi.org/10.1016/j.biopha.2024.116789",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12885157/"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Bioengineering, University of California, San Diego, CA, USA.",
+        "Department of Anesthesiology & Critical Care, University of California, San Diego, CA, USA.",
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, OH, USA.",
+        "Department of Bioengineering, University of California, San Diego, CA, USA. Electronic address: pcabrales@ucsd.edu."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Guinea pigs"
+      ],
+      "product": "Oxyglobin comparator; high-molecular-weight polymerized human hemoglobin",
+      "catalogue": "product",
+      "evidenceType": "Preclinical animal study",
+      "evidenceGroup": "Preclinical animal study",
+      "topics": [
+        "HBOC safety",
+        "Cardiovascular toxicity",
+        "Metabolic dysfunction"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Exchange-transfusion experiment in 60 guinea pigs across two diet conditions and three treatment groups. Oxyglobin was given to 21 animals; the newer high-molecular-weight PolyhHb showed less cardiac toxicity in this model.",
+      "sourceReview": "Methods, group sizes and conclusions were checked in the full text. The 60-animal total is not the number of Oxyglobin recipients; follow-up was 24 hours.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "36837597",
+      "pmid": "36837597",
+      "doi": "10.3390/medicina59020396",
+      "title": "Hemoglobin-Based Oxygen Carriers: Where Are We Now in 2023?",
+      "authors": "Lin Chen, Zeyong Yang, Henry Liu",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "year": "2023",
+      "volume": "59",
+      "issue": "2",
+      "pages": "",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/36837597/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/36837597/",
+        "https://doi.org/10.3390/medicina59020396",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9962799/"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "affiliations": [
+        "Department of Anesthesiology, Hubei Women & Children's Hospital, 745 Wuluo Road, Hongshan, Wuhan 430070, China.",
+        "Department of Anesthesiology, International Peace Maternity and Child Health Hospital, Shanghai Jiaotong University School of Medicine, Shanghai Key Laboratory of Embryogenic Disease, Shanghai Municipal Key Clinical Specialty, 1961 Huashan Road, Shanghai 200030, China.",
+        "Department of Anesthesiology & Critical Care, Perelman School of Medicine, The University of Pennsylvania, 3400 Spruce Street, Philadelphia, PA 19104, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Mixed models (review)"
+      ],
+      "product": "Multiple HBOC formulations",
+      "catalogue": "related",
+      "evidenceType": "Review",
+      "evidenceGroup": "Review",
+      "topics": [
+        "HBOC development",
+        "Oxygen therapeutics",
+        "Formulation history"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "General review of HBOC development and potential applications. It is not an independent Oxyglobin trial.",
+      "sourceReview": "Sections mentioning Oxyglobin were reviewed. Product equivalence and historical approval dates should be checked against the FDA and EC records rather than adopted from this review.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "35883821",
+      "pmid": "35883821",
+      "doi": "10.3390/antiox11071329",
+      "title": "HBOC-301 in Porcine Kidney Normothermic Machine Perfusion and the Effect of Vitamin C on Methemoglobin Formation",
+      "authors": "Eileen Edgworth, Lisa Ernst, Zoltan Czigany, Turgay Saritas, Laura Sophie Zarnitz, Marc Wiartalla, Peter Boor, Eva Miriam Buhl, Rolf Rossaint, René H Tolba, Benedict Doorschodt, Gregor Fabry, Christian Bleilevens",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "year": "2022",
+      "volume": "11",
+      "issue": "7",
+      "pages": "",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/35883821/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/35883821/",
+        "https://doi.org/10.3390/antiox11071329",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9311674/"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Anesthesiology, Medical Faculty, University Hospital RWTH Aachen, 52074 Aachen, Germany.",
+        "Institute for Laboratory Animal Science and Experimental Surgery, Faculty of Medicine, RWTH Aachen University, 52074 Aachen, Germany.",
+        "Department of Surgery and Transplantation, University Hospital RWTH Aachen, 52074 Aachen, Germany.",
+        "Division of Nephrology and Immunology, University Hospital RWTH Aachen, 52074 Aachen, Germany.",
+        "Institute of Computer Sciences 11, RWTH Aachen University, 52074 Aachen, Germany.",
+        "Institute of Pathology, Division of Nephrology, Medical Faculty, RWTH Aachen, 52074 Aachen, Germany."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Transplant"
+      ],
+      "species": [
+        "Porcine kidneys (ex vivo)"
+      ],
+      "product": "Oxyglobin / HBOC-301",
+      "catalogue": "product",
+      "evidenceType": "Preclinical ex vivo organ-perfusion study",
+      "evidenceGroup": "Preclinical ex vivo organ-perfusion study",
+      "topics": [
+        "Kidney perfusion",
+        "Methemoglobin",
+        "Oxidative stress"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Twenty porcine kidneys were allocated to four groups of five for six-hour normothermic perfusion with HBOC-301 or packed red cells, with or without vitamin C. HBOC-301 had lower renal blood flow and function in this model; vitamin C did not restore equivalent performance.",
+      "sourceReview": "Methods, results and conclusions were checked in the full text. These are 20 isolated organs, not 20 clinical patients or clinical transplant outcomes.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "organ": "Kidney",
+      "transplantCollections": [
+        "Historical oxygen-carrier research"
+      ]
+    },
+    {
+      "id": "34672363",
+      "pmid": "34672363",
+      "doi": "10.1002/bit.27962",
+      "title": "Tangential flow filtration facilitated fractionation and PEGylation of low and high-molecular weight polymerized hemoglobins and their biophysical properties",
+      "authors": "Xiangming Gu, Chintan Savla, Andre F Palmer",
+      "journal": "Biotechnology and Bioengineering",
+      "year": "2022",
+      "volume": "119",
+      "issue": "1",
+      "pages": "176",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/34672363/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/34672363/",
+        "https://doi.org/10.1002/bit.27962",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8643326/"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "affiliations": [
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, USA."
+      ],
+      "institutions": [],
+      "direction": "Human Use",
+      "directions": [
+        "Human Use"
+      ],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "product": "PEGylated polymerized bovine hemoglobin",
+      "catalogue": "related",
+      "evidenceType": "Preclinical formulation / laboratory study",
+      "evidenceGroup": "Preclinical formulation / laboratory study",
+      "topics": [
+        "Hemoglobin fractionation",
+        "PEGylation",
+        "Formulation development"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Study of tangential-flow fractionation and PEGylation of polymerized bovine hemoglobin in tense and relaxed quaternary states. It concerns formulation development rather than a clinical trial of Oxyglobin.",
+      "sourceReview": "Bibliographic metadata and abstract were checked. Commercial Oxyglobin exposure has not been established from the methods; this entry is retained as related formulation research.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Biotechnology and bioengineering"
+    },
+    {
+      "id": "34626100",
+      "pmid": "34626100",
+      "doi": "10.1002/btpr.3219",
+      "title": "Biophysical properties of tense quaternary state polymerized human hemoglobins bracketed between 500 kDa and 0.2 μm in size",
+      "authors": "Clayton T Cuddington, Savannah R Wolfe, Andre F Palmer",
+      "journal": "Biotechnology Progress",
+      "year": "2022",
+      "volume": "38",
+      "issue": "1",
+      "pages": "e3219",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/34626100/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/34626100/",
+        "https://doi.org/10.1002/btpr.3219",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8854340/"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, U.S. Gov't, Non-P.H.S."
+      ],
+      "affiliations": [
+        "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, USA."
+      ],
+      "institutions": [],
+      "direction": "Human Use",
+      "directions": [
+        "Human Use"
+      ],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "product": "Tense-state polymerized human hemoglobin",
+      "catalogue": "related",
+      "evidenceType": "Preclinical formulation / laboratory study",
+      "evidenceGroup": "Preclinical formulation / laboratory study",
+      "topics": [
+        "Hemoglobin polymerization",
+        "Molecular weight",
+        "Oxygen affinity"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Laboratory characterization of tense-state polymerized human hemoglobin fractions. Findings apply to the tested human-Hb formulation.",
+      "sourceReview": "Bibliographic metadata and abstract were checked. This is related formulation research, not a direct clinical study of Oxyglobin.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Biotechnology progress"
+    },
+    {
+      "id": "24773100",
+      "pmid": "24773100",
+      "doi": "10.1111/jsap.12222",
+      "title": "Investigation of the effects of a polymerised bovine haemoglobin solution on tension in isolated canine saphenous artery",
+      "authors": "P Pawson, F J Dowell",
+      "journal": "The Journal of small animal practice",
+      "year": "2014",
+      "volume": "55",
+      "issue": "6",
+      "pages": "301",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/24773100/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/24773100/",
+        "https://doi.org/10.1111/jsap.12222"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "School of Veterinary Medicine, College of Medical, Veterinary and Life Sciences, University of Glasgow, Glasgow, G61 1QH."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Canine isolated artery (ex vivo)"
+      ],
+      "product": "Oxyglobin / Hb-200",
+      "catalogue": "product",
+      "evidenceType": "Preclinical ex vivo vascular study",
+      "evidenceGroup": "Preclinical ex vivo vascular study",
+      "topics": [
+        "Vascular tone",
+        "Isolated artery",
+        "Nitric oxide"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Experimental investigation of Hb-200 in isolated canine saphenous arteries. The outcome concerns vascular tension rather than clinical treatment efficacy.",
+      "sourceReview": "The primary indexed abstract was reviewed; the full text was not retrieved.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "23016811",
+      "pmid": "23016811",
+      "doi": "10.1111/j.1476-4431.2012.00726.x",
+      "title": "Comparison of Hb-200 and 6% hetastarch 450/0.7 during initial fluid resuscitation of 20 dogs with gastric dilatation-volvulus",
+      "authors": "Carol E Haak, Elke Rudloff, Rebecca Kirby",
+      "journal": "Journal of Veterinary Emergency and Critical Care",
+      "year": "2012",
+      "volume": "22",
+      "issue": "2",
+      "pages": "201",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/23016811/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/23016811/",
+        "https://doi.org/10.1111/j.1476-4431.2012.00726.x"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "affiliations": [
+        "Animal Emergency Center and Specialty Services, Silver Spring Drive, Glendale, WI, 53209, USA. caraol.haak@gmail.com"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Canine"
+      ],
+      "product": "Hb-200 / Oxyglobin",
+      "catalogue": "product",
+      "evidenceType": "Randomized veterinary clinical comparison",
+      "evidenceGroup": "Randomized veterinary clinical comparison",
+      "topics": [
+        "Gastric dilatation-volvulus",
+        "Fluid resuscitation",
+        "Hemodynamic stabilization"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Randomized comparison in 20 dogs with gastric dilatation-volvulus, ten per group, of Hb-200 and 6% hetastarch during initial resuscitation. The Hb-200 group reached the specified resuscitation endpoint sooner and required less fluid.",
+      "sourceReview": "The primary indexed abstract was reviewed. The resuscitation endpoint is not evidence of a survival benefit. The relationship to the Jenkins 2000 abstract has not been established.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Journal of veterinary emergency and critical care (San Antonio, Tex. : 2001)"
+    },
+    {
+      "id": "18450494",
+      "pmid": "18450494",
+      "doi": "10.1016/j.jfms.2007.09.005",
+      "title": "Multiple red cell transfusions in 27 cats (2003-2006): indications, complications and outcomes",
+      "authors": "Françoise A Roux, Jack-Yves Deschamps, Marie-Claude Blais, Diane M Welsh, Armelle M Delaforcade-Buress, Elizabeth A Rozanski",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "year": "2008",
+      "volume": "10",
+      "issue": "3",
+      "pages": "213",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/18450494/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/18450494/",
+        "https://doi.org/10.1016/j.jfms.2007.09.005",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10832691/"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Emergency and Critical Care Unit, Tufts University, Cummings School of Veterinary Medicine, North Grafton, MA 01536, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Feline"
+      ],
+      "product": "",
+      "catalogue": "related",
+      "evidenceType": "Retrospective veterinary clinical series",
+      "evidenceGroup": "Retrospective veterinary clinical series",
+      "topics": [
+        "Feline anemia",
+        "Repeated red-cell transfusion",
+        "Transfusion complications"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Retrospective series of 27 cats receiving multiple red-cell transfusions. It provides clinical transfusion context.",
+      "sourceReview": "The indexed abstract was reviewed. The total series size must not be presented as 27 Oxyglobin recipients; any oxygen-carrier subgroup requires the full text.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Journal of feline medicine and surgery"
+    },
+    {
+      "id": "17991224",
+      "pmid": "17991224",
+      "doi": "10.1111/j.1365-2885.2007.00913.x",
+      "title": "The effect of the polymerized bovine haemoglobin solution, Hb-200, on endothelial function in isolated arterial rings from rats",
+      "authors": "P Pawson, I F Gibson, F J Dowell",
+      "journal": "Journal of Veterinary Pharmacology and Therapeutics",
+      "year": "2007",
+      "volume": "30",
+      "issue": "6",
+      "pages": "556",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/17991224/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/17991224/",
+        "https://doi.org/10.1111/j.1365-2885.2007.00913.x"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Veterinary Clinical Services, University of Glasgow Veterinary School, Glasgow, Scotland, UK."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Rat isolated arterial rings (ex vivo)"
+      ],
+      "product": "Polymerized bovine hemoglobin / Hb-200",
+      "catalogue": "product",
+      "evidenceType": "Preclinical ex vivo vascular study",
+      "evidenceGroup": "Preclinical ex vivo vascular study",
+      "topics": [
+        "Endothelial function",
+        "Vascular reactivity",
+        "Nitric oxide"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Experimental study of Hb-200 and endothelial function in isolated rat arterial rings. The finding is specific to the vascular model.",
+      "sourceReview": "The primary indexed abstract was reviewed; this is not a field clinical trial.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Journal of veterinary pharmacology and therapeutics"
+    },
+    {
+      "id": "17186846",
+      "pmid": "17186846",
+      "doi": "10.1892/0891-6640(2006)20[1334:dicic]2.0.co;2",
+      "title": "Disseminated intravascular coagulation in cats",
+      "authors": "Michael A Estrin, Conni E Wehausen, Carl R Jessen, Justine A Lee",
+      "journal": "Journal of Veterinary Internal Medicine",
+      "year": "2006",
+      "volume": "20",
+      "issue": "6",
+      "pages": "1334",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/17186846/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/17186846/",
+        "https://doi.org/10.1892/0891-6640(2006)20[1334:dicic]2.0.co;2"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Division of Internal Medicine, College of Veterinary Medicine, University of Minnesota, St. Paul, MN, USA. estri010@umn.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Feline"
+      ],
+      "product": "",
+      "catalogue": "related",
+      "evidenceType": "Retrospective veterinary clinical series",
+      "evidenceGroup": "Retrospective veterinary clinical series",
+      "topics": [
+        "Disseminated intravascular coagulation",
+        "Feline critical care",
+        "Clinical outcomes"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Clinical series describing disseminated intravascular coagulation in 46 cats. It provides disease and supportive-treatment context.",
+      "sourceReview": "The indexed abstract and related literature were reviewed. Oxyglobin use was reported in a subset in secondary literature; the exact treated denominator requires primary full-text verification.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "doiAliases": [
+        "10.1111/j.1939-1676.2006.tb00747.x"
+      ],
+      "sourceJournal": "Journal of veterinary internal medicine"
+    },
+    {
+      "id": "12522516",
+      "pmid": "12522516",
+      "doi": "10.1097/00045391-200301000-00006",
+      "title": "Validation of oxygen saturation measurements in a canine model of hemoglobin-based oxygen carrier infusion",
+      "authors": "Jonathan S Jahr, Fedor Lurie, Bernd Driessen, Zuping Tang, Richard F Louie, Gerald Kost",
+      "journal": "American Journal of Therapeutics",
+      "year": "2003",
+      "volume": "10",
+      "issue": "1",
+      "pages": "21",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/12522516/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/12522516/",
+        "https://doi.org/10.1097/00045391-200301000-00006"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Anesthesiology, University of California Los Angeles, 90095, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Canine",
+        "In vitro / laboratory"
+      ],
+      "product": "Oxyglobin / hemoglobin glutamer-200",
+      "catalogue": "product",
+      "evidenceType": "Analytical / monitoring validation study",
+      "evidenceGroup": "Analytical / monitoring validation study",
+      "topics": [
+        "Oxygen saturation measurement",
+        "Co-oximetry",
+        "HBOC assay interference"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Validation of oxygen-saturation measurements in six dogs and in vitro canine-blood experiments using Oxyglobin. Instrument agreement depended on carrier concentration.",
+      "sourceReview": "The indexed abstract explicitly identifies Oxyglobin. Retained as a separate publication from PMID 14989329; an overlapping experimental cohort is possible but has not been confirmed.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [
+        "PMID:14989329"
+      ],
+      "sourceJournal": "American journal of therapeutics"
+    },
+    {
+      "id": "28404245",
+      "pmid": "28404245",
+      "doi": "10.1111/j.1467-2987.2001.00064.x",
+      "title": "Low-volume resuscitation with a haemoglobin-based oxygen carrier Hemoglobin glutamer-200 (bovine) in canine hypovolaemia",
+      "authors": "B Driessen, J S Jahr, F Lurie, R A Gunther",
+      "journal": "Veterinary Anaesthesia and Analgesia",
+      "year": "2001",
+      "volume": "28",
+      "issue": "4",
+      "pages": "204",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/28404245/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/28404245/",
+        "https://doi.org/10.1111/j.1467-2987.2001.00064.x"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "School of Veterinary Medicine, University of Pennsylvania.",
+        "School of Medicine, University of California-Davis, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Canine"
+      ],
+      "product": "Hemoglobin glutamer-200 / Oxyglobin",
+      "catalogue": "product",
+      "evidenceType": "Conference abstract / experimental model",
+      "evidenceGroup": "Conference abstract / experimental model",
+      "topics": [
+        "Hypovolemia",
+        "Low-volume resuscitation",
+        "Hemoglobin glutamer-200"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Short 2001 conference report on low-volume resuscitation with hemoglobin glutamer-200 in a canine hypovolemia model.",
+      "sourceReview": "The original publication year is 2001 despite later electronic indexing. Related full paper: PMID 11348488. The cohort relationship should be checked before counting independent experiments.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [
+        "PMID:11348488"
+      ],
+      "sourceJournal": "Veterinary anaesthesia and analgesia"
+    },
+    {
+      "id": "oxyglobin-berent-2005",
+      "pmid": "",
+      "doi": "10.1111/j.1476-4431.2005.00140.x",
+      "title": "Carbon monoxide toxicity: a case series",
+      "authors": "Berent AC, Todd J, Sergeeff J, Powell LL",
+      "journal": "Journal of Veterinary Emergency and Critical Care",
+      "year": "2005",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "sourceUrl": "https://doi.org/10.1111/j.1476-4431.2005.00140.x",
+      "metadataSources": [
+        "https://doi.org/10.1111/j.1476-4431.2005.00140.x"
+      ],
+      "publicationTypes": [],
+      "affiliations": [],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Canine",
+        "Feline"
+      ],
+      "product": "",
+      "catalogue": "related",
+      "evidenceType": "Veterinary clinical case series",
+      "evidenceGroup": "Veterinary clinical case series",
+      "topics": [
+        "Carbon monoxide toxicity",
+        "Oxygen-carrying support",
+        "Critical care"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Clinical case series of carbon monoxide toxicity in four dogs and two cats.",
+      "sourceReview": "Publisher bibliographic metadata and abstract were checked. The exact oxygen-carrier formulation requires the full methods; this entry is not labelled as direct product-specific Oxyglobin evidence.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "40950573",
+      "pmid": "40950573",
+      "doi": "10.3389/fmolb.2025.1648209",
+      "title": "Effects of chemical modifications on hemoglobin's toxicity towards human cardiac myocytes",
+      "authors": "Jana S, Garbus-Grant H, Kassa T, Alayash AI.",
+      "journal": "Frontiers in molecular biosciences",
+      "year": "2025",
+      "volume": "12",
+      "issue": "",
+      "pages": "1648209",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/40950573/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/40950573/",
+        "https://doi.org/10.3389/fmolb.2025.1648209",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12422936/"
+      ],
+      "publicationTypes": [
+        "research-article",
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Laboratory of Biochemistry and Vascular Biology, Center for Biologic Evaluation and Research, Food and Drug Administration, Silver Spring, MD, United States."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Human cardiac cell line AC16 (in vitro)"
+      ],
+      "product": "Oxyglobin; Hemopure; other HBOCs",
+      "catalogue": "product",
+      "evidenceType": "Preclinical in vitro cellular study",
+      "evidenceGroup": "Preclinical in vitro cellular study",
+      "topics": [
+        "Cardiomyocyte injury",
+        "Hemoglobin redox state",
+        "Mitochondrial respiration"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Cellular comparison of four HBOCs, including Oxyglobin, in human AC16 cardiac cells. Oxidation state affected cell injury and mitochondrial respiratory-complex activity.",
+      "sourceReview": "Methods and results were checked in full-text XML. Human-derived cells are not clinical participants; this is not a human clinical trial.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "27471729",
+      "pmid": "27471729",
+      "doi": "10.3390/toxics4010006",
+      "title": "Transcriptional Suppression of Renal Antioxidant Enzyme Systems in Guinea Pigs Exposed to Polymerized Cell-Free Hemoglobin",
+      "authors": "Rentsendorj O, Zhang X, Williams MC, Buehler PW, D'Agnillo F.",
+      "journal": "Toxics",
+      "year": "2016",
+      "volume": "4",
+      "issue": "1",
+      "pages": "6",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/27471729/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/27471729/",
+        "https://doi.org/10.3390/toxics4010006",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961095/"
+      ],
+      "publicationTypes": [
+        "research-article",
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Laboratory of Biochemistry and Vascular Biology, Division of Hematology Research and Review, Center for Biologics Evaluation and Research, Food and Drug Administration, Silver Spring, MD 20993, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Guinea pigs"
+      ],
+      "product": "Oxyglobin",
+      "catalogue": "product",
+      "evidenceType": "Preclinical animal safety study",
+      "evidenceGroup": "Preclinical animal safety study",
+      "topics": [
+        "Renal antioxidant systems",
+        "Oxidative stress",
+        "Hemoglobin safety"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Guinea-pig exchange-transfusion study using Oxyglobin. Renal antioxidant-gene expression, enzyme activity and oxidative-injury markers were investigated.",
+      "sourceReview": "Methods and results were checked in the full-text XML. Suppression of antioxidant systems and oxidative injury were observed in this specific model.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "20193889",
+      "pmid": "20193889",
+      "doi": "10.1016/j.jamcollsurg.2009.11.005",
+      "title": "Low oxygen-affinity hemoglobin solution increases oxygenation of partially ischemic tissue during acute anemia",
+      "authors": "Cabrales P.",
+      "journal": "Journal of the American College of Surgeons",
+      "year": "2010",
+      "volume": "210",
+      "issue": "3",
+      "pages": "271-279",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/20193889/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/20193889/",
+        "https://doi.org/10.1016/j.jamcollsurg.2009.11.005",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2872559/"
+      ],
+      "publicationTypes": [
+        "research-article",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "affiliations": [
+        "Department of Bioengineering, University of California, San Diego, La Jolla, CA 92093, USA. pcabrales@ucsd.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Hamster"
+      ],
+      "product": "Oxyglobin / polymerized bovine hemoglobin",
+      "catalogue": "product",
+      "evidenceType": "Preclinical animal microcirculation study",
+      "evidenceGroup": "Preclinical animal microcirculation study",
+      "topics": [
+        "Acute anemia",
+        "Partially ischemic tissue",
+        "Microvascular oxygenation"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Hamster-window experiment comparing different Oxyglobin concentrations at matched colloid osmotic pressure during acute anemia. Tissue oxygenation depended on concentration and microvascular perfusion.",
+      "sourceReview": "The methods identify Oxyglobin; these were checked in the NIH full text. Findings concern the experimental microcirculation model.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "19384199",
+      "pmid": "19384199",
+      "doi": "10.1097/ccm.0b013e3181a00597",
+      "title": "Glutaraldehyde-polymerized bovine hemoglobin and phosphodiesterase-5 inhibition",
+      "authors": "Gotshall RW, Hamilton KL, Foreman B, van Patot MC, Irwin DC.",
+      "journal": "Critical Care Medicine",
+      "year": "2009",
+      "volume": "37",
+      "issue": "6",
+      "pages": "1988-1993",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/19384199/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/19384199/",
+        "https://doi.org/10.1097/ccm.0b013e3181a00597",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3816936/"
+      ],
+      "publicationTypes": [
+        "research-article",
+        "Research Support, U.S. Gov't, Non-P.H.S.",
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Health and Exercise Science, Colorado State University, Fort Collins, CO, USA. robert.gotshall@colostate.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Rat"
+      ],
+      "product": "Oxyglobin",
+      "catalogue": "product",
+      "evidenceType": "Preclinical animal hemodynamic study",
+      "evidenceGroup": "Preclinical animal hemodynamic study",
+      "topics": [
+        "Vasoconstriction",
+        "Sildenafil",
+        "Systemic and pulmonary hemodynamics"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Controlled study in 32 conscious rats comparing lactated Ringer solution, Oxyglobin, sildenafil and the combination. Systemic and pulmonary hemodynamics were evaluated.",
+      "sourceReview": "The full-text methods identify Oxyglobin. Group sizes were 10, 10, 5 and 7, respectively. Pharmacologic mitigation in this model is not a clinical administration recommendation.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Methods and selected results checked in available full text.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "Critical care medicine"
+    },
+    {
+      "id": "18835914",
+      "pmid": "18835914",
+      "doi": "10.1152/ajpheart.00751.2008",
+      "title": "Isovolemic exchange transfusion with increasing concentrations of low oxygen affinity hemoglobin solution limits oxygen delivery due to vasoconstriction",
+      "authors": "Cabrales P, Tsai AG, Intaglietta M.",
+      "journal": "American Journal of Physiology Heart and Circulatory Physiology",
+      "year": "2008",
+      "volume": "295",
+      "issue": "5",
+      "pages": "H2212-8",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/18835914/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/18835914/",
+        "https://doi.org/10.1152/ajpheart.00751.2008",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2614583/"
+      ],
+      "publicationTypes": [
+        "Research Support, Non-U.S. Gov't",
+        "research-article",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "affiliations": [
+        "La Jolla Bioengineering Institute, University of CAlifornia, San Diego, La Jolla, CA, USA. pcabrales@ucsd.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Hamster"
+      ],
+      "product": "Polymerized bovine hemoglobin; commercial formulation not verified",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal study",
+      "evidenceGroup": "Preclinical animal study",
+      "topics": [
+        "Exchange transfusion",
+        "Vasoconstriction",
+        "Dose-dependent oxygen delivery"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Hamster study of increasing polymerized bovine hemoglobin concentrations during exchange transfusion. Higher concentration was associated with vasoconstriction and reduced perfusion.",
+      "sourceReview": "The indexed abstract was reviewed. The exact commercial formulation has not been confirmed from the full methods, so the record remains in Related Scientific Articles.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "American journal of physiology. Heart and circulatory physiology"
+    },
+    {
+      "id": "21057038",
+      "pmid": "21057038",
+      "doi": "10.1152/ajpheart.00665.2010",
+      "title": "Reversal of hemoglobin-induced vasoconstriction with sustained release of nitric oxide",
+      "authors": "Cabrales P, Han G, Nacharaju P, Friedman AJ, Friedman JM.",
+      "journal": "American Journal of Physiology Heart and Circulatory Physiology",
+      "year": "2011",
+      "volume": "300",
+      "issue": "1",
+      "pages": "H49-56",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/21057038/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/21057038/",
+        "https://doi.org/10.1152/ajpheart.00665.2010",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3023241/"
+      ],
+      "publicationTypes": [
+        "Research Support, Non-U.S. Gov't",
+        "research-article",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "affiliations": [
+        "Department of Bioengineering, University of California-San Diego, La Jolla, California, USA. pcabrales@ucsd.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Hamster"
+      ],
+      "product": "Polymerized bovine hemoglobin; commercial formulation not verified",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal study",
+      "evidenceGroup": "Preclinical animal study",
+      "topics": [
+        "Nitric oxide nanoparticles",
+        "Hemoglobin-induced vasoconstriction",
+        "Microvascular function"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Experimental study of sustained nitric-oxide release to counter polymerized-bovine-hemoglobin-associated vasoconstriction and hypertension.",
+      "sourceReview": "The indexed abstract was reviewed. The exact commercial Hb formulation requires the full methods; this is related preclinical context.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [],
+      "sourceJournal": "American journal of physiology. Heart and circulatory physiology"
+    },
+    {
+      "id": "16857991",
+      "pmid": "16857991",
+      "doi": "10.1182/blood-2006-02-005272",
+      "title": "Dissociation of local nitric oxide concentration and vasoconstriction in the presence of cell-free hemoglobin oxygen carriers",
+      "authors": "Tsai AG, Cabrales P, Manjula BN, Acharya SA, Winslow RM, Intaglietta M.",
+      "journal": "Blood",
+      "year": "2006",
+      "volume": "108",
+      "issue": "10",
+      "pages": "3603-3610",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/16857991/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/16857991/",
+        "https://doi.org/10.1182/blood-2006-02-005272",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC1895434/"
+      ],
+      "publicationTypes": [
+        "Research Support, Non-U.S. Gov't",
+        "research-article",
+        "Research Support, U.S. Gov't, Non-P.H.S.",
+        "Journal Article",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "affiliations": [
+        "Department of Bioengineering, University of California, San Diego, La Jolla, CA 92093-0412, USA. agtsai@ucsd.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Hamster"
+      ],
+      "product": "Multiple cell-free hemoglobin formulations",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal mechanistic study",
+      "evidenceGroup": "Preclinical animal mechanistic study",
+      "topics": [
+        "Nitric oxide scavenging",
+        "Molecular size",
+        "Microvascular perfusion"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Comparison of cell-free hemoglobin formulations and the relationship between local nitric oxide, microvascular resistance and perfusion.",
+      "sourceReview": "The indexed abstract was reviewed. Direct assignment of the polymerized bovine formulation to commercial Oxyglobin requires full-text verification.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "21356382",
+      "pmid": "21356382",
+      "doi": "10.1016/j.ajpath.2010.12.006",
+      "title": "Blood-brain barrier disruption and oxidative stress in guinea pig after systemic exposure to modified cell-free hemoglobin",
+      "authors": "Butt OI, Buehler PW, D'Agnillo F.",
+      "journal": "The American journal of pathology",
+      "year": "2011",
+      "volume": "178",
+      "issue": "3",
+      "pages": "1316-1328",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/21356382/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/21356382/",
+        "https://doi.org/10.1016/j.ajpath.2010.12.006",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3069891/"
+      ],
+      "publicationTypes": [
+        "Research Support, U.S. Gov't, P.H.S.",
+        "research-article",
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Laboratory of Biochemistry and Vascular Biology, Division of Hematology, Center for Biologics Evaluation and Research, Food and Drug Administration, Bethesda, Maryland 20892, USA."
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "species": [
+        "Guinea pigs"
+      ],
+      "product": "Modified cell-free hemoglobin HbG; commercial formulation not verified",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal safety study",
+      "evidenceGroup": "Preclinical animal safety study",
+      "topics": [
+        "Blood-brain barrier",
+        "Oxidative injury",
+        "Cell-free hemoglobin"
+      ],
+      "therapeuticAreas": [
+        "HBOC Safety & Formulation"
+      ],
+      "catalogueSummary": "Guinea-pig exchange-transfusion study of blood-brain barrier integrity and oxidative injury after modified cell-free hemoglobin exposure.",
+      "sourceReview": "The indexed abstract was reviewed. The exact HbG formulation must be checked in the full methods before treating it as direct Oxyglobin evidence.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": []
+    },
+    {
+      "id": "11429355",
+      "pmid": "11429355",
+      "doi": "10.1097/00000539-200107000-00029",
+      "title": "Fetal oxygen content is restored after maternal hemorrhage and fluid replacement with polymerized bovine hemoglobin, but not with hetastarch, in pregnant sheep",
+      "authors": "Moon PF, Bliss SP, Posner LP, Erb HN, Nathanielsz PW.",
+      "journal": "Anesthesia & Analgesia",
+      "year": "2001",
+      "volume": "93",
+      "issue": "1",
+      "pages": "142-150",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/11429355/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/11429355/",
+        "https://doi.org/10.1097/00000539-200107000-00029"
+      ],
+      "publicationTypes": [
+        "Comparative Study",
+        "Research Support, U.S. Gov't, P.H.S.",
+        "Research Support, Non-U.S. Gov't",
+        "Research Support, U.S. Gov't, Non-P.H.S.",
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Clinical Sciences, The Cornell University Hospital for Animals, College of Veterinary Medicine, Cornell University, Ithaca, New York 14853-6401, USA. pfm4@cornell.edu"
+      ],
+      "institutions": [],
+      "direction": "Veterinary",
+      "directions": [
+        "Veterinary"
+      ],
+      "species": [
+        "Ovine pregnant sheep and fetuses"
+      ],
+      "product": "Polymerized bovine hemoglobin; commercial formulation not verified",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal pregnancy model",
+      "evidenceGroup": "Preclinical animal pregnancy model",
+      "topics": [
+        "Maternal hemorrhage",
+        "Fetal oxygenation",
+        "Fluid replacement"
+      ],
+      "therapeuticAreas": [],
+      "catalogueSummary": "Fifteen pregnant ewes were randomized to polymerized bovine hemoglobin, hetastarch or autologous blood, five per group, after maternal hemorrhage. Fetal oxygenation was evaluated.",
+      "sourceReview": "The paper appears in the HbO2 Oxyglobin list. The exact formulation and any cohort overlap with the colloid-osmotic-pressure publications require the full text; these are experimental animals, not human clinical participants.",
+      "originalVerification": "Publication identity checked against the original PubMed/publisher bibliographic record on 30 October 2026. Abstract, conference citation or stated full-text sections reviewed; see source-review note.",
+      "approval": "Archil explicitly authorized incorporating missing literature articles, synchronizing counters and documenting additions on 30 October 2026. Approval covers bibliography inclusion, not proof of BHOC efficacy.",
+      "release": "oxyglobin-literature-20261030",
+      "cohortLinks": [
+        "PMID:14498915",
+        "PMID:28404331"
+      ],
+      "sourceJournal": "Anesthesia and analgesia"
     }
   ]
 }

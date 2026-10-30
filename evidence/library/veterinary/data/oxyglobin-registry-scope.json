@@ -1,0 +1,61 @@
+{
+  "checked_date": "2026-10-31",
+  "scope": "Exact Oxyglobin/HBOC-301/HBOC-200/glutamer-200 aliases in ClinicalTrials.gov; not a global veterinary registry census",
+  "nct_records_found": 0,
+  "records": [],
+  "query_audit": [
+    {
+      "query": "Oxyglobin",
+      "total_count": 0,
+      "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=Oxyglobin",
+      "checked_at": "2026-10-30T21:56:49.464151+00:00",
+      "error": null
+    },
+    {
+      "query": "\"HBOC-301\"",
+      "total_count": 0,
+      "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22HBOC-301%22",
+      "checked_at": "2026-10-30T21:56:49.462732+00:00",
+      "error": null
+    },
+    {
+      "query": "\"HBOC-200\"",
+      "total_count": 0,
+      "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22HBOC-200%22",
+      "checked_at": "2026-10-30T21:56:49.472608+00:00",
+      "error": null
+    },
+    {
+      "query": "\"hemoglobin glutamer-200\"",
+      "total_count": 0,
+      "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22hemoglobin+glutamer-200%22",
+      "checked_at": "2026-10-30T21:56:49.463672+00:00",
+      "error": null
+    }
+  ],
+  "alternative_regulatory_sources": [
+    {
+      "label": "FDA Oxyglobin original approval FOI, NADA141-067, 1998-01-12",
+      "url": "https://animaldrugsatfda.fda.gov/adafda/app/search/public/document/downloadFoi/3700",
+      "classification": "Regulatory-assessed veterinary evidence; not NCT registry entry",
+      "example": "Pivotal64 anaemic dogs, Oxyglobin30 vscontrol34; endpoint no additional oxygen-carrying support at24h, not survival."
+    },
+    {
+      "label": "EMA Oxyglobin EPAR",
+      "url": "https://www.ema.europa.eu/en/medicines/veterinary/EPAR/oxyglobin",
+      "classification": "Regulatory assessment; not NCT registry entry"
+    },
+    {
+      "label": "EU veterinary Union Product Database, Oxyglobin",
+      "url": "https://medicines.health.europa.eu/veterinary/en/600000003388",
+      "classification": "Veterinary medicine regulatory record; not a clinical-trial registration"
+    }
+  ],
+  "scope_source_verified": {
+    "organisation": "National Library of Medicine, MedlinePlus",
+    "url": "https://medlineplus.gov/clinicaltrials.html",
+    "verified_paraphrase_ru": "Клинические испытания определены как исследования того, как новые медицинские подходы работают у людей.",
+    "ctg_about_page": "https://clinicaltrials.gov/about-site/about-ctg",
+    "ctg_about_access_note": "Текст страницы About при автоматическом чтении не извлечён; не цитировать её как прочитанную."
+  }
+}

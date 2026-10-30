@@ -2,7 +2,7 @@
 import re, json, html
 from urllib.parse import quote
 from evidence_catalogue_model import *
-from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, collection_summary, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER, filters, card, BOUNDARIES, pagination, SOCIAL_IMAGE_PATTERN, SOCIAL_IMAGE_META
+from build_evidence_catalogues import E, PREFIX, VERSION, TITLES, PATHS, metric_html, collection_summary, tabs, appnav, DESCRIPTIONS, HEADER, FOOTER, filters, card, BOUNDARIES, pagination, SOCIAL_IMAGE_PATTERN, SOCIAL_IMAGE_META, release_notice, LITERATURE_REVIEW
 
 def css(s):
     href=PREFIX+'catalogues/catalogues.css?v='+VERSION
@@ -58,6 +58,10 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
             st=STATS[kind];facts=''.join(f'<div><strong>{st[field]}</strong><span>{label}</span></div>' for field,label in [('records','PUBLICATION RECORDS'),('groups',st['groupLabel'].upper()),('institutions','AUTHOR INSTITUTIONS'),('journals','JOURNALS')])
             s=re.sub(pattern,lambda m:m[1]+facts+m[2],s)
         s=s.replace('Updated 4 Oct 2026','Updated 11 Oct 2026')
+    s=re.sub(r'<p[^>]*data-literature-update="20261030"[^>]*>[\s\S]*?</p>','',s)
+    if LITERATURE_REVIEW:
+        marker='<section id="scientific-catalogues"'
+        s=s.replace(marker,release_notice('all')+marker,1)
     f.write_text(re.sub(r' +\n','\n',css(s)))
 
 # Science keeps every original feature and article. The complete Related catalogue follows them.
@@ -104,11 +108,15 @@ for kind,file,field,cls in [('veterinary','veterinary/Vet-index.html','speciesGr
         s=s.replace('Other / In vitro includes in-vitro labels and 13 records with no species label.','Missing species labels are shown separately from in-vitro models.')
         s=s.replace('Use Library scope to separate BHOC / Oxyglobin-focused records from background literature. Every record remains accessible under All records.','Use the Catalogue filter to distinguish Oxyglobin and Hemopure research, oxygen physiology and related scientific literature.')
     if kind=='human':
+        s=re.sub(r'\b\d+ source-linked human clinical and separately labelled translational records',str(st['records'])+' source-linked human clinical and separately labelled translational records',s)
         s=re.sub(r'\b(?:180|181|184|185) (human-use and translational publications|publications|total records|records)',lambda m:str(st['records'])+' '+m[1],s)
         s=s.replace('<strong>46</strong>','<strong>45</strong>')
         clinical=sum('Human clinical evidence' in r['evidenceGroups'] for r in VIEWS[kind])
         s=re.sub(r'(<dt>Human clinical records</dt><dd>)\d+',lambda m:m[1]+str(clinical),s)
     if kind=='transplant':
+        historical=sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS[kind])
+        related_count=sum('Related transplantation studies' in r['collection'] for r in VIEWS[kind])
+        s=re.sub(r'The statistics below cover all \d+ unique transplantation records\. Use the research-collection filter to separate \d+ historical oxygen-carrier records from \d+ related studies\.',f'The statistics below cover all {st["records"]} unique transplantation records. Use the research-collection filter to separate {historical} historical oxygen-carrier records from {related_count} related studies.',s)
         # Keep the two scientific evidence layers and expose their actual matching subsets.
         s=re.sub(r'\b(?:5|8|10) related records',str(sum('Related transplantation studies' in r['collection'] for r in VIEWS[kind]))+' related records',s)
         s=s.replace('href="Transplant-search.html">Historical HBOC evidence','href="Transplant-search.html?collection=Historical%20oxygen-carrier%20research">Historical HBOC evidence')
@@ -122,13 +130,28 @@ for kind,file,field,cls in [('veterinary','veterinary/Vet-index.html','speciesGr
         before,body=s.split('</head>',1)
         before=re.sub(r'\b54 (source-linked publications|publications|publication records)',lambda m:str(STATS[kind]['records'])+' '+m[1],before)
         before=re.sub(r'\b62 (source-linked publications|publications|publication records)',lambda m:str(STATS[kind]['records'])+' '+m[1],before)
+        before=re.sub(r'\b\d+ (source-linked publications|publications|publication records)',lambda m:str(STATS[kind]['records'])+' '+m[1],before)
         before=before.replace('"dateModified":"2026-10-04"','"dateModified":"2026-10-11"')
         s=before+'</head>'+body
     # Legacy "institutionSearch" and other filter anchors are handled by the new shared search.
     p.write_text(css(s).replace('\\n  ','\n  '))
 
 p=BASE/'veterinary/Vet-03-publication-BHOC-Oxyglobin.html';s=p.read_text()
-s=re.sub(r'<section class="vet-pub-metrics"[\s\S]*?</section>',overview('product'),s);p.write_text(css(s))
+s=re.sub(r'<section class="(?:vet-pub-metrics|overview-stats)"[\s\S]*?</section>',overview('product'),s)
+if LITERATURE_REVIEW:
+    s=s.replace('The new <a href="../catalogues/product.html">Product Evidence Catalogue</a> separates direct product-associated records from general scientific literature. The figures below refer to the preserved broader veterinary source index, including related literature.','The <a href="../catalogues/product.html">Product Evidence Catalogue</a> contains product-associated Oxyglobin and Hemopure publication records across applications. The figures below describe that catalogue. They include different study designs and are not a count of independent clinical trials.')
+    s=re.sub(r'Evidence page updated 26 September 2026\. The active publication search contains the preserved 236-record base bibliography plus three source-verified curated additions\.','Evidence page updated 30 October 2026. Twenty-three source-linked publications were added to the shared library, including 21 in the Veterinary application view. The original 236-record bibliography and three earlier curated additions remain preserved.',s)
+    s=re.sub(r'<section id="literature-update-20261030"[\s\S]*?</section>','',s)
+    blocks=[]
+    for kind,label in [('product','Product-associated publications'),('related','Related studies, reviews and formulation context')]:
+        items=[]
+        for r in sorted([r for r in LITERATURE_REVIEW['records'] if r['catalogue']==kind],key=lambda r:(-int(r['year']),r['title'])):
+            target=PREFIX+PATHS[kind]+'#'+r['id']
+            items.append('<li><a href="'+E(target)+'">'+E(r['title'])+'</a> ('+E(r['year'])+'). <small>'+E(r['evidenceType'])+'</small></li>')
+        blocks.append('<h3>'+label+'</h3><ol>'+''.join(items)+'</ol>')
+    update='<section id="literature-update-20261030" class="panel"><div class="eyebrow">Library update · 30 October 2026</div><h2>23 source-linked publication records added</h2><p>The additions include clinical reports, preclinical studies, analytical methods, reviews and one conference abstract. Twelve are product-associated records and eleven remain in Related Scientific Articles. Publication counts do not represent independent trial counts.</p><p>Each record states its study setting and source-review limits. Unconfirmed commercial formulations remain related context. Seven archival citations still require primary documents and were not added as verified publications. Existing records, including Callan and Rentko 2003 and the Zambelli 2009 clinical comparison, were retained without duplication.</p>'+''.join(blocks)+'</section>'
+    s=s.replace('</main>',update+'</main>')
+p.write_text(css(s))
 
 # Keep catalogue guidance without public counting explanations.
 p=BASE/'catalogues/methodology.html';old=p.read_text();head=old.split('</head>')[0]+'</head>'
@@ -137,7 +160,9 @@ head=re.sub(r'<meta\b(?=[^>]*\bproperty=["\']og:type["\'])[^>]*>','',head,flags=
 head=head.replace('</head>','<meta property="og:type" content="website"></head>')
 main=f'''<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / About the catalogue</div>{tabs()}{appnav()}<section class="catalogue-hero"><h1>About the evidence catalogue</h1><p>Find publications across oxygen therapeutics, oxygen physiology and relevant clinical research.</p></section><section><h2>Read findings in context</h2><p>Clinical, preclinical, analytical and review evidence should be interpreted at publication level. Historical product findings and studies of oxygen physiology do not establish BHOC efficacy, safety or regulatory approval. Author affiliations do not imply institutional endorsement or identify a confirmed study location.</p><p>Available DOI, PubMed and original source links support source checking. A supplied identifier does not mean that every bibliographic field or study conclusion has been independently verified. Incomplete source entries are excluded from public search.</p><p><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></p></section></main>'''
 main=main.replace('</main>',collection_summary()+'</main>')
-p.write_text(css(head)+'<body class="evidence-catalogue">'+HEADER+main+FOOTER+'</body></html>')
+method_header=re.search(r'<header class="site-header">[\s\S]*?</header>',old)
+method_footer=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',old)
+p.write_text(css(head)+'<body class="evidence-catalogue">'+(method_header[0] if method_header else HEADER)+main+(method_footer[0] if method_footer else FOOTER)+'</body></html>')
 
 # Every linked metrics endpoint reflects the same published views.
 platform={'publicationCounter':publication_counter(),'collectionTotals':collection_totals(),'snapshot':DATA['updated'],'uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'The displayed publication counter retains the user-approved baseline and increments once per new publication. Topic catalogues are mutually exclusive; application views overlap.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}

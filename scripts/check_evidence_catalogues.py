@@ -60,12 +60,12 @@ assert platform['hubs']=={k:STATS[k]['records'] for k in APP_LABELS}
 for p in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html']:
     s=p.read_text();assert '48 incomplete imported fragments' not in s
     assert s.count('id="scientific-catalogues"')==1
-assert len(VIEWS['human'])==182
+assert len(VIEWS['human'])==195
 oncology=[r for r in VIEWS['human'] if 'Oncology & Tumor Oxygenation' in r['direction']]
 assert len(oncology)==2, 'Requested oncology filter must show two records'
 assert any(r['pmid']=='19816963' and 'Mechanistic / in silico research context' in r['evidenceGroups'] for r in oncology), 'Bioreactor model must remain labelled as mechanistic context'
 assert sum(any(p['source']=='Human Use' for p in r['provenance']) for r in VIEWS['human'])==180
-assert sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS['transplant'])==54
+assert sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS['transplant'])==55
 assert sum('Related transplantation studies' in r['collection'] for r in VIEWS['transplant'])==10
 science=(BASE/'science/index.html').read_text();embedded=Page(science)
 assert {a['id'] for a in embedded.records}=={r['id'] for r in VIEWS['related']},'Science / Related collection mismatch'
@@ -82,7 +82,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==317
+assert reconciliation['netAddedRecords']==340
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[publication_counter()['displayedTotal'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -97,7 +97,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 317 net additions; all 1,191 source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 340 net additions; all original source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
@@ -107,23 +107,34 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==978
-assert collection_stats['collections']=={'transplant':64,'human':182,'veterinary':273,'oxygen':245,'related':214}
-assert collection_stats['distinctRecordsInFiveCollections']==642
+assert collection_stats['entries']==1024
+assert collection_stats['collections']=={'transplant':65,'human':195,'veterinary':294,'oxygen':245,'related':225}
+assert collection_stats['distinctRecordsInFiveCollections']==665
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-publication-counter>970</strong>' in source
+    assert 'data-publication-counter>993</strong>' in source
     assert 'Library entries' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==8
-assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358'}
+assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==31
+oxy_release=read('catalogues/data/oxyglobin-literature-review-20261030.json')
+oxy_ids={r['id'] for r in oxy_release['records']}
+assert len(oxy_ids)==23 and oxy_release['newByCatalogue']=={'product':12,'related':11}
+assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358'}|oxy_ids
+assert oxy_ids <= {r['id'] for r in RECORDS}
+assert len(ALL_RECORDS)==722 and len(RECORDS)==674
+assert all(r['provenance'][0]['source']=='Approved scientific additions' for r in RECORDS if r['id'] in oxy_ids)
+assert all(not r['evidence'].startswith('Human clinical') for r in VIEWS['human'] if r['id'] in oxy_ids)
+oxy_page=(BASE/'veterinary/Vet-03-publication-BHOC-Oxyglobin.html').read_text()
+assert 'id="literature-update-20261030"' in oxy_page
+assert all('#'+id+'"' in oxy_page for id in oxy_ids)
+assert '<strong>204</strong><span>Publication records</span>' in oxy_page
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])
-print('PASS: displayed publication counter 962 + eight distinct additions = 970; records indexed once.')
+print('PASS: displayed counter 970 + 23 additions = 993; 674 distinct publications; all previous record identities retained.')
 
 selection=read('catalogues/data/oxygen-transport-review-20261014.json')
 assert selection['requestedPublications']==30 and selection['newPublications']==27 and selection['alreadyPublished']==3

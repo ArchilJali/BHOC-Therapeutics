@@ -82,12 +82,13 @@ for r in RECORDS:
     originals=[(p['source'],source_for(p)) for p in r['provenance']]
     r['direction']=unique([*(o.get('direction') for s,o in originals if s=='Human Use'),
                            *(area for s,o in originals if s=='Approved scientific additions' for area in o.get('therapeuticAreas',[]))])
-    r['organ']=unique(o.get('organ') for s,o in originals if s=='Transplant' or s.startswith('transplant/'))
+    r['organ']=unique(o.get('organ') for s,o in originals if s=='Transplant' or s.startswith('transplant/') or s=='Approved scientific additions')
     r['evidenceGroups']=unique(o.get('evidenceGroup') or o.get('evidence') or o.get('evidenceType') for s,o in originals)
     r['sites']=unique(site.get('institution') for s,o in originals for site in o.get('study_sites',[]) if site.get('source_url') and site.get('locator'))
     r['legacyIds']=unique([*(str(o.get('id','')) for s,o in originals),*r.get('aliases',[])])
     r['scope']='core' if core_scopes[r['id']] else 'related'
     r['collection']=unique('Historical oxygen-carrier research' if s=='Transplant' else 'Related transplantation studies' for s,o in originals if s=='Transplant' or s.startswith('transplant/'))
+    r['collection']=unique([*r['collection'],*(label for s,o in originals if s=='Approved scientific additions' for label in o.get('transplantCollections',[]))])
     r['application']=r['directions'];r['speciesGroups']=species(r);r['products']=products(r)
     j=JOURNAL_ALIASES.get(r['journal'],core_journals[r['id']])
     if len(j)>100 or re.match(r'^(?:A\d+-|doi:|Edited by |Blood Transfusions and Blood Substitutes\. In:)',j) or j in REJECT_JOURNALS:j=''

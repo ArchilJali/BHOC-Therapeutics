@@ -6,7 +6,7 @@ from evidence_catalogue_model import *
 E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
-VERSION='20261014-muir-review2'
+VERSION='20261030-oxyglobin-review'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -29,12 +29,23 @@ BOUNDARIES={
  'transplant':'Historical oxygen-carrier research and related transplantation studies remain separately classified.'}
 HOME=(BASE/'index.html').read_text()
 SHARED_CONTEXT_SCRIPTS=''.join(re.findall(r'<script[^>]*src="/(?:assets/ga4|navigation-context)\.js[^"]*"[^>]*></script>',HOME))
+SHARED_CONTEXT_SCRIPTS+=''.join(re.findall(r'<(?:link|script)[^>]*(?:href|src)="/unified-shell[^>]*>(?:</script>)?',HOME))
 assert '/assets/ga4.js' in SHARED_CONTEXT_SCRIPTS and '/navigation-context.js' in SHARED_CONTEXT_SCRIPTS
 HEADER=re.search(r'<header class="site-header">[\s\S]*?</header>',HOME)[0]
 FOOTER=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',HOME)[0]
 FOOTER=re.sub(r'<p class="platform-version"[\s\S]*?</p>','',FOOTER)
 LINK_AUDIT_PATH=BASE/'catalogues/data/source-link-audit.json'
 LINK_AUDIT=json.loads(LINK_AUDIT_PATH.read_text())['records']
+REVIEW_PATH=BASE/'catalogues/data/oxyglobin-literature-review-20261030.json'
+LITERATURE_REVIEW=json.loads(REVIEW_PATH.read_text()) if REVIEW_PATH.exists() else None
+
+def release_notice(kind='all'):
+    if not LITERATURE_REVIEW:return ''
+    ids={r['id'] for r in LITERATURE_REVIEW['records']}
+    count=sum(r['id'] in ids for r in VIEWS[kind])
+    if not count:return ''
+    label='publication record' if count==1 else 'publication records'
+    return '<p class="catalogue-relationship" data-literature-update="20261030">Added '+str(count)+' '+label+' to this view on 30 October 2026. <a href="'+PREFIX+'veterinary/Vet-03-publication-BHOC-Oxyglobin.html#literature-update-20261030">See the 23 source-linked additions and their classifications →</a></p>'
 
 def tabs(current=''):
     if current=='veterinary':
@@ -145,6 +156,12 @@ def metadata(kind,rows,path=None):
 
 def page(kind,path=None):
     rows=VIEWS[kind];group=GROUP_FIELDS.get(kind,'species');path=path or PATHS[kind]
+    output_path=BASE/path/('index.html') if path.endswith('/') else BASE/path
+    previous=output_path.read_text() if output_path.exists() else ''
+    previous_header=re.search(r'<header class="site-header">[\s\S]*?</header>',previous)
+    previous_footer=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',previous)
+    page_header=previous_header[0] if previous_header else HEADER
+    page_footer=previous_footer[0] if previous_footer else FOOTER
     extra=''
     if kind=='product':extra=f'<a href="{PREFIX}veterinary/Vet-03-publication-BHOC-Oxyglobin.html">Oxyglobin clinical &amp; regulatory evidence</a><a href="{PREFIX}human/BHOC-Human-fda-expanded-access.html">Hemopure Expanded Access</a>'
     if kind=='related':extra=f'<a href="{PREFIX}science/#featured-publications">Read the featured Science analyses →</a><a href="{PREFIX}science/#scientific-catalogues">Browse this same catalogue within Science →</a>'
@@ -155,12 +172,12 @@ def page(kind,path=None):
     review_note='<p class="catalogue-relationship">Clinical reports, animal studies and reviews are labelled separately in each record. Catalogue filters on this page keep the Veterinary selection.</p>' if kind=='veterinary' else ''
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
 <link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script>{SHARED_CONTEXT_SCRIPTS}</head>
-<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{HEADER}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {parent}{E(TITLES[kind])}</div>{navigation}{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
+<body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{page_header}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {parent}{E(TITLES[kind])}</div>{navigation}{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
 <section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{collection_summary() if kind=='all' else ''}{metric_html(kind,True)}</section>
-{review_note}{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
+{review_note}{release_notice(kind)}{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>
 <noscript><p>All publications are shown below. Use your browser’s Find command to search.</p></noscript><div id="results">{''.join(card(r,kind) for r in rows)}</div><p id="empty" hidden>No publications match these filters. Try a broader search or reset the filters.</p>
 {pagination()}{redirects}
-<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated {date.fromisoformat(DATA['updated']).strftime('%d %B %Y')}</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{FOOTER}</body></html>'''
+<p class="catalogue-context">{E(BOUNDARIES[kind])} Author affiliations do not imply institutional endorsement. <a href="{PREFIX}catalogues/methodology.html">About the catalogue</a>.</p><div class="application-tabs">{extra}</div><p class="updated">Updated {date.fromisoformat(DATA['updated']).strftime('%d %B %Y')}</p><aside class="notice" data-usage-permission><a href="{PREFIX}usage-permission.html">Terms of Use &amp; Written Permission</a></aside></main>{page_footer}</body></html>'''
     (BASE/path/('index.html') if path.endswith('/') else BASE/path).write_text(text)
 
 if __name__=='__main__':

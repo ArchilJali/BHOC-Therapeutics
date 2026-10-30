@@ -1,10 +1,10 @@
 {
-  "checked": "2026-10-26",
+  "checked": "2026-10-30",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 651,
-  "uniqueUrlsChecked": 923,
+  "publicRecords": 674,
+  "uniqueUrlsChecked": 983,
   "states": {
-    "matched": 906,
+    "matched": 966,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
@@ -10165,6 +10165,564 @@
           "method": "DOI and PMID matched to original title in PubMed; abstract read",
           "sourceTitle": "The Degree of Blood Supply and Infection Control Needed to Treat Diabetic Chronic Limb-Threatening Ischemia with Forefoot Osteomyelitis",
           "checked": "2026-10-26"
+        }
+      ]
+    },
+    "pub-pmid-39748550": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/39748550/",
+        "https://doi.org/10.1111/trf.18116",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11826291/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39748550/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-based oxygen carriers: Biochemical, biophysical differences, and safety"
+        },
+        {
+          "url": "https://doi.org/10.1111/trf.18116",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-based oxygen carriers: Biochemical, biophysical differences, and safety"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11826291/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-based oxygen carriers: Biochemical, biophysical differences, and safety"
+        }
+      ]
+    },
+    "pub-pmid-38815289": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/38815289/",
+        "https://doi.org/10.1016/j.biopha.2024.116789",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12885157/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38815289/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Novel high molecular weight polymerized hemoglobin in a non-obese model of cardiovascular and metabolic dysfunction"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.biopha.2024.116789",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Novel high molecular weight polymerized hemoglobin in a non-obese model of cardiovascular and metabolic dysfunction"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12885157/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Novel high molecular weight polymerized hemoglobin in a non-obese model of cardiovascular and metabolic dysfunction"
+        }
+      ]
+    },
+    "pub-pmid-36837597": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/36837597/",
+        "https://doi.org/10.3390/medicina59020396",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9962799/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36837597/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-Based Oxygen Carriers: Where Are We Now in 2023?"
+        },
+        {
+          "url": "https://doi.org/10.3390/medicina59020396",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-Based Oxygen Carriers: Where Are We Now in 2023?"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9962799/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Hemoglobin-Based Oxygen Carriers: Where Are We Now in 2023?"
+        }
+      ]
+    },
+    "pub-pmid-35883821": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/35883821/",
+        "https://doi.org/10.3390/antiox11071329",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9311674/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35883821/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "HBOC-301 in Porcine Kidney Normothermic Machine Perfusion and the Effect of Vitamin C on Methemoglobin Formation"
+        },
+        {
+          "url": "https://doi.org/10.3390/antiox11071329",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "HBOC-301 in Porcine Kidney Normothermic Machine Perfusion and the Effect of Vitamin C on Methemoglobin Formation"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9311674/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "HBOC-301 in Porcine Kidney Normothermic Machine Perfusion and the Effect of Vitamin C on Methemoglobin Formation"
+        }
+      ]
+    },
+    "pub-pmid-34672363": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/34672363/",
+        "https://doi.org/10.1002/bit.27962",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8643326/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34672363/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Tangential flow filtration facilitated fractionation and PEGylation of low and high-molecular weight polymerized hemoglobins and their biophysical properties"
+        },
+        {
+          "url": "https://doi.org/10.1002/bit.27962",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Tangential flow filtration facilitated fractionation and PEGylation of low and high-molecular weight polymerized hemoglobins and their biophysical properties"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8643326/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Tangential flow filtration facilitated fractionation and PEGylation of low and high-molecular weight polymerized hemoglobins and their biophysical properties"
+        }
+      ]
+    },
+    "pub-pmid-34626100": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/34626100/",
+        "https://doi.org/10.1002/btpr.3219",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8854340/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34626100/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Biophysical properties of tense quaternary state polymerized human hemoglobins bracketed between 500 kDa and 0.2 μm in size"
+        },
+        {
+          "url": "https://doi.org/10.1002/btpr.3219",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Biophysical properties of tense quaternary state polymerized human hemoglobins bracketed between 500 kDa and 0.2 μm in size"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8854340/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Biophysical properties of tense quaternary state polymerized human hemoglobins bracketed between 500 kDa and 0.2 μm in size"
+        }
+      ]
+    },
+    "pub-pmid-24773100": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/24773100/",
+        "https://doi.org/10.1111/jsap.12222"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24773100/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Investigation of the effects of a polymerised bovine haemoglobin solution on tension in isolated canine saphenous artery"
+        },
+        {
+          "url": "https://doi.org/10.1111/jsap.12222",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Investigation of the effects of a polymerised bovine haemoglobin solution on tension in isolated canine saphenous artery"
+        }
+      ]
+    },
+    "pub-pmid-23016811": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/23016811/",
+        "https://doi.org/10.1111/j.1476-4431.2012.00726.x"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23016811/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Comparison of Hb-200 and 6% hetastarch 450/0.7 during initial fluid resuscitation of 20 dogs with gastric dilatation-volvulus"
+        },
+        {
+          "url": "https://doi.org/10.1111/j.1476-4431.2012.00726.x",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Comparison of Hb-200 and 6% hetastarch 450/0.7 during initial fluid resuscitation of 20 dogs with gastric dilatation-volvulus"
+        }
+      ]
+    },
+    "pub-pmid-18450494": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/18450494/",
+        "https://doi.org/10.1016/j.jfms.2007.09.005",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10832691/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18450494/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Multiple red cell transfusions in 27 cats (2003-2006): indications, complications and outcomes"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.jfms.2007.09.005",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Multiple red cell transfusions in 27 cats (2003-2006): indications, complications and outcomes"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10832691/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Multiple red cell transfusions in 27 cats (2003-2006): indications, complications and outcomes"
+        }
+      ]
+    },
+    "pub-pmid-17991224": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/17991224/",
+        "https://doi.org/10.1111/j.1365-2885.2007.00913.x"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17991224/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "The effect of the polymerized bovine haemoglobin solution, Hb-200, on endothelial function in isolated arterial rings from rats"
+        },
+        {
+          "url": "https://doi.org/10.1111/j.1365-2885.2007.00913.x",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "The effect of the polymerized bovine haemoglobin solution, Hb-200, on endothelial function in isolated arterial rings from rats"
+        }
+      ]
+    },
+    "pub-pmid-17186846": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/17186846/",
+        "https://doi.org/10.1892/0891-6640(2006)20[1334:dicic]2.0.co;2"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17186846/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Disseminated intravascular coagulation in cats"
+        },
+        {
+          "url": "https://doi.org/10.1892/0891-6640(2006)20[1334:dicic]2.0.co;2",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Disseminated intravascular coagulation in cats"
+        }
+      ]
+    },
+    "pub-pmid-12522516": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/12522516/",
+        "https://doi.org/10.1097/00045391-200301000-00006"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12522516/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Validation of oxygen saturation measurements in a canine model of hemoglobin-based oxygen carrier infusion"
+        },
+        {
+          "url": "https://doi.org/10.1097/00045391-200301000-00006",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Validation of oxygen saturation measurements in a canine model of hemoglobin-based oxygen carrier infusion"
+        }
+      ]
+    },
+    "pub-pmid-28404245": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/28404245/",
+        "https://doi.org/10.1111/j.1467-2987.2001.00064.x"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28404245/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Low-volume resuscitation with a haemoglobin-based oxygen carrier Hemoglobin glutamer-200 (bovine) in canine hypovolaemia"
+        },
+        {
+          "url": "https://doi.org/10.1111/j.1467-2987.2001.00064.x",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Low-volume resuscitation with a haemoglobin-based oxygen carrier Hemoglobin glutamer-200 (bovine) in canine hypovolaemia"
+        }
+      ]
+    },
+    "pub-oxyglobin-berent-2005": {
+      "publicLinks": [
+        "https://doi.org/10.1111/j.1476-4431.2005.00140.x"
+      ],
+      "checks": [
+        {
+          "url": "https://doi.org/10.1111/j.1476-4431.2005.00140.x",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Carbon monoxide toxicity: a case series"
+        }
+      ]
+    },
+    "pub-pmid-40950573": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/40950573/",
+        "https://doi.org/10.3389/fmolb.2025.1648209",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12422936/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40950573/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Effects of chemical modifications on hemoglobin's toxicity towards human cardiac myocytes"
+        },
+        {
+          "url": "https://doi.org/10.3389/fmolb.2025.1648209",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Effects of chemical modifications on hemoglobin's toxicity towards human cardiac myocytes"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12422936/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Effects of chemical modifications on hemoglobin's toxicity towards human cardiac myocytes"
+        }
+      ]
+    },
+    "pub-pmid-27471729": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/27471729/",
+        "https://doi.org/10.3390/toxics4010006",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961095/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27471729/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Transcriptional Suppression of Renal Antioxidant Enzyme Systems in Guinea Pigs Exposed to Polymerized Cell-Free Hemoglobin"
+        },
+        {
+          "url": "https://doi.org/10.3390/toxics4010006",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Transcriptional Suppression of Renal Antioxidant Enzyme Systems in Guinea Pigs Exposed to Polymerized Cell-Free Hemoglobin"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961095/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Transcriptional Suppression of Renal Antioxidant Enzyme Systems in Guinea Pigs Exposed to Polymerized Cell-Free Hemoglobin"
+        }
+      ]
+    },
+    "pub-pmid-20193889": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/20193889/",
+        "https://doi.org/10.1016/j.jamcollsurg.2009.11.005",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2872559/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20193889/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Low oxygen-affinity hemoglobin solution increases oxygenation of partially ischemic tissue during acute anemia"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.jamcollsurg.2009.11.005",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Low oxygen-affinity hemoglobin solution increases oxygenation of partially ischemic tissue during acute anemia"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2872559/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Low oxygen-affinity hemoglobin solution increases oxygenation of partially ischemic tissue during acute anemia"
+        }
+      ]
+    },
+    "pub-pmid-19384199": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/19384199/",
+        "https://doi.org/10.1097/ccm.0b013e3181a00597",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3816936/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19384199/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Glutaraldehyde-polymerized bovine hemoglobin and phosphodiesterase-5 inhibition"
+        },
+        {
+          "url": "https://doi.org/10.1097/ccm.0b013e3181a00597",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Glutaraldehyde-polymerized bovine hemoglobin and phosphodiesterase-5 inhibition"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3816936/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Glutaraldehyde-polymerized bovine hemoglobin and phosphodiesterase-5 inhibition"
+        }
+      ]
+    },
+    "pub-pmid-18835914": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/18835914/",
+        "https://doi.org/10.1152/ajpheart.00751.2008",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2614583/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18835914/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Isovolemic exchange transfusion with increasing concentrations of low oxygen affinity hemoglobin solution limits oxygen delivery due to vasoconstriction"
+        },
+        {
+          "url": "https://doi.org/10.1152/ajpheart.00751.2008",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Isovolemic exchange transfusion with increasing concentrations of low oxygen affinity hemoglobin solution limits oxygen delivery due to vasoconstriction"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2614583/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Isovolemic exchange transfusion with increasing concentrations of low oxygen affinity hemoglobin solution limits oxygen delivery due to vasoconstriction"
+        }
+      ]
+    },
+    "pub-pmid-21057038": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/21057038/",
+        "https://doi.org/10.1152/ajpheart.00665.2010",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3023241/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21057038/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Reversal of hemoglobin-induced vasoconstriction with sustained release of nitric oxide"
+        },
+        {
+          "url": "https://doi.org/10.1152/ajpheart.00665.2010",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Reversal of hemoglobin-induced vasoconstriction with sustained release of nitric oxide"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3023241/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Reversal of hemoglobin-induced vasoconstriction with sustained release of nitric oxide"
+        }
+      ]
+    },
+    "pub-pmid-16857991": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/16857991/",
+        "https://doi.org/10.1182/blood-2006-02-005272",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC1895434/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16857991/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Dissociation of local nitric oxide concentration and vasoconstriction in the presence of cell-free hemoglobin oxygen carriers"
+        },
+        {
+          "url": "https://doi.org/10.1182/blood-2006-02-005272",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Dissociation of local nitric oxide concentration and vasoconstriction in the presence of cell-free hemoglobin oxygen carriers"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1895434/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Dissociation of local nitric oxide concentration and vasoconstriction in the presence of cell-free hemoglobin oxygen carriers"
+        }
+      ]
+    },
+    "pub-pmid-21356382": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/21356382/",
+        "https://doi.org/10.1016/j.ajpath.2010.12.006",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3069891/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21356382/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Blood-brain barrier disruption and oxidative stress in guinea pig after systemic exposure to modified cell-free hemoglobin"
+        },
+        {
+          "url": "https://doi.org/10.1016/j.ajpath.2010.12.006",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Blood-brain barrier disruption and oxidative stress in guinea pig after systemic exposure to modified cell-free hemoglobin"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3069891/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Blood-brain barrier disruption and oxidative stress in guinea pig after systemic exposure to modified cell-free hemoglobin"
+        }
+      ]
+    },
+    "pub-pmid-11429355": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/11429355/",
+        "https://doi.org/10.1097/00000539-200107000-00029"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11429355/",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Fetal oxygen content is restored after maternal hemorrhage and fluid replacement with polymerized bovine hemoglobin, but not with hetastarch, in pregnant sheep"
+        },
+        {
+          "url": "https://doi.org/10.1097/00000539-200107000-00029",
+          "state": "matched",
+          "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
+          "sourceTitle": "Fetal oxygen content is restored after maternal hemorrhage and fluid replacement with polymerized bovine hemoglobin, but not with hetastarch, in pregnant sheep"
         }
       ]
     }

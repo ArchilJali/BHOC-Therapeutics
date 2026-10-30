@@ -1,30 +1,53 @@
 {
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 8,
-    "displayedTotal": 970,
+    "newPublications": 31,
+    "displayedTotal": 993,
     "newRecordIds": [
       "pub-muir-oc99-2014",
+      "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",
+      "pub-pmid-11429355",
+      "pub-pmid-12522516",
       "pub-pmid-12683610",
+      "pub-pmid-16857991",
+      "pub-pmid-17186846",
+      "pub-pmid-17991224",
+      "pub-pmid-18450494",
+      "pub-pmid-18835914",
+      "pub-pmid-19384199",
       "pub-pmid-19430240",
       "pub-pmid-19816963",
+      "pub-pmid-20193889",
+      "pub-pmid-21057038",
+      "pub-pmid-21356382",
+      "pub-pmid-23016811",
       "pub-pmid-24612155",
+      "pub-pmid-24773100",
+      "pub-pmid-27471729",
+      "pub-pmid-28404245",
       "pub-pmid-33872358",
-      "pub-pmid-3740627"
+      "pub-pmid-34626100",
+      "pub-pmid-34672363",
+      "pub-pmid-35883821",
+      "pub-pmid-36837597",
+      "pub-pmid-3740627",
+      "pub-pmid-38815289",
+      "pub-pmid-39748550",
+      "pub-pmid-40950573"
     ]
   },
   "collectionTotals": {
-    "entries": 978,
+    "entries": 1024,
     "collections": {
-      "transplant": 64,
-      "human": 182,
-      "veterinary": 273,
+      "transplant": 65,
+      "human": 195,
+      "veterinary": 294,
       "oxygen": 245,
-      "related": 214
+      "related": 225
     },
-    "distinctRecordsInFiveCollections": 642,
-    "repeatedPlacements": 336,
+    "distinctRecordsInFiveCollections": 665,
+    "repeatedPlacements": 359,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -36,23 +59,23 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 651
+    "distinctRecordsInFullLibrary": 674
   },
-  "snapshot": "2026-10-26",
-  "uniquePublications": 651,
-  "hubPlacements": 519,
+  "snapshot": "2026-10-30",
+  "uniquePublications": 674,
+  "hubPlacements": 554,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 178,
-  "normalizedJournalLabels": 212,
+  "normalizedJournalLabels": 219,
   "catalogues": {
-    "product": 192,
+    "product": 204,
     "oxygen": 245,
-    "related": 214
+    "related": 225
   },
   "hubs": {
-    "veterinary": 273,
-    "human": 182,
-    "transplant": 64
+    "veterinary": 294,
+    "human": 195,
+    "transplant": 65
   },
   "notes": {
     "counts": "The displayed publication counter retains the user-approved baseline and increments once per new publication. Topic catalogues are mutually exclusive; application views overlap.",

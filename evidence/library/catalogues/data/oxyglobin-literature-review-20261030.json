@@ -1,0 +1,311 @@
+{
+  "id": "oxyglobin-literature-20261030",
+  "date": "2026-10-30",
+  "approval": "User authorized adding missing publications, updating counters and documenting additions.",
+  "newPublications": 23,
+  "previousPublicRecords": 651,
+  "publicRecords": 674,
+  "previousDisplayedCounter": 970,
+  "displayedCounter": 993,
+  "newByCatalogue": {
+    "product": 12,
+    "related": 11
+  },
+  "newByApplication": {
+    "Veterinary": 21,
+    "Human Use": 13,
+    "Transplant": 1
+  },
+  "records": [
+    {
+      "id": "pub-pmid-39748550",
+      "pmid": "39748550",
+      "doi": "10.1111/trf.18116",
+      "title": "Hemoglobin-based oxygen carriers: Biochemical, biophysical differences, and safety",
+      "year": "2025",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Review"
+    },
+    {
+      "id": "pub-pmid-38815289",
+      "pmid": "38815289",
+      "doi": "10.1016/j.biopha.2024.116789",
+      "title": "Novel high molecular weight polymerized hemoglobin in a non-obese model of cardiovascular and metabolic dysfunction",
+      "year": "2024",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal study"
+    },
+    {
+      "id": "pub-pmid-36837597",
+      "pmid": "36837597",
+      "doi": "10.3390/medicina59020396",
+      "title": "Hemoglobin-Based Oxygen Carriers: Where Are We Now in 2023?",
+      "year": "2023",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Review"
+    },
+    {
+      "id": "pub-pmid-35883821",
+      "pmid": "35883821",
+      "doi": "10.3390/antiox11071329",
+      "title": "HBOC-301 in Porcine Kidney Normothermic Machine Perfusion and the Effect of Vitamin C on Methemoglobin Formation",
+      "year": "2022",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Transplant"
+      ],
+      "evidenceType": "Preclinical ex vivo organ-perfusion study"
+    },
+    {
+      "id": "pub-pmid-34672363",
+      "pmid": "34672363",
+      "doi": "10.1002/bit.27962",
+      "title": "Tangential flow filtration facilitated fractionation and PEGylation of low and high-molecular weight polymerized hemoglobins and their biophysical properties",
+      "year": "2022",
+      "catalogue": "related",
+      "applications": [
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical formulation / laboratory study"
+    },
+    {
+      "id": "pub-pmid-34626100",
+      "pmid": "34626100",
+      "doi": "10.1002/btpr.3219",
+      "title": "Biophysical properties of tense quaternary state polymerized human hemoglobins bracketed between 500 kDa and 0.2 μm in size",
+      "year": "2022",
+      "catalogue": "related",
+      "applications": [
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical formulation / laboratory study"
+    },
+    {
+      "id": "pub-pmid-24773100",
+      "pmid": "24773100",
+      "doi": "10.1111/jsap.12222",
+      "title": "Investigation of the effects of a polymerised bovine haemoglobin solution on tension in isolated canine saphenous artery",
+      "year": "2014",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Preclinical ex vivo vascular study"
+    },
+    {
+      "id": "pub-pmid-23016811",
+      "pmid": "23016811",
+      "doi": "10.1111/j.1476-4431.2012.00726.x",
+      "title": "Comparison of Hb-200 and 6% hetastarch 450/0.7 during initial fluid resuscitation of 20 dogs with gastric dilatation-volvulus",
+      "year": "2012",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Randomized veterinary clinical comparison"
+    },
+    {
+      "id": "pub-pmid-18450494",
+      "pmid": "18450494",
+      "doi": "10.1016/j.jfms.2007.09.005",
+      "title": "Multiple red cell transfusions in 27 cats (2003-2006): indications, complications and outcomes",
+      "year": "2008",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Retrospective veterinary clinical series"
+    },
+    {
+      "id": "pub-pmid-17991224",
+      "pmid": "17991224",
+      "doi": "10.1111/j.1365-2885.2007.00913.x",
+      "title": "The effect of the polymerized bovine haemoglobin solution, Hb-200, on endothelial function in isolated arterial rings from rats",
+      "year": "2007",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Preclinical ex vivo vascular study"
+    },
+    {
+      "id": "pub-pmid-17186846",
+      "pmid": "17186846",
+      "doi": "10.1892/0891-6640(2006)20[1334:dicic]2.0.co;2",
+      "title": "Disseminated intravascular coagulation in cats",
+      "year": "2006",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Retrospective veterinary clinical series"
+    },
+    {
+      "id": "pub-pmid-12522516",
+      "pmid": "12522516",
+      "doi": "10.1097/00045391-200301000-00006",
+      "title": "Validation of oxygen saturation measurements in a canine model of hemoglobin-based oxygen carrier infusion",
+      "year": "2003",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Analytical / monitoring validation study"
+    },
+    {
+      "id": "pub-pmid-28404245",
+      "pmid": "28404245",
+      "doi": "10.1111/j.1467-2987.2001.00064.x",
+      "title": "Low-volume resuscitation with a haemoglobin-based oxygen carrier Hemoglobin glutamer-200 (bovine) in canine hypovolaemia",
+      "year": "2001",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Conference abstract / experimental model"
+    },
+    {
+      "id": "pub-oxyglobin-berent-2005",
+      "pmid": "",
+      "doi": "10.1111/j.1476-4431.2005.00140.x",
+      "title": "Carbon monoxide toxicity: a case series",
+      "year": "2005",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Veterinary clinical case series"
+    },
+    {
+      "id": "pub-pmid-40950573",
+      "pmid": "40950573",
+      "doi": "10.3389/fmolb.2025.1648209",
+      "title": "Effects of chemical modifications on hemoglobin's toxicity towards human cardiac myocytes",
+      "year": "2025",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical in vitro cellular study"
+    },
+    {
+      "id": "pub-pmid-27471729",
+      "pmid": "27471729",
+      "doi": "10.3390/toxics4010006",
+      "title": "Transcriptional Suppression of Renal Antioxidant Enzyme Systems in Guinea Pigs Exposed to Polymerized Cell-Free Hemoglobin",
+      "year": "2016",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal safety study"
+    },
+    {
+      "id": "pub-pmid-20193889",
+      "pmid": "20193889",
+      "doi": "10.1016/j.jamcollsurg.2009.11.005",
+      "title": "Low oxygen-affinity hemoglobin solution increases oxygenation of partially ischemic tissue during acute anemia",
+      "year": "2010",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal microcirculation study"
+    },
+    {
+      "id": "pub-pmid-19384199",
+      "pmid": "19384199",
+      "doi": "10.1097/ccm.0b013e3181a00597",
+      "title": "Glutaraldehyde-polymerized bovine hemoglobin and phosphodiesterase-5 inhibition",
+      "year": "2009",
+      "catalogue": "product",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal hemodynamic study"
+    },
+    {
+      "id": "pub-pmid-18835914",
+      "pmid": "18835914",
+      "doi": "10.1152/ajpheart.00751.2008",
+      "title": "Isovolemic exchange transfusion with increasing concentrations of low oxygen affinity hemoglobin solution limits oxygen delivery due to vasoconstriction",
+      "year": "2008",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal study"
+    },
+    {
+      "id": "pub-pmid-21057038",
+      "pmid": "21057038",
+      "doi": "10.1152/ajpheart.00665.2010",
+      "title": "Reversal of hemoglobin-induced vasoconstriction with sustained release of nitric oxide",
+      "year": "2011",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal study"
+    },
+    {
+      "id": "pub-pmid-16857991",
+      "pmid": "16857991",
+      "doi": "10.1182/blood-2006-02-005272",
+      "title": "Dissociation of local nitric oxide concentration and vasoconstriction in the presence of cell-free hemoglobin oxygen carriers",
+      "year": "2006",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal mechanistic study"
+    },
+    {
+      "id": "pub-pmid-21356382",
+      "pmid": "21356382",
+      "doi": "10.1016/j.ajpath.2010.12.006",
+      "title": "Blood-brain barrier disruption and oxidative stress in guinea pig after systemic exposure to modified cell-free hemoglobin",
+      "year": "2011",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary",
+        "Human Use"
+      ],
+      "evidenceType": "Preclinical animal safety study"
+    },
+    {
+      "id": "pub-pmid-11429355",
+      "pmid": "11429355",
+      "doi": "10.1097/00000539-200107000-00029",
+      "title": "Fetal oxygen content is restored after maternal hemorrhage and fluid replacement with polymerized bovine hemoglobin, but not with hetastarch, in pregnant sheep",
+      "year": "2001",
+      "catalogue": "related",
+      "applications": [
+        "Veterinary"
+      ],
+      "evidenceType": "Preclinical animal pregnancy model"
+    }
+  ],
+  "deferredArchiveCandidates": 7,
+  "note": "The seven unverified archival citations are not added as verified publications or independent trials. Counts refer to publication records, including reviews and a conference abstract. Registry lists are prepared separately and have not been published."
+}

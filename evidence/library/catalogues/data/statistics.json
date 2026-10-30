@@ -1,19 +1,19 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-30",
   "total": {
-    "records": 651,
+    "records": 674,
     "groups": 11,
     "institutions": 178,
-    "journals": 212,
+    "journals": 219,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
   "views": {
     "product": {
-      "records": 192,
+      "records": 204,
       "groups": 10,
       "institutions": 101,
-      "journals": 92,
+      "journals": 97,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -26,58 +26,58 @@
       "groupLabel": "Species / model groups"
     },
     "related": {
-      "records": 214,
-      "groups": 8,
+      "records": 225,
+      "groups": 9,
       "institutions": 88,
-      "journals": 125,
+      "journals": 131,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 273,
+      "records": 294,
       "groups": 10,
       "institutions": 168,
-      "journals": 125,
+      "journals": 133,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "human": {
-      "records": 182,
-      "groups": 7,
+      "records": 195,
+      "groups": 8,
       "institutions": 78,
-      "journals": 86,
+      "journals": 93,
       "groupField": "direction",
       "groupLabel": "Therapeutic areas"
     },
     "transplant": {
-      "records": 64,
+      "records": 65,
       "groups": 6,
       "institutions": 46,
-      "journals": 33,
+      "journals": 34,
       "groupField": "organ",
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 651,
+      "records": 674,
       "groups": 11,
       "institutions": 178,
-      "journals": 212,
+      "journals": 219,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 651,
+  "publicRecords": 674,
   "collectionTotals": {
-    "entries": 978,
+    "entries": 1024,
     "collections": {
-      "transplant": 64,
-      "human": 182,
-      "veterinary": 273,
+      "transplant": 65,
+      "human": 195,
+      "veterinary": 294,
       "oxygen": 245,
-      "related": 214
+      "related": 225
     },
-    "distinctRecordsInFiveCollections": 642,
-    "repeatedPlacements": 336,
+    "distinctRecordsInFiveCollections": 665,
+    "repeatedPlacements": 359,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,21 +89,44 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 651
+    "distinctRecordsInFullLibrary": 674
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 8,
-    "displayedTotal": 970,
+    "newPublications": 31,
+    "displayedTotal": 993,
     "newRecordIds": [
       "pub-muir-oc99-2014",
+      "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",
+      "pub-pmid-11429355",
+      "pub-pmid-12522516",
       "pub-pmid-12683610",
+      "pub-pmid-16857991",
+      "pub-pmid-17186846",
+      "pub-pmid-17991224",
+      "pub-pmid-18450494",
+      "pub-pmid-18835914",
+      "pub-pmid-19384199",
       "pub-pmid-19430240",
       "pub-pmid-19816963",
+      "pub-pmid-20193889",
+      "pub-pmid-21057038",
+      "pub-pmid-21356382",
+      "pub-pmid-23016811",
       "pub-pmid-24612155",
+      "pub-pmid-24773100",
+      "pub-pmid-27471729",
+      "pub-pmid-28404245",
       "pub-pmid-33872358",
-      "pub-pmid-3740627"
+      "pub-pmid-34626100",
+      "pub-pmid-34672363",
+      "pub-pmid-35883821",
+      "pub-pmid-36837597",
+      "pub-pmid-3740627",
+      "pub-pmid-38815289",
+      "pub-pmid-39748550",
+      "pub-pmid-40950573"
     ]
   },
   "archivedIncompleteEntries": 48,

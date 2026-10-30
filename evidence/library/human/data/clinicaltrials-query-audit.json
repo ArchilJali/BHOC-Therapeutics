@@ -1,0 +1,51 @@
+[
+  {
+    "query": "Oxyglobin",
+    "total_count": 0,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=Oxyglobin",
+    "checked_at": "2026-10-30T21:56:49.464151+00:00",
+    "error": null
+  },
+  {
+    "query": "\"HBOC-301\"",
+    "total_count": 0,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22HBOC-301%22",
+    "checked_at": "2026-10-30T21:56:49.462732+00:00",
+    "error": null
+  },
+  {
+    "query": "\"HBOC-200\"",
+    "total_count": 0,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22HBOC-200%22",
+    "checked_at": "2026-10-30T21:56:49.472608+00:00",
+    "error": null
+  },
+  {
+    "query": "\"hemoglobin glutamer-200\"",
+    "total_count": 0,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22hemoglobin+glutamer-200%22",
+    "checked_at": "2026-10-30T21:56:49.463672+00:00",
+    "error": null
+  },
+  {
+    "query": "Hemopure OR \"HBOC-201\"",
+    "total_count": 9,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=Hemopure+OR+%22HBOC-201%22",
+    "checked_at": "2026-10-30T21:56:54.396918+00:00",
+    "error": null
+  },
+  {
+    "query": "\"hemoglobin glutamer-250\"",
+    "total_count": 9,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=%22hemoglobin+glutamer-250%22",
+    "checked_at": "2026-10-30T21:56:54.394040+00:00",
+    "error": null
+  },
+  {
+    "query": "Biopure",
+    "total_count": 8,
+    "official_api_url": "https://clinicaltrials.gov/api/v2/studies?format=json&pageSize=100&countTotal=true&query.term=Biopure",
+    "checked_at": "2026-10-30T21:56:54.393187+00:00",
+    "error": null
+  }
+]
