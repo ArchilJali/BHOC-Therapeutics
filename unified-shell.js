@@ -6,7 +6,7 @@
 
   const HOME = 'https://bhoctherapeutics.com/';
   const LIBRARY = '/evidence/library/';
-  const releaseSummary = 'First published 20 Aug 2026 · 88 updates · Last updated 31 Oct 2026 · Version 26.10.31';
+  const releaseSummary = 'First published 20 Aug 2026 · 89 updates · Last updated 31 Oct 2026 · Version 26.10.31';
   const routes = [
     {name: 'BHOC', href: '/bhoc/', path: '/bhoc/'},
     {name: 'Science', href: '/science/', path: '/science/'},
@@ -211,6 +211,13 @@
 
   function init() {
     if (document.querySelector('.bhoc-shell-header')) return;
+    const fitViewport = () => {
+      const width = document.documentElement.clientWidth;
+      document.documentElement.style.setProperty('--bhoc-viewport-width', width + 'px');
+      document.documentElement.style.setProperty('--bhoc-viewport-half-width', (width / 2) + 'px');
+    };
+    fitViewport();
+    window.addEventListener('resize', fitViewport, {passive: true});
     const main = document.querySelector('main');
     const target = main || document.querySelector('h1') || document.body;
     if (!target.id) target.id = 'main-content';

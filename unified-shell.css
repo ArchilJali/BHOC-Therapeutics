@@ -2,7 +2,7 @@
 body.bhoc-shell-ready { margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important; }
 body.bhoc-shell-ready > .bhoc-shell-header,
 body.bhoc-shell-ready > .bhoc-shell-trail,
-body.bhoc-shell-ready > .bhoc-shell-footer { width:100vw;margin-left:calc(50% - 50vw); }
+body.bhoc-shell-ready > .bhoc-shell-footer { width:var(--bhoc-viewport-width,100%);margin-left:calc(50% - var(--bhoc-viewport-half-width,50%)); }
 body.bhoc-shell-ready .bhoc-shell-legacy,
 body.bhoc-shell-ready .bhoc-shell-old-trail,
 body.bhoc-shell-ready .bhoc-shell-old-skip,
