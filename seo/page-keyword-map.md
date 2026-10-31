@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 27 October 2026
+Updated: 1 November 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -18,7 +18,8 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/applications/` | BHOC clinical applications | emergency oxygenation; prehospital oxygen delivery; postpartum hemorrhage; donor blood; patient blood management; PBM; sustainability solutions; oxygenated organ support; veterinary oxygen carrier; bloodless resuscitation |
 | `/evidence/library/clinical/` | Clinical oxygen delivery: evidence and research questions | prehospital care; sickle cell disease; maternal hemorrhage; blood access; organ perfusion; research boundaries |
 | `/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html` | Sickle cell disease: matched blood and oxygen delivery | red-cell exchange; alloimmunization; hyperhaemolysis; transfusion compatibility; tissue hypoxia |
-| `/applications/military-disaster-medicine/` | Prolonged casualty care and delayed evacuation | battlefield blood logistics; contested evacuation; disaster medicine; oxygen delivery before definitive care |
+| `/applications/military-disaster-medicine/` | LSCO, military blood logistics and prolonged casualty care | mass casualties; casualty definitions; personnel replacement requirements; contested evacuation; oxygen-delivery readiness; BHOC development requirements |
+| `/news/lsco-blood-logistics-oxygen-delivery/` | Announcement of the BHOC LSCO analysis | military blood supply; mass-casualty planning; original source article; Precision Oxygen Therapeutics; internal link to permanent analysis |
 | `/applications/#perioperative-oxygen-delivery` | Surgery and perioperative oxygen delivery | perioperative anemia; surgical blood loss; patient blood management; hemoglobin dose; donor blood availability; cardiopulmonary bypass |
 | `/evidence/library/science/sepsis-microcirculation-tissue-oxygenation-bhoc.html` | Sepsis, microcirculation and tissue oxygenation | septic shock; endothelial dysfunction; perfusion monitoring; organ dysfunction; cellular metabolism |
 | `/science/rbc-unit-hemoglobin-dose-variability.html` | Hemoglobin dose and RBC unit variability | component variability; administered hemoglobin mass; transfusion measurement; oxygen transport function |
