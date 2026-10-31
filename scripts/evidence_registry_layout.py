@@ -202,4 +202,8 @@ def clean_editorial_notes(set_metadata):
         source = re.sub(r'(<body\b[^>]*class=")([^"]*)(")', add_class, source, count=1)
         if body_class == 'ema-regulatory-page':
             source = re.sub(r'<p class="notice">Archival source note\.[\s\S]*?</p>', '', source)
+            source = source.replace(' This historical Oxyglobin record supports veterinary HBOC context; it does not establish approval of BHOC or another future formulation.', '')
+        else:
+            source = re.sub(r'<p class="notice">Historical approvals apply only to Oxyglobin[\s\S]*?</p>', '', source)
+            source = source.replace(' Oxyglobin is a historical veterinary HBOC precedent; BHOC - Biological Hemoglobin Oxygen Carrier - is a developing category framework, not this approval.', '')
         path.write_text(styled(source))
