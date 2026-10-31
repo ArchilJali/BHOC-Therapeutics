@@ -57,7 +57,7 @@ for f in [BASE/'index.html',ROOT/'evidence/index.html']:
             pattern=r'(<article class="panel hub-card '+cls+r'">[\s\S]*?<div class="hub-facts">)[\s\S]*?(</div><a class="button")'
             st=STATS[kind];facts=''.join(f'<div><strong>{st[field]}</strong><span>{label}</span></div>' for field,label in [('records','PUBLICATION RECORDS'),('groups',st['groupLabel'].upper()),('institutions','AUTHOR INSTITUTIONS'),('journals','JOURNALS')])
             s=re.sub(pattern,lambda m:m[1]+facts+m[2],s)
-        s=s.replace('Updated 4 Oct 2026','Updated 11 Oct 2026')
+        s=re.sub(r'<span class="tag">Updated \d{1,2} [A-Za-z]+ \d{4}</span>','',s)
     s=re.sub(r'<p[^>]*data-literature-update="20261030"[^>]*>[\s\S]*?</p>','',s)
     if LITERATURE_REVIEW:
         marker='<section id="scientific-catalogues"'
