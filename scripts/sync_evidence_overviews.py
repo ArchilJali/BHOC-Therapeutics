@@ -112,7 +112,9 @@ for kind,file,field,cls in [('veterinary','veterinary/Vet-index.html','speciesGr
         s=re.sub(r'\b(?:180|181|184|185) (human-use and translational publications|publications|total records|records)',lambda m:str(st['records'])+' '+m[1],s)
         s=s.replace('<strong>46</strong>','<strong>45</strong>')
         clinical=sum('Human clinical evidence' in r['evidenceGroups'] for r in VIEWS[kind])
-        s=re.sub(r'(<dt>Human clinical records</dt><dd>)\d+',lambda m:m[1]+str(clinical),s)
+        s=s.replace('<dt>Human clinical records</dt>','<dt>Human clinical publications</dt>')
+        s=s.replace('<dt>Translational preclinical records</dt>','<dt>Translational preclinical publications</dt>')
+        s=re.sub(r'(<dt>Human clinical publications</dt><dd>)\d+',lambda m:m[1]+str(clinical),s)
     if kind=='transplant':
         historical=sum('Historical oxygen-carrier research' in r['collection'] for r in VIEWS[kind])
         related_count=sum('Related transplantation studies' in r['collection'] for r in VIEWS[kind])

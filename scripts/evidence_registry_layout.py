@@ -9,7 +9,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'evidence/library'
-STYLE = '<link rel="stylesheet" href="/evidence/library/assets/registered-studies.css?v=20261031-navigation">'
+STYLE = '<link rel="stylesheet" href="/evidence/library/assets/registered-studies.css?v=20261031-registry-entry">'
 HUMAN = '/evidence/library/human/registered-clinical-studies.html'
 UPDATES = '/news/knowledge-updates/#oxyglobin-literature-20261030-details'
 ELECTRONIC_TITLE = 'Electronically Registered Clinical Studies | Hemopure'
@@ -148,7 +148,19 @@ def clean_editorial_notes(set_metadata):
     hub_path = BASE / 'human/BHOC-Human-index.html'
     hub = hub_path.read_text().replace('ClinicalTrials.gov · Official electronic registry', 'ClinicalTrials.gov')
     hub = hub.replace('Hemopure / HBOC-201. Six interventional studies and three expanded-access records.', 'Hemopure / HBOC-201')
+    hub = hub.replace('<span>registry records</span>', '<span>ClinicalTrials.gov records</span>')
+    hub = hub.replace('<dt>Human clinical records</dt>', '<dt>Human clinical publications</dt>')
+    hub = hub.replace('<dt>Translational preclinical records</dt>', '<dt>Translational preclinical publications</dt>')
     hub_path.write_text(hub)
+
+    home_path = BASE / 'index.html'
+    home = home_path.read_text()
+    home = re.sub(r'<div class="home-registry-entry"[\s\S]*?</div>', '', home)
+    hero = re.search(r'<section class="home-hero">[\s\S]*?</section>', home)
+    assert hero
+    entry = '<div class="home-registry-entry" id="electronic-clinical-studies"><a href="/evidence/library/human/registered-clinical-studies.html">Electronically registered clinical studies →</a><span>Hemopure / HBOC-201 · ClinicalTrials.gov</span></div>'
+    home = home[:hero.start()] + hero[0].replace('</section>', entry + '</section>') + home[hero.end():]
+    home_path.write_text(styled(home))
 
     short_routes = {
         'human/BHOC-Human-fda-expanded-access.html': '<nav class="registry-context-nav" id="registered-studies" aria-label="ClinicalTrials.gov"><strong>ClinicalTrials.gov</strong><a href="registered-clinical-studies.html">Electronically registered clinical studies →</a></nav>',
