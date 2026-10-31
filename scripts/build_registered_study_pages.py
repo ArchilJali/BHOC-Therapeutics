@@ -199,4 +199,6 @@ for path in ['sitemap.xml', 'evidence/library/sitemap.xml']:
     if url not in source:
         source = source.replace('</urlset>', f'  <url><loc>{url}</loc><lastmod>{DATE}</lastmod></url>\n</urlset>')
     p.write_text(source)
-print('Rendered 9 human registry records, separate veterinary source note, metadata, links and dated sitemaps. Publication counts unchanged.')
+from evidence_registry_layout import apply_approved_registry_layout
+apply_approved_registry_layout(set_metadata)
+print('Rendered electronic registry routes, compact veterinary sources and a separate publication update log. Publication counts unchanged.')

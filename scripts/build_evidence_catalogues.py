@@ -40,12 +40,8 @@ REVIEW_PATH=BASE/'catalogues/data/oxyglobin-literature-review-20261030.json'
 LITERATURE_REVIEW=json.loads(REVIEW_PATH.read_text()) if REVIEW_PATH.exists() else None
 
 def release_notice(kind='all'):
-    if not LITERATURE_REVIEW:return ''
-    ids={r['id'] for r in LITERATURE_REVIEW['records']}
-    count=sum(r['id'] in ids for r in VIEWS[kind])
-    if not count:return ''
-    label='publication record' if count==1 else 'publication records'
-    return '<p class="catalogue-relationship" data-literature-update="20261030">Added '+str(count)+' '+label+' to this view on 30 October 2026. <a href="'+PREFIX+'veterinary/Vet-03-publication-BHOC-Oxyglobin.html#literature-update-20261030">See the 23 source-linked additions and their classifications →</a></p>'
+    # Publication additions are recorded once in the public update log.
+    return ''
 
 def tabs(current=''):
     if current=='veterinary':

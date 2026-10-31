@@ -130,7 +130,10 @@ assert all(r['provenance'][0]['source']=='Approved scientific additions' for r i
 assert all(not r['evidence'].startswith('Human clinical') for r in VIEWS['human'] if r['id'] in oxy_ids)
 oxy_page=(BASE/'veterinary/Vet-03-publication-BHOC-Oxyglobin.html').read_text()
 assert 'id="literature-update-20261030"' in oxy_page
-assert all('#'+id+'"' in oxy_page for id in oxy_ids)
+update_log=(ROOT/'news/knowledge-updates/index.html').read_text()
+assert 'id="oxyglobin-literature-20261030-details"' in update_log
+assert all('#'+id+'"' in update_log for id in oxy_ids)
+assert '/news/knowledge-updates/#oxyglobin-literature-20261030-details' in oxy_page
 assert '<strong>204</strong><span>Publication records</span>' in oxy_page
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])

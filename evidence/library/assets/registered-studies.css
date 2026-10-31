@@ -1,0 +1,75 @@
+/* Registry routes use the existing BHOC type, colours and spacing. */
+.registry-context-nav{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;margin:0 0 26px;padding:10px 0 13px;border-bottom:1px solid var(--line);font-size:12px}
+.registry-context-nav>strong{color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.registry-context-nav a{padding:5px 0;text-decoration:none;color:var(--muted)}
+.registry-context-nav a[aria-current=page]{color:var(--teal);font-weight:750;border-bottom:2px solid var(--teal)}
+.registry-context-nav a:hover{text-decoration:underline}
+.registry-entry{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:22px;margin:0 0 24px;padding:22px 26px;border-radius:var(--radius);background:#153a47;color:#fff}
+.registry-entry .eyebrow{color:#a7d9cb!important;font-size:10px;letter-spacing:.12em}
+.registry-entry h2{font-size:23px;line-height:1.25;margin:5px 0 6px;letter-spacing:-.4px}
+.registry-entry p{margin:0;font-size:12px;color:#d6e3e7}
+.registry-entry-count{border-left:1px solid #41606a;padding-left:22px;white-space:nowrap}
+.registry-entry-count strong{display:block;font-size:30px;line-height:1.1;font-weight:650}
+.registry-entry-count span{font-size:10px;color:#c6d9df}
+.registry-entry .registry-entry-button{display:inline-block;padding:10px 16px;border:1px solid #a7d9cb;border-radius:6px;color:#fff;text-decoration:none;font-size:12px;font-weight:700;white-space:nowrap}
+.registry-entry .registry-entry-button:hover{background:#224c58}
+.registry-location{font-size:11px;color:var(--muted);margin:0 0 12px}
+.registry-location a{color:var(--teal)}
+.registry-vet-block{padding:22px 26px;margin:24px 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);scroll-margin-top:170px}
+.registry-vet-block .eyebrow{font-size:9px;letter-spacing:.12em}
+.registry-vet-block h2{font-size:24px;line-height:1.25;letter-spacing:-.4px;margin:5px 0 18px}
+.registry-vet-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px}
+.registry-vet-grid>div+div{border-left:1px solid var(--line);padding-left:28px}
+.registry-vet-label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px}
+.registry-vet-figures{display:flex;gap:30px;margin:0 0 12px}
+.registry-vet-figures div{display:flex;flex-direction:column}
+.registry-vet-figures strong{font-size:25px;line-height:1.2;font-weight:650;color:var(--ink)}
+.registry-vet-figures span{font-size:10px;color:var(--muted);margin-top:3px}
+.registry-vet-block p{font-size:12px;line-height:1.6;margin:8px 0;color:var(--muted)}
+.registry-vet-block p strong{color:var(--ink)}
+.registry-vet-block a{display:inline-block}
+.registry-vet-links{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:11px;font-weight:650;margin:12px 0 0}
+.registry-vet-scope{border-top:1px solid var(--line);padding-top:12px;margin-top:16px}
+.registry-vet-scope p{font-size:11px;margin:4px 0}
+.registry-vet-links .registry-other-route{margin-left:auto}
+.publication-update-list{margin-top:20px;padding-top:18px;border-top:1px solid #dbe4e8;font-size:13px;line-height:1.65}
+.publication-update-list h3{font-size:20px;margin:0 0 12px}
+.publication-update-list h4{font-size:15px;margin:22px 0 8px}
+.publication-update-list li{margin:8px 0}
+.publication-update-list small{color:#536774}
+.publication-update-list a{overflow-wrap:anywhere}
+.regulatory-source-page .page-intro{margin-bottom:18px}
+.regulatory-source-page .page-intro p{font-size:14px;line-height:1.5}
+.regulatory-source-page .reg-grid{gap:16px}
+.regulatory-source-page .reg-card{padding:20px}
+.regulatory-source-page .reg-card h2{font-size:23px;line-height:1.2;margin:6px 0 10px}
+.regulatory-source-page .reg-card p{font-size:13px;line-height:1.5;margin:8px 0}
+.regulatory-source-page .facts{gap:12px;margin:12px 0;padding:12px 0}
+.regulatory-source-page .facts dd{font-size:13px;line-height:1.4}
+.regulatory-source-page .document-link{padding:8px 0;font-size:12px;line-height:1.45}
+.regulatory-source-page .reg-card details{margin-top:12px;line-height:1.5}
+.regulatory-source-page .regulatory-timeline{margin:18px 0}
+.regulatory-source-page .regulatory-timeline-head h2{font-size:23px;line-height:1.2;margin:5px 0 8px}
+.regulatory-source-page .regulatory-timeline-head p{font-size:13px;line-height:1.5;margin:6px 0 12px}
+.regulatory-source-page .regulatory-docs{gap:12px}
+.regulatory-source-page .regulatory-doc{min-height:0;padding:18px}
+.regulatory-source-page .regulatory-doc h3{font-size:17px;line-height:1.25;margin:7px 0}
+.regulatory-source-page .regulatory-doc p{font-size:13px;line-height:1.45;margin:6px 0}
+.regulatory-source-page .regulatory-doc .doc-meta{margin:6px 0 9px}
+.regulatory-source-page .regulatory-doc .document-link{margin-top:0}
+.regulatory-source-page .regulatory-facts{gap:8px;margin-top:12px}
+.regulatory-source-page .regulatory-facts div{padding:12px}
+.regulatory-source-page .regulatory-route{margin-top:12px;line-height:1.5}
+.regulatory-source-page .registry-vet-block p{font-size:13px;line-height:1.5;margin:6px 0}
+.regulatory-source-page .registry-vet-label{font-size:12px}
+.ema-regulatory-page main.reading{max-width:1280px!important;width:100%}
+.ema-regulatory-page .reading .panel{padding:22px 26px}
+.ema-regulatory-page .reading p,.ema-regulatory-page .reading li{line-height:1.55!important;font-size:13px}
+.ema-regulatory-page .reading p{margin:8px 0}
+.ema-regulatory-page .reading h2{margin:22px 0 10px}
+.ema-regulatory-page .reading h3{margin:15px 0 8px}
+.ema-regulatory-page .reading table{display:table;width:100%;border-collapse:collapse}
+.ema-regulatory-page .reading th,.ema-regulatory-page .reading td{padding:8px 10px;line-height:1.45}
+.ema-regulatory-page #efficacy-data{scroll-margin-top:150px}
+@media(max-width:760px){.ema-regulatory-page .reading .panel{padding:18px}.ema-regulatory-page .reading table{display:block;overflow-x:auto}.regulatory-source-page .reg-card{padding:18px}}
+@media(max-width:760px){.registry-entry{grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:20px}.registry-entry-button{grid-column:1/-1;justify-self:start}.registry-entry h2{font-size:21px}.registry-vet-block{padding:20px}.registry-vet-grid{grid-template-columns:1fr;gap:18px}.registry-vet-grid>div+div{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}.registry-vet-links .registry-other-route{margin-left:0}.registry-context-nav{gap:5px 16px}.registry-vet-block{scroll-margin-top:140px}}
