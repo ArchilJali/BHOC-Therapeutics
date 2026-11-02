@@ -1,0 +1,63 @@
+name: Verify live Adamantos publication and counters
+on:
+  push:
+    branches: ['preview/adamantos-oxyglobin-2005-20261102']
+    paths: ['.github/workflows/verify-adamantos-live.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check actual public pages and shared metric endpoints
+        run: |
+          python3 - <<'PY'
+          import concurrent.futures, json, re, time, urllib.request
+          origin='https://bhoctherapeutics.com'
+          record='pub-doi-10-1136-inpract-27-8-399'
+          targets=[
+            ('/evidence/',995,False),
+            ('/evidence/library/',995,False),
+            ('/evidence/library/catalogues/',995,True),
+            ('/evidence/library/veterinary/Vet-index.html',295,False),
+            ('/evidence/library/veterinary/Vet-search.html',295,True),
+            ('/evidence/library/veterinary/publication-catalogue.html',295,True),
+            ('/evidence/library/catalogues/product.html',205,True),
+            ('/evidence/library/veterinary/Vet-03-publication-BHOC-Oxyglobin.html',205,False),
+          ]
+          def get(path):
+              req=urllib.request.Request(origin+path+('?live_verify='+str(time.time_ns())),headers={'Cache-Control':'no-cache','User-Agent':'BHOC-publication-verification/1.0'})
+              with urllib.request.urlopen(req,timeout=25) as response:
+                  assert response.status==200
+                  return response.read().decode('utf-8')
+          def check(target):
+              path,count,has_record=target
+              text=get(path)
+              assert re.search(r'<strong\b[^>]*>\s*'+str(count)+r'\s*</strong>',text), path+' counter mismatch'
+              title=re.search(r'<title>(.*?)</title>',text,re.S)
+              assert title and title[1].strip(), path+' missing title'
+              matches=text.count('id="'+record+'"')
+              if has_record:
+                  assert matches==1,path+' missing or duplicated record'
+                  assert '10.1136/inpract.27.8.399' in text
+                  assert 'Clinical use of a haemoglobin-based oxygen-carrying solution in dogs and cats' in text
+              return {'path':path,'httpStatus':200,'counter':count,'title':title[1],'newRecordOccurrences':matches}
+          errors=[]
+          for attempt in range(6):
+              try:
+                  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                      results=list(pool.map(check,targets))
+                  metrics=json.loads(get('/evidence/library/platform-overview.json'))
+                  assert metrics['publicationCounter']['displayedTotal']==995
+                  assert metrics['hubs']['veterinary']==295 and metrics['catalogues']['product']==205
+                  assert metrics['uniquePublications']==676
+                  assert metrics['publicationCounter']['newRecordIds'].count(record)==1
+                  print(json.dumps({'verifiedAt':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),'status':'passed','pages':results,'displayedCounter':995,'uniquePublications':676,'newPublicationCount':1,'metricsEndpointVerified':True},indent=2))
+                  break
+              except Exception as error:
+                  errors.append(str(error))
+                  if attempt==5:
+                      raise RuntimeError(json.dumps(errors))
+                  time.sleep(10)
+          PY
