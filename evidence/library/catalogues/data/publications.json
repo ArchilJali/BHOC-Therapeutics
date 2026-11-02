@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-11-02",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -33715,6 +33715,59 @@
       "added": "2026-10-30",
       "release": "oxyglobin-literature-20261030",
       "sourceJournal": "Anesthesia and analgesia"
+    },
+    {
+      "id": "pub-pmid-39407836",
+      "title": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation",
+      "year": "2024",
+      "authors": "Kilercik H, Akbulut S, Elsarawy A, Aktas S, Alkara U, Sevmis S",
+      "journal": "Journal of Clinical Medicine",
+      "doi": "10.3390/jcm13195776",
+      "pmid": "39407836",
+      "citation": "Kilercik H, Akbulut S, Elsarawy A, Aktas S, Alkara U, Sevmis S. Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation. J Clin Med. 2024;13(19):5776. doi:10.3390/jcm13195776.",
+      "product": "",
+      "keywords": "Perioperative oxygen support; Patient blood management; Living donor liver transplantation",
+      "directions": [],
+      "institutions": [
+        "Istanbul Yeni Yuzyil University",
+        "Inonu University"
+      ],
+      "species": [
+        "Human"
+      ],
+      "evidence": "Clinical context: retrospective observational cohort",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/39407836/",
+        "https://doi.org/10.3390/jcm13195776",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482486/"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "39407836",
+          "title": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation",
+          "year": "2024",
+          "doi": "10.3390/jcm13195776",
+          "pmid": "39407836"
+        }
+      ],
+      "originalVerification": "Publication identity, complete authorship, abstract and full-text Methods checked against PubMed, DOI metadata and the original article on 2 November 2026.",
+      "sourceReview": "Clinical context. No BHOC, HBOC-201 or other oxygen therapeutic was tested. The observational comparison does not establish a causal effect of transfusion on survival.",
+      "catalogue": "related",
+      "classificationBasis": "Archil authorized inclusion in the general oxygenation-support scientific context on 2 November 2026, separately from product evidence.",
+      "verification": "PubMed, DOI metadata and full-text methods verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Perioperative oxygen support",
+        "Patient blood management",
+        "Living donor liver transplantation"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Retrospective single-center study of 219 adult living donor liver transplant recipients. Preoperative hemoglobin, fibrinogen and albumin were associated with intraoperative red-cell transfusion requirements. Clinical context for perioperative oxygen-carrying capacity and patient blood management.",
+      "cohortLinks": [],
+      "added": "2026-11-02",
+      "release": "liver-transfusion-context-20261102"
     }
   ],
   "mergedRecords": [

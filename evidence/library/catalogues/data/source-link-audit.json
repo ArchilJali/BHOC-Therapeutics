@@ -1,10 +1,10 @@
 {
-  "checked": "2026-10-30",
+  "checked": "2026-11-02",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 674,
-  "uniqueUrlsChecked": 983,
+  "publicRecords": 675,
+  "uniqueUrlsChecked": 986,
   "states": {
-    "matched": 966,
+    "matched": 969,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
@@ -10723,6 +10723,33 @@
           "state": "matched",
           "method": "Indexed PubMed/PMC identity or publisher DOI metadata; access level documented in publication note",
           "sourceTitle": "Fetal oxygen content is restored after maternal hemorrhage and fluid replacement with polymerized bovine hemoglobin, but not with hetastarch, in pregnant sheep"
+        }
+      ]
+    },
+    "pub-pmid-39407836": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/39407836/",
+        "https://doi.org/10.3390/jcm13195776",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482486/"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39407836/",
+          "state": "matched",
+          "method": "Exact PMID, DOI and title matched against PubMed and publisher metadata; original full-text Methods reviewed",
+          "sourceTitle": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation"
+        },
+        {
+          "url": "https://doi.org/10.3390/jcm13195776",
+          "state": "matched",
+          "method": "Exact PMID, DOI and title matched against PubMed and publisher metadata; original full-text Methods reviewed",
+          "sourceTitle": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482486/",
+          "state": "matched",
+          "method": "Exact PMID, DOI and title matched against PubMed and publisher metadata; original full-text Methods reviewed",
+          "sourceTitle": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation"
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-11-02",
   "approval": "User-approved literature additions. Existing approval and source-review fields are retained per publication; the Oxyglobin literature batch was approved for incorporation on 30 October 2026.",
   "records": [
     {
@@ -2180,6 +2180,61 @@
         "PMID:28404331"
       ],
       "sourceJournal": "Anesthesia and analgesia"
+    },
+    {
+      "id": "39407836",
+      "pmid": "39407836",
+      "doi": "10.3390/jcm13195776",
+      "title": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation",
+      "authors": "Kilercik H, Akbulut S, Elsarawy A, Aktas S, Alkara U, Sevmis S",
+      "journal": "Journal of Clinical Medicine",
+      "year": "2024",
+      "volume": "13",
+      "issue": "19",
+      "pages": "5776",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/39407836/",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/39407836/",
+        "https://doi.org/10.3390/jcm13195776",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11482486/"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "affiliations": [
+        "Department of Anesthesiology and Reanimation, Gaziosmanpasa Hospital, Faculty of Medicine, Istanbul Yeni Yuzyil University, Turkey.",
+        "Department of Surgery, Liver Transplant Institute, Faculty of Medicine, Inonu University, Turkey.",
+        "Department of Surgery and Organ Transplantation, Gaziosmanpasa Hospital, Faculty of Medicine, Istanbul Yeni Yuzyil University, Turkey.",
+        "Department of Radiology, Gaziosmanpasa Hospital, Faculty of Medicine, Istanbul Yeni Yuzyil University, Turkey."
+      ],
+      "institutions": [
+        "Istanbul Yeni Yuzyil University",
+        "Inonu University"
+      ],
+      "direction": "Clinical context",
+      "directions": [],
+      "species": [
+        "Human"
+      ],
+      "product": "",
+      "catalogue": "related",
+      "evidenceType": "Clinical context: retrospective observational cohort",
+      "evidenceGroup": "Clinical context: retrospective observational cohort",
+      "topics": [
+        "Perioperative oxygen support",
+        "Patient blood management",
+        "Living donor liver transplantation"
+      ],
+      "therapeuticAreas": [
+        "Perioperative oxygen support",
+        "Transfusion planning"
+      ],
+      "catalogueSummary": "Retrospective single-center study of 219 adult living donor liver transplant recipients. Preoperative hemoglobin, fibrinogen and albumin were associated with intraoperative red-cell transfusion requirements. Clinical context for perioperative oxygen-carrying capacity and patient blood management.",
+      "sourceReview": "Clinical context. No BHOC, HBOC-201 or other oxygen therapeutic was tested. The observational comparison does not establish a causal effect of transfusion on survival.",
+      "originalVerification": "Publication identity, complete authorship, abstract and full-text Methods checked against PubMed, DOI metadata and the original article on 2 November 2026.",
+      "approval": "Archil authorized inclusion in the general oxygenation-support scientific context on 2 November 2026, separately from product evidence.",
+      "release": "liver-transfusion-context-20261102",
+      "cohortLinks": []
     }
   ]
 }

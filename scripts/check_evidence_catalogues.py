@@ -82,7 +82,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==340
+assert reconciliation['netAddedRecords']==341
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[publication_counter()['displayedTotal'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -97,7 +97,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 340 net additions; all original source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 341 net additions; all original source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
@@ -107,25 +107,25 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==1024
-assert collection_stats['collections']=={'transplant':65,'human':195,'veterinary':294,'oxygen':245,'related':225}
-assert collection_stats['distinctRecordsInFiveCollections']==665
+assert collection_stats['entries']==1025
+assert collection_stats['collections']=={'transplant':65,'human':195,'veterinary':294,'oxygen':245,'related':226}
+assert collection_stats['distinctRecordsInFiveCollections']==666
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-publication-counter>993</strong>' in source
+    assert 'data-publication-counter>994</strong>' in source
     assert 'Library entries' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==31
+assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==32
 oxy_release=read('catalogues/data/oxyglobin-literature-review-20261030.json')
 oxy_ids={r['id'] for r in oxy_release['records']}
 assert len(oxy_ids)==23 and oxy_release['newByCatalogue']=={'product':12,'related':11}
-assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358'}|oxy_ids
+assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358','pub-pmid-39407836'}|oxy_ids
 assert oxy_ids <= {r['id'] for r in RECORDS}
-assert len(ALL_RECORDS)==722 and len(RECORDS)==674
+assert len(ALL_RECORDS)==723 and len(RECORDS)==675
 assert all(r['provenance'][0]['source']=='Approved scientific additions' for r in RECORDS if r['id'] in oxy_ids)
 assert all(not r['evidence'].startswith('Human clinical') for r in VIEWS['human'] if r['id'] in oxy_ids)
 oxy_page=(BASE/'veterinary/Vet-03-publication-BHOC-Oxyglobin.html').read_text()
@@ -137,7 +137,7 @@ assert '/news/knowledge-updates/#oxyglobin-literature-20261030-details' in oxy_p
 assert '<strong>204</strong><span>Publication records</span>' in oxy_page
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])
-print('PASS: displayed counter 970 + 23 additions = 993; 674 distinct publications; all previous record identities retained.')
+print(f'PASS: displayed counter {publication_counter()["displayedTotal"]}; {len(RECORDS)} distinct publications; all previous record identities retained.')
 
 selection=read('catalogues/data/oxygen-transport-review-20261014.json')
 assert selection['requestedPublications']==30 and selection['newPublications']==27 and selection['alreadyPublished']==3
@@ -158,3 +158,9 @@ assert fujii[0] in VIEWS["human"] and fujii[0] in VIEWS["related"]
 assert fujii[0] not in VIEWS["product"] and fujii[0] not in VIEWS["oxygen"]
 assert "Retrospective" in fujii[0]["catalogueSummary"] and "not direct BHOC/HBOC evidence" in fujii[0]["sourceReview"]
 assert "transcutaneous tissue oxygen pressure was not used" in fujii[0]["sourceReview"]
+
+# The user requested this paper only as general clinical context.
+liver_context=next(r for r in RECORDS if r['pmid']=='39407836')
+assert liver_context['catalogue']=='related' and liver_context['products']==[]
+assert all(liver_context['id'] not in {r['id'] for r in VIEWS[k]} for k in ['product','oxygen','human','transplant','veterinary'])
+assert 'No BHOC, HBOC-201 or other oxygen therapeutic was tested.' in liver_context['sourceReview']

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-11-02",
   "total": {
-    "records": 674,
+    "records": 675,
     "groups": 11,
-    "institutions": 178,
-    "journals": 219,
+    "institutions": 180,
+    "journals": 220,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
@@ -26,10 +26,10 @@
       "groupLabel": "Species / model groups"
     },
     "related": {
-      "records": 225,
+      "records": 226,
       "groups": 9,
-      "institutions": 88,
-      "journals": 131,
+      "institutions": 90,
+      "journals": 132,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -58,25 +58,25 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 674,
+      "records": 675,
       "groups": 11,
-      "institutions": 178,
-      "journals": 219,
+      "institutions": 180,
+      "journals": 220,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 674,
+  "publicRecords": 675,
   "collectionTotals": {
-    "entries": 1024,
+    "entries": 1025,
     "collections": {
       "transplant": 65,
       "human": 195,
       "veterinary": 294,
       "oxygen": 245,
-      "related": 225
+      "related": 226
     },
-    "distinctRecordsInFiveCollections": 665,
+    "distinctRecordsInFiveCollections": 666,
     "repeatedPlacements": 359,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
@@ -89,12 +89,12 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 674
+    "distinctRecordsInFullLibrary": 675
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 31,
-    "displayedTotal": 993,
+    "newPublications": 32,
+    "displayedTotal": 994,
     "newRecordIds": [
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
@@ -125,6 +125,7 @@
       "pub-pmid-36837597",
       "pub-pmid-3740627",
       "pub-pmid-38815289",
+      "pub-pmid-39407836",
       "pub-pmid-39748550",
       "pub-pmid-40950573"
     ]
