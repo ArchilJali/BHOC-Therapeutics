@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -7691,7 +7691,7 @@
     },
     {
       "title": "Feline non-regenerative immune-mediated anaemia: features and outcome in 15 cases",
-      "year": "2015",
+      "year": "2016",
       "authors": "Black V, Adamantos S, Barfield D, Tasker S",
       "journal": "J Feline Med Surg",
       "doi": "10.1177/1098612x15588800",
@@ -7703,13 +7703,17 @@
         "Veterinary"
       ],
       "institutions": [],
-      "species": [],
+      "species": [
+        "Cat"
+      ],
       "evidence": "Veterinary clinical / research",
       "urls": [
         "https://pubmed.ncbi.nlm.nih.gov/26116621/",
         "https://doi.org/10.1177/1098612x15588800"
       ],
-      "notes": [],
+      "notes": [
+        "Publication date clarified: online first 26 June 2015; print issue August 2016. One publication, not two."
+      ],
       "provenance": [
         {
           "source": "Master Catalogue",
@@ -7726,7 +7730,9 @@
       "classificationBasis": "Clinical or scientific context; no direct product evidence established",
       "id": "pub-e14d170bfce1",
       "verification": "Source identifier supplied",
-      "recordType": "Bibliographic record"
+      "recordType": "Bibliographic record",
+      "onlinePublicationDate": "2015-06-26",
+      "printPublicationYear": "2016"
     },
     {
       "title": "Haemoglobin-based oxygen carriers: indications and future applications",
@@ -13430,9 +13436,7 @@
         "Omaha's Henry Doorly Zoo"
       ],
       "species": [
-        "Feline",
-        "Ferret",
-        "9 ferrets"
+        "Ferret"
       ],
       "evidence": "Journal Article; Case Reports",
       "urls": [
@@ -20804,7 +20808,10 @@
         "Veterinary"
       ],
       "institutions": [],
-      "species": [],
+      "species": [
+        "Dog",
+        "Cat"
+      ],
       "evidence": "Review / Editorial / Policy",
       "urls": [
         "https://pubmed.ncbi.nlm.nih.gov/14664199/"
@@ -33821,6 +33828,352 @@
       "cohortLinks": [],
       "added": "2026-11-02",
       "release": "adamantos-oxyglobin-review-20261102"
+    },
+    {
+      "id": "pub-feline-maldonado-moreno-2023-pima",
+      "title": "Clinical findings, treatment and outcome in cats diagnosed with precursor-targeted immune-mediated anaemia in a referral hospital in the UK: 30 cases (2010-2021)",
+      "year": "2023",
+      "authors": "Alba Maldonado-Moreno; Mayank Seth; Paola Monti; Rachel Miller",
+      "journal": "Veterinary Record Open",
+      "doi": "10.1002/vro2.70",
+      "pmid": "37645469",
+      "citation": "Maldonado-Moreno A, Seth M, Monti P, Miller R. Clinical findings, treatment and outcome in cats diagnosed with precursor-targeted immune-mediated anaemia in a referral hospital in the UK: 30 cases (2010-2021). Vet Rec Open. 2023;10(2):e70. doi:10.1002/vro2.70.",
+      "product": "Oxyglobin",
+      "keywords": "Feline evidence; Feline oxygen transport",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Retrospective clinical series",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/37645469/",
+        "https://doi.org/10.1002/vro2.70"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-maldonado-moreno-2023-pima",
+          "title": "Clinical findings, treatment and outcome in cats diagnosed with precursor-targeted immune-mediated anaemia in a referral hospital in the UK: 30 cases (2010-2021)",
+          "year": "2023",
+          "doi": "10.1002/vro2.70",
+          "pmid": "37645469"
+        }
+      ],
+      "originalVerification": "Primary bibliographic metadata verified",
+      "sourceReview": "PubMed or publisher title, DOI and complete authorship checked for this release. All five primary additions passed the live BHOC author stop-list check with no matches; that check is not a scientific-validity assessment. No treatment protocol or new quantitative efficacy claim is extracted in this catalogue update.",
+      "catalogue": "product",
+      "classificationBasis": "Retrospective series of 30 cats with precursor-targeted immune-mediated anaemia. Oxyglobin was used in a subset alongside other care. The entire cohort is not an Oxyglobin-treated cohort, and this was not a controlled trial of the carrier.",
+      "verification": "Primary bibliographic metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Retrospective series of 30 cats with precursor-targeted immune-mediated anaemia. Oxyglobin was used in a subset alongside other care. The entire cohort is not an Oxyglobin-treated cohort, and this was not a controlled trial of the carrier.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-barfield-adamantos-2011-transfusions",
+      "title": "Feline blood transfusions: A pinker shade of pale",
+      "year": "2011",
+      "authors": "Dominic Barfield; Sophie Adamantos",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "doi": "10.1016/j.jfms.2010.11.006",
+      "pmid": "21215945",
+      "citation": "Barfield D, Adamantos S. Feline blood transfusions: A pinker shade of pale. J Feline Med Surg. 2011;13(1):11-23. doi:10.1016/j.jfms.2010.11.006.",
+      "product": "",
+      "keywords": "Feline evidence; Feline oxygen transport",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Clinical review",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21215945/",
+        "https://doi.org/10.1016/j.jfms.2010.11.006"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-barfield-adamantos-2011-transfusions",
+          "title": "Feline blood transfusions: A pinker shade of pale",
+          "year": "2011",
+          "doi": "10.1016/j.jfms.2010.11.006",
+          "pmid": "21215945"
+        }
+      ],
+      "originalVerification": "Primary bibliographic metadata verified",
+      "sourceReview": "PubMed or publisher title, DOI and complete authorship checked for this release. All five primary additions passed the live BHOC author stop-list check with no matches; that check is not a scientific-validity assessment. No treatment protocol or new quantitative efficacy claim is extracted in this catalogue update.",
+      "catalogue": "related",
+      "classificationBasis": "Clinical review of feline transfusion practice, including historical discussion of haemoglobin-based oxygen carriers. This is clinical context, not a new Oxyglobin patient cohort or evidence of efficacy of a new BHOC formulation.",
+      "verification": "Primary bibliographic metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Clinical review of feline transfusion practice, including historical discussion of haemoglobin-based oxygen carriers. This is clinical context, not a new Oxyglobin patient cohort or evidence of efficacy of a new BHOC formulation.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-rebel-2002-cerebral-ischaemia",
+      "title": "Regional cerebral blood flow in cats with cross-linked hemoglobin transfusion during focal cerebral ischemia",
+      "year": "2002",
+      "authors": "Annette Rebel; John A Ulatowski; Karena Joung; Enrico Bucci; Richard J Traystman; Raymond C Koehler",
+      "journal": "American Journal of Physiology - Heart and Circulatory Physiology",
+      "doi": "10.1152/ajpheart.00880.2001",
+      "pmid": "11834476",
+      "citation": "Rebel A, Ulatowski JA, Joung K, Bucci E, Traystman RJ, Koehler RC. Regional cerebral blood flow in cats with cross-linked hemoglobin transfusion during focal cerebral ischemia. Am J Physiol Heart Circ Physiol. 2002;282(3):H832-H841. doi:10.1152/ajpheart.00880.2001.",
+      "product": "Tetrameric cross-linked haemoglobin (experimental formulation)",
+      "keywords": "Feline evidence; Feline oxygen transport",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Experimental animal study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/11834476/",
+        "https://doi.org/10.1152/ajpheart.00880.2001"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-rebel-2002-cerebral-ischaemia",
+          "title": "Regional cerebral blood flow in cats with cross-linked hemoglobin transfusion during focal cerebral ischemia",
+          "year": "2002",
+          "doi": "10.1152/ajpheart.00880.2001",
+          "pmid": "11834476"
+        }
+      ],
+      "originalVerification": "Primary bibliographic metadata verified",
+      "sourceReview": "PubMed or publisher title, DOI and complete authorship checked for this release. All five primary additions passed the live BHOC author stop-list check with no matches; that check is not a scientific-validity assessment. No treatment protocol or new quantitative efficacy claim is extracted in this catalogue update.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Experimental feline study of regional cerebral blood flow and oxygen transport during focal ischaemia. The carrier was a different cross-linked haemoglobin, not Oxyglobin. The study must not be represented as clinical evidence for Oxyglobin or BHOC.",
+      "verification": "Primary bibliographic metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Experimental feline study of regional cerebral blood flow and oxygen transport during focal ischaemia. The carrier was a different cross-linked haemoglobin, not Oxyglobin. The study must not be represented as clinical evidence for Oxyglobin or BHOC.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-rebel-2003-cerebrovascular-response",
+      "title": "Cerebrovascular response to decreased hematocrit: effect of cell-free hemoglobin, plasma viscosity, and CO2",
+      "year": "2003",
+      "authors": "Annette Rebel; John A Ulatowski; Herman Kwansa; Enrico Bucci; Raymond C Koehler",
+      "journal": "American Journal of Physiology - Heart and Circulatory Physiology",
+      "doi": "10.1152/ajpheart.00077.2003",
+      "pmid": "12816746",
+      "citation": "Rebel A, Ulatowski JA, Kwansa H, Bucci E, Koehler RC. Cerebrovascular response to decreased hematocrit: effect of cell-free hemoglobin, plasma viscosity, and CO2. Am J Physiol Heart Circ Physiol. 2003;285(4):H1600-H1608. doi:10.1152/ajpheart.00077.2003.",
+      "product": "Zero-link haemoglobin polymer (experimental formulation)",
+      "keywords": "Feline evidence; Feline oxygen transport",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Experimental animal study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/12816746/",
+        "https://doi.org/10.1152/ajpheart.00077.2003"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-rebel-2003-cerebrovascular-response",
+          "title": "Cerebrovascular response to decreased hematocrit: effect of cell-free hemoglobin, plasma viscosity, and CO2",
+          "year": "2003",
+          "doi": "10.1152/ajpheart.00077.2003",
+          "pmid": "12816746"
+        }
+      ],
+      "originalVerification": "Primary bibliographic metadata verified",
+      "sourceReview": "PubMed or publisher title, DOI and complete authorship checked for this release. All five primary additions passed the live BHOC author stop-list check with no matches; that check is not a scientific-validity assessment. No treatment protocol or new quantitative efficacy claim is extracted in this catalogue update.",
+      "catalogue": "oxygen",
+      "classificationBasis": "Experimental feline study of cerebrovascular responses to cell-free haemoglobin and plasma viscosity. A zero-link haemoglobin polymer was studied, not Oxyglobin. This is mechanistic physiology rather than evidence of clinical efficacy of BHOC.",
+      "verification": "Primary bibliographic metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Experimental feline study of cerebrovascular responses to cell-free haemoglobin and plasma viscosity. A zero-link haemoglobin polymer was studied, not Oxyglobin. This is mechanistic physiology rather than evidence of clinical efficacy of BHOC.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-taylor-2021-isfm-guidelines",
+      "title": "2021 ISFM Consensus Guidelines on the Collection and Administration of Blood and Blood Products in Cats",
+      "year": "2021",
+      "authors": "Samantha Taylor; Eva Spada; Mary Beth Callan; Rachel Korman; Ellie Leister; Paulo Steagall; Remo Lobetti; Mayank Seth; Séverine Tasker",
+      "journal": "Journal of Feline Medicine and Surgery",
+      "doi": "10.1177/1098612X211007071",
+      "pmid": "",
+      "citation": "Taylor S, Spada E, Callan MB, Korman R, Leister E, Steagall P, Lobetti R, Seth M, Tasker S. 2021 ISFM Consensus Guidelines on the Collection and Administration of Blood and Blood Products in Cats. J Feline Med Surg. 2021;23(5):410-432. doi:10.1177/1098612X211007071.",
+      "product": "",
+      "keywords": "Feline evidence; Feline oxygen transport",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Consensus guidelines",
+      "urls": [
+        "https://doi.org/10.1177/1098612X211007071",
+        "https://journals.sagepub.com/doi/10.1177/1098612X211007071"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-taylor-2021-isfm-guidelines",
+          "title": "2021 ISFM Consensus Guidelines on the Collection and Administration of Blood and Blood Products in Cats",
+          "year": "2021",
+          "doi": "10.1177/1098612X211007071",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "Primary bibliographic metadata verified",
+      "sourceReview": "PubMed or publisher title, DOI and complete authorship checked for this release. All five primary additions passed the live BHOC author stop-list check with no matches; that check is not a scientific-validity assessment. No treatment protocol or new quantitative efficacy claim is extracted in this catalogue update.",
+      "catalogue": "related",
+      "classificationBasis": "ISFM consensus guidance on feline blood and blood products. Included as transfusion-medicine context, not an independent Oxyglobin trial or evidence of BHOC efficacy. Read together with the publisher-linked corrigendum, DOI 10.1177/1098612X221149363.",
+      "verification": "Primary bibliographic metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "ISFM consensus guidance on feline blood and blood products. Included as transfusion-medicine context, not an independent Oxyglobin trial or evidence of BHOC efficacy. Read together with the publisher-linked corrigendum, DOI 10.1177/1098612X221149363.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-crystal-1999-no-matching-donor",
+      "title": "Blood loss and no matching donor",
+      "year": "1999",
+      "authors": "M A Crystal; J Mott; P Van der Veldt",
+      "journal": "Veterinary Forum",
+      "doi": "",
+      "pmid": "",
+      "citation": "Crystal MA, Mott J, Van der Veldt P. Blood loss and no matching donor. Veterinary Forum. 1999;16:72-73. [Citation transcribed from Weingart and Kohn, 2008; original not obtained.]",
+      "product": "",
+      "keywords": "Feline evidence; Feline oxygen transport; Historical bibliographic archive",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Archival bibliographic citation - original not reviewed",
+      "urls": [],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-crystal-1999-no-matching-donor",
+          "title": "Blood loss and no matching donor",
+          "year": "1999",
+          "doi": "",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "Bibliographic verification required",
+      "sourceReview": "Citation-only source: https://journals.sagepub.com/doi/10.1016/j.jfms.2007.10.012. No verified original article URL or DOI/PMID is available. Do not treat the citing article as the original case report.",
+      "catalogue": "related",
+      "classificationBasis": "Archival citation identified in the references of Weingart and Kohn (2008). The original report, complete author identities and formulation have not been independently verified. Retained for historical discovery only; not evidence of product efficacy.",
+      "verification": "Bibliographic verification required",
+      "recordType": "Archival bibliographic citation",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport",
+        "Historical bibliographic archive"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Archival citation identified in the references of Weingart and Kohn (2008). The original report, complete author identities and formulation have not been independently verified. Retained for historical discovery only; not evidence of product efficacy.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-feline-nolte-1999-acetaminophen",
+      "title": "Cyanosis from acetaminophen toxicosis",
+      "year": "1999",
+      "authors": "D M Nolte; A Crovatto",
+      "journal": "Veterinary Forum",
+      "doi": "",
+      "pmid": "",
+      "citation": "Nolte DM, Crovatto A. Cyanosis from acetaminophen toxicosis. Veterinary Forum. 1999;16:55-57. [Citation transcribed from Weingart and Kohn, 2008; original not obtained.]",
+      "product": "",
+      "keywords": "Feline evidence; Feline oxygen transport; Historical bibliographic archive",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Cat"
+      ],
+      "evidence": "Archival bibliographic citation - original not reviewed",
+      "urls": [],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "feline-nolte-1999-acetaminophen",
+          "title": "Cyanosis from acetaminophen toxicosis",
+          "year": "1999",
+          "doi": "",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "Bibliographic verification required",
+      "sourceReview": "Citation-only source: https://journals.sagepub.com/doi/10.1016/j.jfms.2007.10.012. No verified original article URL or DOI/PMID is available. Do not treat the citing article as the original case report.",
+      "catalogue": "related",
+      "classificationBasis": "Archival citation identified in the references of Weingart and Kohn (2008). The original report, complete author identities and formulation have not been independently verified. Retained for historical discovery only; not evidence of product efficacy.",
+      "verification": "Bibliographic verification required",
+      "recordType": "Archival bibliographic citation",
+      "topics": [
+        "Feline evidence",
+        "Feline oxygen transport",
+        "Historical bibliographic archive"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Archival citation identified in the references of Weingart and Kohn (2008). The original report, complete author identities and formulation have not been independently verified. Retained for historical discovery only; not evidence of product efficacy.",
+      "cohortLinks": [],
+      "added": "2026-11-03",
+      "release": "feline-catalogue-20261103"
     }
   ],
   "mergedRecords": [
