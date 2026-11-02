@@ -1,10 +1,10 @@
 {
   "checked": "2026-11-02",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 675,
-  "uniqueUrlsChecked": 986,
+  "publicRecords": 676,
+  "uniqueUrlsChecked": 988,
   "states": {
-    "matched": 969,
+    "matched": 971,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
@@ -10750,6 +10750,26 @@
           "state": "matched",
           "method": "Exact PMID, DOI and title matched against PubMed and publisher metadata; original full-text Methods reviewed",
           "sourceTitle": "Factors Affecting Intraoperative Blood Transfusion Requirements during Living Donor Liver Transplantation"
+        }
+      ]
+    },
+    "pub-doi-10-1136-inpract-27-8-399": {
+      "publicLinks": [
+        "https://doi.org/10.1136/inpract.27.8.399",
+        "https://bvajournals.onlinelibrary.wiley.com/doi/abs/10.1136/inpract.27.8.399"
+      ],
+      "checks": [
+        {
+          "url": "https://doi.org/10.1136/inpract.27.8.399",
+          "state": "matched",
+          "method": "DOI and full authorship verified through Crossref; publisher metadata and abstract checked; full text not reviewed",
+          "sourceTitle": "Clinical use of a haemoglobin-based oxygen-carrying solution in dogs and cats"
+        },
+        {
+          "url": "https://bvajournals.onlinelibrary.wiley.com/doi/abs/10.1136/inpract.27.8.399",
+          "state": "matched",
+          "method": "DOI and full authorship verified through Crossref; publisher metadata and abstract checked; full text not reviewed",
+          "sourceTitle": "Clinical use of a haemoglobin-based oxygen-carrying solution in dogs and cats"
         }
       ]
     }

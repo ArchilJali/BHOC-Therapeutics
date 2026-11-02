@@ -2235,6 +2235,44 @@
       "approval": "Archil authorized inclusion in the general oxygenation-support scientific context on 2 November 2026, separately from product evidence.",
       "release": "liver-transfusion-context-20261102",
       "cohortLinks": []
+    },
+    {
+      "id": "adamantos-2005-oxyglobin-clinical-review",
+      "title": "Clinical use of a haemoglobin-based oxygen-carrying solution in dogs and cats",
+      "year": "2005",
+      "authors": "Sophie Adamantos; Amanda Boag; Dez Hughes",
+      "journal": "In Practice",
+      "doi": "10.1136/inpract.27.8.399",
+      "pmid": "",
+      "product": "Oxyglobin (HBOC-301; Biopure)",
+      "topics": [
+        "Oxyglobin",
+        "Veterinary anemia",
+        "Clinical practice",
+        "Oxygen-carrying solutions"
+      ],
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [],
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "evidenceType": "Clinical practice review",
+      "catalogue": "product",
+      "metadataSources": [
+        "https://doi.org/10.1136/inpract.27.8.399",
+        "https://bvajournals.onlinelibrary.wiley.com/doi/abs/10.1136/inpract.27.8.399"
+      ],
+      "originalVerification": "Publisher bibliography and abstract verified; full text not reviewed",
+      "sourceReview": "Publisher metadata and abstract verified on 2 November 2026; Crossref confirms all three authors and the DOI. BHOC Source Guard found no author stop-list match; this is not a scientific-validity assessment. Full text remains unreviewed. No numerical treatment outcomes are extracted from the abstract. Discussion of cats does not establish a licensed feline indication.",
+      "catalogueSummary": "Clinical-practice review of historical Oxyglobin use in dogs and cats, discussing clinical applications and limitations from the authors' experience. This is a review, not an independent controlled efficacy trial. Bibliography and publisher abstract verified; full text not reviewed.",
+      "release": "adamantos-oxyglobin-review-20261102",
+      "citation": "Adamantos S, Boag A, Hughes D. Clinical use of a haemoglobin-based oxygen-carrying solution in dogs and cats. In Practice. 2005;27(8):399-405. doi:10.1136/inpract.27.8.399",
+      "datePublished": "2005-09-01",
+      "verified": "2026-11-02",
+      "requestedSource": "https://www.ovid.com/journals/ipcevp/abstract/10.1136/inpract.27.8.399~clinical-use-of-a-haemoglobinbased-oxygencarrying-solution?redirectionsource=fulltextview"
     }
   ]
 }

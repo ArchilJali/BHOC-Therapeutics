@@ -1,19 +1,19 @@
 {
   "updated": "2026-11-02",
   "total": {
-    "records": 675,
+    "records": 676,
     "groups": 11,
     "institutions": 180,
-    "journals": 220,
+    "journals": 221,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
   "views": {
     "product": {
-      "records": 204,
+      "records": 205,
       "groups": 10,
       "institutions": 101,
-      "journals": 97,
+      "journals": 98,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -34,10 +34,10 @@
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 294,
+      "records": 295,
       "groups": 10,
       "institutions": 168,
-      "journals": 133,
+      "journals": 134,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -58,25 +58,25 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 675,
+      "records": 676,
       "groups": 11,
       "institutions": 180,
-      "journals": 220,
+      "journals": 221,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 675,
+  "publicRecords": 676,
   "collectionTotals": {
-    "entries": 1025,
+    "entries": 1026,
     "collections": {
       "transplant": 65,
       "human": 195,
-      "veterinary": 294,
+      "veterinary": 295,
       "oxygen": 245,
       "related": 226
     },
-    "distinctRecordsInFiveCollections": 666,
+    "distinctRecordsInFiveCollections": 667,
     "repeatedPlacements": 359,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
@@ -89,13 +89,14 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 675
+    "distinctRecordsInFullLibrary": 676
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 32,
-    "displayedTotal": 994,
+    "newPublications": 33,
+    "displayedTotal": 995,
     "newRecordIds": [
+      "pub-doi-10-1136-inpract-27-8-399",
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",

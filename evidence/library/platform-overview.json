@@ -1,9 +1,10 @@
 {
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 32,
-    "displayedTotal": 994,
+    "newPublications": 33,
+    "displayedTotal": 995,
     "newRecordIds": [
+      "pub-doi-10-1136-inpract-27-8-399",
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",
@@ -39,15 +40,15 @@
     ]
   },
   "collectionTotals": {
-    "entries": 1025,
+    "entries": 1026,
     "collections": {
       "transplant": 65,
       "human": 195,
-      "veterinary": 294,
+      "veterinary": 295,
       "oxygen": 245,
       "related": 226
     },
-    "distinctRecordsInFiveCollections": 666,
+    "distinctRecordsInFiveCollections": 667,
     "repeatedPlacements": 359,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
@@ -60,21 +61,21 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 675
+    "distinctRecordsInFullLibrary": 676
   },
   "snapshot": "2026-11-02",
-  "uniquePublications": 675,
-  "hubPlacements": 554,
+  "uniquePublications": 676,
+  "hubPlacements": 555,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 180,
-  "normalizedJournalLabels": 220,
+  "normalizedJournalLabels": 221,
   "catalogues": {
-    "product": 204,
+    "product": 205,
     "oxygen": 245,
     "related": 226
   },
   "hubs": {
-    "veterinary": 294,
+    "veterinary": 295,
     "human": 195,
     "transplant": 65
   },
