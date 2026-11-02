@@ -1,0 +1,391 @@
+{
+  "release": "feline-catalogue-20261103",
+  "checked": "2026-11-03",
+  "requestedAdditions": 7,
+  "newPublications": 7,
+  "reusedGlobalRecords": 0,
+  "records": [
+    {
+      "recordId": "pub-feline-maldonado-moreno-2023-pima",
+      "title": "Clinical findings, treatment and outcome in cats diagnosed with precursor-targeted immune-mediated anaemia in a referral hospital in the UK: 30 cases (2010-2021)",
+      "status": "added",
+      "archive": false
+    },
+    {
+      "recordId": "pub-feline-barfield-adamantos-2011-transfusions",
+      "title": "Feline blood transfusions: A pinker shade of pale",
+      "status": "added",
+      "archive": false
+    },
+    {
+      "recordId": "pub-feline-rebel-2002-cerebral-ischaemia",
+      "title": "Regional cerebral blood flow in cats with cross-linked hemoglobin transfusion during focal cerebral ischemia",
+      "status": "added",
+      "archive": false
+    },
+    {
+      "recordId": "pub-feline-rebel-2003-cerebrovascular-response",
+      "title": "Cerebrovascular response to decreased hematocrit: effect of cell-free hemoglobin, plasma viscosity, and CO2",
+      "status": "added",
+      "archive": false
+    },
+    {
+      "recordId": "pub-feline-taylor-2021-isfm-guidelines",
+      "title": "2021 ISFM Consensus Guidelines on the Collection and Administration of Blood and Blood Products in Cats",
+      "status": "added",
+      "archive": false
+    },
+    {
+      "recordId": "pub-feline-crystal-1999-no-matching-donor",
+      "title": "Blood loss and no matching donor",
+      "status": "added",
+      "archive": true
+    },
+    {
+      "recordId": "pub-feline-nolte-1999-acetaminophen",
+      "title": "Cyanosis from acetaminophen toxicosis",
+      "status": "added",
+      "archive": true
+    }
+  ],
+  "corrections": [
+    {
+      "recordId": "pub-e14d170bfce1",
+      "before": {
+        "species": [],
+        "year": "2015"
+      },
+      "after": {
+        "species": [
+          "Cat"
+        ],
+        "year": "2016"
+      }
+    },
+    {
+      "recordId": "pub-b0353dd04373",
+      "before": {
+        "species": [],
+        "year": "2003"
+      },
+      "after": {
+        "species": [
+          "Dog",
+          "Cat"
+        ],
+        "year": "2003"
+      }
+    },
+    {
+      "recordId": "pub-d5203e982f9d",
+      "before": {
+        "species": [
+          "Feline",
+          "Ferret",
+          "9 ferrets"
+        ]
+      },
+      "after": {
+        "species": [
+          "Ferret"
+        ]
+      }
+    }
+  ],
+  "before": {
+    "audit": {
+      "updated": "2026-11-02",
+      "total": {
+        "records": 676,
+        "groups": 11,
+        "institutions": 180,
+        "journals": 221,
+        "groupField": "speciesGroups",
+        "groupLabel": "Species / model groups"
+      },
+      "views": {
+        "product": {
+          "records": 205,
+          "groups": 10,
+          "institutions": 101,
+          "journals": 98,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "oxygen": {
+          "records": 245,
+          "groups": 7,
+          "institutions": 17,
+          "journals": 49,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "related": {
+          "records": 226,
+          "groups": 9,
+          "institutions": 90,
+          "journals": 132,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "veterinary": {
+          "records": 295,
+          "groups": 10,
+          "institutions": 168,
+          "journals": 134,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "human": {
+          "records": 195,
+          "groups": 8,
+          "institutions": 78,
+          "journals": 93,
+          "groupField": "direction",
+          "groupLabel": "Therapeutic areas"
+        },
+        "transplant": {
+          "records": 65,
+          "groups": 6,
+          "institutions": 46,
+          "journals": 34,
+          "groupField": "organ",
+          "groupLabel": "Organ groups"
+        },
+        "all": {
+          "records": 676,
+          "groups": 11,
+          "institutions": 180,
+          "journals": 221,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        }
+      },
+      "publicRecords": 676,
+      "collectionTotals": {
+        "entries": 1026,
+        "collections": {
+          "transplant": 65,
+          "human": 195,
+          "veterinary": 295,
+          "oxygen": 245,
+          "related": 226
+        },
+        "distinctRecordsInFiveCollections": 667,
+        "repeatedPlacements": 359,
+        "additionalProductRecordIds": [
+          "pub-0fcfeb0c713c",
+          "pub-24a6e7c41bb5",
+          "pub-47e65a84da07",
+          "pub-4e860eb058ab",
+          "pub-50a2dfd1c1c0",
+          "pub-6a4c997ed6e9",
+          "pub-c14b2f7963d0",
+          "pub-e31201f2d3fc",
+          "pub-fa6f61740148"
+        ],
+        "distinctRecordsInFullLibrary": 676
+      },
+      "publicationCounter": {
+        "baseline": 962,
+        "newPublications": 33,
+        "displayedTotal": 995,
+        "newRecordIds": [
+          "pub-doi-10-1136-inpract-27-8-399",
+          "pub-muir-oc99-2014",
+          "pub-oxyglobin-berent-2005",
+          "pub-pmid-1111380",
+          "pub-pmid-11429355",
+          "pub-pmid-12522516",
+          "pub-pmid-12683610",
+          "pub-pmid-16857991",
+          "pub-pmid-17186846",
+          "pub-pmid-17991224",
+          "pub-pmid-18450494",
+          "pub-pmid-18835914",
+          "pub-pmid-19384199",
+          "pub-pmid-19430240",
+          "pub-pmid-19816963",
+          "pub-pmid-20193889",
+          "pub-pmid-21057038",
+          "pub-pmid-21356382",
+          "pub-pmid-23016811",
+          "pub-pmid-24612155",
+          "pub-pmid-24773100",
+          "pub-pmid-27471729",
+          "pub-pmid-28404245",
+          "pub-pmid-33872358",
+          "pub-pmid-34626100",
+          "pub-pmid-34672363",
+          "pub-pmid-35883821",
+          "pub-pmid-36837597",
+          "pub-pmid-3740627",
+          "pub-pmid-38815289",
+          "pub-pmid-39407836",
+          "pub-pmid-39748550",
+          "pub-pmid-40950573"
+        ]
+      },
+      "archivedIncompleteEntries": 48,
+      "duplicateIds": 0,
+      "duplicateDOIs": 0,
+      "duplicatePMIDs": 0,
+      "notes": "Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts."
+    },
+    "allRecords": 724,
+    "netAddedRecords": 342,
+    "feline": 12
+  },
+  "after": {
+    "audit": {
+      "updated": "2026-11-03",
+      "total": {
+        "records": 683,
+        "groups": 11,
+        "institutions": 180,
+        "journals": 224,
+        "groupField": "speciesGroups",
+        "groupLabel": "Species / model groups"
+      },
+      "views": {
+        "product": {
+          "records": 206,
+          "groups": 10,
+          "institutions": 101,
+          "journals": 99,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "oxygen": {
+          "records": 247,
+          "groups": 7,
+          "institutions": 17,
+          "journals": 50,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "related": {
+          "records": 230,
+          "groups": 9,
+          "institutions": 90,
+          "journals": 133,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "veterinary": {
+          "records": 302,
+          "groups": 10,
+          "institutions": 168,
+          "journals": 137,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        },
+        "human": {
+          "records": 195,
+          "groups": 8,
+          "institutions": 78,
+          "journals": 93,
+          "groupField": "direction",
+          "groupLabel": "Therapeutic areas"
+        },
+        "transplant": {
+          "records": 65,
+          "groups": 6,
+          "institutions": 46,
+          "journals": 34,
+          "groupField": "organ",
+          "groupLabel": "Organ groups"
+        },
+        "all": {
+          "records": 683,
+          "groups": 11,
+          "institutions": 180,
+          "journals": 224,
+          "groupField": "speciesGroups",
+          "groupLabel": "Species / model groups"
+        }
+      },
+      "publicRecords": 683,
+      "collectionTotals": {
+        "entries": 1039,
+        "collections": {
+          "transplant": 65,
+          "human": 195,
+          "veterinary": 302,
+          "oxygen": 247,
+          "related": 230
+        },
+        "distinctRecordsInFiveCollections": 674,
+        "repeatedPlacements": 365,
+        "additionalProductRecordIds": [
+          "pub-0fcfeb0c713c",
+          "pub-24a6e7c41bb5",
+          "pub-47e65a84da07",
+          "pub-4e860eb058ab",
+          "pub-50a2dfd1c1c0",
+          "pub-6a4c997ed6e9",
+          "pub-c14b2f7963d0",
+          "pub-e31201f2d3fc",
+          "pub-fa6f61740148"
+        ],
+        "distinctRecordsInFullLibrary": 683
+      },
+      "publicationCounter": {
+        "baseline": 962,
+        "newPublications": 40,
+        "displayedTotal": 1002,
+        "newRecordIds": [
+          "pub-doi-10-1136-inpract-27-8-399",
+          "pub-feline-barfield-adamantos-2011-transfusions",
+          "pub-feline-crystal-1999-no-matching-donor",
+          "pub-feline-maldonado-moreno-2023-pima",
+          "pub-feline-nolte-1999-acetaminophen",
+          "pub-feline-rebel-2002-cerebral-ischaemia",
+          "pub-feline-rebel-2003-cerebrovascular-response",
+          "pub-feline-taylor-2021-isfm-guidelines",
+          "pub-muir-oc99-2014",
+          "pub-oxyglobin-berent-2005",
+          "pub-pmid-1111380",
+          "pub-pmid-11429355",
+          "pub-pmid-12522516",
+          "pub-pmid-12683610",
+          "pub-pmid-16857991",
+          "pub-pmid-17186846",
+          "pub-pmid-17991224",
+          "pub-pmid-18450494",
+          "pub-pmid-18835914",
+          "pub-pmid-19384199",
+          "pub-pmid-19430240",
+          "pub-pmid-19816963",
+          "pub-pmid-20193889",
+          "pub-pmid-21057038",
+          "pub-pmid-21356382",
+          "pub-pmid-23016811",
+          "pub-pmid-24612155",
+          "pub-pmid-24773100",
+          "pub-pmid-27471729",
+          "pub-pmid-28404245",
+          "pub-pmid-33872358",
+          "pub-pmid-34626100",
+          "pub-pmid-34672363",
+          "pub-pmid-35883821",
+          "pub-pmid-36837597",
+          "pub-pmid-3740627",
+          "pub-pmid-38815289",
+          "pub-pmid-39407836",
+          "pub-pmid-39748550",
+          "pub-pmid-40950573"
+        ]
+      },
+      "archivedIncompleteEntries": 48,
+      "duplicateIds": 0,
+      "duplicateDOIs": 0,
+      "duplicatePMIDs": 0,
+      "notes": "Catalogue totals are mutually exclusive. Application views can overlap. Missing affiliation, journal and model labels are excluded from those facet counts."
+    },
+    "allRecords": 731,
+    "netAddedRecords": 349,
+    "feline": 20
+  },
+  "evidenceBoundary": "The feline filter counts bibliographic records, including two explicitly unverified archival citations; it is not a count of independent clinical trials."
+}

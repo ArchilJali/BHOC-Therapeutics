@@ -1,10 +1,17 @@
 {
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 33,
-    "displayedTotal": 995,
+    "newPublications": 40,
+    "displayedTotal": 1002,
     "newRecordIds": [
       "pub-doi-10-1136-inpract-27-8-399",
+      "pub-feline-barfield-adamantos-2011-transfusions",
+      "pub-feline-crystal-1999-no-matching-donor",
+      "pub-feline-maldonado-moreno-2023-pima",
+      "pub-feline-nolte-1999-acetaminophen",
+      "pub-feline-rebel-2002-cerebral-ischaemia",
+      "pub-feline-rebel-2003-cerebrovascular-response",
+      "pub-feline-taylor-2021-isfm-guidelines",
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",
@@ -40,16 +47,16 @@
     ]
   },
   "collectionTotals": {
-    "entries": 1026,
+    "entries": 1039,
     "collections": {
       "transplant": 65,
       "human": 195,
-      "veterinary": 295,
-      "oxygen": 245,
-      "related": 226
+      "veterinary": 302,
+      "oxygen": 247,
+      "related": 230
     },
-    "distinctRecordsInFiveCollections": 667,
-    "repeatedPlacements": 359,
+    "distinctRecordsInFiveCollections": 674,
+    "repeatedPlacements": 365,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -61,21 +68,21 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 676
+    "distinctRecordsInFullLibrary": 683
   },
-  "snapshot": "2026-11-02",
-  "uniquePublications": 676,
-  "hubPlacements": 555,
+  "snapshot": "2026-11-03",
+  "uniquePublications": 683,
+  "hubPlacements": 562,
   "evidenceHubs": 3,
   "indexedAuthorInstitutions": 180,
-  "normalizedJournalLabels": 221,
+  "normalizedJournalLabels": 224,
   "catalogues": {
-    "product": 205,
-    "oxygen": 245,
-    "related": 226
+    "product": 206,
+    "oxygen": 247,
+    "related": 230
   },
   "hubs": {
-    "veterinary": 295,
+    "veterinary": 302,
     "human": 195,
     "transplant": 65
   },

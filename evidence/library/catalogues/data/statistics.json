@@ -1,43 +1,43 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "total": {
-    "records": 676,
+    "records": 683,
     "groups": 11,
     "institutions": 180,
-    "journals": 221,
+    "journals": 224,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
   },
   "views": {
     "product": {
-      "records": 205,
+      "records": 206,
       "groups": 10,
       "institutions": 101,
-      "journals": 98,
+      "journals": 99,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "oxygen": {
-      "records": 245,
+      "records": 247,
       "groups": 7,
       "institutions": 17,
-      "journals": 49,
+      "journals": 50,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "related": {
-      "records": 226,
+      "records": 230,
       "groups": 9,
       "institutions": 90,
-      "journals": 132,
+      "journals": 133,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
     "veterinary": {
-      "records": 295,
+      "records": 302,
       "groups": 10,
       "institutions": 168,
-      "journals": 134,
+      "journals": 137,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -58,26 +58,26 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 676,
+      "records": 683,
       "groups": 11,
       "institutions": 180,
-      "journals": 221,
+      "journals": 224,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 676,
+  "publicRecords": 683,
   "collectionTotals": {
-    "entries": 1026,
+    "entries": 1039,
     "collections": {
       "transplant": 65,
       "human": 195,
-      "veterinary": 295,
-      "oxygen": 245,
-      "related": 226
+      "veterinary": 302,
+      "oxygen": 247,
+      "related": 230
     },
-    "distinctRecordsInFiveCollections": 667,
-    "repeatedPlacements": 359,
+    "distinctRecordsInFiveCollections": 674,
+    "repeatedPlacements": 365,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,14 +89,21 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 676
+    "distinctRecordsInFullLibrary": 683
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 33,
-    "displayedTotal": 995,
+    "newPublications": 40,
+    "displayedTotal": 1002,
     "newRecordIds": [
       "pub-doi-10-1136-inpract-27-8-399",
+      "pub-feline-barfield-adamantos-2011-transfusions",
+      "pub-feline-crystal-1999-no-matching-donor",
+      "pub-feline-maldonado-moreno-2023-pima",
+      "pub-feline-nolte-1999-acetaminophen",
+      "pub-feline-rebel-2002-cerebral-ischaemia",
+      "pub-feline-rebel-2003-cerebrovascular-response",
+      "pub-feline-taylor-2021-isfm-guidelines",
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
       "pub-pmid-1111380",
