@@ -150,6 +150,8 @@ JS=r'''/* Search is progressive enhancement; each publication page is crawlable 
 })();
 '''
 
+def serialized(s):
+    return chr(10).join(line.rstrip() for line in str(s).splitlines()).rstrip().replace('content="summary_large_image" name="twitter:card"','name="twitter:card" content="summary_large_image"')
 def fragment(source):return BeautifulSoup(source,'html.parser')
 def add_fragment(parent,source):
     for e in list(fragment(source).contents):parent.append(e)
@@ -226,10 +228,11 @@ for path in paths:
         for e in list(main.contents):wrapper.append(e.extract())
         main.append(wrapper)
     h1=main.find('h1');assert h1 is not None,path
+    if is_index:h1.string='Oxygen Delivery & Hemoglobin Carrier Research'
     anchor=h1.find_next_sibling()
     if not anchor or anchor.name!='p':anchor=h1
     summary=fragment('<section class="science-answer" aria-labelledby="science-key-answer"><h2 id="science-key-answer">'+html.escape(question)+'</h2><p>'+html.escape(answer)+'</p></section>').section
-    anchor.insert_after(summary)
+    if not is_index:anchor.insert_after(summary)
     if not is_index and 'nobel-' not in path.name:
         headings=[h for h in main.find_all('h2') if h is not summary.h2 and not h.find_parent('aside')]
         used={e.get('id') for e in s.select('[id]')}
@@ -274,7 +277,7 @@ for path in paths:
         add_fragment(main.select_one('.science-content'),'<nav class="science-related" aria-label="Related scientific evidence"><h2>Explore related science</h2><ul><li><a href="'+DIR+'">All scientific analyses</a></li>'+links+'<li><a href="/evidence/library/catalogues/related.html">Complete research catalogue</a></li></ul></nav><p class="science-revision">Page layout and discovery metadata updated <time datetime="'+DATE+'">3 November 2026</time>. Original scientific content and source links retained.</p>')
     after=semantic_fingerprint(main);lost=before-after
     assert not lost,(path,'Original scientific text changed',dict(lost))
-    path.write_text(str(s)+'\n')
+    path.write_text(serialized(s)+'\n')
     report.append({'path':str(path),'preserved_text_blocks':sum(before.values()),'title':title,'keywords':keywords,'canonical':url})
 
 # Real HTML pagination, with support for the previous ?page=2 address.
@@ -283,7 +286,7 @@ if not s.select_one('[data-science-feed]'):
     feed=s.select_one('.knowledge-card');cards=[e.extract() for e in list(feed.select('article.paper-card'))]
     assert len(cards)>=8,len(cards)
     for card in cards:
-        h=card.find('h3');a=next((a for a in card.select('.paper-links a[href]') if a['href'].startswith('/') and 'evidence.html#' not in a['href']),None)
+        h=card.find('h3');a=next((a for a in card.select('.paper-links a[href]') if a['href'].startswith('/')),None)
         if a and not h.find('a'):
             t=text(h);h.clear();link=s.new_tag('a',href=a['href']);link.string=t;h.append(link)
     total=len(cards);size=6;pages=(total+size-1)//size
@@ -308,12 +311,14 @@ if not s.select_one('[data-science-feed]'):
         url=BASE+DIR+('' if n==1 else 'page/'+str(n)+'/')
         if n>1:
             title='Oxygen Delivery Research — Page '+str(n)+' | BHOC Science';page.title.string=title
+            desc='Page '+str(n)+' of BHOC scientific analyses: prehospital transfusion, tissue oxygenation, oxygen delivery potency, nitric oxide and microcirculation research.'
+            meta(page,'description',desc);meta(page,'og:description',desc,True);meta(page,'twitter:description',desc)
             meta(page,'og:title',title,True);meta(page,'twitter:title',title);meta(page,'og:url',url,True)
             page.head.select_one('link[rel=canonical]')['href']=url
-            normalize_schema(page,url,title,DATA['index.html'][1],DATA['index.html'][2],True)
+            normalize_schema(page,url,title,desc,DATA['index.html'][2],True)
             page.h1.append(' — Page '+str(n))
         structured(page,'science-featured-schema',{'@context':'https://schema.org','@type':'ItemList','@id':url+'#featured','name':'Featured scientific analyses','numberOfItems':len(selected),'itemListElement':[{'@type':'ListItem','position':(n-1)*size+i+1,'name':text(c.h3),'url':BASE+c.h3.a['href']} for i,c in enumerate(selected) if c.h3.a]})
-        destination=p if n==1 else p.parent/'page'/str(n)/'index.html';destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(str(page)+'\n');snapshots.append((str(destination),url))
+        destination=p if n==1 else p.parent/'page'/str(n)/'index.html';destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(serialized(page)+'\n');snapshots.append((str(destination),url))
     report.append({'pagination':snapshots,'featured_articles':total,'page_size':size})
 
 Path('evidence/library/assets/science-20261103.css').parent.mkdir(parents=True,exist_ok=True)
