@@ -56,7 +56,7 @@ jobs:
           s=p.read_text()
           if 'def serialized(s):' not in s:
             s=s.replace('def fragment(source):', '''def serialized(s):
-              return str(s).replace('content="summary_large_image" name="twitter:card"','name="twitter:card" content="summary_large_image"')
+              return chr(10).join(line.rstrip() for line in str(s).splitlines()).rstrip().replace('content="summary_large_image" name="twitter:card"','name="twitter:card" content="summary_large_image"')
           def fragment(source):''')
             s=s.replace("path.write_text(str(s)+'\\n')", "path.write_text(serialized(s)+'\\n')")
             s=s.replace("destination.write_text(str(page)+'\\n')", "destination.write_text(serialized(page)+'\\n')")
