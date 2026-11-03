@@ -58,6 +58,9 @@ body[data-science-directory-layout="original-five"] .science-feed-page a:focus-v
 '''
 
 def soup(source):return BeautifulSoup(source,'html.parser')
+def text(node):
+    # Include TemplateString nodes: ordinary get_text() excludes template contents.
+    return node.get_text(' ',strip=True,types=None)
 def original_source():return subprocess.check_output(['git','show',ORIGINAL+':'+str(INDEX)],text=True)
 def serial(doc):
     out='\n'.join(line.rstrip() for line in str(doc).splitlines()).rstrip()+'\n'
@@ -73,7 +76,7 @@ def canonicalize_relative(node):
             if value and not value.startswith(('/', '#','http:','https:','mailto:','tel:','data:')):
                 el[attr]=urljoin(BASE+DIR,value).removeprefix(BASE)
 def record_fingerprints(doc):
-    return {x.get('id'):x.get_text(' ',strip=True) for x in doc.select('article.publication')}
+    return {x.get('id'):text(x) for x in doc.select('article.publication')}
 
 def migrate():
     before_hashes=article_hashes();old=soup(original_source());current=soup(INDEX.read_text())
@@ -110,7 +113,8 @@ def migrate():
             pager.append(a)
         schema=doc.select_one('#science-featured-schema');data=json.loads(schema.string)
         data['numberOfItems']=5
-        data['itemListElement']=[{'@type':'ListItem','position':(n-1)*5+i+1,'name':card.h3.get_text(' ',strip=True),'url':urljoin(BASE,card.h3.a['href'])} for i,card in enumerate(selected)]
+        data['itemListElement']=[{'@type':'ListItem','position':(n-1)*5+i+1,'name':text(card.h3),'url':urljoin(BASE,card.h3.a['href'])} for i,card in enumerate(selected)]
+        assert all(x['name'] for x in data['itemListElement'])
         schema.string=json.dumps(data,ensure_ascii=False,separators=(',',':'))
         assert record_fingerprints(doc)==records, 'Bibliography content must remain unchanged'
         assert old_metadata==[str(e) for e in doc.head.select('meta,link[rel=canonical],title')], 'Existing SEO metadata must stay intact'
@@ -127,8 +131,8 @@ def verify():
     server=ThreadingHTTPServer(('127.0.0.1',0),Quiet);Thread(target=server.serve_forever,daemon=True).start()
     origin='http://127.0.0.1:'+str(server.server_port)
     expected=soup(INDEX.read_text()).select_one('#science-all-articles').select('article.paper-card')
-    expected_titles=[c.h3.get_text(' ',strip=True) for c in expected]
-    assert len(expected_titles)==10
+    expected_titles=[text(c.h3) for c in expected]
+    assert len(expected_titles)==10 and all(expected_titles)
     metrics_js='''() => {const selectors=['main','.knowledge-hero','.knowledge-hero h1','.knowledge-grid','.knowledge-card','.paper-card h3','.science-side'];const out={};for(const selector of selectors){const el=document.querySelector(selector),cs=getComputedStyle(el);out[selector]={width:Math.round(el.getBoundingClientRect().width),fontSize:cs.fontSize,color:cs.color,background:cs.backgroundColor,padding:cs.padding,display:cs.display,gridTemplateColumns:cs.gridTemplateColumns};}return out;}'''
     results=[];before_metrics={};new_index=INDEX.read_text()
     with sync_playwright() as pw:
@@ -150,9 +154,10 @@ def verify():
                 page=ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
                 response=page.goto(origin+route,wait_until='networkidle');page.wait_for_selector('.bhoc-shell-header')
                 assert response.status==200
+                if width!=768:page.screenshot(path=str(OUT/f'restored-page{n}-{width}.png'))
                 assert page.locator('.science-cards .paper-card').count()==5
                 titles=page.locator('.science-cards .paper-card h3').all_text_contents()
-                assert [t.strip() for t in titles]==expected_titles[(n-1)*5:n*5]
+                assert [t.strip() for t in titles]==expected_titles[(n-1)*5:n*5],(titles,expected_titles[(n-1)*5:n*5])
                 assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
                 now=page.evaluate(metrics_js)
                 for selector,properties in before_metrics[width].items():
@@ -161,7 +166,6 @@ def verify():
                         assert now[selector][key]==value,(width,n,selector,key,value,now[selector][key])
                 assert not errors,errors
                 results.append({'width':width,'page':n,'visible_publications':5,'layout_matches_original':True,'javascript_errors':errors})
-                if width!=768:page.screenshot(path=str(OUT/f'restored-page{n}-{width}.png'))
                 page.close()
             ctx.close()
         ctx=browser.new_context();ctx.route(re.compile(r'https?://(?!127\.0\.0\.1)'),lambda route:route.abort())
