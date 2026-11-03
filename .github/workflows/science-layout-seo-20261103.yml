@@ -45,23 +45,33 @@ jobs:
               if not p.exists(): continue
               z.write(p)
               s=BeautifulSoup(p.read_text(),'html.parser')
-              main=s.find('main')
-              report.append({'path':str(p),'title':s.title.get_text() if s.title else '', 'h1':[h.get_text(' ',strip=True) for h in s.find_all('h1')], 'body_children':[(e.name,e.get('id'),e.get('class')) for e in s.body.children if getattr(e,'name',None)], 'main_children':[(e.name,e.get('id'),e.get('class')) for e in main.children if getattr(e,'name',None)] if main else [], 'stylesheets':[e.get('href') for e in s.select('link[rel=stylesheet]')], 'h2':[e.get_text(' ',strip=True) for e in s.find_all('h2')], 'scripts':[e.get('src') for e in s.find_all('script') if e.get('src')]})
-          out=json.dumps(report,indent=2,ensure_ascii=False)
-          Path('/tmp/bhoc-science/structure.json').write_text(out)
-          print(out)
+              report.append({'path':str(p),'title':s.title.get_text() if s.title else '', 'h1':[h.get_text(' ',strip=True) for h in s.find_all('h1')], 'stylesheets':[e.get('href') for e in s.select('link[rel=stylesheet]')], 'h2':[e.get_text(' ',strip=True) for e in s.find_all('h2')]})
+          Path('/tmp/bhoc-science/structure.json').write_text(json.dumps(report,indent=2))
           PY
-      - name: Apply Science layout and semantic metadata
+      - name: Finalize the source-preserving migration
         run: |
-          if test -f scripts/refresh_science_20261103.py; then
-            python scripts/refresh_science_20261103.py
-          fi
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/refresh_science_20261103.py')
+          s=p.read_text()
+          if 'def serialized(s):' not in s:
+            s=s.replace('def fragment(source):', '''def serialized(s):
+              return str(s).replace('content="summary_large_image" name="twitter:card"','name="twitter:card" content="summary_large_image"')
+          def fragment(source):''')
+            s=s.replace("path.write_text(str(s)+'\\n')", "path.write_text(serialized(s)+'\\n')")
+            s=s.replace("destination.write_text(str(page)+'\\n')", "destination.write_text(serialized(page)+'\\n')")
+            s=s.replace("h1=main.find('h1');assert h1 is not None,path", "h1=main.find('h1');assert h1 is not None,path\n    if is_index:h1.string='Oxygen Delivery & Hemoglobin Carrier Research'")
+            s=s.replace('    anchor.insert_after(summary)', '    if not is_index:anchor.insert_after(summary)')
+            s=s.replace(" and 'evidence.html#' not in a['href']", '')
+            s=s.replace("title='Oxygen Delivery Research — Page '+str(n)+' | BHOC Science';page.title.string=title", "title='Oxygen Delivery Research — Page '+str(n)+' | BHOC Science';page.title.string=title\n            desc='Page '+str(n)+' of BHOC scientific analyses: prehospital transfusion, tissue oxygenation, oxygen delivery potency, nitric oxide and microcirculation research.'\n            meta(page,'description',desc);meta(page,'og:description',desc,True);meta(page,'twitter:description',desc)")
+            s=s.replace("normalize_schema(page,url,title,DATA['index.html'][1],DATA['index.html'][2],True)","normalize_schema(page,url,title,desc,DATA['index.html'][2],True)")
+            p.write_text(s)
+          PY
+          python scripts/refresh_science_20261103.py
       - name: Validate rendered layouts and site integrity
         run: |
           set -o pipefail
-          if test -f scripts/check_science_layout_20261103.py; then
-            python scripts/check_science_layout_20261103.py 2>&1 | tee /tmp/bhoc-science/browser-checks.log
-          fi
+          python scripts/check_science_layout_20261103.py 2>&1 | tee /tmp/bhoc-science/browser-checks.log
           node scripts/check_bhoc_content.mjs 2>&1 | tee /tmp/bhoc-science/content-checks.log
           node scripts/check_site.mjs 2>&1 | tee /tmp/bhoc-science/site-checks.log
           git diff --check
@@ -69,7 +79,8 @@ jobs:
         run: |
           git config user.name 'BHOC site maintenance'
           git config user.email 'actions@users.noreply.github.com'
-          git add evidence/library/science/ evidence/library/assets/science-20261103.css evidence/library/assets/science-20261103.js science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html sitemap.xml evidence/library/sitemap.xml 2>/dev/null || git add evidence/library/science/ science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html
+          git add scripts/refresh_science_20261103.py evidence/library/science/ evidence/library/assets/science-20261103.css evidence/library/assets/science-20261103.js science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html
+          for p in sitemap.xml evidence/library/sitemap.xml; do if test -f "$p"; then git add "$p"; fi; done
           git diff --cached --stat | tee /tmp/bhoc-science/changed-files.txt
           if ! git diff --cached --quiet; then
             git commit -m 'Unify Science reading layout, topic metadata and source navigation'
