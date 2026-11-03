@@ -1,95 +1,79 @@
-name: Science layout and SEO review
+name: Science production verification
 on:
   push:
     branches: ['fix/science-layout-seo-20261103']
-    paths:
-      - '.github/workflows/science-layout-seo-20261103.yml'
-      - 'scripts/refresh_science_20261103.py'
-      - 'scripts/check_science_layout_20261103.py'
-      - 'evidence/library/assets/science-20261103.css'
-      - 'evidence/library/assets/science-20261103.js'
-  workflow_dispatch:
+    paths: ['.github/workflows/science-layout-seo-20261103.yml']
 permissions:
-  contents: write
-concurrency:
-  group: science-layout-seo-review
-  cancel-in-progress: true
+  contents: read
 jobs:
-  review:
-    if: github.ref == 'refs/heads/fix/science-layout-seo-20261103'
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          ref: main
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install HTML and browser verification tools
+      - name: Install verification tools
         run: |
           python -m pip install beautifulsoup4 playwright
           python -m playwright install --with-deps chromium
-      - name: Inspect the complete Science scope
+      - name: Verify current main after navigation integration
         run: |
           mkdir -p /tmp/bhoc-science
           python - <<'PY'
           from pathlib import Path
-          from bs4 import BeautifulSoup
-          import json, zipfile
-          paths = sorted(Path('evidence/library/science').glob('*.html'))
-          paths += [Path('science/rbc-unit-hemoglobin-dose-variability.html'), Path('science/hypoxic-rbc-storage-kidney-oxygen-delivery.html')]
-          report=[]
-          with zipfile.ZipFile('/tmp/bhoc-science/source-before.zip','w',zipfile.ZIP_DEFLATED) as z:
-            for p in paths:
-              if not p.exists(): continue
-              z.write(p)
-              s=BeautifulSoup(p.read_text(),'html.parser')
-              report.append({'path':str(p),'title':s.title.get_text() if s.title else '', 'h1':[h.get_text(' ',strip=True) for h in s.find_all('h1')], 'stylesheets':[e.get('href') for e in s.select('link[rel=stylesheet]')], 'h2':[e.get_text(' ',strip=True) for e in s.find_all('h2')]})
-          Path('/tmp/bhoc-science/structure.json').write_text(json.dumps(report,indent=2))
+          import zipfile
+          paths=list(Path('evidence/library/science').glob('*.html'))+[Path('science/rbc-unit-hemoglobin-dose-variability.html'),Path('science/hypoxic-rbc-storage-kidney-oxygen-delivery.html')]
+          with zipfile.ZipFile('/tmp/bhoc-science/source-before.zip','w') as z:
+            for p in paths:z.write(p)
           PY
-      - name: Finalize the source-preserving migration
+          python scripts/check_science_layout_20261103.py
+          node scripts/check_bhoc_content.mjs
+          node scripts/check_site.mjs
+      - name: Verify actual public domain
         run: |
           python - <<'PY'
           from pathlib import Path
-          p=Path('scripts/refresh_science_20261103.py')
-          s=p.read_text()
-          if 'def serialized(s):' not in s:
-            s=s.replace('def fragment(source):', '''def serialized(s):
-              return chr(10).join(line.rstrip() for line in str(s).splitlines()).rstrip().replace('content="summary_large_image" name="twitter:card"','name="twitter:card" content="summary_large_image"')
-          def fragment(source):''')
-            s=s.replace("path.write_text(str(s)+'\\n')", "path.write_text(serialized(s)+'\\n')")
-            s=s.replace("destination.write_text(str(page)+'\\n')", "destination.write_text(serialized(page)+'\\n')")
-            s=s.replace("h1=main.find('h1');assert h1 is not None,path", "h1=main.find('h1');assert h1 is not None,path\n    if is_index:h1.string='Oxygen Delivery & Hemoglobin Carrier Research'")
-            s=s.replace('    anchor.insert_after(summary)', '    if not is_index:anchor.insert_after(summary)')
-            s=s.replace(" and 'evidence.html#' not in a['href']", '')
-            s=s.replace("title='Oxygen Delivery Research — Page '+str(n)+' | BHOC Science';page.title.string=title", "title='Oxygen Delivery Research — Page '+str(n)+' | BHOC Science';page.title.string=title\n            desc='Page '+str(n)+' of BHOC scientific analyses: prehospital transfusion, tissue oxygenation, oxygen delivery potency, nitric oxide and microcirculation research.'\n            meta(page,'description',desc);meta(page,'og:description',desc,True);meta(page,'twitter:description',desc)")
-            s=s.replace("normalize_schema(page,url,title,DATA['index.html'][1],DATA['index.html'][2],True)","normalize_schema(page,url,title,desc,DATA['index.html'][2],True)")
-            p.write_text(s)
+          from playwright.sync_api import sync_playwright
+          import json
+          paths=sorted(Path('evidence/library/science').glob('*.html'))+[Path('evidence/library/science/page/2/index.html'),Path('science/rbc-unit-hemoglobin-dose-variability.html'),Path('science/hypoxic-rbc-storage-kidney-oxygen-delivery.html')]
+          results=[]
+          with sync_playwright() as pw:
+            browser=pw.chromium.launch()
+            for width in (390,1440):
+              ctx=browser.new_context(viewport={'width':width,'height':1000})
+              for path in paths:
+                page=ctx.new_page()
+                response=page.goto('https://bhoctherapeutics.com/'+str(path),wait_until='networkidle',timeout=45000)
+                page.wait_for_selector('.bhoc-shell-header')
+                result=page.evaluate('''() => ({url:location.href,width:innerWidth,scroll:document.documentElement.scrollWidth,mainWidth:document.querySelector('main').getBoundingClientRect().width,refresh:document.body.dataset.scienceRefresh,h1:document.querySelector('h1').textContent,css:[...document.styleSheets].map(s=>s.href).filter(Boolean)})''')
+                result['status']=response.status
+                assert result['status']==200,result
+                assert result['refresh']=='20261103',result
+                assert any('science-20261103.css' in u for u in result['css']),result
+                assert result['scroll']<=width+1,result
+                assert result['mainWidth']<=1180.5,result
+                if width==1440:assert result['mainWidth']>1100,result
+                results.append(result)
+                name=('index' if str(path)=='evidence/library/science/index.html' else 'page2' if '/page/2/' in str(path) else path.stem)
+                page.screenshot(path='/tmp/bhoc-science/live-'+name+'-'+str(width)+'.png')
+                page.close()
+              ctx.close()
+            ctx=browser.new_context();page=ctx.new_page()
+            page.goto('https://bhoctherapeutics.com/evidence/library/science/?page=2',wait_until='networkidle',timeout=45000)
+            assert '/science/page/2/' in page.url,page.url
+            assert page.locator('.science-cards .paper-card').count()==4
+            ctx.close();browser.close()
+          Path('/tmp/bhoc-science/live-verification.json').write_text(json.dumps({'result':'PASS','rendered_pages':len(results),'pages':results},indent=2))
+          print(json.dumps({'result':'PASS','rendered_pages':len(results),'legacy_page2':'PASS'},indent=2))
           PY
-          python scripts/refresh_science_20261103.py
-      - name: Validate rendered layouts and site integrity
-        run: |
-          set -o pipefail
-          python scripts/check_science_layout_20261103.py 2>&1 | tee /tmp/bhoc-science/browser-checks.log
-          node scripts/check_bhoc_content.mjs 2>&1 | tee /tmp/bhoc-science/content-checks.log
-          node scripts/check_site.mjs 2>&1 | tee /tmp/bhoc-science/site-checks.log
-          git diff --check
-      - name: Commit validated Science changes to review branch only
-        run: |
-          git config user.name 'BHOC site maintenance'
-          git config user.email 'actions@users.noreply.github.com'
-          git add scripts/refresh_science_20261103.py evidence/library/science/ evidence/library/assets/science-20261103.css evidence/library/assets/science-20261103.js science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html
-          for p in sitemap.xml evidence/library/sitemap.xml; do if test -f "$p"; then git add "$p"; fi; done
-          git diff --cached --stat | tee /tmp/bhoc-science/changed-files.txt
-          if ! git diff --cached --quiet; then
-            git commit -m 'Unify Science reading layout, topic metadata and source navigation'
-            git push origin HEAD:fix/science-layout-seo-20261103
-          fi
-      - name: Retain source, screenshots and validation reports
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: science-layout-seo-review
+          name: science-production-verification
           path: /tmp/bhoc-science/
           retention-days: 14
