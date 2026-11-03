@@ -1,0 +1,84 @@
+name: Science layout and SEO review
+on:
+  push:
+    branches: ['fix/science-layout-seo-20261103']
+    paths:
+      - '.github/workflows/science-layout-seo-20261103.yml'
+      - 'scripts/refresh_science_20261103.py'
+      - 'scripts/check_science_layout_20261103.py'
+      - 'evidence/library/assets/science-20261103.css'
+      - 'evidence/library/assets/science-20261103.js'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: science-layout-seo-review
+  cancel-in-progress: true
+jobs:
+  review:
+    if: github.ref == 'refs/heads/fix/science-layout-seo-20261103'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install HTML and browser verification tools
+        run: |
+          python -m pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+      - name: Inspect the complete Science scope
+        run: |
+          mkdir -p /tmp/bhoc-science
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import json, zipfile
+          paths = sorted(Path('evidence/library/science').glob('*.html'))
+          paths += [Path('science/rbc-unit-hemoglobin-dose-variability.html'), Path('science/hypoxic-rbc-storage-kidney-oxygen-delivery.html')]
+          report=[]
+          with zipfile.ZipFile('/tmp/bhoc-science/source-before.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in paths:
+              if not p.exists(): continue
+              z.write(p)
+              s=BeautifulSoup(p.read_text(),'html.parser')
+              main=s.find('main')
+              report.append({'path':str(p),'title':s.title.get_text() if s.title else '', 'h1':[h.get_text(' ',strip=True) for h in s.find_all('h1')], 'body_children':[(e.name,e.get('id'),e.get('class')) for e in s.body.children if getattr(e,'name',None)], 'main_children':[(e.name,e.get('id'),e.get('class')) for e in main.children if getattr(e,'name',None)] if main else [], 'stylesheets':[e.get('href') for e in s.select('link[rel=stylesheet]')], 'h2':[e.get_text(' ',strip=True) for e in s.find_all('h2')], 'scripts':[e.get('src') for e in s.find_all('script') if e.get('src')]})
+          out=json.dumps(report,indent=2,ensure_ascii=False)
+          Path('/tmp/bhoc-science/structure.json').write_text(out)
+          print(out)
+          PY
+      - name: Apply Science layout and semantic metadata
+        run: |
+          if test -f scripts/refresh_science_20261103.py; then
+            python scripts/refresh_science_20261103.py
+          fi
+      - name: Validate rendered layouts and site integrity
+        run: |
+          set -o pipefail
+          if test -f scripts/check_science_layout_20261103.py; then
+            python scripts/check_science_layout_20261103.py 2>&1 | tee /tmp/bhoc-science/browser-checks.log
+          fi
+          node scripts/check_bhoc_content.mjs 2>&1 | tee /tmp/bhoc-science/content-checks.log
+          node scripts/check_site.mjs 2>&1 | tee /tmp/bhoc-science/site-checks.log
+          git diff --check
+      - name: Commit validated Science changes to review branch only
+        run: |
+          git config user.name 'BHOC site maintenance'
+          git config user.email 'actions@users.noreply.github.com'
+          git add evidence/library/science/ evidence/library/assets/science-20261103.css evidence/library/assets/science-20261103.js science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html sitemap.xml evidence/library/sitemap.xml 2>/dev/null || git add evidence/library/science/ science/rbc-unit-hemoglobin-dose-variability.html science/hypoxic-rbc-storage-kidney-oxygen-delivery.html
+          git diff --cached --stat | tee /tmp/bhoc-science/changed-files.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'Unify Science reading layout, topic metadata and source navigation'
+            git push origin HEAD:fix/science-layout-seo-20261103
+          fi
+      - name: Retain source, screenshots and validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: science-layout-seo-review
+          path: /tmp/bhoc-science/
+          retention-days: 14
