@@ -1,0 +1,60 @@
+name: Restore Science directory and five-item pagination
+on:
+  push:
+    branches: ['fix/science-directory-restore-five-20261103']
+    paths:
+      - '.github/workflows/restore-science-directory-five.yml'
+      - 'scripts/restore_science_directory_20261103.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: restore-science-directory-five
+  cancel-in-progress: true
+jobs:
+  restore:
+    if: github.ref == 'refs/heads/fix/science-directory-restore-five-20261103'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install verification tools
+        run: |
+          python -m pip install beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium
+      - name: Restore only the directory and verify original appearance
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/science-directory-restore
+          python scripts/restore_science_directory_20261103.py | tee /tmp/science-directory-restore/migration.log
+          python scripts/restore_science_directory_20261103.py verify | tee /tmp/science-directory-restore/browser.log
+          node scripts/check_bhoc_content.mjs | tee /tmp/science-directory-restore/content.log
+          node scripts/check_site.mjs | tee /tmp/science-directory-restore/site.log
+          git diff --check
+          python - <<'PY'
+          import subprocess
+          allowed={'evidence/library/science/index.html','evidence/library/science/page/2/index.html','evidence/library/assets/science-directory-five-20261103.js'}
+          changed=set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          assert changed<=allowed,changed-allowed
+          PY
+      - name: Commit validated directory changes only
+        run: |
+          git config user.name 'BHOC site maintenance'
+          git config user.email 'actions@users.noreply.github.com'
+          git add evidence/library/science/index.html evidence/library/science/page/2/index.html evidence/library/assets/science-directory-five-20261103.js
+          git diff --cached --stat | tee /tmp/science-directory-restore/changed-files.txt
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore original Science directory visual; display five publications per page'
+            git push origin HEAD:fix/science-directory-restore-five-20261103
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: science-directory-restored-five
+          path: /tmp/science-directory-restore/
+          retention-days: 14
