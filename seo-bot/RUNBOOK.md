@@ -1,0 +1,41 @@
+# BHOC Therapeutics — Web SEO
+
+Created at the owner's request on 4 November 2026. This is the separate human/corporate-site research and audit bot. It does not replace the Vet, Transplant or weekly AIO tasks.
+
+## Scope and authorization
+
+Target: https://bhoctherapeutics.com and ArchilJali/BHOC-Therapeutics. Working branch: preview/therapeutics-web-seo-20261104. Reports to the owner in Russian; public drafts in English. Respect the current root AGENTS.md, README and all applicable path rules. The approved master is seo/BHOC-SEO-Keywords.md; seo/page-keyword-map.md defines routing. Do not create a second authoritative keyword master. The seed expansion and research snapshots are unapproved candidates, not publication instructions.
+
+The initial task authorizes research, technical auditing, preparation of content and bounded change proposals. Root repository rules require explicit owner approval before merging main. Therefore automatic production publication is OFF. Do not merge main, change live HTML, approved scientific paragraphs, source baselines, domain settings, permissions, subscriptions, credentials or other bots. The intentionally closed artificial-blood chapter stays closed. Never call a preview commit a publication.
+
+## Persistent workflow
+
+Read this runbook, current main rules/master/map, preview seed expansion, latest task history and latest Actions audit artifacts. Read before writing; use the latest file SHA or branch lease. Existing owner changes win; reconcile rather than overwrite. Keep private contacts, unpublished business information and source-stop-list identities out of this public repository.
+
+The read-only workflow .github/workflows/therapeutics-web-seo.yml is installed on this preview branch. It checks current main and published pages, not preview website content. A meaningful update under seo-bot/ triggers a fresh run. Do not create empty commits or recurring duplicate logs just to generate activity. Check the actual latest run and its artifacts; never reuse a remembered run ID as though current. The initial successful run observed on 4 November was 41791114676, source main dc6b18acf9672d3362e07e6e9eda6006faaf5da1. Initial artifact: bhoc-therapeutics-seo-audit. Run IDs and current branch heads must be read afresh.
+
+Audit scope must be explicit. The initial live audit covered all 78 URLs in the root sitemap, not every evidence-library URL. It also parsed 158 source HTML files. robots.txt advertises a second sitemap at /evidence/library/sitemap.xml: inspect it during expanded audits and deduplicate overlaps. A source check is not a live HTTP check. A metadata check is not Google indexing, rankings, backlinks, AI citations or Core Web Vitals. Preserve exact check times, source SHA, errors and coverage. Check redirects, canonical targets, noindex, H1, metadata duplicates, internal references, image alt/dimensions and JSON-LD syntax. Valid JSON does not mean all rich-result requirements are satisfied. Missing optional markup is an enhancement, not a critical failure.
+
+## Keyword research
+
+Cover both broad educational intent and specific professional questions. Rotate these families: BHOC definition and terminology; hemoglobin, affinity, P50, Bohr/Haldane; saturation/content/delivery and measurement; microcirculation and diffusion; anemia; Patient Blood Management; compatibility and transfusion context; donor blood availability; cold chain and logistics; EMS/HEMS; hemorrhage, shock and oxygen debt; military/disaster medical logistics; rural/humanitarian care; PPH; sickle cell disease; perioperative care; red-cell function and storage; sepsis/endothelium; ischemia/reperfusion; cardiac ischemia and post-resuscitation research; extracorporeal oxygen transport; cellular metabolism, mitochondria and HIF; tumor hypoxia; renal anemia; wound-healing, cerebral-perfusion and aging research; safety, evidence methods and institutional collaboration.
+
+Broad terms are context, not automatically attractive targets. Specific queries may be useful without measured high volume. Add 5–15 genuinely distinct candidates in a routine cycle when justified, not a quota. Consolidate synonyms, spelling variants and questions that share an intent. One useful page may serve many queries. Prefer improving an existing canonical page over adding a thin duplicate. Do not scrape Google SERPs or autocomplete through unofficial automated clients. Use authorized search, the site, institutional terminology and primary publications. Clearly label a phrase as an editorial candidate, source-observed vocabulary or a measured query; these are different things.
+
+Every record needs phrase, cluster, intent, owner domain, priority rationale, existing/planned URL, source URL and scope, date and status. Use null for unmeasured volume, difficulty, rankings, impressions, clicks and conversions; never zero. Do not describe broad/niche as measured high/low frequency. P1/P2/P3 is editorial priority, not keyword difficulty. Do not total keyword volumes across overlapping intents or promise traffic.
+
+Respect exclusions in the master, including the two prohibited positioning phrases. Ambiguous acronyms such as SCA need expansion and context. Historical artificial-blood/blood-substitute language may be discussed to clarify terminology, not used as BHOC product positioning. Research content must not become a finder, purchase guide, dosing guide, preparation/manufacturing protocol or self-administration advice for investigational medicines. Exclude such access/use queries from expansion.
+
+Detailed veterinary/species content belongs to bhocvet.com; detailed organ preservation, machine perfusion and transplantation content belongs to bhoctransplant.com. Main-site summaries link to the best relevant page after its live URL is verified. The main homepage of another domain is a routing placeholder, not proof of complete coverage. Do not change those sites. Preserve the evidence library's canonical source and mirroring workflow; do not edit a mirror as though authoritative.
+
+## Scientific and editorial review
+
+BHOC means Biological Hemoglobin Oxygen Carrier within Precision Oxygen Therapeutics. Read the live BHOC Source Guard rules before scientific analysis, and screen all evidentiary publications with full authorship. A stop-list is an owner eligibility rule, not proof of misconduct. Institutional educational vocabulary establishes topical relevance, not BHOC efficacy. Keep preprints, hypotheses, animal/in vitro studies, historical formulations and current product-specific data distinct. Preserve negative findings and limitations. No invented approval, availability, compatibility, therapeutic superiority, safety, survival, cancer/dementia cure, anti-aging or rehabilitation benefit. Do not provide individual medical advice or clinical procedures.
+
+Prepare one substantive next improvement with its intended reader question, existing ownership, outline, verified sources, title/description proposals, contextual incoming/outgoing links and factual-review status. Do not fill a publication quota. No arbitrary word-count target or keyword-density target. Proposed changes remain draft/preview until required review and approval. A new source does not automatically enter the approved BHOC evidence catalogue.
+
+## Measurement and reporting
+
+Ahrefs returned Insufficient plan on the initial check. Do not repeatedly retry or ask the owner to upgrade; research proceeds independently. Search Console has not been measured in this bot. Only use metrics from a verified accessible account/export. Weekly AIO monitoring already exists; do not create another. Ordinary web discoverability is not an AI mention/SoV measurement. Google does not require special AI files or markup; focus on crawlable original content, evidence, attribution, internal links and actual user questions.
+
+Save exact newly completed work and concrete blockers. Report a short Russian result: new distinct candidates, reviewed/drafted material, audited scope, genuine new issues, production-change count and next action. Report no changes when none occurred. Never claim a native Sites panel, live publication, indexing, ranking or conversion that was not observed. No emails, outreach, social posting, billing changes or new automations from routine runs.
