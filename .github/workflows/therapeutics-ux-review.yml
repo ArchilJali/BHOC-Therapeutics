@@ -1,0 +1,162 @@
+name: BHOC Therapeutics Live SEO and UX Review
+on:
+  workflow_dispatch:
+  push:
+    branches: ['preview/therapeutics-web-seo-20261104']
+    paths:
+      - '.github/workflows/therapeutics-ux-review.yml'
+      - 'seo-bot/UX-REQUEST.md'
+permissions:
+  contents: read
+concurrency:
+  group: therapeutics-ux-review
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Install isolated inspection tools
+        run: |
+          python -m pip install playwright beautifulsoup4
+          python -m playwright install --with-deps chromium
+      - name: Inspect public pages without modifying production
+        run: |
+          mkdir -p output/screenshots output/sources output/live
+          python - <<'PY'
+          import concurrent.futures, collections, datetime, hashlib, json, re, shutil, subprocess, urllib.request, urllib.error, urllib.parse, urllib.robotparser, xml.etree.ElementTree as ET
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from playwright.sync_api import sync_playwright
+          BASE='https://bhoctherapeutics.com'
+          OUT=Path('output')
+          NOW=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          UA='BHOC-Owner-SEO-UX-Audit/1.0'
+          main_sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          for name in ['AGENTS.md','README.md','seo/BHOC-SEO-Keywords.md','seo/page-keyword-map.md','homepage.css','unified-shell.css','unified-shell.js','assets/ga4.js']:
+              p=Path(name)
+              if p.is_file():
+                  dest=OUT/'sources'/name;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,dest)
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,req,fp,code,msg,headers,newurl):
+                  p=urllib.parse.urlsplit(newurl)
+                  if p.scheme!='https' or p.hostname not in ('bhoctherapeutics.com','www.bhoctherapeutics.com') or p.username:
+                      raise urllib.error.HTTPError(req.full_url,code,'Out-of-scope redirect',headers,fp)
+                  return super().redirect_request(req,fp,code,msg,headers,newurl)
+          def get(url):
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':UA})
+                  with urllib.request.build_opener(SafeRedirect()).open(req,timeout=25) as r:
+                      return r.status,r.read(4000000).decode('utf-8','replace'),r.url,r.headers.get('X-Robots-Tag','')
+              except urllib.error.HTTPError as e:return e.code,'',url,str(e)
+              except Exception as e:return None,'',url,type(e).__name__+': '+str(e)
+          rs,rt,_,_=get(BASE+'/robots.txt')
+          rp=urllib.robotparser.RobotFileParser();rp.parse(rt.splitlines())
+          (OUT/'robots.txt').write_text(rt)
+          maps={};urls=set()
+          for route in ['/sitemap.xml','/evidence/library/sitemap.xml']:
+              status,body,_,err=get(BASE+route);found=[]
+              if status==200:
+                  try:
+                      root=ET.fromstring(body)
+                      found=[e.text for e in root.findall('.//{*}loc') if e.text and urllib.parse.urlsplit(e.text).hostname=='bhoctherapeutics.com']
+                      urls.update(found)
+                  except Exception as e:err=str(e)
+              maps[route]={'status':status,'urls':found,'error':err if status!=200 else None}
+          pages_html={}
+          def audit(url):
+              if rs==200 and not rp.can_fetch(UA,url):return {'url':url,'status':None,'issues':['robots_disallow']}
+              status,body,final,err=get(url)
+              d={'url':url,'status':status,'final_url':final,'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'issues':[]}
+              if status!=200:d.update(error=err);d['issues'].append('fetch_or_http');return d
+              pages_html[url]=body
+              s=BeautifulSoup(body,'html.parser')
+              def metas(name):return [x.get('content','') for x in s.find_all('meta',attrs={'name':name})]
+              title=s.title.get_text(' ',strip=True) if s.title else ''
+              desc=metas('description');canon=[x.get('href','') for x in s.find_all('link',rel='canonical')]
+              h1=[h.get_text(' ',strip=True) for h in s.find_all('h1')]
+              robots=metas('robots')+metas('googlebot')+[err]
+              yandex=metas('yandex')
+              imgs=s.find_all('img')
+              badjson=0;blocks=s.find_all('script',type='application/ld+json')
+              for b in blocks:
+                  try:json.loads(b.get_text())
+                  except Exception:badjson+=1
+              main=s.find('main') or s.body or s
+              text=main.get_text(' ',strip=True)
+              d.update(title=title,description=desc,canonical=canon,h1=h1,robots=robots,yandex=yandex,word_count=len(text.split()),jsonld_blocks=len(blocks),invalid_jsonld=badjson,images=len(imgs),missing_alt=sum(not i.has_attr('alt') for i in imgs),empty_alt=sum(i.get('alt')=='' for i in imgs),missing_image_dimensions=sum(not(i.get('width') and i.get('height')) for i in imgs),internal_links=[{'url':urllib.parse.urljoin(url,a.get('href','')),'text':a.get_text(' ',strip=True)} for a in s.find_all('a',href=True) if urllib.parse.urlsplit(urllib.parse.urljoin(url,a['href'])).hostname=='bhoctherapeutics.com'])
+              if not title:d['issues'].append('missing_title')
+              if not any(desc):d['issues'].append('missing_description')
+              if canon!=[url]:d['issues'].append('canonical_review')
+              if len(h1)!=1:d['issues'].append('h1_count')
+              if 'noindex' in ' '.join(robots).lower():d['issues'].append('noindex')
+              if badjson:d['issues'].append('invalid_jsonld')
+              return d
+          checked_urls=sorted(urls)[:250]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:pages=list(pool.map(audit,checked_urls))
+          duplicate_groups={}
+          for field in ['title','description']:
+              group=collections.defaultdict(list)
+              for d in pages:
+                  v=d.get(field,'');v=' '.join(v) if isinstance(v,list) else v
+                  if v:group[v.casefold()].append(d['url'])
+              duplicate_groups[field]=[v for v in group.values() if len(v)>1]
+          broken_anchors=[]
+          for d in pages:
+              for a in d.get('internal_links',[]):
+                  parsed=urllib.parse.urlsplit(a['url']);frag=urllib.parse.unquote(parsed.fragment)
+                  target=urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,parsed.query,''))
+                  if frag and target in pages_html:
+                      soup=BeautifulSoup(pages_html[target],'html.parser')
+                      if not soup.find(id=frag) and not soup.find('a',attrs={'name':frag}):
+                          broken_anchors.append({'source':d['url'],'target':a['url'],'anchor_text':a['text']})
+          visual=[]
+          routes=['/','/bhoc/','/science/','/applications/','/partners/','/contact/','/news/']
+          with sync_playwright() as p:
+              browser=p.chromium.launch()
+              for mode,w,h in [('desktop',1440,1000),('mobile',390,844)]:
+                  context=browser.new_context(viewport={'width':w,'height':h},device_scale_factor=1,is_mobile=(mode=='mobile'),has_touch=(mode=='mobile'),user_agent=UA)
+                  for route in routes:
+                      slug=route.strip('/').replace('/','-') or 'home'
+                      page=context.new_page();errors=[]
+                      page.on('pageerror',lambda exc: errors.append(str(exc)))
+                      try:
+                          response=page.goto(BASE+route,wait_until='networkidle',timeout=45000)
+                          page.wait_for_timeout(900)
+                          data=page.evaluate('''() => {
+                            const rect=e=>{if(!e)return null;const r=e.getBoundingClientRect();const s=getComputedStyle(e);return {text:e.innerText?.trim().slice(0,180),top:Math.round(r.top),bottom:Math.round(r.bottom),height:Math.round(r.height),width:Math.round(r.width),fontSize:s.fontSize,visible:s.display!=="none"&&s.visibility!=="hidden"&&r.height>0}};
+                            return {title:document.title,viewport:innerWidth,scrollWidth:document.documentElement.scrollWidth,scrollHeight:document.documentElement.scrollHeight,h1:rect(document.querySelector("h1")),header:rect(document.querySelector("header")),main:rect(document.querySelector("main")),actions:[...document.querySelectorAll("main a")].filter(e=>e.matches(".home-button,.button,.btn")||/contact|partner|research|evidence|science/i.test(e.innerText)).slice(0,25).map(e=>({...rect(e),href:e.getAttribute("href")})),brokenImages:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.getAttribute("src")),forms:[...document.forms].map(f=>({action:f.action,fields:[...f.elements].map(e=>({name:e.name,type:e.type,required:e.required}))}))};
+                          }''')
+                          data.update(url=BASE+route,mode=mode,status=response.status if response else None,checked_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),js_errors=errors)
+                          page.screenshot(path=str(OUT/'screenshots'/f'{slug}-{mode}-top.png'))
+                          page.screenshot(path=str(OUT/'screenshots'/f'{slug}-{mode}-full.jpg'),full_page=True,type='jpeg',quality=65)
+                          (OUT/'live'/f'{slug}-{mode}.txt').write_text(page.locator('body').inner_text())
+                          if mode=='desktop':(OUT/'live'/f'{slug}.html').write_text(page.content())
+                          visual.append(data)
+                      except Exception as e:visual.append({'url':BASE+route,'mode':mode,'error':type(e).__name__+': '+str(e)})
+                      finally:page.close()
+                  context.close()
+              browser.close()
+          checks=[]
+          for command in [['node','scripts/check_bhoc_content.mjs'],['node','scripts/check_site.mjs'],['node','--check','navigation-context.js'],['git','diff','--check']]:
+              try:
+                  r=subprocess.run(command,capture_output=True,text=True,timeout=90)
+                  checks.append({'command':' '.join(command),'returncode':r.returncode,'stdout':r.stdout,'stderr':r.stderr})
+              except Exception as e:checks.append({'command':' '.join(command),'error':str(e)})
+          summary={'checked_at':NOW,'source_main_sha':main_sha,'sitemaps':{k:{'status':v['status'],'count':len(v['urls'])} for k,v in maps.items()},'unique_urls_discovered':len(urls),'unique_urls_checked':len(pages),'http_counts':dict(collections.Counter(str(d.get('status')) for d in pages)),'issue_counts':dict(collections.Counter(i for d in pages for i in d['issues'])),'duplicate_title_groups':len(duplicate_groups['title']),'duplicate_description_groups':len(duplicate_groups['description']),'missing_alt_total':sum(d.get('missing_alt',0) for d in pages),'missing_image_dimensions_total':sum(d.get('missing_image_dimensions',0) for d in pages),'yandex_noindex_pages':sum('noindex' in ' '.join(d.get('yandex',[])).lower() for d in pages),'broken_internal_anchor_occurrences':len(broken_anchors),'visual_tests':len(visual),'visual_errors':sum(bool(d.get('error')) for d in visual),'overflow':[{k:d.get(k) for k in ['url','mode','viewport','scrollWidth']} for d in visual if d.get('scrollWidth',0)>d.get('viewport',0)+1],'production_changes':0,'limitations':['Read-only source and rendered-page audit; no Google indexing, rankings, search volume, analytics conversions or field Core Web Vitals measured.','No clinical efficacy review. Metadata issue absence is not a complete quality assessment.']}
+          for name,data in [('summary.json',summary),('pages.json',pages),('visual.json',visual),('sitemaps.json',maps),('duplicates.json',duplicate_groups),('anchors.json',broken_anchors),('checks.json',checks)]:
+              (OUT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2))
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          print('VISUAL_KEY_RESULTS',json.dumps([{k:d.get(k) for k in ['url','mode','status','h1','header','scrollHeight','brokenImages','error']} for d in visual],ensure_ascii=False))
+          print('REPOSITORY_CHECKS',json.dumps([{k:d.get(k) for k in ['command','returncode','error']} for d in checks]))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bhoc-therapeutics-seo-ux-review
+          path: output/
+          retention-days: 30
