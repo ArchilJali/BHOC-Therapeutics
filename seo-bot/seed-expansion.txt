@@ -1,0 +1,80 @@
+# Research-only semantic seed expansion — 4 November 2026
+# NOT measured Google queries, NOT the authoritative master, NOT clinical recommendations.
+# Merge/deduplicate against seo/BHOC-SEO-Keywords.md and seo/page-keyword-map.md before use.
+# Full initial research snapshot in the owner's conversation: 957 retained/editorial candidates,
+# 821 main-site, 118 Transplant-routed, 18 Vet-routed. Counts are dated, not future invariants.
+# This compact bank contains examples for the next cycles, not a copy of every snapshot row.
+# Exclude drug purchase/access/use/dosing/manufacture queries, unsupported product claims,
+# standalone ambiguous acronyms, and the master's excluded positioning phrases.
+
+[definition and entity]
+what does BHOC mean | BHOC meaning in oxygen research | BHOC and HBOC terminology | biological hemoglobin oxygen carrier definition | precision oxygen therapeutics meaning | blood functions and oxygen delivery | oxygen delivery as a biological function | BHOC scientific evidence overview | BHOC research framework | BHOC research questions | precision oxygen therapeutics research | haemoglobin based oxygen carrier terminology | artificial blood terminology history | blood substitute terminology limitations | oxygen carrier versus whole blood functions
+
+[hemoglobin and affinity]
+P50 hemoglobin meaning | hemoglobin oxygen affinity explained | Bohr effect and oxygen unloading | Haldane effect explained | Bohr effect versus Haldane effect | oxygen dissociation curve right shift | oxygen dissociation curve left shift | oxygen loading versus unloading | temperature and hemoglobin oxygen affinity | pH and hemoglobin oxygen affinity | carbon dioxide and oxygen unloading | 2 3 DPG and oxygen affinity | oxygen affinity versus oxygen delivery | hemoglobin cooperativity | oxygen unloading in tissue capillaries | oxyhaemoglobin dissociation curve
+
+[measurements]
+oxygen saturation versus oxygen content | oxygen saturation versus oxygen delivery | SpO2 versus PaO2 | PaO2 versus CaO2 | SaO2 versus SpO2 | DO2 versus VO2 physiology | arterial oxygen content explained | oxygen delivery index meaning | oxygen extraction ratio meaning | mixed venous oxygen saturation meaning | central venous oxygen saturation meaning | SvO2 versus ScvO2 | pulse oximetry limitations in anemia | normal oxygen saturation with anemia | can oxygen saturation be normal in anemia | oxygen carrying capacity versus saturation | oxygen content and cardiac output | near infrared spectroscopy tissue oxygenation | co oximetry and hemoglobin measurement | oxygen tension versus oxygen content | functional oxygen delivery endpoints
+
+[microcirculation and diffusion]
+capillary oxygen transport | microvascular oxygen delivery research | oxygen diffusion distance in tissues | microcirculation versus macrocirculation | capillary recruitment oxygen delivery | red cell transit time oxygen transport | capillary hematocrit and oxygen delivery | plasma layer oxygen diffusion | oxygen diffusion conductance | heterogeneous microvascular perfusion | tissue perfusion versus blood pressure | microcirculatory flow monitoring | endothelial function and oxygen delivery | tissue oxygen gradients | oxygen diffusion versus oxygen consumption
+
+[anemia]
+anemia versus hypoxemia | anaemia and oxygen transport | hemoglobin concentration and oxygen carrying capacity | severe anemia oxygen saturation | acute versus chronic anemia oxygen delivery | blood loss anemia oxygen physiology | hemolytic anemia oxygen transport | anemia tissue hypoxia research | red cell count versus hemoglobin concentration | hematocrit versus hemoglobin | anemia and compensatory circulation | anemia and cardiac workload | oxygen extraction in anemia | anemia research functional endpoints
+
+[patient blood management]
+what is patient blood management | patient blood management pillars | patient blood management implementation | patient blood management hospital systems | PBM and anemia screening | PBM and blood conservation | bloodless medicine research | bloodless surgery evidence overview | patient preferences and blood transfusion | transfusion avoidance research outcomes | patient blood management and resource use | patient blood management quality indicators | blood conservation versus oxygen delivery | PBM national implementation roadmap
+
+[compatibility and transfusion context]
+blood typing versus crossmatching | ABO compatibility explained | red cell alloimmunization research | antigen matching in transfusion | rare blood groups and supply | compatible blood availability | red cell antibodies and transfusion delay | transfusion compatibility research | whole blood versus blood components functions | red cells versus plasma functions | platelets and red blood cells different functions | transfusion reaction classification overview | transfusion safety evidence quality
+
+[blood systems]
+blood shortage causes | blood availability versus blood collection | hospital blood supply resilience | donor dependent blood supply | blood donor retention research | blood inventory forecasting | blood bank inventory management | blood shortage and health equity | rare donor availability | blood availability in rural hospitals | blood stockouts in low resource settings | blood supply chain resilience | blood wastage and inventory planning | blood demand forecasting | emergency blood access barriers | national blood system preparedness
+
+[logistics]
+blood cold chain logistics | red cell transport quality research | blood transport temperature monitoring | blood product transport vibration research | blood transport shock testing research | drone blood delivery logistics | medical drone cold chain payload | last mile blood delivery | blood shelf life and logistics | blood product cold chain cost components | ambulance blood storage logistics | blood inventory rotation EMS | remote blood transport constraints | maritime blood transport logistics | blood bank distribution planning | emergency medical logistics resilience
+
+[EMS and HEMS]
+prehospital blood program implementation | EMS blood program logistics | prehospital blood transfusion research outcomes | air ambulance blood logistics | HEMS blood availability | rural EMS blood access | prehospital oxygen delivery research | ground ambulance blood program | prehospital blood inventory management | prehospital versus in hospital transfusion research | blood delivery before hospital arrival | prehospital blood funding model | prehospital transfusion feasibility | EMS and blood bank collaboration | prehospital blood quality assurance | prehospital transfusion registry data | oxygen transport during patient transfer
+
+[emergency physiology]
+hemorrhage control versus oxygen delivery | hemostasis versus oxygen transport | circulating volume versus oxygen carrying capacity | oxygen debt after blood loss | lactate and tissue hypoxia limitations | oxygen delivery in shock physiology | perfusion monitoring in critical illness | blood pressure versus tissue perfusion | resuscitation endpoints research | oxygen extraction in critical illness | trauma oxygen delivery research | critical care oxygen transport endpoints
+
+[military and disaster medical logistics]
+prolonged casualty care blood logistics | delayed evacuation medical oxygen transport | contested evacuation medical supply | military blood cold chain | field hospital blood readiness | mass casualty blood demand planning | disaster blood supply resilience | blood inventory during disasters | austere medical oxygen delivery research | prolonged field care oxygen physiology | medical evacuation delays blood supply | remote casualty care research outcomes
+
+[humanitarian and maternal health]
+rural hospital blood access | remote emergency care transport delays | maternal blood access in rural settings | humanitarian blood supply resilience | blood transfusion access low resource settings | regional blood supply networks | equitable access to transfusion services | postpartum hemorrhage blood access | postpartum haemorrhage blood access | maternal anemia oxygen transport | obstetric blood supply challenges | postpartum blood loss oxygen delivery | maternal referral delays and blood access | postpartum hemorrhage health systems | maternal blood supply preparedness | PPH outcomes research oxygen delivery | postpartum anemia research endpoints
+
+[sickle cell]
+sickle cell disease and tissue hypoxia | sickle cell anaemia oxygen transport | HbS polymerization and oxygen tension | sickle cell oxygen affinity research | sickle cell microvascular flow | sickle cell red cell deformability | sickle cell matched blood shortage | red cell alloimmunization in sickle cell disease | sickle cell hypoxia research endpoints | oxygen unloading in sickle cell disease | sickle cell transfusion burden research | vaso occlusion and oxygen transport | sickle cell pregnancy oxygen research
+
+[surgery and red-cell function]
+perioperative oxygen delivery research | surgical anemia and oxygen transport | postoperative tissue oxygenation research | cardiac surgery oxygen delivery monitoring | perioperative hemoglobin variability | perioperative blood conservation outcomes | surgical blood loss research endpoints | red cell transfusion functional outcomes | red cell storage lesion oxygen transport | stored red blood cells oxygen unloading | red blood cell deformability storage | hypoxic red cell storage research | anaerobic blood storage research | red cell hemolysis versus oxygen function | red cell storage duration clinical outcomes | red cell unit hemoglobin variability | hemoglobin mass versus component volume | donor variation red cell function
+
+[sepsis and ischemia]
+sepsis and microcirculatory dysfunction | septic shock oxygen extraction research | sepsis endothelial dysfunction | microcirculation despite normal blood pressure | sepsis tissue oxygen delivery measurements | lactate and microcirculation in sepsis | endothelial glycocalyx oxygen transport | mitochondrial dysfunction and sepsis research | macro microcirculation coherence | hypoxia versus hypoxemia | ischemia versus hypoxia | anemic hypoxia versus hypoxic hypoxia | ischemia reperfusion injury oxygen research | oxygen diffusion limitation in ischemia | organ oxygen demand supply mismatch | regional versus systemic hypoxia
+
+[cardiac and extracorporeal research]
+myocardial oxygen supply demand balance | myocardial ischemia and tissue oxygen | cardiac microcirculation oxygen transport | myocardial oxygen extraction physiology | coronary perfusion versus oxygen content | anemia and myocardial oxygen supply | cardiac ischemia research endpoints | myocardial infarction versus cardiac arrest | post cardiac arrest oxygenation research | post resuscitation tissue oxygen delivery | cerebral oxygenation after cardiac arrest research | post cardiac arrest microcirculation | ECMO oxygen delivery physiology | ECMO blood flow and oxygen transport research | ECMO oxygen content measurements | cardiopulmonary bypass oxygen delivery research | oxygenator gas exchange versus tissue delivery | extracorporeal oxygen transport endpoints
+
+[metabolism]
+oxygen delivery versus oxygen utilization | mitochondrial oxygen consumption | oxidative phosphorylation and oxygen | oxygen diffusion to mitochondria | mitochondrial respiration research methods | oxygen sensing and HIF | hypoxia inducible factor research | cellular oxygen supply demand | ATP production and oxygen availability | oxygen limitation versus mitochondrial dysfunction | tissue oxygen and cellular metabolism | oxygen consumption rate measurement research | hypoxia adaptation and metabolism | oxygen transport cascade | cellular response versus oxygen exposure
+
+[oncology research]
+tumor hypoxia research | tumour hypoxia research | tumor oxygenation measurement | tumor microcirculation research | tumor oxygen consumption research | hypoxia biomarkers in oncology | tumor perfusion versus oxygenation | cancer metabolism and oxygen availability | hypoxia heterogeneity in tumors | tumor oxygen gradients research | hypoxia and radiation response research | preclinical tumor oxygenation endpoints | tumor hypoxia imaging research
+
+[renal research]
+chronic kidney disease and anemia | renal anemia oxygen transport | dialysis related anemia research | renal tissue hypoxia research | kidney oxygen supply demand balance | renal oxygenation measurement research | chronic kidney disease oxygen metabolism | anemia of renal disease | renal microcirculation oxygen research | dialysis and tissue oxygenation research | renal anemia versus iron deficiency anemia | kidney disease red cell lifespan | renal hypoxia and mitochondrial research | CKD anemia functional outcomes
+
+[exploratory; source review required before drafting]
+wound tissue oxygen research | oxygen and wound healing physiology | wound perfusion versus oxygenation | chronic wound hypoxia research | transcutaneous oxygen measurement research | microcirculation in wound repair | wound healing oxygen endpoints | oxygen gradients in wound repair | cerebral oxygen delivery physiology | brain oxygen supply demand | cerebral perfusion versus oxygenation | cognitive aging cerebral perfusion research | brain energy metabolism oxygen | neurovascular coupling oxygen research | cerebral microcirculation research | cerebral oxygen extraction research | aging and oxygen metabolism research | cellular aging mitochondrial respiration | age related microcirculation research | healthspan research oxygen metabolism | mitochondrial function and biological aging | healthspan versus lifespan research endpoints
+
+[safety and research quality]
+cell free hemoglobin nitric oxide research | nitric oxide scavenging research | methemoglobin and oxygen transport | hemoglobin oxidation research | heme redox biology | endothelial response to extracellular hemoglobin | hemoglobin research safety endpoints | oxygen carrier evidence limitations | oxygen transport assay reproducibility | species differences in hemoglobin research | preclinical to clinical translation oxygen research | adverse outcomes in oxygen carrier research | oxygen transport measurement uncertainty | oxygen delivery research evidence | oxygen transport clinical research endpoints | oxygen carrier research study design | randomized evidence versus observational evidence | preclinical oxygen transport models | peer reviewed evidence versus preprints | oxygen delivery biomarker validation | research hypothesis versus clinical evidence | clinical endpoints versus surrogate endpoints | scientific evidence provenance
+
+[institutional collaboration]
+oxygen transport research collaboration | precision oxygen therapeutics research partners | microcirculation research partnership | translational oxygen research collaboration | university industry oxygen research | clinical research collaboration oxygen transport | biotechnology research partnership | oxygen physiology research network | multicenter oxygen delivery research | institutional oxygen research collaboration | research data collaboration hemoglobin | BHOC research partnership
+
+[cross-domain ownership]
+Detailed organ transplantation, organ preservation, machine perfusion and organ-specific graft questions: route to the existing BHOC Transplant bot, without duplicating its content. Veterinary species-specific questions: route to the existing BHOC Vet bot. Confirm specific live destination URLs; a homepage placeholder is not full semantic coverage.
