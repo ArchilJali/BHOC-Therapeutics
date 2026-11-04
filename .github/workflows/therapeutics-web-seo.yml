@@ -1,0 +1,202 @@
+name: BHOC Therapeutics Web SEO Audit
+on:
+  push:
+    branches: [preview/therapeutics-web-seo-20261104]
+    paths: ['.github/workflows/therapeutics-web-seo.yml', 'seo-bot/**']
+permissions:
+  contents: read
+concurrency:
+  group: therapeutics-web-seo-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Audit current production source and public pages
+        shell: bash
+        run: |
+          mkdir -p _seo_output
+          python3 - <<'PY'
+          import collections, concurrent.futures, datetime, html, json, pathlib, re, shutil, subprocess, time
+          import urllib.request, urllib.error, urllib.parse, urllib.robotparser, xml.etree.ElementTree as ET
+          from html.parser import HTMLParser
+          ROOT=pathlib.Path('.').resolve()
+          OUT=ROOT/'_seo_output'
+          BASE='https://bhoctherapeutics.com'
+          UA='BHOC-Owner-SEO-Audit/1.0'
+          NOW=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          ALLOWED={'bhoctherapeutics.com','www.bhoctherapeutics.com'}
+          class SafeRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  p=urllib.parse.urlsplit(newurl)
+                  if p.scheme!='https' or p.hostname not in ALLOWED or p.username:
+                      raise urllib.error.HTTPError(req.full_url,code,'External redirect not followed',headers,fp)
+                  return super().redirect_request(req,fp,code,msg,headers,newurl)
+          def get(url):
+              t=time.monotonic()
+              try:
+                  p=urllib.parse.urlsplit(url)
+                  if p.scheme!='https' or p.hostname not in ALLOWED or p.username:
+                      return {'url':url,'status':None,'error':'out_of_scope'},''
+                  opener=urllib.request.build_opener(SafeRedirect())
+                  with opener.open(urllib.request.Request(url,headers={'User-Agent':UA}),timeout=20) as r:
+                      raw=r.read(3000000)
+                      row={'url':url,'final_url':r.url,'status':r.status,'content_type':r.headers.get('Content-Type',''),'x_robots_tag':r.headers.get('X-Robots-Tag',''),'checked_at':NOW,'fetch_seconds':round(time.monotonic()-t,3)}
+                      return row,raw.decode('utf-8','replace')
+              except urllib.error.HTTPError as e:
+                  return {'url':url,'status':e.code,'error':str(e),'location':e.headers.get('Location',''),'checked_at':NOW},''
+              except Exception as e:
+                  return {'url':url,'status':None,'error':str(e),'checked_at':NOW},''
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.title=[];self.description=[];self.canonical=[];self.robots=[];self.h1=[];self.links=[];self.images=[];self.schema=[];self.schema_errors=0;self.og={};self.viewport=False;self.lang='';self.refresh=False;self.text=[];self.maintext=[]
+                  self.it=False;self.ih=False;self.im=False;self.skip=0;self.js=False;self.buf=[]
+              def handle_starttag(self,tag,attrs):
+                  a=dict(attrs)
+                  if tag=='html':self.lang=a.get('lang','')
+                  if tag=='title':self.it=True
+                  if tag=='h1':self.ih=True;self.h1.append('')
+                  if tag=='main':self.im=True
+                  if tag in ('script','style'):self.skip+=1
+                  if tag=='script' and a.get('type','').lower()=='application/ld+json':self.js=True;self.buf=[]
+                  if tag=='a' and a.get('href'):self.links.append(a['href'])
+                  if tag=='img':self.images.append(a)
+                  if tag=='link' and 'canonical' in a.get('rel','').lower().split():self.canonical.append(a.get('href',''))
+                  if tag=='meta':
+                      n=a.get('name','').lower();c=a.get('content','')
+                      if n=='description':self.description.append(c)
+                      if n in ('robots','googlebot'):self.robots.append(c)
+                      if n=='viewport':self.viewport=True
+                      if a.get('http-equiv','').lower()=='refresh':self.refresh=True
+                      if a.get('property','').startswith('og:'):self.og[a['property']]=c
+              def handle_data(self,data):
+                  if self.it:self.title.append(data)
+                  if self.ih:self.h1[-1]+=data
+                  if self.js:self.buf.append(data)
+                  if not self.skip:
+                      self.text.append(data)
+                      if self.im:self.maintext.append(data)
+              def handle_endtag(self,tag):
+                  if tag=='title':self.it=False
+                  if tag=='h1':self.ih=False
+                  if tag=='main':self.im=False
+                  if tag=='script' and self.js:
+                      try:self.schema.append(json.loads(''.join(self.buf)))
+                      except (ValueError,TypeError):self.schema_errors+=1
+                      self.js=False
+                  if tag in ('script','style'):self.skip=max(0,self.skip-1)
+              def result(self):
+                  def types(x):
+                      if isinstance(x,list):return [v for y in x for v in types(y)]
+                      if isinstance(x,dict):
+                          a=x.get('@type',[]);a=[a] if isinstance(a,str) else a
+                          return a+[v for y in x.values() for v in types(y) if isinstance(y,(dict,list))]
+                      return []
+                  return {'title':' '.join(''.join(self.title).split()),'description':self.description,'canonical':self.canonical,'robots':self.robots,'h1':[' '.join(x.split()) for x in self.h1],'h1_count':len(self.h1),'lang':self.lang,'viewport':self.viewport,'meta_refresh':self.refresh,'schema_types':sorted(set(types(self.schema))),'schema_json_errors':self.schema_errors,'images':len(self.images),'images_missing_alt':sum('alt' not in x for x in self.images),'images_missing_dimensions':sum(not x.get('width') or not x.get('height') for x in self.images),'og_image':self.og.get('og:image',''),'links':self.links,'content_words':len(' '.join(self.maintext or self.text).split()),'word_count_scope':'main' if self.maintext else 'all_visible_html'}
+          def parse(text):
+              p=Page();p.feed(text);return p.result()
+          def dump(name,data):
+              (OUT/name).write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+          def sitemap(text):
+              x=ET.fromstring(text)
+              return [e.text.strip() for e in x.findall('{*}url/{*}loc') if e.text]
+          def pathurl(p):
+              s=p.relative_to(ROOT).as_posix()
+              if s=='index.html':return BASE+'/'
+              if s.endswith('/index.html'):return BASE+'/'+s[:-10]
+              return BASE+'/'+s
+          def local_target(url):
+              path=urllib.parse.unquote(urllib.parse.urlsplit(url).path).lstrip('/')
+              target=(ROOT/path).resolve()
+              if not target.is_relative_to(ROOT):return None
+              if target.is_dir():target=target/'index.html'
+              return target
+          repo=[]
+          for f in sorted(ROOT.rglob('*.html')):
+              if any(x in f.parts for x in ('.git','node_modules','_seo_output','_site')):continue
+              d=parse(f.read_text(encoding='utf-8',errors='replace'));d['path']=f.relative_to(ROOT).as_posix();d['url']=pathurl(f);repo.append(d)
+          source_sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          rr,rt=get(BASE+'/robots.txt');sr,st=get(BASE+'/sitemap.xml')
+          (OUT/'robots-live.txt').write_text(rt,encoding='utf-8')
+          (OUT/'sitemap-live.xml').write_text(st,encoding='utf-8')
+          sitemap_origin='live'
+          try:urls=sitemap(st)
+          except Exception:
+              sitemap_origin='repository_fallback';urls=sitemap((ROOT/'sitemap.xml').read_text())
+          urls=list(dict.fromkeys(u for u in urls if urllib.parse.urlsplit(u).hostname=='bhoctherapeutics.com'))
+          rp=urllib.robotparser.RobotFileParser();rp.parse(rt.splitlines())
+          def check(url):
+              if rr.get('status')==200 and not rp.can_fetch(UA,url):return {'url':url,'status':None,'error':'robots_disallowed','checked_at':NOW}
+              row,text=get(url)
+              if row.get('status')==200 and 'html' in row.get('content_type','').lower():row.update(parse(text))
+              time.sleep(0.1)
+              return row
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:live=list(ex.map(check,urls[:600]))
+          def issues(rows):
+              out=[]
+              for d in rows:
+                  u=d['url'];status=d.get('status',200)
+                  if status!=200:
+                      out.append({'url':u,'issue':'http_or_fetch','detail':str(status)+' '+d.get('error','')});continue
+                  if d.get('meta_refresh'):continue
+                  if not d.get('title'):out.append({'url':u,'issue':'missing_title'})
+                  if not any(d.get('description',[])):out.append({'url':u,'issue':'missing_description'})
+                  if len(d.get('canonical',[]))!=1:out.append({'url':u,'issue':'canonical_count','detail':len(d.get('canonical',[]))})
+                  if d.get('h1_count')!=1:out.append({'url':u,'issue':'h1_count','detail':d.get('h1_count')})
+                  if d.get('schema_json_errors'):out.append({'url':u,'issue':'invalid_json_ld'})
+                  if 'noindex' in ' '.join(d.get('robots',[]))+d.get('x_robots_tag',''):out.append({'url':u,'issue':'noindex_in_sitemap'})
+              return out
+          live_issues=issues(live)
+          duplicates={}
+          for field in ('title','description'):
+              grouped=collections.defaultdict(list)
+              for d in live:
+                  if d.get('status')!=200 or d.get('meta_refresh'):continue
+                  v=d.get(field,'');v=' '.join(v) if isinstance(v,list) else v
+                  if v:grouped[v.lower().strip()].append(d['url'])
+              duplicates[field]={k:v for k,v in grouped.items() if len(v)>1}
+          missing=[]
+          for d in repo:
+              if d.get('meta_refresh'):continue
+              for h in d['links']:
+                  u=urllib.parse.urljoin(d['url'],h);p=urllib.parse.urlsplit(u)
+                  if p.scheme not in ('http','https') or p.hostname!='bhoctherapeutics.com':continue
+                  if pathlib.PurePosixPath(p.path).suffix.lower() not in ('','.html','.htm'):continue
+                  target=local_target(u)
+                  if target is not None and not target.exists():missing.append({'from':d['url'],'target':urllib.parse.urlunsplit((p.scheme,p.netloc,p.path,p.query,''))})
+          live_by_url={d['url']:d for d in live}
+          broken_live=[]
+          for d in live:
+              for h in d.get('links',[]):
+                  u=urllib.parse.urldefrag(urllib.parse.urljoin(d['url'],h))[0]
+                  if u in live_by_url and live_by_url[u].get('status') in (404,410):broken_live.append({'from':d['url'],'target':u,'status':live_by_url[u]['status']})
+          image_files=sorted(({'path':f.relative_to(ROOT).as_posix(),'bytes':f.stat().st_size} for f in ROOT.rglob('*') if f.is_file() and f.suffix.lower() in ('.png','.jpg','.jpeg','.webp','.gif') and '.git' not in f.parts),key=lambda x:-x['bytes'])
+          summary={'checked_at':NOW,'source_commit':source_sha,'production_changed':False,'robots_http':rr.get('status'),'live_sitemap_http':sr.get('status'),'sitemap_origin':sitemap_origin,'sitemap_unique_urls':len(urls),'live_urls_checked':len(live),'repository_html_files':len(repo),'live_http_counts':dict(collections.Counter(str(d.get('status')) for d in live)),'live_issue_counts':dict(collections.Counter(d['issue'] for d in live_issues)),'duplicate_title_groups':len(duplicates['title']),'duplicate_description_groups':len(duplicates['description']),'source_unresolved_link_occurrences':len(missing),'source_unresolved_unique_targets':len(set(x['target'] for x in missing)),'verified_broken_live_link_occurrences':len(broken_live),'live_pages_missing_alt':sum(d.get('images_missing_alt',0)>0 for d in live),'live_pages_without_json_ld':sum(d.get('status')==200 and not d.get('schema_types') and not d.get('meta_refresh') for d in live),'limitations':['Source-unresolved links are not proven live 404s.','Fetch duration is not Core Web Vitals.','HTTP 200 and metadata do not establish Google indexing or ranking.','Search volume, keyword difficulty, impressions, clicks, backlinks and AI citations are unmeasured.','No clinical claims validated by this technical audit.']}
+          dump('summary.json',summary);dump('live-pages.json',live);dump('source-pages.json',repo);dump('live-issues.json',live_issues);dump('duplicate-metadata.json',duplicates);dump('source-unresolved-links.json',missing);dump('verified-broken-live-links.json',broken_live);dump('largest-images.json',image_files[:50])
+          for name in ('seo/BHOC-SEO-Keywords.md','seo/page-keyword-map.md','sitemap.xml','robots.txt','AGENTS.md'):
+              f=ROOT/name
+              if f.exists():shutil.copyfile(f,OUT/f.name)
+          print('BHOC_SEO_SUMMARY='+json.dumps(summary,ensure_ascii=False))
+          print('BHOC_SEO_ISSUES='+json.dumps(live_issues[:60],ensure_ascii=False))
+          print('BHOC_SEO_DUPLICATES='+json.dumps(duplicates,ensure_ascii=False)[:20000])
+          print('BHOC_SEO_SOURCE_UNRESOLVED='+json.dumps(list(dict.fromkeys(x['target'] for x in missing))[:30]))
+          print('BHOC_SEO_LARGEST_IMAGES='+json.dumps(image_files[:8]))
+          PY
+      - name: Existing preservation checks
+        continue-on-error: true
+        run: |
+          node scripts/check_bhoc_content.mjs > _seo_output/content-check.txt 2>&1; echo "content_check_exit=$?"
+          node scripts/check_site.mjs > _seo_output/site-check.txt 2>&1; echo "site_check_exit=$?"
+          node --check navigation-context.js > _seo_output/navigation-check.txt 2>&1; echo "navigation_check_exit=$?"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bhoc-therapeutics-seo-audit
+          path: _seo_output/
+          retention-days: 30
