@@ -1,0 +1,77 @@
+{
+  "record_type": "dated_editorial_and_page_coverage_snapshot",
+  "date": "2026-11-04",
+  "production_changes": 0,
+  "approved_keyword_master_changed": false,
+  "keyword_expansion": {
+    "baseline_file": "BHOC_Therapeutics_Keywords_2026-11-04.csv (conversation artifact)",
+    "baseline_rows": 957,
+    "owner_priority_candidates": 189,
+    "reader_questions_included": 21,
+    "new_distinct_phrases": 166,
+    "already_in_baseline": 23,
+    "updated_research_snapshot_rows": 1123,
+    "deduplication_rule": "casefold plus whitespace normalization; US/UK variants retained as distinct literal phrases under shared intent",
+    "persistent_candidate_source": "seo-bot/OWNER-PRIORITIES-20261104.md",
+    "status": "editorial research candidates; not measured Google demand or published pages",
+    "volume": null,
+    "keyword_difficulty": null,
+    "groups": [
+      {"name": "Cardiac surgery", "selected": 27, "new": 27, "already_present": 0},
+      {"name": "Major and complex surgery", "selected": 27, "new": 25, "already_present": 2},
+      {"name": "Dialysis", "selected": 27, "new": 27, "already_present": 0},
+      {"name": "Anesthesia and anaesthesia", "selected": 27, "new": 27, "already_present": 0},
+      {"name": "Emergency medicine", "selected": 27, "new": 16, "already_present": 11},
+      {"name": "Prehospital EMS HEMS", "selected": 27, "new": 23, "already_present": 4},
+      {"name": "Battlefield medical care", "selected": 27, "new": 21, "already_present": 6}
+    ]
+  },
+  "page_audit_evidence": {
+    "scope": "Reanalysis of a verified 4 November audit artifact; not a newly executed live crawl",
+    "main_sha_rechecked": "dc6b18acf9672d3362e07e6e9eda6006faaf5da1",
+    "run_id": 41812742704,
+    "artifact_id": 13313700759,
+    "artifact_name": "bhoc-therapeutics-seo-ux-review",
+    "per_page_data": "pages.json inside the audit artifact",
+    "checked_at": "2026-11-04T10:14:18.250319+00:00",
+    "unique_sitemap_pages": 134,
+    "http_200_pages": 134,
+    "root_sitemap_urls": 78,
+    "library_sitemap_urls": 67,
+    "standalone_news_articles": 30,
+    "news_index_pages": 1,
+    "image_occurrences": 74,
+    "pages_with_images": 40,
+    "missing_img_alt_attributes": 0,
+    "missing_img_dimensions": 0,
+    "full_alt_visual_accuracy_review_complete": false,
+    "full_aeo_editorial_review_complete": false,
+    "google_indexing_verified": null,
+    "google_indexing_connection": "Main domain is not exposed in the connected Search Console accounts; do not substitute Evidence Platform or Vet properties.",
+    "yandex_noindex_pages": 134,
+    "yandex_policy_changed": false,
+    "source_html_files_in_initial_inventory": 158,
+    "source_html_routes_outside_sitemaps": 25,
+    "source_inventory_limitation": "Initial source scanner counted .html only. The live sitemap set additionally contains an .htm page. Future discovery must include both extensions.",
+    "source_only_review_item": {
+      "path": "evidence/library/veterinary/vet-stage/index.html",
+      "observation": "Development Preview title, index allowed and self-canonical in source; absent from the audited sitemaps.",
+      "action": "Review intended staging status and authoritative source; do not add automatically to sitemap.",
+      "live_http_verified_in_this_snapshot": false
+    }
+  },
+  "automation": {
+    "title": "BHOC Therapeutics — Web SEO",
+    "existing_task_updated": true,
+    "schedule_changed": false,
+    "other_bots_changed": false,
+    "main_autopublish": false,
+    "read_after_operating_plan": "seo-bot/OWNER-PRIORITIES-20261104.md"
+  },
+  "location": {
+    "new_native_sites_project_created": false,
+    "native_sites_creation_available_in_current_connection": false,
+    "control_center_shortcuts_added": ["Existing Therapeutics task conversation", "Existing Vet panel", "Existing Transplant panel"],
+    "note": "A shortcut to the task, GitHub branch or downloadable workbook is not a new native Sites project."
+  }
+}
