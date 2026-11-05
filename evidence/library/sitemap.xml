@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/</loc><lastmod>2026-10-31</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/</loc><lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bhoctherapeutics.com/evidence/library/real-world-evidence/</loc>
@@ -46,17 +46,16 @@
     <loc>https://bhoctherapeutics.com/evidence/library/transplant/Transplant-search.html</loc><lastmod>2026-10-31</lastmod>
   </url>
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-index.html</loc><lastmod>2026-10-31</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-index.html</loc><lastmod>2026-11-05</lastmod>
   </url>
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-search.html</loc><lastmod>2026-10-31</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-search.html</loc><lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bhoctherapeutics.com/evidence/library/human/BHOC-Human-fda-expanded-access.html</loc><lastmod>2026-10-31</lastmod>
   </url>
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/science/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/science/</loc><lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bhoctherapeutics.com/evidence/library/science/oxygen-delivery-potency.html</loc>
@@ -97,9 +96,9 @@
     <loc>https://bhoctherapeutics.com/evidence/library/social-media/linkedin/hemoglobin-beta-cys93-nitric-oxide-tissue-oxygenation.html</loc>
   </url>
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/clinical/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/clinical/</loc><lastmod>2026-11-05</lastmod>
   </url>
+  <url><loc>https://bhoctherapeutics.com/evidence/library/clinical/sickle-cell-transfusion-compatibility.html</loc><lastmod>2026-11-05</lastmod></url>
   <url>
     <loc>https://bhoctherapeutics.com/evidence/library/clinical/prehospital-ems.html</loc>
     <lastmod>2026-10-25</lastmod>
@@ -171,8 +170,7 @@
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
-    <loc>https://bhoctherapeutics.com/evidence/library/science/pregnancy-sickle-cell-oxygen-delivery.html</loc>
-    <lastmod>2026-11-03</lastmod>
+    <loc>https://bhoctherapeutics.com/evidence/library/science/pregnancy-sickle-cell-oxygen-delivery.html</loc><lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bhoctherapeutics.com/evidence/library/historical-sources/us-military-navy-hboc-research/</loc>
@@ -202,9 +200,9 @@
   <url><loc>https://bhoctherapeutics.com/evidence/library/usage-permission.html</loc><lastmod>2026-10-03</lastmod></url>
 <url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/product.html</loc><lastmod>2026-10-31</lastmod></url>
 <url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/oxygen.html</loc><lastmod>2026-10-31</lastmod></url>
-<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/related.html</loc><lastmod>2026-10-31</lastmod></url>
-<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/methodology.html</loc><lastmod>2026-10-31</lastmod></url>
-<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/</loc><lastmod>2026-10-31</lastmod></url>
+<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/related.html</loc><lastmod>2026-11-05</lastmod></url>
+<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/methodology.html</loc><lastmod>2026-11-05</lastmod></url>
+<url><loc>https://bhoctherapeutics.com/evidence/library/catalogues/</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://bhoctherapeutics.com/evidence/library/veterinary/direct-studies/tracs-transfusion-risks-dogs-cats.html</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://bhoctherapeutics.com/evidence/library/human/registered-clinical-studies.html</loc><lastmod>2026-10-31</lastmod></url>
 <url><loc>https://bhoctherapeutics.com/evidence/library/science/page/2/</loc><lastmod>2026-11-03</lastmod></url>
