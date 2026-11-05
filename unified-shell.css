@@ -29,9 +29,9 @@ body.bhoc-shell-ready .bhoc-shell-skip:focus { position:fixed;left:12px;top:8px;
 .bhoc-shell-utility { border-top:1px solid #edf2f8;background:#f7faff; }
 .bhoc-shell-utility-inner { display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:38px; }
 .bhoc-shell-utility-intro { display:flex;align-items:center;gap:10px;white-space:nowrap; }
-.bhoc-shell-utility-intro span { color:#7188a7;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase; }
+.bhoc-shell-utility-intro span { color:#4c6590;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase; }
 .bhoc-shell-utility-intro a { color:#0b377f;text-decoration:none;font-size:13px;font-weight:800; }
-.bhoc-shell-utility-intro b { color:#ed302c; }
+.bhoc-shell-utility-intro b { color:#c62828; }
 .bhoc-shell-utility-network { display:flex;align-items:center;gap:7px; }
 .bhoc-shell-utility-network a { padding:5px 9px;border:1px solid #d0dfef;border-radius:999px;background:#fff;color:#143c76;text-decoration:none;white-space:nowrap;font-size:11px;font-weight:700; }
 .bhoc-shell-utility a:hover { text-decoration:underline; }
@@ -56,12 +56,17 @@ body.bhoc-shell-ready .bhoc-shell-skip:focus { position:fixed;left:12px;top:8px;
 .bhoc-shell-footer-brand > span { color:#c1d7ef;font-size:12px; }
 .bhoc-shell-footer a { color:#c1d7ef;text-decoration:none;font-size:12px;line-height:1.35; }
 .bhoc-shell-footer a:hover { color:#fff;text-decoration:underline; }
+.bhoc-shell-footer-grid > div > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 .bhoc-shell-social { display:flex;gap:10px;margin:3px 0; }
 .bhoc-shell-social a { display:grid;place-items:center;width:28px;height:28px;color:#5aa7ff; }
 .bhoc-shell-social a:last-child { color:#ff4b4b; }
 .bhoc-shell-social svg { width:22px;height:22px; }
 .bhoc-shell-footer-bottom { padding:14px 0 20px;border-top:1px solid rgba(255,255,255,.2);color:#a9c2df;font-size:11px;line-height:1.55; }
-.bhoc-shell-footer-bottom a { font-size:inherit; }
+.bhoc-shell-footer-bottom a { font-size:inherit;text-decoration:underline; }
 @media(max-width:1180px) {
   .bhoc-shell-header-inner { min-height:56px;position:relative; }
   .bhoc-shell-menu-button { display:block; }
