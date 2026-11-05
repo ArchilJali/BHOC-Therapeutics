@@ -4,12 +4,27 @@ from html.parser import HTMLParser
 from evidence_catalogue_model import *
 
 class Page(HTMLParser):
-    def __init__(self,source):
-        super().__init__();self.records=[];self.ids=[];self.feed(source)
-    def handle_starttag(self,tag,attrs):
-        a=dict(attrs)
-        if a.get('id'):self.ids.append(a['id'])
-        if tag=='article' and a.get('class')=='publication':self.records.append(a)
+    def __init__(self, source):
+        super().__init__()
+        self.records = []
+        self.ids = []
+        self.template_depth = 0
+        self.feed(source)
+
+    def handle_starttag(self, tag, attrs):
+        # Template contents are outside the document until the feed replaces its cards.
+        if self.template_depth == 0:
+            attributes = dict(attrs)
+            if attributes.get('id'):
+                self.ids.append(attributes['id'])
+            if tag == 'article' and attributes.get('class') == 'publication':
+                self.records.append(attributes)
+        if tag == 'template':
+            self.template_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == 'template':
+            self.template_depth -= 1
 
 audit()
 link_audit=json.loads((BASE/'catalogues/data/source-link-audit.json').read_text())
