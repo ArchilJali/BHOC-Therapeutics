@@ -7,6 +7,7 @@ E=lambda value:html.escape(str(value or ''),quote=True)
 PREFIX='/evidence/library/'
 ORIGIN='https://bhoctherapeutics.com'
 VERSION='20261030-oxyglobin-review'
+COMBINED_VERSION='20261105-catalogue'
 SOCIAL_IMAGE_PATTERN=r'<meta\b[^>]*(?:property="og:image(?::[^"]+)?"|name="twitter:image(?::[^"]+)?")[^>]*>'
 # Catalogue shares use the same approved cover as the main BHOC homepage.
 SOCIAL_IMAGE_META=''.join(re.findall(SOCIAL_IMAGE_PATTERN,(ROOT/'index.html').read_text()))
@@ -92,13 +93,17 @@ def public_url(url):
     except ValueError:return False
     return p.scheme in ['https','http'] and bool(re.fullmatch(r'(?:[a-z0-9-]+\.)+[a-z]{2,}',host,re.I)) and not host.endswith(('.local','.internal','.localhost'))
 
-def field(label,value):
-    return f'<div><dt>{label}</dt><dd>{E(value)}</dd></div>' if value else ''
+def field(label,value,searchable=False):
+    marker=' data-search-field' if searchable else ''
+    return f'<div><dt>{label}</dt><dd{marker}>{E(value)}</dd></div>' if value else ''
 
 def card(r,kind):
+    combined=kind=='all'
     attrs={'year':r['year'],'application':'|'.join(r['application']),'species':'|'.join(r['speciesGroups']), 'journal':r['journalLabel'],'institution':'|'.join(r['institutions']),'product':'|'.join(r['products']), 'direction':'|'.join(r['direction']),'organ':'|'.join(r['organ']),'evidence':'|'.join(r['evidenceGroups']), 'catalogue':r['catalogue'],'site':'|'.join(r['sites']),'author':r['authors'],'title':r['title'], 'legacy':'|'.join(r['legacyIds'])}
-    # Search the approved original citation as well as the displayed normalized labels.
-    attrs['search']=' '.join([r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid'],r['keywords'],r['product'],*r['institutions'],*r['species'],*r.get('titleAliases',[])])
+    # The combined view reuses the title, author and original citation fields already in each card.
+    search=[r['journal']] if combined else [r['title'],r['authors'],r['journal'],r['citation'],r['doi'],r['pmid']]
+    search.extend([r['keywords'],r['product'],*r['institutions'],*r['species'],*r.get('titleAliases',[])])
+    attrs['search']=' '.join(search)
     attrs['scope']=r['scope'];attrs['collection']='|'.join(r['collection']);attrs['topic']='|'.join(r.get('topics',[]))
     links=[]
     checked=LINK_AUDIT[r['id']]
@@ -108,7 +113,7 @@ def card(r,kind):
         label='PubMed / abstract' if 'pubmed' in u else 'Publisher / DOI' if 'doi.org/' in u else 'PDF' if '.pdf' in u.lower() else 'Full text / PMC' if '/pmc/' in u or 'pmc.ncbi.nlm.nih.gov' in u else 'Source'
         links.append(f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a>')
     url=PREFIX+PATHS[r['catalogue']]+'#'+r['id']
-    details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'])+field('PMID',r['pmid'])+field('Original citation',r['citation'])
+    details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'],combined)+field('PMID',r['pmid'],combined)+field('Original citation',r['citation'],combined)
     details+=field('Research direction','; '.join(r.get('topics',[])))
     annotation='<p class="record-summary">'+E(r.get('catalogueSummary',''))+'</p>' if r.get('catalogueSummary') else ''
     summary_label='Summary &amp; details' if annotation else 'Record details'
@@ -152,6 +157,7 @@ def metadata(kind,rows,path=None):
 
 def page(kind,path=None):
     rows=VIEWS[kind];group=GROUP_FIELDS.get(kind,'species');path=path or PATHS[kind]
+    version=COMBINED_VERSION if kind=='all' else VERSION
     output_path=BASE/path/('index.html') if path.endswith('/') else BASE/path
     previous=output_path.read_text() if output_path.exists() else ''
     previous_header=re.search(r'<header class="site-header">[\s\S]*?</header>',previous)
@@ -167,7 +173,7 @@ def page(kind,path=None):
     navigation=vet_library_navigation('search') if kind=='veterinary' else ''
     review_note='<p class="catalogue-relationship">Clinical reports, animal studies and reviews are labelled separately in each record. Catalogue filters on this page keep the Veterinary selection.</p>' if kind=='veterinary' else ''
     text=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{metadata(kind,rows,path)}
-<link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={VERSION}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={VERSION}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script>{SHARED_CONTEXT_SCRIPTS}</head>
+<link rel="stylesheet" href="{PREFIX}assets/evidence.css"><link rel="stylesheet" href="{PREFIX}assets/platform-shell.css"><link rel="stylesheet" href="{PREFIX}catalogues/catalogues.css?v={version}"><script defer src="{PREFIX}assets/navigation.js"></script><script defer src="{PREFIX}catalogues/catalogues.js?v={version}"></script><script src="https://analytics.ahrefs.com/analytics.js" data-key="9SwV8W7kv8qdGkrTrb3arQ" async></script>{SHARED_CONTEXT_SCRIPTS}</head>
 <body class="evidence-catalogue" data-view="{kind}" data-group="{group}"><a class="skip" href="#main">Skip to content</a>{page_header}<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a href="{PREFIX}">Evidence Library</a> / {parent}{E(TITLES[kind])}</div>{navigation}{tabs(kind)}{('<div id="combined-applications" hidden>'+appnav('product')+'</div>') if kind=='all' else appnav(kind)}
 <section class="catalogue-hero"><div class="eyebrow">{'Evidence Library · All publications' if kind=='all' else 'Scientific Evidence Relevant to BHOC'}</div><h1>{E(TITLES[kind])}</h1><p>{E(DESCRIPTIONS[kind])}</p>{('<p class="catalogue-relationship">Also available below the featured analyses in <a href="'+PREFIX+'science/#scientific-catalogues">Science</a>. Both views use the same publication records and counts.</p>' if kind=='related' else '')}{collection_summary() if kind=='all' else ''}{metric_html(kind,True)}</section>
 {review_note}{release_notice(kind)}{filters(kind)}<div class="results-bar"><p id="result-count" aria-live="polite">{'Browse all five collections' if kind=='all' else str(len(rows))+' publication records'}</p><div class="result-actions"><label class="visually-hidden" for="sort">Sort results</label><select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select><button id="export" type="button">Export CSV</button></div></div>

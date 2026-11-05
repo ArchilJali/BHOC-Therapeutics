@@ -169,7 +169,7 @@
     const breadcrumbs = document.createElement('nav');
     breadcrumbs.className = 'historical-breadcrumbs';
     breadcrumbs.setAttribute('aria-label', 'Breadcrumb');
-    breadcrumbs.innerHTML = '<a href="/evidence/library/index.html">BHOC Platform</a><span class="breadcrumb-separator" aria-hidden="true">›</span><a class="breadcrumb-parent" href="/evidence/library/historical-sources/">Historical Sources</a><span class="breadcrumb-separator" aria-hidden="true">›</span><span class="breadcrumb-current" aria-current="page">Standing on the Shoulders of Giants</span>';
+    breadcrumbs.innerHTML = '<a href="/evidence/library/">BHOC Platform</a><span class="breadcrumb-separator" aria-hidden="true">›</span><a class="breadcrumb-parent" href="/evidence/library/historical-sources/">Historical Sources</a><span class="breadcrumb-separator" aria-hidden="true">›</span><span class="breadcrumb-current" aria-current="page">Standing on the Shoulders of Giants</span>';
 
     shell.prepend(breadcrumbs);
   };

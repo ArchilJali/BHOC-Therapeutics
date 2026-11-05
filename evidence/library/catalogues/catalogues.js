@@ -1,7 +1,9 @@
 'use strict';
 (async () => {
  const holder=document.getElementById('results');if(!holder)return;
- const relocated=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+ let fragment=location.hash.slice(1);
+ try{fragment=decodeURIComponent(fragment);}catch(_){/* Keep the literal fragment when it is malformed. */}
+ const relocated=document.getElementById(fragment);
  if(relocated?.hasAttribute('data-record-redirect')){location.replace(relocated.querySelector('a').href);return;}
  const context=holder.closest('[data-view]')||document.body,prefix=context.dataset.queryPrefix||'';
  const rows=[...holder.querySelectorAll('.publication')],$=id=>document.getElementById(id);
@@ -12,6 +14,7 @@
   return {metric,total:metric.textContent,label,labelText:label?.textContent||''};
  });
  const normal=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+ const searchText=new Map(rows.map(row=>[row,normal([row.dataset.title,row.dataset.author,row.dataset.search,...Array.from(row.querySelectorAll('[data-search-field]'),field=>field.textContent)].join(' '))]));
  const list=(row,key)=>(row.dataset[key]||'').split('|').filter(Boolean);
  const unique=values=>new Set(values.filter(Boolean).map(normal));
  const fields=['year','application','species','journal','product','direction','organ','evidence','catalogue','site','collection','topic'].filter(id=>$(id));
@@ -39,7 +42,6 @@
  }
  const requestedPage=Number(params.get('page'));
  let legacyScope=params.get('scope')||'',page=Number.isSafeInteger(requestedPage)&&requestedPage>0?requestedPage:1,matching=[],pageSize=24;
- const fragment=decodeURIComponent(location.hash.slice(1));
  const hashRow=rows.find(r=>r.id===fragment||list(r,'legacy').includes(fragment));
  if(hashRow){$('q').value=hashRow.dataset.title;page=1;}
  if(controls.some(id=>$(id).closest('#advanced')&&$(id).value&&!(context.dataset.view==='all'&&id==='catalogue')))$('advanced').open=true;
@@ -47,7 +49,7 @@
   if(reset)page=1;const terms=normal($('q').value).split(/\s+/).filter(Boolean);
   if(['all','veterinary'].includes(context.dataset.view))document.querySelectorAll('[data-catalogue-filter]').forEach(link=>{if(link.dataset.catalogueFilter===$('catalogue').value)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
   if($('combined-applications'))$('combined-applications').hidden=$('catalogue').value!=='product';
-  matching=rows.filter(r=>terms.every(t=>normal(r.dataset.search).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
+  matching=rows.filter(r=>terms.every(t=>searchText.get(r).includes(t))&&fields.every(id=>!$(id).value||($(id).value==='__other__'?!list(r,id).length:list(r,id).includes($(id).value)))&&(!$('author').value||normal(r.dataset.author).includes(normal($('author').value)))&&(!$('institution').value||($('institution').value==='__other__'?!list(r,'institution').length:normal(r.dataset.institution).includes(normal($('institution').value))))&&(!legacyScope||(legacyScope==='core'?r.dataset.scope==='core':r.dataset.scope!=='core')));
   const filtered=Boolean(terms.length||legacyScope||fields.some(id=>$(id).value)||normal($('author').value)||normal($('institution').value));
   matching.sort($('sort').value==='title'?(a,b)=>a.dataset.title.localeCompare(b.dataset.title):$('sort').value==='oldest'?(a,b)=>(Number(a.dataset.year)||9999)-(Number(b.dataset.year)||9999):(a,b)=>(Number(b.dataset.year)||0)-(Number(a.dataset.year)||0));
   const pages=Math.max(1,Math.ceil(matching.length/pageSize));page=Math.max(1,Math.min(page,pages));

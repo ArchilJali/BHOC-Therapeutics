@@ -27,6 +27,7 @@
   try { window.sessionStorage.setItem(storageKey, JSON.stringify(context)); } catch (_) {}
 
   const topics = {
+    'business-portal-access': 'Business Portal access',
     'oxygen-delivery-research': 'Oxygen delivery research',
     'investment-licensing': 'Investment and licensing',
     'regional-partnership': 'Regional partnership',
@@ -36,6 +37,7 @@
     'organ-perfusion': 'Organ perfusion research'
   };
   const interests = {
+    access: ['Business Portal access'],
     research: ['Research collaboration', 'Veterinary research', 'Transplant research collaboration'],
     clinical: ['Clinical translation', 'Clinical collaboration'],
     partnership: ['Strategic partnership'],
@@ -92,6 +94,9 @@
       try {
         if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', details);
       } catch (_) { /* A tracking failure must not turn an accepted enquiry into an error. */ }
+      try {
+        window.AhrefsAnalytics?.sendEvent?.('bhoc_enquiry_accepted');
+      } catch (_) { /* Keep the confirmation visible if analytics is unavailable. */ }
       window.dispatchEvent(new CustomEvent('bhoc:lead-submitted', {detail: details}));
     }
   };
