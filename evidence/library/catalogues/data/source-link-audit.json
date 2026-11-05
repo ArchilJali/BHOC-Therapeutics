@@ -1,10 +1,10 @@
 {
   "checked": "2026-11-03",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 683,
-  "uniqueUrlsChecked": 998,
+  "publicRecords": 684,
+  "uniqueUrlsChecked": 1001,
   "states": {
-    "matched": 981,
+    "matched": 984,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
@@ -10880,6 +10880,36 @@
     "pub-feline-nolte-1999-acetaminophen": {
       "publicLinks": [],
       "checks": []
+    },
+    "pub-pmid-42376265": {
+      "publicLinks": [
+        "https://doi.org/10.1016/j.brci.2026.100059",
+        "https://pubmed.ncbi.nlm.nih.gov/42376265/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13313579/"
+      ],
+      "checks": [
+        {
+          "url": "https://doi.org/10.1016/j.brci.2026.100059",
+          "state": "matched",
+          "method": "Crossref DOI and full author list matched to PubMed",
+          "sourceTitle": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
+          "checked": "2026-11-05"
+        },
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42376265/",
+          "state": "matched",
+          "method": "PubMed title, author list, DOI and issue checked",
+          "sourceTitle": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
+          "checked": "2026-11-05"
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13313579/",
+          "state": "matched",
+          "method": "PubMed Central title, DOI, methods and results checked",
+          "sourceTitle": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
+          "checked": "2026-11-05"
+        }
+      ]
     }
   }
 }

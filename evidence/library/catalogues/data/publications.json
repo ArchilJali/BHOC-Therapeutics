@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-05",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -34174,6 +34174,66 @@
       "cohortLinks": [],
       "added": "2026-11-03",
       "release": "feline-catalogue-20261103"
+    },
+    {
+      "id": "pub-pmid-42376265",
+      "title": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
+      "year": "2026",
+      "authors": "Mewha J, Vege S, Friedman DF, Makrm S, Ochoa G, Westhoff CM, Chou ST",
+      "journal": "Blood Red Cells & Iron",
+      "doi": "10.1016/j.brci.2026.100059",
+      "pmid": "42376265",
+      "citation": "Mewha J, Vege S, Friedman DF, Makrm S, Ochoa G, Westhoff CM, Chou ST. Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors. Blood Red Cells & Iron. 2026;2(2):100059. doi:10.1016/j.brci.2026.100059.",
+      "product": "",
+      "keywords": "Sickle cell disease (SCD); Sickle cell anemia (SCA); Red cell transfusion compatibility; Red cell alloimmunization; Rh and Kell matching; RH genotyping",
+      "directions": [
+        "Human Use"
+      ],
+      "institutions": [
+        "Children's Hospital of Philadelphia",
+        "University of Pennsylvania",
+        "New York Blood Center Enterprise"
+      ],
+      "species": [
+        "Human"
+      ],
+      "evidence": "Clinical context: red cell antigen exposure",
+      "urls": [
+        "https://doi.org/10.1016/j.brci.2026.100059",
+        "https://pubmed.ncbi.nlm.nih.gov/42376265/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13313579/"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "mewha-2026-scd-antigen-exposure",
+          "title": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
+          "year": "2026",
+          "doi": "10.1016/j.brci.2026.100059",
+          "pmid": "42376265"
+        }
+      ],
+      "originalVerification": "DOI, PMID and authorship verified. Full-text methods and results reviewed.",
+      "sourceReview": "External / Pending Review. The study describes red cell antigen exposure and antibody formation. The historical comparator limits estimates of any change in alloimmunization. This record provides context on donor red cell compatibility.",
+      "catalogue": "related",
+      "classificationBasis": "Donor red cell matching in sickle cell disease. Related clinical context.",
+      "verification": "PubMed and full-text metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Sickle cell disease (SCD)",
+        "Sickle cell anemia (SCA)",
+        "Red cell transfusion compatibility",
+        "Red cell alloimmunization",
+        "Rh and Kell matching",
+        "RH genotyping"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Mewha et al. genotyped 700 red cell units transfused to 28 people with sickle cell disease. After Rh and Kell matching, patients encountered 1.59 foreign antigens per transfusion episode in the analysis of Black and Hispanic donor units. A historical cohort reported 3.5. One clinically significant anti-Jkb antibody developed.",
+      "evidenceBrief": "/evidence/library/clinical/sickle-cell-transfusion-compatibility.html",
+      "cohortLinks": [],
+      "added": "2026-11-05",
+      "release": "scd-transfusion-compatibility-20261105"
     }
   ],
   "mergedRecords": [

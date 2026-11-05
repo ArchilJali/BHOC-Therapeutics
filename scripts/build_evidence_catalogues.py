@@ -112,6 +112,8 @@ def card(r,kind):
         if not public_url(u) or '?term=' in u or 'scholar.google' in u:continue
         label='PubMed / abstract' if 'pubmed' in u else 'Publisher / DOI' if 'doi.org/' in u else 'PDF' if '.pdf' in u.lower() else 'Full text / PMC' if '/pmc/' in u or 'pmc.ncbi.nlm.nih.gov' in u else 'Source'
         links.append(f'<a href="{E(u)}" target="_blank" rel="noopener noreferrer">{label} ↗</a>')
+    if r.get('evidenceBrief'):
+        links.append(f'<a href="{E(r["evidenceBrief"])}">Read the study brief →</a>')
     url=PREFIX+PATHS[r['catalogue']]+'#'+r['id']
     details=field('Authors',r['authors'])+field('Journal',r['journalLabel'] or r['journal'])+field('Year',r['year'])+field('Species / model',', '.join(r['speciesGroups']))+field('Author institutions',', '.join(r['institutions']))+field('Evidence type','; '.join(r['evidenceGroups']) or r['evidence'])+field('DOI',r['doi'],combined)+field('PMID',r['pmid'],combined)+field('Original citation',r['citation'],combined)
     details+=field('Research direction','; '.join(r.get('topics',[])))

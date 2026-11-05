@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-05",
   "total": {
-    "records": 683,
+    "records": 684,
     "groups": 11,
-    "institutions": 180,
+    "institutions": 182,
     "journals": 224,
     "groupField": "speciesGroups",
     "groupLabel": "Species / model groups"
@@ -26,10 +26,10 @@
       "groupLabel": "Species / model groups"
     },
     "related": {
-      "records": 230,
+      "records": 231,
       "groups": 9,
-      "institutions": 90,
-      "journals": 133,
+      "institutions": 92,
+      "journals": 134,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     },
@@ -42,10 +42,10 @@
       "groupLabel": "Species / model groups"
     },
     "human": {
-      "records": 195,
-      "groups": 8,
-      "institutions": 78,
-      "journals": 93,
+      "records": 196,
+      "groups": 9,
+      "institutions": 80,
+      "journals": 94,
       "groupField": "direction",
       "groupLabel": "Therapeutic areas"
     },
@@ -58,26 +58,26 @@
       "groupLabel": "Organ groups"
     },
     "all": {
-      "records": 683,
+      "records": 684,
       "groups": 11,
-      "institutions": 180,
+      "institutions": 182,
       "journals": 224,
       "groupField": "speciesGroups",
       "groupLabel": "Species / model groups"
     }
   },
-  "publicRecords": 683,
+  "publicRecords": 684,
   "collectionTotals": {
-    "entries": 1039,
+    "entries": 1041,
     "collections": {
       "transplant": 65,
-      "human": 195,
+      "human": 196,
       "veterinary": 302,
       "oxygen": 247,
-      "related": 230
+      "related": 231
     },
-    "distinctRecordsInFiveCollections": 674,
-    "repeatedPlacements": 365,
+    "distinctRecordsInFiveCollections": 675,
+    "repeatedPlacements": 366,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -89,12 +89,12 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 683
+    "distinctRecordsInFullLibrary": 684
   },
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 40,
-    "displayedTotal": 1002,
+    "newPublications": 41,
+    "displayedTotal": 1003,
     "newRecordIds": [
       "pub-doi-10-1136-inpract-27-8-399",
       "pub-feline-barfield-adamantos-2011-transfusions",
@@ -135,7 +135,8 @@
       "pub-pmid-38815289",
       "pub-pmid-39407836",
       "pub-pmid-39748550",
-      "pub-pmid-40950573"
+      "pub-pmid-40950573",
+      "pub-pmid-42376265"
     ]
   },
   "archivedIncompleteEntries": 48,
