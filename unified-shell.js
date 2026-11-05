@@ -201,7 +201,7 @@
           <div><strong>Science</strong><a href="/science/">Overview</a><a href="/topics/">Research topics</a><a href="/evidence/library/historical-sources/">Historical Sources</a><a href="/evidence/library/science/">Evidence &amp; Publications</a><a href="/science/">How It Works</a><a href="/evidence/library/concepts-hypotheses/">Concepts & Hypotheses ↗</a></div>
           <div><strong>Technology</strong><a href="/technology/">BHOC Platform</a><a href="/technology/">Design Principles</a></div>
           <div><strong>Applications</strong><a href="/applications/">Clinical Contexts</a><a href="https://bhocvet.com/">BHOC Veterinary</a></div>
-          <div><strong>Company</strong><a href="/#company">About</a><a href="/news/">News</a><a href="/contact/">Contact</a></div>
+          <div><strong>Company</strong><a href="/#company">About</a><a href="/news/">News</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy Notice</a></div>
           <div><strong>Investors & Partners</strong><a href="/partners/">Overview</a><a href="/partners/">Resources</a></div>
         </div>
         <div class="bhoc-shell-footer-bottom">${releaseSummary} · <a href="https://bhocvet.com/">BHOC Veterinary</a> · <a href="https://bhoctherapeutics.com/evidence/library/">BHOC Information Hub</a><br>Scientific and educational website in development. References to Oxyglobin, Hemopure, HBOC and other third-party technologies are provided for scientific and historical context and do not imply ownership, affiliation or approved indications. © 2026 BHOC Therapeutics.</div>
