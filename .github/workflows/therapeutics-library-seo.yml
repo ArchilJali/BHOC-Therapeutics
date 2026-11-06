@@ -2,7 +2,7 @@ name: BHOC Therapeutics Full Sitemap Verification
 on:
   push:
     branches: [preview/therapeutics-web-seo-20261104]
-    paths: ['.github/workflows/therapeutics-library-seo.yml']
+    paths: ['.github/workflows/therapeutics-library-seo.yml', 'seo-bot/**']
 permissions:
   contents: read
 jobs:
