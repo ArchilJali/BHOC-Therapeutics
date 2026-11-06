@@ -5,13 +5,13 @@
 ## Fresh, executed full-sitemap verification
 
 - GitHub Actions run [42180466487](https://github.com/ArchilJali/BHOC-Therapeutics/actions/runs/42180466487), successful, 2026-11-06T07:22:42.817567Z. Existing read-only full-sitemap workflow updated to trigger on substantive `seo-bot/**` preview changes; it writes no public pages.
-- Root sitemap: **80 page URLs**. Evidence-library sitemap: **68 page URLs**. **12 overlaps; 136 unique canonical URLs** after deduplication. This is **two more** than the 134-page baseline on 4 November. `image:loc` does not count as a page.
+- Root sitemap: **80 page URLs**. Evidence-library sitemap: **68 page URLs**. **12 overlaps; 136 unique canonical URLs** after deduplication. The **two additional URLs** relative to the actual 4 November 134-page artifact are **the sickle-cell compatibility evidence brief and /privacy/**. The blood-groups-history route was already in the baseline and was materially **updated**, not newly introduced. `image:loc` does not count as a page.
 - **136/136 HTTP 200**, and no detected missing title/description, mismatched canonical, non-single H1, invalid JSON-LD, unintended generic `noindex` or duplicate title/description groups. HTTP and HTML checks do **not** prove Google indexing, AEO citation, search position, rich-result eligibility, or Core Web Vitals.
 - Two pages lack JSON-LD blocks: `/evidence/library/catalogues/methodology.html` and `/privacy/`. This is a non-critical enhancement consideration, **not** proof of an SEO failure.
 - Connected Windsor Search Console exposes only Evidence Platform and Vet properties, **not** the Therapeutics domain; consequently `google_index_verified=null` for newly reviewed pages. Existing Yandex-specific `noindex` policy remains unchanged.
 - The read-only full-sitemap workflow does **not** visually inspect or verify ALT wording across all pages. It does not inspect PDF contents or check every external document destination. Carry forward prior dated image-attribute baseline, not a claim that ALT review is complete.
 
-## Two priority pages from latest main
+## New evidence brief and updated blood-group guide
 
 | Route | Intended user question | HTTP | Title / description / H1 / canonical | Structured data | Image ALT |
 |---|---|---|---|---|---|
@@ -21,6 +21,10 @@
 Both pages are included in the latest evidence sitemap and have contextual internal links. The compatibility article contains the additional link to the new English-language blood-group reference; the definition hub also links to the reference. Do not duplicate scientific text in a new SEO page.
 
 The clinical study cited by the new sickle cell brief, DOI **10.1016/j.brci.2026.100059**, was screened against the live owner Source Guard on 6 November: **no owner-stop match** found for the verified seven-author record. This is only a source-eligibility screen, **not** an assessment of scientific validity or proof of BHOC benefit.
+
+## Other new URL: Privacy Notice
+
+The second newly sitemap-listed URL, **/privacy/**, returned HTTP 200 with a unique title and description, self-canonical, one H1, and a truthful sitemap `lastmod=2026-11-05`. It has no JSON-LD, which is optional for a privacy notice. It should not be confused with a scientific/news page or pushed into an Article schema. No Google-indexing status was verified.
 
 ## Specific new issue: stale sitemap lastmod after a material update
 
