@@ -1,6 +1,6 @@
 # BHOC Therapeutics - Page Keyword Map
 
-Updated: 1 November 2026
+Updated: 6 November 2026
 
 This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The master keyword file remains the single keyword source of truth. This map defines ownership, entity disambiguation and monitoring priorities so we do not create parallel keyword lists.
 
@@ -19,6 +19,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 | `/evidence/library/clinical/` | Clinical oxygen delivery: evidence and research questions | prehospital care; sickle cell disease; maternal hemorrhage; blood access; organ perfusion; research boundaries |
 | `/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html` | Sickle cell disease: matched blood and oxygen delivery | red-cell exchange; alloimmunization; hyperhaemolysis; transfusion compatibility; tissue hypoxia |
 | `/evidence/library/clinical/sickle-cell-transfusion-compatibility.html` | Red cell transfusion compatibility in sickle cell disease | sickle cell anemia (SCA); SCD alloimmunization; red cell antigen exposure; Rh and Kell matching; RH genotyping; Mewha et al. 2026 |
+| `/evidence/library/real-world-evidence/blood-groups-history/` | Human blood groups and transfusion compatibility | ABO; 49 ISBT blood group systems; red cell antigens; platelet compatibility; HPA; HLA; HNA; plasma compatibility; downloadable reference |
 | `/applications/military-disaster-medicine/` | LSCO, military blood logistics and prolonged casualty care | mass casualties; casualty definitions; personnel replacement requirements; contested evacuation; oxygen-delivery readiness; BHOC development requirements |
 | `/news/lsco-blood-logistics-oxygen-delivery/` | Announcement of the BHOC LSCO analysis | military blood supply; mass-casualty planning; original source article; Precision Oxygen Therapeutics; internal link to permanent analysis |
 | `/applications/#perioperative-oxygen-delivery` | Surgery and perioperative oxygen delivery | perioperative anemia; surgical blood loss; patient blood management; hemoglobin dose; donor blood availability; cardiopulmonary bypass |

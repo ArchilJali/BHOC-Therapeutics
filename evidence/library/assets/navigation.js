@@ -253,7 +253,7 @@
     if (!document.querySelector('#rwe-activity-style')) {
       const style = document.createElement('style');
       style.id = 'rwe-activity-style';
-      style.textContent = '.section-latest{display:inline-block;margin:0 0 10px;padding:3px 7px;border-radius:999px;background:#f1f4f6;color:#66737d;font-size:8px;font-weight:850;letter-spacing:.045em;text-transform:uppercase}.article-activity-meta{margin:28px 0 10px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#f7f9fa;color:var(--muted);font-size:10.5px;line-height:1.6}.article-activity-meta strong{color:var(--ink)}';
+      style.textContent = '.section-latest{display:inline-block;margin:0 0 10px;padding:3px 7px;border-radius:999px;background:#f1f4f6;color:#66737d;font-size:8px;font-weight:850;letter-spacing:.045em;text-transform:uppercase}';
       document.head.appendChild(style);
     }
 
@@ -266,10 +266,11 @@
     const indexPage = path.endsWith('/real-world-evidence/') || path.endsWith('/real-world-evidence/index.html');
     if (indexPage) {
       const directoryCards = [...document.querySelectorAll('.dir-card')];
-      const overviewCards = [...document.querySelectorAll('.rwe-card')];
+      const overviewCards = new Map([...document.querySelectorAll('.rwe-card[data-evidence-domain]')]
+        .map(card => [card.dataset.evidenceDomain, card]));
       let newest = null;
 
-      directoryCards.forEach((card, index) => {
+      directoryCards.forEach(card => {
         const datedItems = [...card.querySelectorAll('li time[datetime]')]
           .map(time => ({time, iso: time.getAttribute('datetime') || '', item: time.closest('li')}))
           .filter(entry => /^\d{4}-\d{2}-\d{2}$/.test(entry.iso))
@@ -287,7 +288,7 @@
         sectionDate.setAttribute('datetime', latest.iso);
         sectionDate.textContent = `Latest ${formatDate(latest.iso)}`;
 
-        const overview = overviewCards[index];
+        const overview = overviewCards.get(card.dataset.evidenceDomain);
         if (overview) {
           let overviewDate = overview.querySelector('.update-date');
           if (!overviewDate) {
@@ -323,17 +324,6 @@
         }
       }
     }
-
-    if (path.includes('/real-world-evidence/blood-groups-history/')) {
-      const article = document.querySelector('main article');
-      if (article && !article.querySelector('.article-activity-meta')) {
-        const meta = document.createElement('div');
-        meta.className = 'article-activity-meta';
-        meta.innerHTML = '<strong>BHOC Knowledge Base record</strong><br>Added: <time datetime="2026-09-12">12 Sep 2026</time> · Last updated: <time datetime="2026-09-12">12 Sep 2026</time><br>Dates refer to this BHOC reference page, not to the publication dates of the cited scientific sources.';
-        article.appendChild(meta);
-      }
-    }
-
   };
 
   const addGlobalPageContext = () => {
