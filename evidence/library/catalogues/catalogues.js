@@ -28,6 +28,12 @@
  for(const value of [...new Set(rows.flatMap(r=>String(r.dataset.author).split(/[,;]/).map(s=>s.trim()).filter(s=>s&&!/^et al\.?$/i.test(s))))].sort()){const option=document.createElement('option');option.value=value;$('authors').append(option);}
  const originalParams=new URLSearchParams(location.search),params=prefix?new URLSearchParams([...originalParams].filter(([key])=>key.startsWith(prefix)).map(([key,value])=>[key.slice(prefix.length),value])):originalParams,controls=['q',...fields,'author','institution','sort'];
  if(params.has('group')&&!params.has('evidence'))params.set('evidence',params.get('group'));
+ const directionAliases={
+  'Cardiac Ischemia, SCA & Resuscitation':'Cardiac Ischemia, Cardiac Arrest & Resuscitation',
+  'Hematology, Sickle Cell & Severe Anemia':'Hematology & Severe Anemia',
+  'Sickle Cell Disease & Transfusion Support':'Sickle Cell Disease & Anemia (SCD/SCA)'
+ };
+ if(directionAliases[params.get('direction')])params.set('direction',directionAliases[params.get('direction')]);
  if(params.has('direction')&&!$('direction')&&$('application'))params.set('application',params.get('direction'));
  const speciesAliases={'Canine':'Canine (Dog)','Feline':'Feline (Cat)','Equine':'Equine (Horse)','Porcine':'Porcine (Pig)','Ovine':'Ovine (Sheep)','Avian':'Avian (Bird)','__exotic__':'Other animal','__other_models__':'In vitro / laboratory'};
  if(speciesAliases[params.get('species')])params.set('species',speciesAliases[params.get('species')]);
