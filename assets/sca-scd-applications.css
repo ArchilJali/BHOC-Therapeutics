@@ -1,0 +1,13 @@
+/* SCA/SCD application card: extend the existing graphite visual-story layout. */
+.sca-scd-intro{margin-top:14px}
+#sca-scd-context{scroll-margin-top:110px}
+.visual-story-scd .visual-story-quote a{font-family:Arial,Helvetica,sans-serif;font-size:.74rem;font-weight:800;letter-spacing:.06em;text-decoration:none}
+.visual-story-scd .visual-story-actions{margin-top:18px}
+.sca-scd-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:20px}
+.sca-scd-links a{display:block;min-width:0;padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:#fbfdff;text-decoration:none;transition:border-color .2s ease,background .2s ease}
+.sca-scd-links strong{display:block;color:var(--navy);font-size:.78rem;line-height:1.3}
+.sca-scd-links span{display:block;margin-top:5px;color:var(--muted);font-size:.72rem;line-height:1.4}
+.sca-scd-links a:hover{border-color:var(--red);background:#fff7f6}
+.sca-scd-links a:focus-visible,.visual-story-scd .visual-story-quote a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.visual-story-scd .sca-scd-note{margin-top:18px}
+@media(max-width:380px){.sca-scd-links{grid-template-columns:1fr}}
