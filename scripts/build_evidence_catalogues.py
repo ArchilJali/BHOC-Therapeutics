@@ -164,8 +164,10 @@ def page(kind,path=None):
     previous=output_path.read_text() if output_path.exists() else ''
     previous_header=re.search(r'<header class="site-header">[\s\S]*?</header>',previous)
     previous_footer=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',previous)
+    previous_evidence_links=re.search(r'<nav\b[^>]*data-bhoc-evidence-links[^>]*>[\s\S]*?</nav>',previous)
     page_header=previous_header[0] if previous_header else HEADER
     page_footer=previous_footer[0] if previous_footer else FOOTER
+    if previous_evidence_links:page_footer=previous_evidence_links[0]+'\n'+page_footer
     extra=''
     if kind=='product':extra=f'<a href="{PREFIX}veterinary/Vet-03-publication-BHOC-Oxyglobin.html">Oxyglobin clinical &amp; regulatory evidence</a><a href="{PREFIX}human/BHOC-Human-fda-expanded-access.html">Hemopure Expanded Access</a>'
     if kind=='related':extra=f'<a href="{PREFIX}science/#featured-publications">Read the featured Science analyses →</a><a href="{PREFIX}science/#scientific-catalogues">Browse this same catalogue within Science →</a>'

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05",
+  "updated": "2026-11-07",
   "records": [
     {
       "title": "Acute Safety Study of the Intravenous Injection of a Lyophilized Form of an Extracellular Hemoglobin, M101, in the Rat",
@@ -11849,8 +11849,12 @@
       "catalogue": "product",
       "classificationBasis": "Named product in approved source metadata",
       "id": "pub-187a2e2c1bcb",
-      "verification": "Bibliographic verification required",
-      "recordType": "Bibliographic record"
+      "verification": "PubMed and publisher metadata verified",
+      "recordType": "Bibliographic record",
+      "relatedRecordIds": [
+        "pub-zambelli-2007-babesiosis-dissertation",
+        "pub-zambelli-2006-babesiosis-presentation"
+      ]
     },
     {
       "title": "A review of blood substitutes: examining the history, clinical trial results, and ethics of hemoglobin-based oxygen carriers",
@@ -34234,6 +34238,230 @@
       "cohortLinks": [],
       "added": "2026-11-05",
       "release": "scd-transfusion-compatibility-20261105"
+    },
+    {
+      "id": "pub-pmid-10072160",
+      "title": "Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria",
+      "year": "1999",
+      "authors": "Freilich D, Branda R, Hacker M, Leach L, Barry B, Ferris S, Hebert J",
+      "journal": "American Journal of Tropical Medicine and Hygiene",
+      "doi": "10.4269/ajtmh.1999.60.322",
+      "pmid": "10072160",
+      "citation": "Freilich D, Branda R, Hacker M, Leach L, Barry B, Ferris S, Hebert J. Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria. Am J Trop Med Hyg. 1999;60(2):322-328. doi:10.4269/ajtmh.1999.60.322.",
+      "product": "Hemolink (o-raffinose cross-linked and polymerized hemoglobin)",
+      "keywords": "Malaria; Malarial anaemia; Hemolink; o-raffinose polymerized hemoglobin; Lactic acidosis; Preclinical oxygen-carrier research",
+      "directions": [
+        "Human Use"
+      ],
+      "institutions": [
+        "University of Vermont"
+      ],
+      "species": [
+        "Rodent"
+      ],
+      "evidence": "Preclinical animal study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/10072160/",
+        "https://doi.org/10.4269/ajtmh.1999.60.322"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "freilich-1999-malaria-hemolink",
+          "title": "Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria",
+          "year": "1999",
+          "doi": "10.4269/ajtmh.1999.60.322",
+          "pmid": "10072160"
+        }
+      ],
+      "originalVerification": "Full author list, DOI, PMID, journal and pages matched to PubMed and Crossref. Abstract and available primary methods reviewed; the methods name Hemolink, Hemosol.",
+      "sourceReview": "Historical study of Hemolink in rats with high-grade parasitaemia. The tested o-raffinose-modified formulation is distinct from Hemopure/HBOC-201, Oxyglobin/HBOC-301 and BHOC. The animal observations do not establish clinical efficacy in people with malaria or support erythrocyte removal followed by BHOC administration.",
+      "catalogue": "related",
+      "classificationBasis": "Other oxygen-carrier formulation in a preclinical malaria model. Related research, not Oxyglobin or Hemopure product evidence.",
+      "verification": "PubMed and Crossref metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Malaria",
+        "Malarial anaemia",
+        "Hemolink",
+        "o-raffinose polymerized hemoglobin",
+        "Lactic acidosis",
+        "Preclinical oxygen-carrier research"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "In a rat model of severe malaria, the authors reported reduced lactic acidosis and correction of anaemia after Hemolink administration, comparable to the red-cell comparator. The abstract describes a possible association with improved survival, rather than establishing a clinical survival benefit.",
+      "relatedRecordIds": [],
+      "added": "2026-11-07",
+      "release": "malaria-babesiosis-literature-20261107"
+    },
+    {
+      "id": "pub-pmid-11132394",
+      "title": "Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro",
+      "year": "2000",
+      "authors": "Freilich DA, Wallace MR, Leach L, Hall F, Lee M, Hebert JC",
+      "journal": "Transactions of the Royal Society of Tropical Medicine and Hygiene",
+      "doi": "10.1016/S0035-9203(00)90095-6",
+      "pmid": "11132394",
+      "citation": "Freilich DA, Wallace MR, Leach L, Hall F, Lee M, Hebert JC. Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro. Trans R Soc Trop Med Hyg. 2000;94(5):580-581. doi:10.1016/S0035-9203(00)90095-6.",
+      "product": "o-raffinose polymerized haemoglobin",
+      "keywords": "Malaria; Plasmodium falciparum; o-raffinose polymerized hemoglobin; Chloroquine sensitivity; In vitro parasite culture",
+      "directions": [
+        "Human Use"
+      ],
+      "institutions": [],
+      "species": [
+        "In vitro / laboratory"
+      ],
+      "evidence": "In vitro parasite-culture study",
+      "urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/11132394/",
+        "https://doi.org/10.1016/S0035-9203(00)90095-6"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "freilich-2000-plasmodium-in-vitro",
+          "title": "Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro",
+          "year": "2000",
+          "doi": "10.1016/S0035-9203(00)90095-6",
+          "pmid": "11132394"
+        }
+      ],
+      "originalVerification": "Full author list, DOI and PMID matched to PubMed and Crossref; title, issue and pages matched to the publisher contents. Full text not reviewed.",
+      "sourceReview": "The indexed title reports no effect of the tested o-raffinose-polymerized haemoglobin on parasite growth or chloroquine sensitivity in vitro. This is not a patient study, a demonstration of antiparasitic activity, or product-specific evidence for Hemopure, Oxyglobin or BHOC. Full-text methods and numerical results require review.",
+      "catalogue": "related",
+      "classificationBasis": "Other oxygen-carrier formulation studied in a malaria parasite culture. Related research, not a clinical malaria trial.",
+      "verification": "PubMed and publisher metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Malaria",
+        "Plasmodium falciparum",
+        "o-raffinose polymerized hemoglobin",
+        "Chloroquine sensitivity",
+        "In vitro parasite culture"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "P. falciparum culture study addressing parasite growth and chloroquine sensitivity in the presence of o-raffinose-polymerized haemoglobin. The title reports no detected effect. This bibliographic summary is based on indexed metadata; full text was not reviewed.",
+      "relatedRecordIds": [],
+      "added": "2026-11-07",
+      "release": "malaria-babesiosis-literature-20261107"
+    },
+    {
+      "id": "pub-zambelli-2007-babesiosis-dissertation",
+      "title": "A comparison of the effects of packed red blood cell transfusion and Oxyglobin in canine babesiosis",
+      "year": "2007",
+      "authors": "Zambelli AB",
+      "journal": "",
+      "doi": "",
+      "pmid": "",
+      "citation": "Zambelli AB. A comparison of the effects of packed red blood cell transfusion and Oxyglobin in canine babesiosis. MMedVet(Med) dissertation. University of Pretoria; November 2007.",
+      "product": "Oxyglobin",
+      "keywords": "Canine babesiosis; Babesia rossi; Oxyglobin; Packed red blood cells; Veterinary dissertation; Comparative parasitic anaemia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of Pretoria"
+      ],
+      "species": [
+        "Canine"
+      ],
+      "evidence": "Veterinary dissertation (MMedVet)",
+      "urls": [
+        "https://repository.up.ac.za/server/api/core/bitstreams/5abd7c3d-63fb-4ae8-abb9-cafeb3f09e3f/content"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "zambelli-2007-babesiosis-dissertation",
+          "title": "A comparison of the effects of packed red blood cell transfusion and Oxyglobin in canine babesiosis",
+          "year": "2007",
+          "doi": "",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "University of Pretoria repository PDF title page confirms the sole author, exact title, MMedVet degree and November 2007 date. Repository upload dates are not used as the research year.",
+      "sourceReview": "Dissertation from the Oxyglobin and packed-red-cell comparison programme associated with Zambelli and Leisewitz 2009, PMID 19691591. Indexed as a separate document, not as an additional independent trial. The disease studied was canine babesiosis, not Plasmodium malaria in people.",
+      "catalogue": "product",
+      "classificationBasis": "Named Oxyglobin veterinary research document. Retain dissertation status, canine species and babesiosis diagnosis.",
+      "verification": "Primary repository title-page metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Canine babesiosis",
+        "Babesia rossi",
+        "Oxyglobin",
+        "Packed red blood cells",
+        "Veterinary dissertation",
+        "Comparative parasitic anaemia"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "University of Pretoria dissertation comparing packed-red-cell transfusion and Oxyglobin in canine babesiosis. This companion document provides research context for the 2009 journal report and is not counted as an additional independent trial.",
+      "relatedRecordIds": [
+        "pub-187a2e2c1bcb"
+      ],
+      "added": "2026-11-07",
+      "release": "malaria-babesiosis-literature-20261107"
+    },
+    {
+      "id": "pub-zambelli-2006-babesiosis-presentation",
+      "title": "Oxyglobin and packed red cell transfusions provide similar blood gas, acid base, haemodynamic and subjective benefits in a canine Babesia canis rossi model of anaemia",
+      "year": "2006",
+      "authors": "Zambelli AB, Leisewitz AL, Schoeman JP",
+      "journal": "",
+      "doi": "",
+      "pmid": "",
+      "citation": "Zambelli AB, Leisewitz AL, Schoeman JP. Oxyglobin and packed red cell transfusions provide similar blood gas, acid base, haemodynamic and subjective benefits in a canine Babesia canis rossi model of anaemia. Faculty Day programme, Faculty of Veterinary Science, University of Pretoria; 28 September 2006. Oral presentation.",
+      "product": "Oxyglobin",
+      "keywords": "Canine babesiosis; Babesia canis rossi; Oxyglobin; Packed red blood cells; Conference presentation; Comparative parasitic anaemia",
+      "directions": [
+        "Veterinary"
+      ],
+      "institutions": [
+        "University of Pretoria"
+      ],
+      "species": [
+        "Canine"
+      ],
+      "evidence": "Conference presentation record (programme)",
+      "urls": [
+        "https://repository.up.ac.za/bitstreams/313963c9-7d19-4a2a-a7cd-80feb164fe29/download"
+      ],
+      "notes": [],
+      "provenance": [
+        {
+          "source": "Approved scientific additions",
+          "row": "zambelli-2006-babesiosis-presentation",
+          "title": "Oxyglobin and packed red cell transfusions provide similar blood gas, acid base, haemodynamic and subjective benefits in a canine Babesia canis rossi model of anaemia",
+          "year": "2006",
+          "doi": "",
+          "pmid": ""
+        }
+      ],
+      "originalVerification": "Search-indexed primary University of Pretoria Faculty Day programme confirms the title, three named authors and 28 September 2006 date. Direct document retrieval was intermittently unavailable (HTTP 503/timeout).",
+      "sourceReview": "A programme entry for an oral presentation, not a peer-reviewed full article. The title describes an Oxyglobin comparison in canine babesiosis. Related to the Zambelli research programme; independent cohort status is not established. This document is not counted as another independent trial or as malaria efficacy evidence.",
+      "catalogue": "product",
+      "classificationBasis": "Named Oxyglobin veterinary presentation record. Retain programme-only verification and avoid counting a new independent study.",
+      "verification": "Indexed primary programme metadata verified",
+      "recordType": "Bibliographic record",
+      "topics": [
+        "Canine babesiosis",
+        "Babesia canis rossi",
+        "Oxyglobin",
+        "Packed red blood cells",
+        "Conference presentation",
+        "Comparative parasitic anaemia"
+      ],
+      "titleAliases": [],
+      "catalogueSummary": "Presentation listed in the University of Pretoria Faculty Day programme of 28 September 2006. The programme identifies an Oxyglobin and red-cell comparison in canine babesiosis. Outcomes were not independently re-extracted from a full presentation or abstract.",
+      "relatedRecordIds": [
+        "pub-187a2e2c1bcb",
+        "pub-zambelli-2007-babesiosis-dissertation"
+      ],
+      "added": "2026-11-07",
+      "release": "malaria-babesiosis-literature-20261107"
     }
   ],
   "mergedRecords": [

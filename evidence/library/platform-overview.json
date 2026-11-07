@@ -1,8 +1,8 @@
 {
   "publicationCounter": {
     "baseline": 962,
-    "newPublications": 41,
-    "displayedTotal": 1003,
+    "newPublications": 45,
+    "displayedTotal": 1007,
     "newRecordIds": [
       "pub-doi-10-1136-inpract-27-8-399",
       "pub-feline-barfield-adamantos-2011-transfusions",
@@ -14,7 +14,9 @@
       "pub-feline-taylor-2021-isfm-guidelines",
       "pub-muir-oc99-2014",
       "pub-oxyglobin-berent-2005",
+      "pub-pmid-10072160",
       "pub-pmid-1111380",
+      "pub-pmid-11132394",
       "pub-pmid-11429355",
       "pub-pmid-12522516",
       "pub-pmid-12683610",
@@ -44,20 +46,22 @@
       "pub-pmid-39407836",
       "pub-pmid-39748550",
       "pub-pmid-40950573",
-      "pub-pmid-42376265"
+      "pub-pmid-42376265",
+      "pub-zambelli-2006-babesiosis-presentation",
+      "pub-zambelli-2007-babesiosis-dissertation"
     ]
   },
   "collectionTotals": {
-    "entries": 1041,
+    "entries": 1047,
     "collections": {
       "transplant": 65,
-      "human": 196,
-      "veterinary": 302,
+      "human": 198,
+      "veterinary": 304,
       "oxygen": 247,
-      "related": 231
+      "related": 233
     },
-    "distinctRecordsInFiveCollections": 675,
-    "repeatedPlacements": 366,
+    "distinctRecordsInFiveCollections": 679,
+    "repeatedPlacements": 368,
     "additionalProductRecordIds": [
       "pub-0fcfeb0c713c",
       "pub-24a6e7c41bb5",
@@ -69,22 +73,22 @@
       "pub-e31201f2d3fc",
       "pub-fa6f61740148"
     ],
-    "distinctRecordsInFullLibrary": 684
+    "distinctRecordsInFullLibrary": 688
   },
-  "snapshot": "2026-11-05",
-  "uniquePublications": 684,
-  "hubPlacements": 563,
+  "snapshot": "2026-11-07",
+  "uniquePublications": 688,
+  "hubPlacements": 567,
   "evidenceHubs": 3,
-  "indexedAuthorInstitutions": 182,
-  "normalizedJournalLabels": 224,
+  "indexedAuthorInstitutions": 183,
+  "normalizedJournalLabels": 226,
   "catalogues": {
-    "product": 206,
+    "product": 208,
     "oxygen": 247,
-    "related": 231
+    "related": 233
   },
   "hubs": {
-    "veterinary": 302,
-    "human": 196,
+    "veterinary": 304,
+    "human": 198,
     "transplant": 65
   },
   "notes": {

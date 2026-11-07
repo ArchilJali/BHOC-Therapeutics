@@ -1,0 +1,81 @@
+{
+  "id": "malaria-babesiosis-literature-20261107",
+  "date": "2026-11-07",
+  "approval": "Archil explicitly authorized adding the previously listed missing records and updating the publication counter on 7 November 2026.",
+  "startingCommit": "f4a131789a321ff512414dc849238d42542ada28",
+  "newPublications": 4,
+  "previousPublicRecords": 684,
+  "publicRecords": 688,
+  "previousDisplayedCounter": 1003,
+  "displayedCounter": 1007,
+  "newByCatalogue": {
+    "related": 2,
+    "product": 2
+  },
+  "newByApplication": {
+    "Human Use": 2,
+    "Veterinary": 2
+  },
+  "records": [
+    {
+      "id": "pub-pmid-10072160",
+      "title": "Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria",
+      "year": "1999",
+      "doi": "10.4269/ajtmh.1999.60.322",
+      "pmid": "10072160",
+      "catalogue": "related",
+      "evidenceType": "Preclinical animal study",
+      "verification": "PubMed and Crossref metadata verified",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/10072160/",
+        "https://doi.org/10.4269/ajtmh.1999.60.322"
+      ],
+      "authorshipReview": "Crossref full authorship resolved by live BHOC Source Guard on 7 November 2026; no stop-list match."
+    },
+    {
+      "id": "pub-pmid-11132394",
+      "title": "Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro",
+      "year": "2000",
+      "doi": "10.1016/S0035-9203(00)90095-6",
+      "pmid": "11132394",
+      "catalogue": "related",
+      "evidenceType": "In vitro parasite-culture study",
+      "verification": "PubMed and publisher metadata verified",
+      "metadataSources": [
+        "https://pubmed.ncbi.nlm.nih.gov/11132394/",
+        "https://doi.org/10.1016/S0035-9203(00)90095-6"
+      ],
+      "authorshipReview": "PubMed and Crossref full authorship resolved by live BHOC Source Guard on 7 November 2026; no stop-list match."
+    },
+    {
+      "id": "pub-zambelli-2007-babesiosis-dissertation",
+      "title": "A comparison of the effects of packed red blood cell transfusion and Oxyglobin in canine babesiosis",
+      "year": "2007",
+      "doi": "",
+      "pmid": "",
+      "catalogue": "product",
+      "evidenceType": "Veterinary dissertation (MMedVet)",
+      "verification": "Primary repository title-page metadata verified",
+      "metadataSources": [
+        "https://repository.up.ac.za/server/api/core/bitstreams/5abd7c3d-63fb-4ae8-abb9-cafeb3f09e3f/content"
+      ],
+      "authorshipReview": "Sole author A.B. Zambelli confirmed on the primary title page and manually compared against the current live BHOC stop-list. Identifier-based automated resolution is unavailable for this dissertation."
+    },
+    {
+      "id": "pub-zambelli-2006-babesiosis-presentation",
+      "title": "Oxyglobin and packed red cell transfusions provide similar blood gas, acid base, haemodynamic and subjective benefits in a canine Babesia canis rossi model of anaemia",
+      "year": "2006",
+      "doi": "",
+      "pmid": "",
+      "catalogue": "product",
+      "evidenceType": "Conference presentation record (programme)",
+      "verification": "Indexed primary programme metadata verified",
+      "metadataSources": [
+        "https://repository.up.ac.za/bitstreams/313963c9-7d19-4a2a-a7cd-80feb164fe29/download"
+      ],
+      "authorshipReview": "Complete three-author byline confirmed in the indexed primary programme and manually compared against the current live BHOC stop-list. Identifier-based automated resolution is unavailable for this programme entry."
+    }
+  ],
+  "existingRelatedJournalRecord": "pub-187a2e2c1bcb",
+  "note": "Four document records, not four independent trials. Hemolink malaria studies are Related Scientific Articles. The Oxyglobin dissertation and programme entry concern canine babesiosis and are linked to the existing 2009 report. Programme-only metadata and incomplete full-text review remain explicit."
+}

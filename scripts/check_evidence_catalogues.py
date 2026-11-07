@@ -75,7 +75,7 @@ assert platform['hubs']=={k:STATS[k]['records'] for k in APP_LABELS}
 for p in [BASE/'index.html',BASE/'science/index.html',ROOT/'evidence/index.html']:
     s=p.read_text();assert '48 incomplete imported fragments' not in s
     assert s.count('id="scientific-catalogues"')==1
-assert len(VIEWS['human'])==196
+assert len(VIEWS['human'])==198
 oncology=[r for r in VIEWS['human'] if 'Oncology & Tumor Oxygenation' in r['direction']]
 assert len(oncology)==2, 'Requested oncology filter must show two records'
 assert any(r['pmid']=='19816963' and 'Mechanistic / in silico research context' in r['evidenceGroups'] for r in oncology), 'Bioreactor model must remain labelled as mechanistic context'
@@ -97,7 +97,7 @@ assert home.count('id="all-publications-entry"')==1 and 'Search all publications
 reconciliation=count_reconciliation()
 assert json.loads((BASE/'catalogues/data/count-reconciliation.json').read_text())==reconciliation
 assert reconciliation['originalSourceRows']==475 and reconciliation['originalDistinctRecords']==334
-assert reconciliation['netAddedRecords']==350
+assert reconciliation['netAddedRecords']==354
 home_metrics=re.search(r'<section aria-label="Evidence Library statistics">([\s\S]*?)</section>',home)[1]
 assert [int(v) for v in re.findall(r'<strong\b[^>]*>(\d+)</strong>',home_metrics)]==[publication_counter()['displayedTotal'],TOTAL['groups'],TOTAL['institutions'],TOTAL['journals']], 'Homepage statistics are stale'
 for merged in DATA['mergedRecords']:
@@ -112,7 +112,7 @@ for merged in DATA['mergedRecords']:
 assert home.index('class="regulatory-strip"')<home.index('id="evidence-hubs"')<home.index('id="scientific-catalogues"')
 assert json.loads((ROOT/'site-release.json').read_text())==json.loads((BASE/'version.json').read_text()),'Release counter mismatch'
 print('PASS: Science and Related expose the same collection; application hubs stay together; release counters agree.')
-print('PASS: all 475 legacy source rows map to 334 distinct records; 350 net additions; all original source occurrences retained.')
+print('PASS: all 475 legacy source rows map to 334 distinct records; 354 net additions; all original source occurrences retained.')
 print('PASS: one public catalogue source; no duplicate IDs, DOI or PMID; all 243 Oxygen Master source rows retained in the source archive.')
 
 coverage=json.loads((BASE/'catalogues/data/source-coverage.json').read_text())
@@ -122,25 +122,28 @@ assert coverage['retainedRecordsIncludingFragments']==len(ALL_RECORDS)
 assert coverage['catalogues']=={k:len(VIEWS[k]) for k in ['product','oxygen','related']}
 
 collection_stats=collection_totals()
-assert collection_stats['entries']==1041
-assert collection_stats['collections']=={'transplant':65,'human':196,'veterinary':302,'oxygen':247,'related':231}
-assert collection_stats['distinctRecordsInFiveCollections']==675
+assert collection_stats['entries']==1047
+assert collection_stats['collections']=={'transplant':65,'human':198,'veterinary':304,'oxygen':247,'related':233}
+assert collection_stats['distinctRecordsInFiveCollections']==679
 assert len(collection_stats['additionalProductRecordIds'])==9
 assert collection_stats['distinctRecordsInFullLibrary']==len(RECORDS)
 for source in [home,combined]:
-    assert 'data-publication-counter>1003</strong>' in source
+    assert 'data-publication-counter>1007</strong>' in source
     assert 'Library entries' in source
     assert 'Distinct publications' not in source
     for kind in COLLECTIONS:
         assert 'data-collection-link="'+kind+'"' in source
 assert "{name: 'Evidence', href: '/evidence/library/catalogues/', path: '/evidence/'}" in (ROOT/'unified-shell.js').read_text()
-assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==41
+assert publication_counter()['baseline']==962 and publication_counter()['newPublications']==45
 oxy_release=read('catalogues/data/oxyglobin-literature-review-20261030.json')
 oxy_ids={r['id'] for r in oxy_release['records']}
 assert len(oxy_ids)==23 and oxy_release['newByCatalogue']=={'product':12,'related':11}
-assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358','pub-pmid-39407836','pub-pmid-42376265'}|oxy_ids|{'pub-doi-10-1136-inpract-27-8-399'}|set(['pub-feline-maldonado-moreno-2023-pima', 'pub-feline-barfield-adamantos-2011-transfusions', 'pub-feline-rebel-2002-cerebral-ischaemia', 'pub-feline-rebel-2003-cerebrovascular-response', 'pub-feline-taylor-2021-isfm-guidelines', 'pub-feline-crystal-1999-no-matching-donor', 'pub-feline-nolte-1999-acetaminophen'])
+malaria_release=read('catalogues/data/malaria-babesiosis-literature-20261107.json')
+malaria_ids={r['id'] for r in malaria_release['records']}
+assert len(malaria_ids)==malaria_release['newPublications']==4
+assert set(publication_counter()['newRecordIds'])=={'pub-pmid-12683610','pub-pmid-1111380','pub-pmid-3740627','pub-pmid-19430240','pub-pmid-24612155','pub-muir-oc99-2014','pub-pmid-19816963','pub-pmid-33872358','pub-pmid-39407836','pub-pmid-42376265'}|oxy_ids|{'pub-doi-10-1136-inpract-27-8-399'}|set(['pub-feline-maldonado-moreno-2023-pima', 'pub-feline-barfield-adamantos-2011-transfusions', 'pub-feline-rebel-2002-cerebral-ischaemia', 'pub-feline-rebel-2003-cerebrovascular-response', 'pub-feline-taylor-2021-isfm-guidelines', 'pub-feline-crystal-1999-no-matching-donor', 'pub-feline-nolte-1999-acetaminophen'])|malaria_ids
 assert oxy_ids <= {r['id'] for r in RECORDS}
-assert len(ALL_RECORDS)==732 and len(RECORDS)==684
+assert len(ALL_RECORDS)==736 and len(RECORDS)==688
 assert all(r['provenance'][0]['source']=='Approved scientific additions' for r in RECORDS if r['id'] in oxy_ids)
 assert all(not r['evidence'].startswith('Human clinical') for r in VIEWS['human'] if r['id'] in oxy_ids)
 oxy_page=(BASE/'veterinary/Vet-03-publication-BHOC-Oxyglobin.html').read_text()
@@ -149,7 +152,7 @@ update_log=(ROOT/'news/knowledge-updates/index.html').read_text()
 assert 'id="oxyglobin-literature-20261030-details"' in update_log
 assert all('#'+id+'"' in update_log for id in oxy_ids)
 assert '/news/knowledge-updates/#oxyglobin-literature-20261030-details' in oxy_page
-assert '<strong>206</strong><span>Publication records</span>' in oxy_page
+assert '<strong>208</strong><span>Publication records</span>' in oxy_page
 assert len([r for r in RECORDS if r['doi']=='10.1111/j.1939-1676.2003.tb02423.x'])==1
 assert any(r['pmid']=='12683610' for r in VIEWS['veterinary']) and any(r['pmid']=='12683610' for r in VIEWS['oxygen'])
 print(f'PASS: displayed counter {publication_counter()["displayedTotal"]}; {len(RECORDS)} distinct publications; all previous record identities retained.')
@@ -203,3 +206,24 @@ for item in feline_release['records']:
         assert record['verification']=='Bibliographic verification required'
         assert record['urls']==[] and 'original' in record['sourceReview'].lower()
 print('PASS: feline tags, requested records, archival qualifications and counters agree.')
+
+# The malaria papers concern another formulation; veterinary companion documents
+# remain distinct publications without being presented as independent trials.
+malaria_rows=[r for r in RECORDS if r['id'] in malaria_ids]
+assert len(malaria_rows)==4
+assert malaria_release['displayedCounter']==publication_counter()['displayedTotal']
+assert malaria_release['publicRecords']==len(RECORDS)
+for r in malaria_rows:
+    if r['pmid'] in ['10072160','11132394']:
+        assert r['catalogue']=='related' and r['products']==[]
+        assert r['directions']==['Human Use'] and 'Human' not in r['speciesGroups']
+        assert not r['evidence'].startswith('Human clinical')
+    else:
+        assert r['catalogue']=='product' and r['products']==['Oxyglobin']
+        assert r['directions']==['Veterinary'] and r['speciesGroups']==['Canine (Dog)']
+        assert 'pub-187a2e2c1bcb' in r['relatedRecordIds']
+        assert 'independent trial' in r['sourceReview']
+assert 'programme' in next(r for r in malaria_rows if r['year']=='2006')['evidence'].lower()
+assert 'malaria-babesiosis-literature-20261107' in update_log
+assert all('#'+rid+'"' in update_log for rid in malaria_ids)
+print('PASS: four malaria/babesiosis documents retain formulation, species and study-design boundaries; displayed counter 1007.')

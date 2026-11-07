@@ -1,16 +1,17 @@
 {
-  "checked": "2026-11-03",
+  "checked": "2026-11-07",
   "scope": "All public catalogue source links. PubMed and DOI identifiers matched to source titles; other destinations checked by HTTP response and page title. Metadata validation does not guarantee unrestricted publisher full-text access.",
-  "publicRecords": 684,
-  "uniqueUrlsChecked": 1001,
+  "publicRecords": 688,
+  "uniqueUrlsChecked": 1007,
   "states": {
-    "matched": 984,
+    "matched": 989,
     "access-limited": 10,
     "matched-publisher-metadata": 3,
     "search-query-removed": 1,
     "collection-doi-removed": 1,
     "unverified-document-removed": 1,
-    "matched-original-title": 1
+    "matched-original-title": 1,
+    "matched-indexed-primary-metadata": 1
   },
   "records": {
     "pub-cd13a0e8b8c2": {
@@ -10908,6 +10909,78 @@
           "method": "PubMed Central title, DOI, methods and results checked",
           "sourceTitle": "Red cell antigen exposures in patients with sickle cell disease receiving transfusion from Black and Hispanic donors",
           "checked": "2026-11-05"
+        }
+      ]
+    },
+    "pub-pmid-10072160": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/10072160/",
+        "https://doi.org/10.4269/ajtmh.1999.60.322"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10072160/",
+          "state": "matched",
+          "method": "Full author list, DOI, PMID, journal and pages matched to PubMed and Crossref. Abstract and available primary methods reviewed; the methods name Hemolink, Hemosol.",
+          "sourceTitle": "Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria",
+          "checked": "2026-11-07"
+        },
+        {
+          "url": "https://doi.org/10.4269/ajtmh.1999.60.322",
+          "state": "matched",
+          "method": "Full author list, DOI, PMID, journal and pages matched to PubMed and Crossref. Abstract and available primary methods reviewed; the methods name Hemolink, Hemosol.",
+          "sourceTitle": "Decreased lactic acidosis and anemia after transfusion of o-raffinose cross-linked and polymerized hemoglobin in severe murine malaria",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "pub-pmid-11132394": {
+      "publicLinks": [
+        "https://pubmed.ncbi.nlm.nih.gov/11132394/",
+        "https://doi.org/10.1016/S0035-9203(00)90095-6"
+      ],
+      "checks": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11132394/",
+          "state": "matched",
+          "method": "Full author list, DOI and PMID matched to PubMed and Crossref; title, issue and pages matched to the publisher contents. Full text not reviewed.",
+          "sourceTitle": "Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro",
+          "checked": "2026-11-07"
+        },
+        {
+          "url": "https://doi.org/10.1016/S0035-9203(00)90095-6",
+          "state": "matched",
+          "method": "Full author list, DOI and PMID matched to PubMed and Crossref; title, issue and pages matched to the publisher contents. Full text not reviewed.",
+          "sourceTitle": "Absence of an effect of the 'blood substitute' o-raffinose polymerized haemoglobin on growth or chloroquine sensitivity of Plasmodium falciparum in vitro",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "pub-zambelli-2007-babesiosis-dissertation": {
+      "publicLinks": [
+        "https://repository.up.ac.za/server/api/core/bitstreams/5abd7c3d-63fb-4ae8-abb9-cafeb3f09e3f/content"
+      ],
+      "checks": [
+        {
+          "url": "https://repository.up.ac.za/server/api/core/bitstreams/5abd7c3d-63fb-4ae8-abb9-cafeb3f09e3f/content",
+          "state": "matched",
+          "method": "University of Pretoria repository PDF title page confirms the sole author, exact title, MMedVet degree and November 2007 date. Repository upload dates are not used as the research year.",
+          "sourceTitle": "A comparison of the effects of packed red blood cell transfusion and Oxyglobin in canine babesiosis",
+          "checked": "2026-11-07"
+        }
+      ]
+    },
+    "pub-zambelli-2006-babesiosis-presentation": {
+      "publicLinks": [
+        "https://repository.up.ac.za/bitstreams/313963c9-7d19-4a2a-a7cd-80feb164fe29/download"
+      ],
+      "checks": [
+        {
+          "url": "https://repository.up.ac.za/bitstreams/313963c9-7d19-4a2a-a7cd-80feb164fe29/download",
+          "state": "matched-indexed-primary-metadata",
+          "method": "Search-indexed primary University of Pretoria Faculty Day programme confirms the title, three named authors and 28 September 2006 date. Direct document retrieval was intermittently unavailable (HTTP 503/timeout).",
+          "sourceTitle": "Oxyglobin and packed red cell transfusions provide similar blood gas, acid base, haemodynamic and subjective benefits in a canine Babesia canis rossi model of anaemia",
+          "checked": "2026-11-07"
         }
       ]
     }

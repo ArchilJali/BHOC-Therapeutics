@@ -164,7 +164,8 @@ main=f'''<main id="main" class="catalogue-shell"><div class="breadcrumbs"><a hre
 main=main.replace('</main>',collection_summary()+'</main>')
 method_header=re.search(r'<header class="site-header">[\s\S]*?</header>',old)
 method_footer=re.search(r'<footer class="site-footer">[\s\S]*?</footer>',old)
-p.write_text(css(head)+'<body class="evidence-catalogue">'+(method_header[0] if method_header else HEADER)+main+(method_footer[0] if method_footer else FOOTER)+'</body></html>')
+method_evidence_links=re.search(r'<nav\b[^>]*data-bhoc-evidence-links[^>]*>[\s\S]*?</nav>',old)
+p.write_text(css(head)+'<body class="evidence-catalogue">'+(method_header[0] if method_header else HEADER)+main+(method_evidence_links[0]+'\n' if method_evidence_links else '')+(method_footer[0] if method_footer else FOOTER)+'</body></html>')
 
 # Every linked metrics endpoint reflects the same published views.
 platform={'publicationCounter':publication_counter(),'collectionTotals':collection_totals(),'snapshot':DATA['updated'],'uniquePublications':len(RECORDS),'hubPlacements':sum(len(VIEWS[k]) for k in APP_LABELS),'evidenceHubs':3,'indexedAuthorInstitutions':TOTAL['institutions'],'normalizedJournalLabels':TOTAL['journals'],'catalogues':{k:STATS[k]['records'] for k in ['product','oxygen','related']},'hubs':{k:STATS[k]['records'] for k in APP_LABELS},'notes':{'counts':'The displayed publication counter retains the user-approved baseline and increments once per new publication. Topic catalogues are mutually exclusive; application views overlap.','institutions':'Indexed author affiliations, not endorsements or confirmed study locations.'}}
