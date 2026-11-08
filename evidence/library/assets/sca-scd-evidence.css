@@ -1,0 +1,76 @@
+/* The SCA/SCD reading guide is scoped to its existing evidence page. */
+.sca-evidence-page{--sca-navy:#082d68;--sca-red:#ee302b;--sca-muted:#526b88;--sca-line:#dce6f2}
+body.sca-evidence-page main.reading{max-width:1200px!important}
+body.sca-evidence-page .clinical-subnav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin-bottom:24px}
+.sca-evidence-page .clinical-subnav a{flex:none;white-space:nowrap}
+.sca-evidence-page :is(section,div)[id]{scroll-margin-top:118px}
+.sca-evidence-page .sca-hero{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:32px;padding:32px;background:#fff;border:1px solid var(--sca-line);border-radius:18px;border-top:5px solid var(--sca-red)}
+.sca-evidence-page .sca-eyebrow{margin:0 0 12px;color:var(--sca-red)!important;font:800 11px/1.5 Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}
+.sca-evidence-page .sca-hero h1{margin:0 0 18px;color:var(--sca-navy);font:500 clamp(34px,3.7vw,51px)/1.08 Georgia,serif;letter-spacing:-.035em;text-wrap:balance}
+.sca-evidence-page .sca-hero h1 span{color:var(--sca-red)}
+.sca-evidence-page .sca-lead{margin:0;font-size:17px;line-height:1.7}
+.sca-evidence-page .sca-hero figure{margin:0;min-width:0}
+.sca-evidence-page .sca-hero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:12px}
+.sca-evidence-page .sca-hero figcaption{margin-top:10px;color:var(--sca-muted);font-size:11px;line-height:1.5}
+.sca-evidence-page .sca-on-page{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 24px}
+.sca-evidence-page .sca-on-page a{padding:9px 13px;border:1px solid var(--sca-line);border-radius:999px;background:#fff;color:var(--sca-navy);font:700 12px/1.5 Arial,sans-serif;text-decoration:none}
+.sca-evidence-page .sca-on-page a:hover{border-color:var(--sca-red);color:var(--sca-red)}
+.sca-evidence-page .sca-explainer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 28px}
+.sca-evidence-page .sca-step{min-width:0;padding:23px;background:#fff;border:1px solid var(--sca-line);border-radius:14px}
+.sca-evidence-page .sca-step-number{display:block;color:var(--sca-red);font:800 11px/1.4 Arial,sans-serif;letter-spacing:.12em;margin-bottom:12px}
+.sca-evidence-page .sca-step h2{margin:0 0 10px;font-size:24px;line-height:1.2;text-wrap:initial}
+.sca-evidence-page .sca-step p{margin:0;font-size:14px}
+.sca-evidence-page .sca-measurements{padding:28px 30px;margin:0 0 26px;border:1px solid var(--sca-line);border-radius:16px;background:#f5f8fc}
+.sca-evidence-page .sca-measurements h2{margin:0 0 20px;font-size:29px;line-height:1.2}
+.sca-evidence-page .sca-measurement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.sca-evidence-page .sca-measurement-grid h3{margin:0 0 8px;color:var(--sca-navy);font:800 15px/1.4 Arial,sans-serif}
+.sca-evidence-page .sca-measurement-grid p{margin:0;font-size:14px}
+.sca-evidence-page .sca-research{padding:30px 32px;margin:0 0 28px;border-radius:16px;background:var(--sca-navy)}
+.sca-evidence-page .sca-research .sca-eyebrow{color:#b7cee8!important}
+.sca-evidence-page .sca-research h2{max-width:900px;margin:0 0 16px;color:#fff!important;font-size:clamp(26px,3vw,35px);line-height:1.22;text-wrap:initial}
+.sca-evidence-page .sca-research p{max-width:900px;color:#e1ebf8!important;font-size:15px}
+.sca-evidence-page .sca-research .sca-status{padding-top:14px;border-top:1px solid #3a588a;font-size:12px;color:#c3d5ed!important}
+.sca-evidence-page .sca-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0}
+.sca-evidence-page .sca-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 16px;border-radius:8px;border:1px solid #cbd9ec;background:#fff;color:var(--sca-navy);font:800 12px/1.5 Arial,sans-serif;text-align:center;text-decoration:none}
+.sca-evidence-page .sca-actions a:last-child{color:#fff;background:transparent}
+.sca-evidence-page .sca-original-analysis{display:grid;grid-template-columns:1.5fr 1fr;align-items:center;gap:28px}
+.sca-evidence-page .sca-original-analysis h2{margin:10px 0 12px;font-size:29px;line-height:1.18}
+.sca-evidence-page .sca-original-analysis h3{margin:0 0 10px;font-size:16px;color:var(--sca-navy)}
+.sca-evidence-page .sca-original-analysis .lead{font-size:15px}
+.sca-evidence-page .sca-original-analysis img{display:block;width:100%;height:auto;border-radius:12px}
+.sca-evidence-page .sca-revision{margin:10px 0 0;font-size:11px}
+.sca-evidence-page .section{margin:22px 0;padding:28px 30px}
+.sca-evidence-page .section h2{max-width:930px;font-size:29px;line-height:1.22;margin:0 0 18px}
+.sca-evidence-page .section :is(p,li){font-size:15px}
+.sca-evidence-page .section p{max-width:900px}
+.sca-evidence-page .question{font-size:18px;line-height:1.6}
+.sca-evidence-page .topic-shell{padding:0;max-width:none}
+.sca-evidence-page .topic-section{padding:28px 30px;margin:24px 0;background:#fff;border:1px solid var(--sca-line);border-radius:16px}
+.sca-evidence-page .topic-source-list a{border-color:var(--sca-line);background:#f7faff}
+.sca-evidence-page a:focus-visible{outline:3px solid #e63c36;outline-offset:4px}
+@media(max-width:850px){
+ .sca-evidence-page .sca-hero{gap:22px;padding:26px;grid-template-columns:1.15fr .85fr}
+ .sca-evidence-page .sca-explainer{gap:10px}
+ .sca-evidence-page .sca-step{padding:18px}
+ .sca-evidence-page .sca-step h2{font-size:22px}
+ .sca-evidence-page .sca-measurement-grid{gap:18px}
+}
+@media(max-width:680px){
+ .sca-evidence-page .sca-hero{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+ .sca-evidence-page .sca-hero h1{font-size:36px}
+ .sca-evidence-page .sca-lead{font-size:16px}
+ .sca-evidence-page .sca-hero figure{max-width:500px}
+ .sca-evidence-page .sca-explainer,.sca-evidence-page .sca-measurement-grid{grid-template-columns:1fr;gap:12px}
+ .sca-evidence-page .sca-step{padding:19px 20px}
+ .sca-evidence-page .sca-step h2{font-size:23px}
+ .sca-evidence-page .sca-measurement-grid>div+div{border-top:1px solid var(--sca-line);padding-top:15px}
+ .sca-evidence-page .sca-measurements,.sca-evidence-page .sca-research,.sca-evidence-page .section,.sca-evidence-page .topic-section{padding:23px 20px}
+ .sca-evidence-page .sca-measurements h2,.sca-evidence-page .section h2{font-size:27px}
+ .sca-evidence-page .sca-original-analysis{grid-template-columns:1fr;gap:15px}
+ .sca-evidence-page .sca-original-analysis img{max-width:480px}
+ .sca-evidence-page .sca-actions{flex-direction:column;align-items:stretch}
+ .sca-evidence-page .sca-on-page{gap:7px}
+ .sca-evidence-page .sca-on-page a{font-size:11px;padding:9px 11px}
+ .sca-evidence-page .topic-source-list{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
