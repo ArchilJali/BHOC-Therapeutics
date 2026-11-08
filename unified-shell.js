@@ -32,6 +32,7 @@
   const pageTitle = () => clean(document.querySelector('main h1')?.textContent || document.querySelector('h1')?.textContent || document.title.split('|')[0]);
   const section = () => {
     if (pagePath.startsWith('/evidence/library/concepts-hypotheses/')) return routes[5];
+    if (pagePath.startsWith(LIBRARY + 'clinical/')) return routes[3];
     if (pagePath === '/' && location.hash === '#company') return routes[7];
     return routes.find(route => route.path !== '/#company' && pagePath.startsWith(route.path));
   };
@@ -41,7 +42,12 @@
     const parts = [{label: 'Home', href: '/'}];
     const add = (label, href) => parts.push({label, href});
     if (pagePath.startsWith('/bhoc/')) add('BHOC', '/bhoc/');
-    else if (pagePath.startsWith('/evidence/')) {
+    else if (pagePath.startsWith(LIBRARY + 'clinical/')) {
+      add('Applications', '/applications/');
+      if (pagePath.endsWith('/sickle-cell-transfusion-compatibility.html')) {
+        add('SCA / SCD', LIBRARY + 'clinical/sickle-cell-matched-blood-oxygen-delivery.html');
+      }
+    } else if (pagePath.startsWith('/evidence/')) {
       add('Evidence', LIBRARY);
       if (pagePath.startsWith(LIBRARY)) {
         const branch = pagePath.slice(LIBRARY.length).split('/')[0];
@@ -50,7 +56,6 @@
           human: ['Human Use', LIBRARY + 'human/BHOC-Human-index.html'],
           veterinary: ['Veterinary', LIBRARY + 'veterinary/Vet-index.html'],
           transplant: ['Transplantation', LIBRARY + 'transplant/Transplant-index.html'],
-          clinical: ['Applications', LIBRARY + 'clinical/'],
           science: ['Science', LIBRARY + 'science/'],
           'concepts-hypotheses': ['Concepts & Hypotheses', LIBRARY + 'concepts-hypotheses/'],
           'historical-sources': ['History', LIBRARY + 'historical-sources/'],
@@ -168,6 +173,7 @@
     for (const a of header.querySelectorAll('nav a[href]')) {
       const url = new URL(a.href, HOME);
       if (url.origin !== location.origin || !url.pathname.startsWith(LIBRARY)) continue;
+      if (url.pathname.replace(/\/index\.html$/, '/') === LIBRARY + 'clinical/' && !url.search && !url.hash) continue;
       const label = clean(a.textContent);
       if (label && label.length < 46 && !found.has(url.href)) found.set(url.href, label);
     }

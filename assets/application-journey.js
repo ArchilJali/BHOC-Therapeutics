@@ -18,13 +18,41 @@
     document.querySelector('.bhoc-shell-page-notes')?.remove();
     document.querySelectorAll('.bhoc-evidence-links').forEach(nav => nav.remove());
 
-    const trail = document.querySelector('.bhoc-shell-trail');
     if (currentPath.startsWith(clinicalRoot)) {
-      const link = [...(trail?.querySelectorAll('a') || [])].find(a => new URL(a.href).pathname.replace(/\/index\.html$/, '/') === clinicalRoot);
-      if (link) { link.textContent = 'Clinical evidence'; link.title = 'Clinical evidence'; }
+      // Also replace a previously cached shared shell's longer evidence trail.
+      const trail = document.querySelector('.bhoc-shell-trail-inner');
       const current = trail?.querySelector('[aria-current="page"]');
-      const label = currentPath === clinicalRoot ? 'Clinical evidence' : labels[currentPath.split('/').pop()];
-      if (current && label) { current.textContent = label; current.title = label; }
+      const label = currentPath === clinicalRoot ? 'Clinical evidence' : labels[currentPath.split('/').pop()] || current?.textContent;
+      const parts = [['Home', '/'], ['Applications', '/applications/']];
+      if (currentPath.endsWith('/sickle-cell-transfusion-compatibility.html')) {
+        parts.push(['SCA / SCD', clinicalRoot + 'sickle-cell-matched-blood-oxygen-delivery.html']);
+      }
+      parts.push([label, null]);
+      if (trail) {
+        trail.replaceChildren();
+        parts.forEach(([text, href], index) => {
+          if (index) {
+            const separator = document.createElement('span');
+            separator.textContent = '›';
+            separator.setAttribute('aria-hidden', 'true');
+            trail.append(separator);
+          }
+          const item = document.createElement(href ? 'a' : 'span');
+          if (href) item.href = href;
+          else item.setAttribute('aria-current', 'page');
+          item.textContent = text;
+          item.title = text;
+          trail.append(item);
+        });
+      }
+      const markApplication = () => document.querySelectorAll('.bhoc-shell-nav a').forEach(link => {
+        const active = new URL(link.href).pathname === '/applications/';
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+      markApplication();
+      window.addEventListener('hashchange', markApplication);
     }
 
     // The shared footer keeps all site-wide destinations available. Fold the
