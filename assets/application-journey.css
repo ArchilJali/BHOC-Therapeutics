@@ -1,0 +1,36 @@
+/* Scoped to the Applications / clinical reading journey. */
+html:has(body.application-journey){scroll-behavior:auto}
+.application-journey .journey-return{display:flex;flex-wrap:wrap;margin:0 0 18px;font:700 13px/1.5 Arial,sans-serif}
+.application-journey .journey-return a{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;border:1px solid #cbd9ea;border-radius:8px;background:#fff;color:#113b72;text-decoration:none}
+.application-journey .journey-return a:hover{border-color:#e62e29;color:#d82927}
+.application-journey .journey-network>summary{padding:8px 0;min-height:36px;color:#315574;cursor:pointer;font:700 12px/1.6 Arial,sans-serif}
+.application-journey .journey-network .bhoc-shell-utility-inner{margin:0;padding:2px 0 12px;min-height:0}
+.application-journey .journey-directory{margin:20px 0 0;font:700 13px/1.6 Arial,sans-serif}
+.application-journey .journey-directory a{color:#173e76;text-underline-offset:3px}
+.application-journey .journey-catalogue-intro{margin:8px 0 24px}
+.application-journey .journey-catalogue-intro h1{margin:0 0 12px;color:#082d68;font:500 clamp(34px,4vw,48px)/1.1 Georgia,serif;letter-spacing:-.025em}
+.application-journey .journey-catalogue-intro p{margin:0;max-width:780px;color:#526b88;font-size:16px;line-height:1.6}
+.application-journey .journey-catalogue-context{margin-top:30px}
+.application-journey .journey-catalogue-context h2{font:500 29px/1.2 Georgia,serif;color:#082d68}
+.application-journey .vertical-card:not(a):not([role="link"]):hover{transform:none;box-shadow:none;cursor:default}
+.application-journey .journey-related{margin-top:15px;border-top:1px solid #dce6f2;padding-top:12px}
+.application-journey .journey-related>summary,.application-journey .journey-contents>summary{min-height:44px;padding:10px 0;color:#163c70;cursor:pointer;font:700 13px/1.6 Arial,sans-serif}
+.application-journey .journey-related-links{display:flex;flex-wrap:wrap;gap:12px 18px;padding:8px 0}
+.application-journey .journey-related-links a{color:#163c70;font-size:13px;line-height:1.6}
+.application-journey .journey-contents{margin:16px 0 22px;border-bottom:1px solid #dce6f2}
+.application-journey .journey-contents .sca-on-page{margin-top:0}
+.application-journey .applications-visual-stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;scroll-snap-type:none;gap:22px;padding-top:28px}
+.application-journey .applications-visual-stories .visual-story{height:auto;min-width:0;scroll-margin-top:110px}
+.application-journey .visual-story-actions>.button{margin-right:auto}
+.application-journey a:focus-visible,.application-journey summary:focus-visible{outline:3px solid #e62e29;outline-offset:4px}
+@media(min-width:761px){.application-journey .journey-contents>summary{display:none}}
+@media(max-width:760px){
+ .application-journey .applications-visual-stories{grid-template-columns:1fr;gap:20px}
+ .application-journey .journey-return{font-size:12px;margin-bottom:14px}
+ .application-journey .journey-network>summary{min-height:40px;padding:9px 0}
+ .application-journey .journey-network .bhoc-shell-utility-inner{justify-content:flex-start}
+ .application-journey .journey-related-links{flex-direction:column;gap:8px}
+ .application-journey .journey-related-links a{padding:8px 0;min-height:40px}
+ .application-journey .journey-contents .sca-on-page a{min-height:40px;display:inline-flex;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){html:has(body.application-journey){scroll-behavior:auto}}
