@@ -177,7 +177,7 @@
   const enhanceApplicationCards = () => {
     if (!(path.endsWith('/clinical/') || path.endsWith('/clinical/index.html'))) return;
     const routes = [
-      ['.vertical-card.sickle', '/evidence/library/human/BHOC-Human-search.html?direction=Hematology%2C%20Sickle%20Cell%20%26%20Severe%20Anemia', 'Open sickle cell and severe anemia evidence'],
+      ['.vertical-card.sickle', '/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html', 'Open SCA / SCD overview'],
       ['.vertical-card.oncology', '/evidence/library/human/BHOC-Human-search.html?direction=Oncology%20%26%20Tumor%20Oxygenation', 'Open oncology and tumor oxygenation evidence'],
       ['.vertical-card.transplant', '/evidence/library/transplant/Transplant-index.html', 'Open transplantation evidence hub']
     ];
@@ -194,6 +194,7 @@
         if (!event.target.closest('a, button, input, select, textarea')) open();
       });
       card.addEventListener('keydown', event => {
+        if (event.target !== card) return;
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           open();
