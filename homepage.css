@@ -19,18 +19,18 @@
 
 
 .mini-principle{gap:13px}
-.compatibility-note{display:grid;grid-template-columns:minmax(180px,1fr) minmax(210px,1.1fr) minmax(280px,2fr);gap:18px;align-items:center}
+.compatibility-note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,2fr);gap:18px;align-items:center}
 .compatibility-note .group-stat{display:flex;align-items:baseline;gap:9px;min-width:0}
 .compatibility-note .group-stat b{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1;color:var(--red)}
 .compatibility-note .group-stat span{color:var(--navy);font-size:12px;font-weight:800;white-space:nowrap}
 .compatibility-note>p{margin:0;color:#31558e;font-size:11px;line-height:1.35}
 
 
-@media(max-width:620px){
+@media(max-width:900px){
   .compatibility-note{grid-template-columns:1fr 1fr;gap:12px 16px}
   .compatibility-note>p{grid-column:1/-1;padding-top:3px}
   .compatibility-note .group-stat b{font-size:27px}
-  .compatibility-note .group-stat span{font-size:11px;white-space:normal}
+  .compatibility-note .group-stat span{font-size:14px;white-space:normal}
 }
 
 /* Approved biodiversity identity assets */
@@ -115,11 +115,11 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
     gap: 16px;
   }
   .hero-top, .hero-bottom { display: contents; }
-  .hero-copy { order: 1; padding-top: 0; }
+  .hero-copy { order: 0; padding-top: 0; }
   .hero-visual { order: 2; }
   .compare-grid { order: 3; }
   .compatibility-note { order: 4; }
-  .hero-message { padding: 14px 16px; }
+  .hero-message { order: 1; padding: 14px 16px; }
   .hero-message .hero-message-title { font-size: clamp(26px, 7vw, 34px); }
   .hero-message .hero-message-title span {
     font-size: 16px;
@@ -132,4 +132,17 @@ a.brand-network-link:hover{border-color:#8eb0d7;color:var(--red)}
   }
   .hero-partners-link { margin-top: 10px; }
   .hero-copy h1 { font-size: clamp(33px, 9vw, 43px); }
+  .hero-copy p,.hero-message p:not(.hero-message-title),.home-section-head>p,.technology-copy p,.initiative-copy p { font-size:16px;line-height:1.5; }
+  .compare-card p,.species-bhoc p { font-size:15px;line-height:1.5; }
+  .compatibility-note { padding:16px 14px;gap:14px; }
+  .compatibility-note .group-stat { flex-wrap:wrap;gap:6px; }
+  .compatibility-note>p { font-size:14px;line-height:1.5; }
+  .species-facts,.bhoc-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .species-fact,.bhoc-fact { min-width:0;overflow-wrap:break-word; }
+  .species-fact small { font-size:11px;letter-spacing:.06em; }
+  .species-fact strong,.species-fact span,.bhoc-fact span { font-size:13px;line-height:1.4; }
+  .bhoc-fact b,.pathway-step strong { font-size:14px;line-height:1.35; }
+  .pathway-step span,.application-card p,.evidence-card span { font-size:13px;line-height:1.45; }
+  .application-card h3,.evidence-card b { font-size:16px;line-height:1.35; }
+  .home-actions .home-button { font-size:14px; }
 }
