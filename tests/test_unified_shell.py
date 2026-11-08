@@ -15,6 +15,9 @@ ROUTES = [
     ('/news/us-navy-biopure-hboc-201-2005-resus/', 'News', 'news'),
     ('/news/pandemic-preparedness-oxygen-delivery-resilience/', 'News', 'pandemic'),
     ('/evidence/library/', 'Evidence', 'library'),
+    ('/applications/', 'Applications', 'applications'),
+    ('/evidence/library/clinical/sickle-cell-matched-blood-oxygen-delivery.html', 'Applications', 'sickle-cell'),
+    ('/evidence/library/clinical/sickle-cell-transfusion-compatibility.html', 'Applications', 'sickle-cell-compatibility'),
     ('/evidence/library/human/health-system-resilience-oxygen-security.html', 'Evidence', 'oxygen-security'),
     ('/evidence/library/science/nitric-oxide-scavenging-hboc-vasoconstriction.html', 'Evidence', 'science'),
     ('/evidence/library/transplant/related/index.html', 'Evidence', 'transplant'),
@@ -35,6 +38,8 @@ def active_section(route):
         return None
     if route.startswith('/evidence/library/concepts-hypotheses/'):
         return 'Concepts & Hypotheses'
+    if route.startswith('/evidence/library/clinical/'):
+        return 'Applications'
     if route.startswith('/evidence/'):
         return 'Evidence'
     return {
