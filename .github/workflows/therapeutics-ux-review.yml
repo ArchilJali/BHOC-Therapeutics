@@ -7,6 +7,7 @@ on:
       - '.github/workflows/therapeutics-ux-review.yml'
       - 'seo-bot/ux_review.py'
       - 'seo-bot/UX-REQUEST.md'
+      - 'seo-bot/research_cta_preview.py'
 permissions:
   contents: read
 concurrency:
@@ -34,6 +35,10 @@ jobs:
         run: |
           python -m py_compile runner/seo-bot/ux_review.py
           python runner/seo-bot/ux_review.py --source source --out output
+      - name: Isolated, nonpublishing 320/390/1440 research CTA experiment
+        run: |
+          python -m py_compile runner/seo-bot/research_cta_preview.py
+          python runner/seo-bot/research_cta_preview.py --source source --out output/research-cta-prototype
       - uses: actions/upload-artifact@v4
         if: always()
         with:
