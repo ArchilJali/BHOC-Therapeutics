@@ -6,7 +6,7 @@ This file is the strategy/routing layer beside `BHOC-SEO-Keywords.md`. The maste
 
 ## Public URL architecture
 
-| Page | Primary intent | Secondary terms |
+| Page | Primary intent | Secondary terms |\n| `/news/popular-science-biophysics-bhoc-breakthrough/` | popular science hemoglobin biophysics and BHOC | hemoglobin cooperativity; hemoglobin oxygen carrier; oxygen delivery; Biological Hemoglobin Oxygen Carrier; cell-free hemoglobin oxygen carrier; oxygen-carrying capacity; Precision Oxygen Therapeutics; microcirculation |
 |---|---|---|
 | `/news/bhoc-therapeutics-congratulations-carl-rausch-us-congress/` | BHOC Therapeutics congratulations to Carl W. Rausch | U.S. Congress 1999; Joint Economic Committee; U.S. Senate; blood transfusion; RBCs; prehospital oxygen delivery; Biopure; Hemopure; Oxyglobin; Precision Oxygen Therapeutics |
 | `/news/tissue-oxygenation-plasma-hemoglobin-1996/` | 1996 plasma hemoglobin and tissue oxygenation evidence | BHOC; Standl 1996; canine hemodilution; oxygen extraction; Precision Oxygenation Therapeutics; Oxyglobin; oxiglobin (search spelling); HIF context |
