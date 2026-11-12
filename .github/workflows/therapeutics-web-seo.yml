@@ -194,6 +194,17 @@ jobs:
           node scripts/check_bhoc_content.mjs > _seo_output/content-check.txt 2>&1; echo "content_check_exit=$?"
           node scripts/check_site.mjs > _seo_output/site-check.txt 2>&1; echo "site_check_exit=$?"
           node --check navigation-context.js > _seo_output/navigation-check.txt 2>&1; echo "navigation_check_exit=$?"
+      - name: Checkout the preview-only media URL checker
+        uses: actions/checkout@v4
+        with:
+          ref: preview/therapeutics-web-seo-20261104
+          persist-credentials: false
+          path: seo-runner
+      - name: Audit main HTML media, social image and structured-data image references
+        shell: bash
+        run: |
+          python3 seo-runner/seo-bot/media_url_lint.py --self-test
+          python3 seo-runner/seo-bot/media_url_lint.py --root . --out _seo_output/media-url-integrity.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
